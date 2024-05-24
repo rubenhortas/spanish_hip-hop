@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
+
 import os
 import signal
 from types import FrameType
+
+from tools.capitalize.Album import Album
 
 CSV_FILE = 'lista trabajos hip-hop español.csv'
 CSV_SEPARATOR = ','
@@ -19,17 +22,23 @@ def _clear_screen() -> None:
         os.system('clear')
 
 
-def _capitalize(line: str) -> str:
-    fields = line.split(CSV_SEPARATOR)
+def _format_entries() -> list:
+    original_entries = [line.strip() for line in _read_file()][1:]
+    formatted_entries = []
 
-    # TODO: Exceptions in fields 0 and 1
-    return f"{fields[0].title()}{CSV_SEPARATOR}{fields[1].capitalize()}{CSV_SEPARATOR}{fields[2]}{CSV_SEPARATOR}{fields[3]}"
+    for entry in original_entries:
+        entry_ = entry.split(CSV_SEPARATOR)
+        album = Album(entry_[0], entry_[1], entry_[2], entry_[3], CSV_SEPARATOR)
+        formatted_entries.append(f"{str(album)}\n")
+
+    # TODO: Sort list by artist/year/title before return
+    return formatted_entries
 
 
-def _capitalize_file() -> list:
+def _read_file() -> list:
     try:
         with open(CSV_FILE, 'r') as f:
-            return [_capitalize(line) for line in f.readlines()]
+            return f.readlines()
     except FileNotFoundError as file_not_found_error:
         print(f"'{file_not_found_error.filename}' no such file or directory")
         exit(-1)
@@ -59,6 +68,5 @@ def _write_output_file(file: str, lines: list) -> None:
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, _handle_sigint)
     _clear_screen()
-    capitalized_lines = _capitalize_file()
-    # TODO: Sort capitalized lines before write the output file
-    _write_output_file('new.csv', capitalized_lines)
+    formatted_entries = _format_entries()
+    _write_output_file('new.csv', formatted_entries)
