@@ -33,7 +33,7 @@ class Album:
 
         for word in self.artist:
             if word.lower() in self.artist_exceptions:
-                self.artist.replace(word, self.artist_exceptions[word])
+                self.artist.replace(word, self.artist_exceptions[word.lower()])
 
     def _format_title(self, title: str) -> None:
         self.title = title.capitalize().strip()
