@@ -1,4 +1,4 @@
-import Artist, Title
+from exceptions import Artist, Title
 
 
 class Album:
