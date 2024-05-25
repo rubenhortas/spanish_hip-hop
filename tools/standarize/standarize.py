@@ -18,8 +18,8 @@ class Album:
     def __init__(self, artist: str, title: str, publication_date: str, album_format: str, csv_separator: str):
         self._format_artist(artist)
         self._format_title(title)
-        self.publication_date = publication_date
-        self.format = album_format
+        self.publication_date = publication_date.strip()
+        self.format = album_format.strip()
         self.csv_separator = csv_separator
 
     def __str__(self):
@@ -29,14 +29,14 @@ class Album:
         return [self.artist, self.title, self.publication_date, self.format]
 
     def _format_artist(self, artist: str) -> None:
-        self.artist = artist.title()
+        self.artist = artist.title().strip()
 
         for word in self.artist:
-            if word in self.artist_exceptions:
+            if word.lower() in self.artist_exceptions:
                 self.artist.replace(word, self.artist_exceptions[word])
 
     def _format_title(self, title: str) -> None:
-        self.title = title.capitalize()
+        self.title = title.capitalize().strip()
 
         for word in self.title:
             if word in self.title_exceptions:
