@@ -8,7 +8,7 @@ Un pequeño script en python que formatea las líneas del fichero "lista trabajo
 
 Para que todas las líneas tengan un formato homogéneo.
 
-##¿Cómo se utiliza?
+## ¿Cómo se utiliza?
 
 Colocar el el fichero "lista trabajos hip-hop español.csv" en el directorio del script y ejecutar el script.
 El script generará el fichero "lista trabajos hip-hop español - formateado.csv".
