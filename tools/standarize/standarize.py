@@ -32,9 +32,9 @@ def _format_entries() -> list:
         album = Album(entry_[0], entry_[1], entry_[2], entry_[3], CSV_SEPARATOR)  # artist, title, date, format
         formatted_entries.append(album.list())
 
-    sorted(formatted_entries, key=lambda album: (album[2]))
+    sorted_formatted_entries = sorted(formatted_entries, key=lambda album: (album[0], album[2], album[1]))
 
-    return [f"{CSV_SEPARATOR.join(e)}\n" for e in formatted_entries]
+    return [f"{CSV_SEPARATOR.join(e)}\n" for e in sorted_formatted_entries]
 
 
 def _read_file() -> list:

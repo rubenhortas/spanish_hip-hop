@@ -15,6 +15,9 @@ class Album:
     def __str__(self):
         return f"{self.artist}{self.csv_separator}{self.title}{self.csv_separator}{self.publication_date}{self.csv_separator}{self.format}"
 
+    def list(self):
+        return [self.artist, self.title, self.publication_date, self.format]
+
     def _format_artist(self, artist: str) -> None:
         self.artist = artist.title()
 
@@ -23,7 +26,7 @@ class Album:
                 self.artist.replace(word, self.artist_exceptions[word])
 
     def _format_title(self, title: str) -> None:
-        self.title = title.title()
+        self.title = title.capitalize()
 
         for word in self.title:
             if word in self.title_exceptions:

@@ -1,4 +1,4 @@
-# capitalize.py
+# standarize.py
 
 ## ¿Qué es esto?
 
@@ -6,21 +6,12 @@ Un pequeño script en python que formatea las líneas del fichero "lista trabajo
 
 ## ¿Para qué?
 
-Para que todas las líneas tengan la primera letra de cada palabra en mayúscula.
+Para que todas las líneas tengan un formato homogéneo.
 
 ##¿Cómo se utiliza?
 
-Colocar el script en el mismo directorio que el fichero "lista trabajos hip-hop español.csv"
-
-* GNU/Linux
-	* Si la versión del intérprete de python por defecto es la 2.7 (o <3):
-
-			$ ./capitalize.py
-
-	* Si la versión del intérprete de python por defecto es otra:
-
-			$ python2.7 capitalize.py
-
+Colocar el el fichero "lista trabajos hip-hop español.csv" en el directorio del script y ejecutar el script.
+El script generará el fichero "lista trabajos hip-hop español - formateado.csv".
 
 ## ¿Cómo colaborar?
 
