@@ -2,13 +2,45 @@
 
 import os
 import signal
+from exceptions import Artist, Title
 from types import FrameType
 
-from Album import Album
-
+CSV_HEADER = 'Artista,Trabajo,Fecha Publicación,Tipo'
 CSV_FILE = 'lista trabajos hip-hop español.csv'
 CSV_OUTPUT_FILE = f"{CSV_FILE[:-4]} - formateado.csv"
 CSV_SEPARATOR = ','
+
+
+class Album:
+    artist_exceptions = Artist.EXCEPTIONS
+    title_exceptions = Title.EXCEPTIONS
+
+    def __init__(self, artist: str, title: str, publication_date: str, album_format: str, csv_separator: str):
+        self._format_artist(artist)
+        self._format_title(title)
+        self.publication_date = publication_date
+        self.format = album_format
+        self.csv_separator = csv_separator
+
+    def __str__(self):
+        return f"{self.artist}{self.csv_separator}{self.title}{self.csv_separator}{self.publication_date}{self.csv_separator}{self.format}"
+
+    def list(self):
+        return [self.artist, self.title, self.publication_date, self.format]
+
+    def _format_artist(self, artist: str) -> None:
+        self.artist = artist.title()
+
+        for word in self.artist:
+            if word in self.artist_exceptions:
+                self.artist.replace(word, self.artist_exceptions[word])
+
+    def _format_title(self, title: str) -> None:
+        self.title = title.capitalize()
+
+        for word in self.title:
+            if word in self.title_exceptions:
+                self.title.replace(word, self.title_exceptions[word])
 
 
 def _handle_sigint(signal: int, frame: FrameType) -> None:
@@ -33,8 +65,10 @@ def _format_entries() -> list:
         formatted_entries.append(album.list())
 
     sorted_formatted_entries = sorted(formatted_entries, key=lambda album: (album[0], album[2], album[1]))
+    result = [f"{CSV_SEPARATOR.join(e)}\n" for e in sorted_formatted_entries]
+    result.insert(0, f"{CSV_HEADER}\n")
 
-    return [f"{CSV_SEPARATOR.join(e)}\n" for e in sorted_formatted_entries]
+    return result
 
 
 def _read_file() -> list:
