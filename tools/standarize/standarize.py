@@ -104,5 +104,7 @@ def _write_output_file(lines: list) -> None:
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, _handle_sigint)
     _clear_screen()
+    print(f"Generating {CSV_OUTPUT_FILE}")
     formatted_entries = _format_entries()
     _write_output_file(formatted_entries)
+    print('Done')
