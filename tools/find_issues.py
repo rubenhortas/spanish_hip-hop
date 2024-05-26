@@ -12,8 +12,6 @@ if __name__ == '__main__':
 
         with open(CSV_FILE, 'r') as f:
             lines = f.readlines()
-        # Commas
-        # Parentheses
 
         for line in lines:
             line_counter = Counter(line)
@@ -41,7 +39,7 @@ if __name__ == '__main__':
 
                 print()
         else:
-            print('No se encontraron problemas')
+            print('No issues found.')
     except FileNotFoundError as file_not_found_error:
         print(f"'{file_not_found_error.filename}' no such file or directory")
         exit(-1)

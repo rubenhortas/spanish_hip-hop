@@ -128,33 +128,3 @@ EXCEPTIONS = {
     'yoseguiré': 'yOSEguiré',
     'znp': 'ZNP',
 }
-
-if __name__ == '__main__':
-    """
-    Print dictionary entries in alphabetical order
-    """
-    try:
-        file_name = 'sorted_dictionary.txt'
-        unique_keys = []
-        result = []
-
-        for key in EXCEPTIONS:
-            if key not in unique_keys:
-                unique_keys.append(key)
-
-        for key in sorted(unique_keys, key=str.casefold):
-            key_ = key.replace("'", "\\'")
-            value = EXCEPTIONS[key].replace("'", "\\'")
-            result.append(f"'{key_}': '{value}',\n")
-
-        with open(file_name, 'w') as f:
-            f.writelines(result)
-    except FileNotFoundError as file_not_found_error:
-        print(f"'{file_not_found_error.filename}' no such file or directory")
-        exit(-1)
-    except PermissionError:
-        print(f"Permission denied: '{file_name}'")
-        exit(-1)
-    except OSError as os_error:
-        print(f"'{file_name}' OSError: {os_error}")
-        exit(-1)
