@@ -44,6 +44,7 @@ def _get_duplicates(lines: list) -> (list, list):
     range_num_lines = len(lines) - 1
 
     for i in range(range_num_lines):
+        print(f"\r{i}/{range_num_lines}", end='')
         for j in range(i + 1, range_num_lines):
             line1 = _normalize(lines[i])
             line2 = _normalize(lines[j])
