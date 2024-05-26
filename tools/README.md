@@ -15,6 +15,10 @@ Este script generará un fichero llamado [lista trabajos hip-hop español.csv](h
 
 Muestra por pantalla las entradas [posiblemente] repetidas en el fichero [lista trabajos hip-hop español.csv](https://github.com/ctRl-ES/spanish_hip-hop/edit/master/lista%20trabajos%20hip-hop%20espa%C3%B1ol.csv) para poder eliminarlas rápidamente.
 
+### generate_exceptions_dictionary.py
+
+Genera el diccionario de excepciones ordenado alfabéticamente y sin duplicados. Es útil para desarrollo.
+
 ## ¿Cómo se utilizan estas herramientas?
 
 Colocar el el fichero `lista trabajos hip-hop español.csv` en el directorio de  los scripts y ejecutar el script escogido.
