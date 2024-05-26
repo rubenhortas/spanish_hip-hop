@@ -45,14 +45,15 @@ def _get_duplicates(lines: list) -> (list, list):
     range_num_lines = len(lines) - 1
 
     for i in range(range_num_lines):
-        print(f"\r{i}/{range_num_lines}", end='')
+        print(f"\r{i+1}/{range_num_lines}", end='')
+
         for j in range(i + 1, range_num_lines):
             line1 = _normalize(lines[i])
             line2 = _normalize(lines[j])
             match_ratio = difflib.SequenceMatcher(None, line1, line2).ratio()
 
             if match_ratio > MATCH_THRESHOLD:
-                duplicate = f"{lines[i].strip()}  -> {lines[j].strip()}"
+                duplicate = f"{lines[i].strip()}  -> {lines[j]}"
 
                 if match_ratio == 1:
                     duplicates.append(duplicate)
@@ -108,9 +109,13 @@ if __name__ == '__main__':
 
         if possible_duplicates:
             possible_duplicates.insert(0, 'Possible duplicates:\n\n')
+
+            if duplicates:
+                possible_duplicates.insert(0, '\n')
+
             issues.extend(possible_duplicates)
 
         _write_output_file(issues)
-        print('Done')
+        print('\nDone')
     else:
         print('No duplicates found.')
