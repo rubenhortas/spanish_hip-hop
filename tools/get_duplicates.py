@@ -58,6 +58,8 @@ def _get_duplicates(lines: list) -> (list, list):
                 else:
                     possible_duplicates.append(duplicate)
 
+            break
+
     return duplicates, possible_duplicates
 
 
