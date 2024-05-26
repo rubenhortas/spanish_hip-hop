@@ -11,6 +11,9 @@ Estas herramientas son pequeños scripts en python para mantener el fichero `lis
 Formatea las líneas del fichero `lista trabajos hip-hop español.csv` para que todas las líneas tengan un formato homogéneo.
 Este script generará un fichero llamado `lista trabajos hip-hop español - formateado.csv`.
 
+### find_duplicates.python
+Muestra por pantalla las entradas [posiblemente] repetidas en el fichero `lista trabajos hip-hop español.csv` para poder eliminarlas rápidamente.
+
 ## ¿Cómo se utilizan estas herramientas?
 
 Colocar el el fichero `lista trabajos hip-hop español.csv` en el directorio de  los scripts y ejecutar el script escogido.
@@ -20,9 +23,10 @@ Colocar el el fichero `lista trabajos hip-hop español.csv` en el directorio de 
 * Date de alta en github
 
     * Avísanos de discos que falten en el fichero `lista trabajos hip-hop español.csv`
-    * Corrige, o avísanos de los erroers en el fichero `lista trabajos hip-hop español.csv`
+    * Corrige, o avísanos de los errores y/ duplicados en el fichero `lista trabajos hip-hop español.csv`
 	* Sube nuevos scripts que aporten nuevas funcionalidades.
-	* Colabora con este código. Añadiendo funcionalidades, corrigiendo errores, avisando de errores...
+    * Corrige errores (o añade nuevas funcionalidades) en los scripts de herramientas.
+    * Aporta nuevas herramientas que ayuden a la gestión de este proyecto.
 
 * Echa un ojo a los [Issues del proyecto](https://github.com/ctRl-ES/spanish_hip-hop/issues/) y ayuda en alguno.
 
