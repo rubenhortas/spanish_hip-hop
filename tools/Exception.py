@@ -130,6 +130,9 @@ EXCEPTIONS = {
 }
 
 if __name__ == '__main__':
+    """
+    Print dictionary entries in alphabetical order
+    """
     try:
         file_name = 'sorted_dictionary.txt'
         unique_keys = []
