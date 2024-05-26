@@ -27,17 +27,26 @@ class Album:
 
     def _format_artist(self, artist: str) -> None:
         self.artist = artist.title().strip()
+        artist = self.artist.split()
 
-        for word in self.artist:
-            if word.lower() in EXCEPTIONS:
-                self.artist.replace(word, EXCEPTIONS[word.lower()])
+        # for word in artist:
+            # if word.lower() in EXCEPTIONS:
+                # self.artist = self.artist.replace(word, EXCEPTIONS[word.lower()])
+                # l = list(map(lambda x: x.replace('Pant', 'Ishan'), l))
+                # artist = list(map(lambda a: a.replace(word, EXCEPTIONS[word.lower()]), artist))
+
+        self.artist = ' '.join(artist)
 
     def _format_title(self, title: str) -> None:
         self.title = title.capitalize().strip()
+        title = self.title.split()
 
-        for word in self.title:
-            if word.lower() in EXCEPTIONS:
-                self.title.replace(word, EXCEPTIONS[word.lower()])
+         # for word in self.title:
+            # if word.lower() in EXCEPTIONS:
+                # self.title = self.title.replace(word, EXCEPTIONS[word.lower()])
+                # title = list(map(lambda t: t.replace(word, EXCEPTIONS[word.lower()]), title))
+
+        self.title = ' '.join(title)
 
 
 def _handle_sigint(signal: int, frame: FrameType) -> None:
