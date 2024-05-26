@@ -30,10 +30,25 @@ Se recopilan los datos en un archivo `.csv`: [lista trabajos hip-hop español.cs
   * Añade nuevos trabajos al archivo [lista trabajos hip-hop español.csv](https://github.com/ctRl-ES/spanish_hip-hop/edit/master/lista%20trabajos%20hip-hop%20espa%C3%B1ol.csv).
   * Corrige, o avísanos, errores y duplicados en el archivo [lista trabajos hip-hop español.csv](https://github.com/ctRl-ES/spanish_hip-hop/edit/master/lista%20trabajos%20hip-hop%20espa%C3%B1ol.csv).
 * Avísanos de discos que falten en el fichero [lista trabajos hip-hop español.csv](https://github.com/ctRl-ES/spanish_hip-hop/edit/master/lista%20trabajos%20hip-hop%20espa%C3%B1ol.csv)
-* Mándanos una lista de la carpeta en la que tengas tu rap español. Mira como hacerla en la carpeta [tools](https://github.com/ctRl-ES/spanish_hip-hop/tree/master/tools) del proyecto.
+* Mándanos una lista de los discos que tengas en tu carpeta de rap español.
 * Colabora mejorando [las herramientas del proyecto](https://github.com/ctRl-ES/spanish_hip-hop/tree/master/tools).
 * Echa un ojo a los [Issues del proyecto](https://github.com/ctRl-ES/spanish_hip-hop/issues/) y ayuda en alguno.
 
+## ¿Cómo puedo hacer una lista de mis discos de rap en español?
+
+### Windows
+
+Sitúate en la carpeta en la que tengas tus discos de rap en español, abre una `cmd` y ejecuta:
+
+`dir /s /b /a:d > _mi_lista_rap_espanol.txt`
+
+### GNU/Linux
+
+Abre una terminal, navega hasta el direcrtorio en el el que tengas tus discos de rap en español y ejecuta:
+
+`find . -type d > _mi_lista_rap_espanol.txt`
+
+Se generará el fichero `_mi_lista_rap_espanol.txt` con la lista de tus discos.
 
 ## ¿Qué licencia tiene este proyecto?
 
