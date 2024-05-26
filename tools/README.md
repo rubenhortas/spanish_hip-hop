@@ -21,7 +21,7 @@ Genera el diccionario de excepciones ordenado alfabéticamente y sin duplicados.
 
 ## ¿Cómo se utilizan estas herramientas?
 
-Colocar el el fichero `lista trabajos hip-hop español.csv` en el directorio de  los scripts y ejecutar el script escogido.
+Coloca el el fichero `lista trabajos hip-hop español.csv` en el directorio de  los scripts y ejecuta el script escogido.
 
 ## ¿Cómo colaborar?
 

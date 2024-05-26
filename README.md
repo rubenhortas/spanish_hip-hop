@@ -4,7 +4,7 @@
 
 * Información de los trabajos musicales publicados en la escena Hip-Hop de España.
 
-##¿Qué se pretende?
+## ¿Qué se pretende?
 
 * Realizar una lista de todos los trabajos musicales de Hip-Hop español tanto en formato profesional como no profesional (LPs, maquetas, mixtapes, etc).
 * De cada trabajo, al menos, obtener: Artista, fecha de publicación y tipo de trabajo (LP/Maqueta/...).
