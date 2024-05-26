@@ -8,6 +8,7 @@ from types import FrameType
 
 CSV_FILE = 'lista trabajos hip-hop español.csv'
 CSV_SEPARATOR = ','
+OUTPUT_FILE = 'duplicates.txt'
 MATCH_THRESHOLD = 0.9  # Seems a reasonable threshold
 
 
@@ -76,13 +77,19 @@ def _normalize(line: list) -> str:
     return result
 
 
-def _print_list(name: str, lines: list):
-    print(name)
-
-    for line in lines:
-        print(line, end='')
-
-    print()
+def _write_output_file(lines: list) -> None:
+    try:
+        with open(OUTPUT_FILE, 'w') as f:
+            f.writelines(lines)
+    except FileNotFoundError as file_not_found_error:
+        print(f"'{file_not_found_error.filename}' no such file or directory")
+        exit(-1)
+    except PermissionError:
+        print(f"Permission denied: '{OUTPUT_FILE}'")
+        exit(-1)
+    except OSError as os_error:
+        print(f"'{OUTPUT_FILE}' OSError: {os_error}")
+        exit(-1)
 
 
 if __name__ == '__main__':
@@ -93,12 +100,17 @@ if __name__ == '__main__':
     duplicates, possible_duplicates = _get_duplicates(lines)
 
     if duplicates or possible_duplicates:
+        issues = []
+
         if duplicates:
-            _print_list('Duplicates', duplicates)
+            duplicates.insert(0, 'Duplicates:\n\n')
+            issues.extend(duplicates)
 
         if possible_duplicates:
-            _print_list('Possible duplicates', possible_duplicates)
+            possible_duplicates.insert(0, 'Possible duplicates:\n\n')
+            issues.extend(possible_duplicates)
 
+        _write_output_file(issues)
+        print('Done')
     else:
         print('No duplicates found.')
-
