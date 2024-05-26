@@ -2,7 +2,7 @@
 
 import os
 import signal
-from exceptions import Artist, Title
+from Exception import EXCEPTIONS
 from types import FrameType
 
 CSV_HEADER = 'Artista,Trabajo,Fecha Publicación,Tipo'
@@ -12,9 +12,6 @@ CSV_SEPARATOR = ','
 
 
 class Album:
-    artist_exceptions = Artist.EXCEPTIONS
-    title_exceptions = Title.EXCEPTIONS
-
     def __init__(self, artist: str, title: str, publication_date: str, album_format: str, csv_separator: str):
         self._format_artist(artist)
         self._format_title(title)
@@ -32,15 +29,15 @@ class Album:
         self.artist = artist.title().strip()
 
         for word in self.artist:
-            if word.lower() in self.artist_exceptions:
-                self.artist.replace(word, self.artist_exceptions[word.lower()])
+            if word.lower() in EXCEPTIONS:
+                self.artist.replace(word, EXCEPTIONS[word.lower()])
 
     def _format_title(self, title: str) -> None:
         self.title = title.capitalize().strip()
 
         for word in self.title:
-            if word in self.title_exceptions:
-                self.title.replace(word, self.title_exceptions[word])
+            if word in EXCEPTIONS:
+                self.title.replace(word, EXCEPTIONS[word])
 
 
 def _handle_sigint(signal: int, frame: FrameType) -> None:
