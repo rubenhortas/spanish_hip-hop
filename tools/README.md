@@ -2,17 +2,18 @@
 
 ## ¿Qué son estas herramientas?
 
-Estas herramientas son pequeños scripts en python para mantener el fichero `lista trabajos hip-hop español.csv`.
+Estas herramientas son pequeños scripts en python para mantener el fichero [lista trabajos hip-hop español.csv](https://github.com/ctRl-ES/spanish_hip-hop/edit/master/lista%20trabajos%20hip-hop%20espa%C3%B1ol.csv).
 
 ## ¿Para qué valen estas herramientas?
 
 ### format_file.py
 
-Formatea las líneas del fichero `lista trabajos hip-hop español.csv` para que todas las líneas tengan un formato homogéneo.
-Este script generará un fichero llamado `lista trabajos hip-hop español - formateado.csv`.
+Formatea las líneas del fichero [lista trabajos hip-hop español.csv](https://github.com/ctRl-ES/spanish_hip-hop/edit/master/lista%20trabajos%20hip-hop%20espa%C3%B1ol.csv) para que todas las líneas tengan un formato homogéneo.
+Este script generará un fichero llamado [lista trabajos hip-hop español.csv](https://github.com/ctRl-ES/spanish_hip-hop/edit/master/lista%20trabajos%20hip-hop%20espa%C3%B1ol.csv).
 
 ### find_duplicates.python
-Muestra por pantalla las entradas [posiblemente] repetidas en el fichero `lista trabajos hip-hop español.csv` para poder eliminarlas rápidamente.
+
+Muestra por pantalla las entradas [posiblemente] repetidas en el fichero [lista trabajos hip-hop español.csv](https://github.com/ctRl-ES/spanish_hip-hop/edit/master/lista%20trabajos%20hip-hop%20espa%C3%B1ol.csv) para poder eliminarlas rápidamente.
 
 ## ¿Cómo se utilizan estas herramientas?
 
@@ -22,9 +23,7 @@ Colocar el el fichero `lista trabajos hip-hop español.csv` en el directorio de 
 
 * Date de alta en github
 
-    * Avísanos de discos que falten en el fichero `lista trabajos hip-hop español.csv`
-    * Corrige, o avísanos de los errores y/ duplicados en el fichero `lista trabajos hip-hop español.csv`
-	* Sube nuevos scripts que aporten nuevas funcionalidades.
+    * Sube nuevos scripts que aporten nuevas funcionalidades.
     * Corrige errores (o añade nuevas funcionalidades) en los scripts de herramientas.
     * Aporta nuevas herramientas que ayuden a la gestión de este proyecto.
 
