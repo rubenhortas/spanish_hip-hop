@@ -51,7 +51,7 @@ def _get_duplicates(lines: list) -> (list, list):
             match_ratio = difflib.SequenceMatcher(None, line1, line2).ratio()
 
             if match_ratio > MATCH_THRESHOLD:
-                duplicate = f"{lines[i]}  -> {lines[j]}"
+                duplicate = f"{lines[i].strip()}  -> {lines[j].strip()}"
 
                 if match_ratio == 1:
                     duplicates.append(duplicate)

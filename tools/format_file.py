@@ -36,8 +36,8 @@ class Album:
         self.title = title.capitalize().strip()
 
         for word in self.title:
-            if word in EXCEPTIONS:
-                self.title.replace(word, EXCEPTIONS[word])
+            if word.lower() in EXCEPTIONS:
+                self.title.replace(word, EXCEPTIONS[word.lower()])
 
 
 def _handle_sigint(signal: int, frame: FrameType) -> None:
