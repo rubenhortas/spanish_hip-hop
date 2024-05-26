@@ -57,9 +57,12 @@ def _format_entries() -> list:
     formatted_entries = []
 
     for entry in original_entries:
-        entry_ = entry.split(CSV_SEPARATOR)
-        album = Album(entry_[0], entry_[1], entry_[2], entry_[3], CSV_SEPARATOR)  # artist, title, date, format
-        formatted_entries.append(album.list())
+        try:
+            entry_ = entry.split(CSV_SEPARATOR)
+            album = Album(entry_[0], entry_[1], entry_[2], entry_[3], CSV_SEPARATOR)  # artist, title, date, format
+            formatted_entries.append(album.list())
+        except IndexError:
+            print(f"'{entry}: bad format")
 
     sorted_formatted_entries = sorted(formatted_entries, key=lambda album: (album[0], album[2], album[1]))
     result = [f"{CSV_SEPARATOR.join(e)}\n" for e in sorted_formatted_entries]
