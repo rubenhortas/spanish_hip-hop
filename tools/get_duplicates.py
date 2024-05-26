@@ -3,9 +3,11 @@
 import difflib
 import os
 import signal
-from Types import FrameType
+import string
+from types import FrameType
 
 CSV_FILE = 'lista trabajos hip-hop español.csv'
+CSV_SEPARATOR = ','
 MATCH_THRESHOLD = 0.9  # Seems a reasonable threshold
 
 
@@ -39,10 +41,13 @@ def _read_file() -> list:
 def _get_duplicates(lines: list) -> (list, list):
     duplicates = []
     possible_duplicates = []
+    range_num_lines = len(lines) - 1
 
-    for i in range(lines):
-        for j in range(i + 1, lines):
-            match_ratio = difflib.SequenceMatcher(None, lines[i], lines[j]).ratio()
+    for i in range(range_num_lines):
+        for j in range(i + 1, range_num_lines):
+            line1 = _normalize(lines[i])
+            line2 = _normalize(lines[j])
+            match_ratio = difflib.SequenceMatcher(None, line1, line2).ratio()
 
             if match_ratio > MATCH_THRESHOLD:
                 duplicate = f"{lines[i]}  -> {lines[j]}"
@@ -53,6 +58,19 @@ def _get_duplicates(lines: list) -> (list, list):
                     possible_duplicates.append(duplicate)
 
     return duplicates, possible_duplicates
+
+
+def _normalize(line: list) -> str:
+    line_ = line.split(CSV_SEPARATOR)
+    artist = line_[0]
+    title = line_[1]
+
+    result = f"{artist}{title}".lower()
+
+    for symbol in string.punctuation:
+        result.replace(symbol, '')
+
+    return result
 
 
 def _print_list(name: str, lines: list):

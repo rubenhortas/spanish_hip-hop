@@ -1,1 +1,0 @@
-dir /s /b /a:d > _mi_lista_rap_espanol.txt
