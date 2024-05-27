@@ -42,12 +42,12 @@ def _read_file() -> list:
 def _get_duplicates(lines: list) -> (list, list):
     duplicates = []
     possible_duplicates = []
-    range_num_lines = len(lines) - 1
+    num_lines = len(lines)
 
-    for i in range(range_num_lines):
-        print(f"\r{i+1}/{range_num_lines}", end='')
+    for i in range(len(lines)):
+        print(f"\r{i + 1}/{len(lines)}", end='')
 
-        for j in range(i + 1, range_num_lines):
+        for j in range(i + 1, num_lines):
             line1 = _normalize(lines[i])
             line2 = _normalize(lines[j])
             match_ratio = difflib.SequenceMatcher(None, line1, line2).ratio()
@@ -60,20 +60,19 @@ def _get_duplicates(lines: list) -> (list, list):
                 else:
                     possible_duplicates.append(duplicate)
 
-            break
-
     return duplicates, possible_duplicates
 
 
 def _normalize(line: str) -> str:
+    print(line)
     line_ = line.split(CSV_SEPARATOR)
     artist = line_[0]
     title = line_[1]
 
-    result = f"{artist}{title}".lower()
+    result = f"{artist}{title}".lower().replace(' ', '')
 
     for symbol in string.punctuation:
-        result.replace(symbol, '')
+        result = result.replace(symbol, '')
 
     return result
 
