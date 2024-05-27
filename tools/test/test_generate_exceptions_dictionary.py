@@ -14,5 +14,4 @@ class TestGenerateExceptionsDictionary(unittest.TestCase):
         self.expected_entries = ["\t'key1': 'KEY1',\n", "\t'key2': 'KEY2',\n"]
 
     def test_get_keys(self):
-        print(_get_keys(self.dictionary))
         self.assertEquals(self.expected_entries, _get_keys(self.dictionary))
