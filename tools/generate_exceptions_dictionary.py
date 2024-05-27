@@ -9,14 +9,13 @@ if __name__ == '__main__':
     Generates the file exceptions_dictionary.txt with the exceptions dictionary alphabetically ordered without duplicates.
     """
     try:
-        unique_keys = []
+        keys = set()
         result = ['EXCEPTIONS = {']
 
         for key in EXCEPTIONS:
-            if key not in unique_keys:
-                unique_keys.append(key)
+            keys.add(key)
 
-        for key in sorted(unique_keys, key=str.lower):
+        for key in sorted(list(keys), key=str.lower):
             key_ = key.replace("'", "\\'")
             value = EXCEPTIONS[key].replace("'", "\\'")
             result.append(f"\t'{key_}': '{value}',\n")

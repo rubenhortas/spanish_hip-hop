@@ -104,12 +104,12 @@ if __name__ == '__main__':
         issues = []
 
         if duplicates:
-            duplicates.insert(0, 'Duplicates:\n\n')
+            issues.append('Duplicates:\n\n')
             issues.extend(duplicates)
             issues.append('\n')
 
         if possible_duplicates:
-            possible_duplicates.insert(0, 'Possible duplicates:\n\n')
+            issues.append('Possible duplicates:\n\n')
             issues.extend(possible_duplicates)
 
         _write_output_file(issues)

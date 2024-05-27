@@ -5,6 +5,14 @@ from collections import Counter
 CSV_FILE = 'lista trabajos hip-hop español.csv'
 CSV_SEPARATOR = ','
 
+
+def _print_list(name: str, lines: list) -> None:
+    print(f"{name}:\n")
+
+    for line in lines:
+        print(line.strip())
+
+
 if __name__ == '__main__':
     try:
         extra_separators = []
@@ -17,25 +25,18 @@ if __name__ == '__main__':
             line_counter = Counter(line)
 
             if line_counter[CSV_SEPARATOR] > 3:
-                extra_separators.append(line.strip())
+                extra_separators.append(line)
 
             if line_counter['('] != line_counter[')']:
-                parentheses_issues.append(line.strip())
+                parentheses_issues.append(line)
 
         if extra_separators or parentheses_issues:
             if extra_separators:
-                print('Lines with extra separators:\n')
-
-                for line in extra_separators:
-                    print(line)
-
+                _print_list('Lines with extra separators:\n', extra_separators)
                 print()
 
             if parentheses_issues:
-                print('Lines with parentheses issues:\n')
-
-                for line in parentheses_issues:
-                    print(line)
+                _print_list('Lines with parentheses issues:\n', parentheses_issues)
         else:
             print('No issues found.')
     except FileNotFoundError as file_not_found_error:
