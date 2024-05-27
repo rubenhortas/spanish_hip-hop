@@ -11,7 +11,7 @@ class TestGetDuplicates(unittest.TestCase):
             'Bob,Title',
             'Bob,Title@?!$',
             'Bob,Title (more words),',
-            'Bob,T.i.t.u.l.@,',
+            'Bob,T.i.t.l.@,',
             'Alice,Another title'
         ]
 
@@ -21,12 +21,9 @@ class TestGetDuplicates(unittest.TestCase):
             'Bob,Title  -> Bob,T.i.t.l.@,',
             'Bob,Title@?!$  -> Bob,T.i.t.l.@,']
 
-
     def test_get_duplicates(self):
         duplicates, possible_duplicates = _get_duplicates(self.lines)
-        print()
         print(duplicates)
-        print('*')
         print(possible_duplicates)
-        print('*')
-        # self.assertEquals(self.expected_duplicates, _get_duplicates(self.lines))
+        self.assertEqual(self.expected_duplicates, duplicates)
+        self.assertEqual(self.expected_possible_duplicates, possible_duplicates)
