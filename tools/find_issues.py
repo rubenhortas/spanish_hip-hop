@@ -2,12 +2,12 @@
 
 from collections import Counter
 
+CSV_FILE = 'lista trabajos hip-hop español.csv'
+CSV_SEPARATOR = ','
+
 if __name__ == '__main__':
     try:
-        CSV_FILE = 'lista trabajos hip-hop español.csv'
-        # CSV_FILE = 'lista trabajos hip-hop español - formateado.csv'
-
-        extra_commas = []
+        extra_separators = []
         parentheses_issues = []
 
         with open(CSV_FILE, 'r') as f:
@@ -16,17 +16,17 @@ if __name__ == '__main__':
         for line in lines:
             line_counter = Counter(line)
 
-            if line_counter[','] > 3:
-                extra_commas.append(line.strip())
+            if line_counter[CSV_SEPARATOR] > 3:
+                extra_separators.append(line.strip())
 
             if line_counter['('] != line_counter[')']:
                 parentheses_issues.append(line.strip())
 
-        if extra_commas or parentheses_issues:
-            if extra_commas:
-                print('Lines with extra commas:\n')
+        if extra_separators or parentheses_issues:
+            if extra_separators:
+                print('Lines with extra separators:\n')
 
-                for line in extra_commas:
+                for line in extra_separators:
                     print(line)
 
                 print()
@@ -36,8 +36,6 @@ if __name__ == '__main__':
 
                 for line in parentheses_issues:
                     print(line)
-
-                print()
         else:
             print('No issues found.')
     except FileNotFoundError as file_not_found_error:

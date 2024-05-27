@@ -65,7 +65,7 @@ def _get_duplicates(lines: list) -> (list, list):
     return duplicates, possible_duplicates
 
 
-def _normalize(line: list) -> str:
+def _normalize(line: str) -> str:
     line_ = line.split(CSV_SEPARATOR)
     artist = line_[0]
     title = line_[1]
@@ -106,13 +106,10 @@ if __name__ == '__main__':
         if duplicates:
             duplicates.insert(0, 'Duplicates:\n\n')
             issues.extend(duplicates)
+            issues.append('\n')
 
         if possible_duplicates:
             possible_duplicates.insert(0, 'Possible duplicates:\n\n')
-
-            if duplicates:
-                possible_duplicates.insert(0, '\n')
-
             issues.extend(possible_duplicates)
 
         _write_output_file(issues)
