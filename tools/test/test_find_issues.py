@@ -24,5 +24,5 @@ class TestFindIssues(unittest.TestCase):
 
     def test_get_issues(self):
         extra_separators, parentheses_issues = _get_issues(self.lines)
-        self.assertEquals(self.extra_separators_expected, extra_separators)
-        self.assertEquals(self.parentheses_issues_expected, parentheses_issues)
+        self.assertEqual(self.extra_separators_expected, extra_separators)
+        self.assertEqual(self.parentheses_issues_expected, parentheses_issues)
