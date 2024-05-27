@@ -122,7 +122,7 @@ EXCEPTIONS = {
     'vsk': 'VSK',
     'vv.aa.': 'VV.AA.',
     'w.o.l.': 'W.O.L.',
-    'x': 'V',
+    'x': 'X',
     'xchent': 'XChent',
     'xl': 'XL',
     'xxl': 'XXL',
