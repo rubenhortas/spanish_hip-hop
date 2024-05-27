@@ -1,25 +1,33 @@
 #!/usr/bin/env python3
 
-from Exception import EXCEPTIONS
+from tools.Exception import EXCEPTIONS
 
 OUTPUT_FILE = 'exceptions_dictionary.txt'
+
+
+def _get_keys(dictionary: dict):
+    keys = set()
+    entries =[]
+
+    for key in dictionary:
+        keys.add(key)
+
+    for key in sorted(list(keys), key=str.lower):
+        key_ = key.replace("'", "\\'")
+        value = dictionary[key].replace("'", "\\'")
+        entries.append(f"\t'{key_}': '{value}',\n")
+
+    return entries
+
 
 if __name__ == '__main__':
     """
     Generates the file exceptions_dictionary.txt with the exceptions dictionary alphabetically ordered without duplicates.
     """
     try:
-        keys = set()
-        result = ['EXCEPTIONS = {']
-
-        for key in EXCEPTIONS:
-            keys.add(key)
-
-        for key in sorted(list(keys), key=str.lower):
-            key_ = key.replace("'", "\\'")
-            value = EXCEPTIONS[key].replace("'", "\\'")
-            result.append(f"\t'{key_}': '{value}',\n")
-
+        result = ['EXCEPTIONS = {\n']
+        keys = _get_keys(EXCEPTIONS)
+        result.extend(keys)
         result.append('}')
 
         with open(OUTPUT_FILE, 'w') as f:
