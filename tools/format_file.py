@@ -2,7 +2,7 @@
 
 import os
 import signal
-from Exception import EXCEPTIONS
+from tools.Exception import EXCEPTIONS
 from types import FrameType
 
 CSV_HEADER = 'Artista,Trabajo,Fecha Publicación,Tipo'
@@ -29,11 +29,10 @@ class Album:
         self.artist = artist.title().strip()
         artist = self.artist.split()
 
-        # for word in artist:
-        # if word.lower() in EXCEPTIONS:
-        # self.artist = self.artist.replace(word, EXCEPTIONS[word.lower()])
-        # l = list(map(lambda x: x.replace('Pant', 'Ishan'), l))
-        # artist = list(map(lambda a: a.replace(word, EXCEPTIONS[word.lower()]), artist))
+        for word in artist:
+            if word.lower() in EXCEPTIONS:
+                self.artist = self.artist.replace(word, EXCEPTIONS[word.lower()])
+                # print(f"(a)'{' '.join(artist)}': [{word}] -> [{EXCEPTIONS[word.lower()]}] = {self.artist}")
 
         self.artist = ' '.join(artist)
 
@@ -41,10 +40,10 @@ class Album:
         self.title = title.capitalize().strip()
         title = self.title.split()
 
-        # for word in self.title:
-        # if word.lower() in EXCEPTIONS:
-        # self.title = self.title.replace(word, EXCEPTIONS[word.lower()])
-        # title = list(map(lambda t: t.replace(word, EXCEPTIONS[word.lower()]), title))
+        for word in title:
+            if word.lower() in EXCEPTIONS:
+                self.title = self.title.replace(word, EXCEPTIONS[word.lower()])
+                print(f"(t)'{' '.join(title)}': [{word}] -> [{EXCEPTIONS[word.lower()]}] = {self.title}")
 
         self.title = ' '.join(title)
 
@@ -69,7 +68,7 @@ def _format_entries() -> list:
     entries_num = len(original_entries)
 
     for entry in original_entries:
-        print(f"{entry_num}/{entries_num}")
+        # print(f"{entry_num}/{entries_num}")
 
         try:
             entry_ = entry.split(CSV_SEPARATOR)
