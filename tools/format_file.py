@@ -32,9 +32,6 @@ class Album:
         for word in artist:
             if word.lower() in EXCEPTIONS:
                 self.artist = self.artist.replace(word, EXCEPTIONS[word.lower()])
-                # print(f"(a)'{' '.join(artist)}': [{word}] -> [{EXCEPTIONS[word.lower()]}] = {self.artist}")
-
-        self.artist = ' '.join(artist)
 
     def _format_title(self, title: str) -> None:
         self.title = title.capitalize().strip()
@@ -43,9 +40,6 @@ class Album:
         for word in title:
             if word.lower() in EXCEPTIONS:
                 self.title = self.title.replace(word, EXCEPTIONS[word.lower()])
-                print(f"(t)'{' '.join(title)}': [{word}] -> [{EXCEPTIONS[word.lower()]}] = {self.title}")
-
-        self.title = ' '.join(title)
 
 
 def _handle_sigint(signal: int, frame: FrameType) -> None:
@@ -68,17 +62,21 @@ def _format_entries() -> list:
     entries_num = len(original_entries)
 
     for entry in original_entries:
-        # print(f"{entry_num}/{entries_num}")
+        print(f"\r{entry_num}/{entries_num}", end='')
 
         try:
             entry_ = entry.split(CSV_SEPARATOR)
             album = Album(entry_[0], entry_[1], entry_[2], entry_[3], CSV_SEPARATOR)  # artist, title, date, format
             formatted_entries.append(album.list())
+
+            if entry_[0] != album.artist or entry_[1] != album.title:
+                print(f": '{entry_[0]},{entry_[1]}' -> '{album.artist},{album.title}'")
         except IndexError:
             print(f"'{entry}: bad format")
 
         entry_num += 1
 
+    print()
     sorted_formatted_entries = sorted(formatted_entries, key=lambda album: (album[0], album[2], album[1]))
     # result = [f"{CSV_SEPARATOR.join(e)}\n" for e in sorted_formatted_entries]
     # result.insert(0, f"{CSV_HEADER}\n")

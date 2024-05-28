@@ -117,6 +117,8 @@ EXCEPTIONS = {
     'urs': 'URS',
     'uve': 'Uve',
     'vol.': 'Vol.',
+    'vol.1': 'Vol.1',
+    'vol.2': 'Vol.2',
     'vps': 'VPS',
     'vs': 'vs',
     'vsk': 'VSK',
