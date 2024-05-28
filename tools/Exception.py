@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 # Words that will be *not* capitalized
 EXCEPTIONS = {
     'a.k.a': 'A.K.A',

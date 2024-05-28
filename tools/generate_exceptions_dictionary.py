@@ -2,12 +2,12 @@
 
 from tools.Exception import EXCEPTIONS
 
-OUTPUT_FILE = 'exceptions_dictionary.txt'
+OUTPUT_FILE = 'sorted_Exception.py'
 
 
 def _get_keys(dictionary: dict):
     keys = set()
-    entries =[]
+    entries = []
 
     for key in dictionary:
         keys.add(key)
@@ -25,7 +25,7 @@ if __name__ == '__main__':
     Generates the file exceptions_dictionary.txt with the exceptions dictionary alphabetically ordered without duplicates.
     """
     try:
-        result = ['EXCEPTIONS = {\n']
+        result = ['# Words that will be *not* capitalized\n', 'EXCEPTIONS = {\n']
         keys = _get_keys(EXCEPTIONS)
         result.extend(keys)
         result.append('}')
