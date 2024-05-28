@@ -2,7 +2,7 @@
 
 from tools.Exception import EXCEPTIONS
 
-OUTPUT_FILE = 'sorted_Exception.py'
+OUTPUT_FILE = 'Exception.py'
 
 
 def _get_keys(dictionary: dict):
@@ -28,7 +28,7 @@ if __name__ == '__main__':
         result = ['# Words that will be *not* capitalized\n', 'EXCEPTIONS = {\n']
         keys = _get_keys(EXCEPTIONS)
         result.extend(keys)
-        result.append('}')
+        result.append('}\n')
 
         with open(OUTPUT_FILE, 'w') as f:
             f.writelines(result)
