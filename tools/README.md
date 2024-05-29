@@ -8,16 +8,17 @@ Estas herramientas son pequeños scripts en python para mantener el fichero [lis
 
 ### format_file.py
 
-Formatea las líneas del fichero [lista trabajos hip-hop español.csv](https://github.com/ctRl-ES/spanish_hip-hop/edit/master/lista%20trabajos%20hip-hop%20espa%C3%B1ol.csv) para que todas las líneas tengan un formato homogéneo.
+Formatea las líneas del fichero [lista trabajos hip-hop español.csv](https://github.com/ctRl-ES/spanish_hip-hop/edit/master/lista%20trabajos%20hip-hop%20espa%C3%B1ol.csv) para que todas las líneas tengan un formato homogéneo.  
 Este script generará un fichero llamado [lista trabajos hip-hop español.csv](https://github.com/ctRl-ES/spanish_hip-hop/edit/master/lista%20trabajos%20hip-hop%20espa%C3%B1ol.csv).
 
 ### generate_exceptions_dictionary.py
 
-Genera el diccionario de excepciones ordenado alfabéticamente y sin duplicados. Es útil para desarrollo.
+Genera el diccionario de excepciones (`Exception.py`) ordenado alfabéticamente y sin duplicados.  
+Es útil para desarrollo.
 
 ### get_duplicates.python
 
-Muestra por pantalla las entradas [posiblemente] repetidas en el fichero [lista trabajos hip-hop español.csv](https://github.com/ctRl-ES/spanish_hip-hop/edit/master/lista%20trabajos%20hip-hop%20espa%C3%B1ol.csv) para poder eliminarlas rápidamente.
+Genera el fichero `duplicados.txt` con las entradas [posiblemente] repetidas en el fichero [lista trabajos hip-hop español.csv](https://github.com/ctRl-ES/spanish_hip-hop/edit/master/lista%20trabajos%20hip-hop%20espa%C3%B1ol.csv) para poder eliminarlas rápidamente.
 
 ## ¿Cómo se utilizan estas herramientas?
 
