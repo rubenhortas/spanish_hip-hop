@@ -77,7 +77,7 @@ def _format_entries() -> list:
 
     print()
 
-    sorted_formatted_entries = sorted(formatted_entries, key=lambda album: (album[0], album[2], album[1]))
+    sorted_formatted_entries = sorted(formatted_entries, key=lambda entry: (entry[0], entry[2], entry[1]))
     result = [f"{CSV_HEADER}\n"]
     result.extend([f"{CSV_SEPARATOR.join(e)}\n" for e in sorted_formatted_entries])
 
