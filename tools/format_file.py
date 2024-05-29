@@ -56,7 +56,6 @@ def _clear_screen() -> None:
 def _format_entries() -> list:
     original_entries = [line.strip() for line in _read_file()][1:]
     formatted_entries = []
-
     entry_num = 1
     entries_num = len(original_entries)
 
@@ -76,6 +75,7 @@ def _format_entries() -> list:
         entry_num += 1
 
     print()
+
     sorted_formatted_entries = sorted(formatted_entries, key=lambda album: (album[0], album[2], album[1]))
     result = [f"{CSV_HEADER}\n"]
     result.extend([f"{CSV_SEPARATOR.join(e)}\n" for e in sorted_formatted_entries])
