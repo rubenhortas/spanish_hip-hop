@@ -8,7 +8,7 @@ from types import FrameType
 
 CSV_FILE = 'lista trabajos hip-hop español.csv'
 CSV_SEPARATOR = ','
-OUTPUT_FILE = 'duplicates.txt'
+OUTPUT_FILE = 'duplicados.txt'
 MATCH_THRESHOLD = 0.9  # Seems a reasonable threshold
 
 
