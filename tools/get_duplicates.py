@@ -40,25 +40,29 @@ def _read_file() -> list:
 
 
 def _get_duplicates(lines: list) -> (list, list):
+    normalized_lines = []
     duplicates = []
     possible_duplicates = []
-    num_lines = len(lines)
 
-    for i in range(len(lines)):
-        print(f"\r{i + 1}/{len(lines)}", end='')
+    for line in lines:
+        normalized_lines.append((line, _normalize(line)))
+
+    num_lines = len(normalized_lines)
+
+    for i in range(num_lines):
+        print(f"\r{i + 1}/{num_lines}", end='')
 
         for j in range(i + 1, num_lines):
-            line1 = _normalize(lines[i])
-            line2 = _normalize(lines[j])
-            match_ratio = difflib.SequenceMatcher(None, line1, line2).ratio()
+            match_ratio = difflib.SequenceMatcher(None, normalized_lines[i][1], normalized_lines[j][1]).ratio()
 
             if match_ratio > MATCH_THRESHOLD:
-                duplicate = f"{lines[i].strip()}  -> {lines[j]}"
+                duplicate = f"{normalized_lines[i][0].strip()}  -> {normalized_lines[j][0]}"
 
                 if match_ratio == 1:
                     duplicates.append(duplicate)
                 else:
                     possible_duplicates.append(duplicate)
+
                 break
 
     return duplicates, possible_duplicates
@@ -96,7 +100,7 @@ if __name__ == '__main__':
     signal.signal(signal.SIGINT, _handle_sigint)
     _clear_screen()
     print(f"Looking for duplicates in {CSV_FILE}")
-    lines = _read_file()
+    lines = _read_file()[1:]
     duplicates, possible_duplicates = _get_duplicates(lines)
 
     if duplicates or possible_duplicates:
