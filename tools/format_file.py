@@ -67,8 +67,9 @@ def _format_entries() -> list:
             album = Album(entry_[0], entry_[1], entry_[2], entry_[3])  # artist, title, date, format
             formatted_entries.append(album.list())
 
-            if entry_[0] != album.artist or entry_[1] != album.title:
-                print(f": '{entry_[0]},{entry_[1]}' -> '{album.artist},{album.title}'")
+            # Debug
+            # if entry_[0] != album.artist or entry_[1] != album.title:
+            #     print(f": '{entry_[0]},{entry_[1]}' -> '{album.artist},{album.title}'")
         except IndexError:
             print(f"'{entry}: bad format")
 
