@@ -12,15 +12,14 @@ CSV_SEPARATOR = ','
 
 
 class Album:
-    def __init__(self, artist: str, title: str, publication_date: str, album_format: str, csv_separator: str):
+    def __init__(self, artist: str, title: str, publication_date: str, album_format: str):
         self._format_artist(artist)
         self._format_title(title)
         self.publication_date = publication_date.strip()
-        self.format = album_format.strip()
-        self.csv_separator = csv_separator
+        self.format = album_format.strip().upper()
 
     def __str__(self):
-        return f"{self.artist}{self.csv_separator}{self.title}{self.csv_separator}{self.publication_date}{self.csv_separator}{self.format}"
+        return f"{self.artist}{CSV_SEPARATOR}{self.title}{CSV_SEPARATOR}{self.publication_date}{CSV_SEPARATOR}{self.format}"
 
     def list(self):
         return [self.artist, self.title, self.publication_date, self.format]
@@ -66,7 +65,7 @@ def _format_entries() -> list:
 
         try:
             entry_ = entry.split(CSV_SEPARATOR)
-            album = Album(entry_[0], entry_[1], entry_[2], entry_[3], CSV_SEPARATOR)  # artist, title, date, format
+            album = Album(entry_[0], entry_[1], entry_[2], entry_[3])  # artist, title, date, format
             formatted_entries.append(album.list())
 
             if entry_[0] != album.artist or entry_[1] != album.title:
@@ -78,8 +77,6 @@ def _format_entries() -> list:
 
     print()
     sorted_formatted_entries = sorted(formatted_entries, key=lambda album: (album[0], album[2], album[1]))
-    # result = [f"{CSV_SEPARATOR.join(e)}\n" for e in sorted_formatted_entries]
-    # result.insert(0, f"{CSV_HEADER}\n")
     result = [f"{CSV_HEADER}\n"]
     result.extend([f"{CSV_SEPARATOR.join(e)}\n" for e in sorted_formatted_entries])
 
