@@ -10,10 +10,10 @@ def _get_keys(dictionary: dict):
     entries = []
 
     for key in dictionary:
-        keys.add(key.lower())
+        keys.add(key)
 
     for key in sorted(list(keys), key=str.lower):
-        key_ = key.replace("'", "\\'")
+        key_ = key.replace("'", "\\'").lower()
         value = dictionary[key].replace("'", "\\'")
         entries.append(f"\t'{key_}': '{value}',\n")
 
