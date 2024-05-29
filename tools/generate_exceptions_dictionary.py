@@ -22,7 +22,7 @@ def _get_keys(dictionary: dict):
 
 if __name__ == '__main__':
     """
-    Generates the file exceptions_dictionary.txt with the exceptions dictionary alphabetically ordered without duplicates.
+    Generates the file Exception.py with the exceptions dictionary alphabetically ordered without duplicates.
     """
     try:
         result = ['# Words that will be *not* capitalized\n', 'EXCEPTIONS = {\n']
