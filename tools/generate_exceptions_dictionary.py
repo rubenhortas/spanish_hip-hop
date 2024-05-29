@@ -10,7 +10,7 @@ def _get_keys(dictionary: dict):
     entries = []
 
     for key in dictionary:
-        keys.add(key)
+        keys.add(key.lower())
 
     for key in sorted(list(keys), key=str.lower):
         key_ = key.replace("'", "\\'")
