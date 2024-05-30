@@ -2,7 +2,7 @@
 
 import os
 import signal
-from tools.exception import EXCEPTIONS
+from tools.exceptions import EXCEPTIONS
 from types import FrameType
 
 CSV_FILE = 'lista trabajos hip-hop español.csv'
