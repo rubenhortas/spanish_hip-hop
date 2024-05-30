@@ -13,7 +13,7 @@ Este script generará un fichero llamado [lista trabajos hip-hop español.csv](h
 
 ### generate_exceptions_dictionary.py
 
-Genera el diccionario de excepciones (`Exception.py`) ordenado alfabéticamente y sin duplicados.  
+Genera el diccionario de excepciones (`exceptions.py`) ordenado alfabéticamente y sin duplicados.  
 Es útil para desarrollo.
 
 ### get_duplicates.python
