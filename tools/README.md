@@ -17,7 +17,7 @@ Es útil para ver las transformaciones que se producen al formatear el fichero y
 ### format_file.py
 
 Formatea las líneas del fichero [lista trabajos hip-hop español.csv](https://github.com/ctRl-ES/spanish_hip-hop/edit/master/lista%20trabajos%20hip-hop%20espa%C3%B1ol.csv) para que todas las líneas tengan un formato homogéneo.  
-Este script generará un fichero llamado [lista trabajos hip-hop español.csv](https://github.com/ctRl-ES/spanish_hip-hop/edit/master/lista%20trabajos%20hip-hop%20espa%C3%B1ol.csv).
+Este script generará un fichero llamado `lista trabajos hip-hop español - formateado.csv`.
 
 ### generate_exceptions_dictionary.py
 
