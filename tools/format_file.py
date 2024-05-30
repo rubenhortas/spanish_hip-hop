@@ -3,8 +3,8 @@
 import signal
 
 from tools.libraries.config import CSV_FILE, CSV_HEADER, CSV_SEPARATOR
-from tools.libraries.file_helper import write_output_file, read_file
-from tools.libraries.os_helper import handle_sigint, clear_screen
+from tools.libraries.file_helpers import write_output_file, read_file
+from tools.libraries.os_helpers import handle_sigint, clear_screen
 from tools.libraries.album import Album
 
 CSV_OUTPUT_FILE = f"{CSV_FILE[:-4]} - formateado.csv"
