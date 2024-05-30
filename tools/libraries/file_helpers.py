@@ -13,7 +13,7 @@ def read_file(file: str) -> list:
         exit(-1)
 
 
-def write_output_file(file: str, lines: list) -> None:
+def write_file(file: str, lines: list) -> None:
     try:
         with open(file, 'w') as f:
             f.writelines(lines)

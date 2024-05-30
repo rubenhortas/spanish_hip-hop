@@ -3,7 +3,7 @@
 import signal
 
 from tools.libraries.config import CSV_FILE, CSV_HEADER, CSV_SEPARATOR
-from tools.libraries.file_helpers import write_output_file, read_file
+from tools.libraries.file_helpers import write_file, read_file
 from tools.libraries.os_helpers import handle_sigint, clear_screen
 from tools.libraries.album import Album
 
@@ -46,5 +46,5 @@ if __name__ == '__main__':
     clear_screen()
     print(f"Generating {CSV_OUTPUT_FILE}")
     formatted_entries = _format_entries()
-    write_output_file(CSV_OUTPUT_FILE, formatted_entries)
+    write_file(CSV_OUTPUT_FILE, formatted_entries)
     print('Done')
