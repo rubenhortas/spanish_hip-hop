@@ -24,7 +24,7 @@ Este script generará un fichero llamado `lista trabajos hip-hop español - form
 Genera el diccionario de excepciones (`exceptions.py`) ordenado alfabéticamente y sin duplicados.  
 Es útil para desarrollo.
 
-### get_duplicates.python
+### get_duplicates.py
 
 Genera el fichero `duplicados.txt` con las entradas [posiblemente] repetidas en el fichero [lista trabajos hip-hop español.csv](https://github.com/ctRl-ES/spanish_hip-hop/edit/master/lista%20trabajos%20hip-hop%20espa%C3%B1ol.csv) para poder eliminarlas rápidamente.
 
