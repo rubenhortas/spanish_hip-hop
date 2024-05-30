@@ -193,6 +193,7 @@ EXCEPTIONS = {
 	'mmxi': 'MMXI',
 	'mp': 'MP',
 	'mr.': 'Mr',
+	'mtv': 'MTV',
 	'murfi': 'Murfi',
 	'mvp': 'MVP',
 	'mvp\'s': 'MVP\'s',
