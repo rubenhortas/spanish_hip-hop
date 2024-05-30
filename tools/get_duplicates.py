@@ -1,42 +1,15 @@
 #!/usr/bin/env python3
 
 import difflib
-import os
 import signal
 import string
-from types import FrameType
 
-CSV_FILE = 'lista trabajos hip-hop español.csv'
-CSV_SEPARATOR = ','
+from tools.libraries.config import CSV_FILE, CSV_SEPARATOR
+from tools.libraries.file_helpers import read_file, write_file
+from tools.libraries.os_helpers import handle_sigint, clear_screen
+
 OUTPUT_FILE = 'duplicados.txt'
 MATCH_THRESHOLD = 0.9  # Seems a reasonable threshold
-
-
-def _handle_sigint(signal: int, frame: FrameType) -> None:
-    print('\rStopped')
-    exit(0)
-
-
-def _clear_screen():
-    if 'nt' in os.name:
-        os.system('cls')
-    elif 'posix' in os.name:
-        os.system('clear')
-
-
-def _read_file() -> list:
-    try:
-        with open(CSV_FILE, 'r') as f:
-            return f.readlines()
-    except FileNotFoundError as file_not_found_error:
-        print(f"'{file_not_found_error.filename}' no such file or directory")
-        exit(-1)
-    except PermissionError:
-        print(f"Permission denied: '{CSV_FILE}'")
-        exit(-1)
-    except OSError as os_error:
-        print(f"'{CSV_FILE}' OSError: {os_error}")
-        exit(-1)
 
 
 def _get_duplicates(lines: list) -> (list, list):
@@ -81,26 +54,11 @@ def _normalize(line: str) -> str:
     return result
 
 
-def _write_output_file(lines: list) -> None:
-    try:
-        with open(OUTPUT_FILE, 'w') as f:
-            f.writelines(lines)
-    except FileNotFoundError as file_not_found_error:
-        print(f"'{file_not_found_error.filename}' no such file or directory")
-        exit(-1)
-    except PermissionError:
-        print(f"Permission denied: '{OUTPUT_FILE}'")
-        exit(-1)
-    except OSError as os_error:
-        print(f"'{OUTPUT_FILE}' OSError: {os_error}")
-        exit(-1)
-
-
 if __name__ == '__main__':
-    signal.signal(signal.SIGINT, _handle_sigint)
-    _clear_screen()
+    signal.signal(signal.SIGINT, handle_sigint)
+    clear_screen()
     print(f"Looking for duplicates in {CSV_FILE}")
-    lines = _read_file()[1:]
+    lines = read_file(CSV_FILE)[1:]
     duplicates, possible_duplicates = _get_duplicates(lines)
 
     if duplicates or possible_duplicates:
@@ -115,7 +73,7 @@ if __name__ == '__main__':
             issues.append('Possible duplicates:\n\n')
             issues.extend(possible_duplicates)
 
-        _write_output_file(issues)
+        write_file(OUTPUT_FILE, issues)
         print('\nDone')
     else:
         print('No duplicates found.')
