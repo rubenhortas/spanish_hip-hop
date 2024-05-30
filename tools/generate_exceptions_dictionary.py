@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-from tools.Exception import EXCEPTIONS
+from tools.exception import EXCEPTIONS
 
-OUTPUT_FILE = 'Exception.py'
+OUTPUT_FILE = 'exception.py'
 
 
 def _get_keys(dictionary: dict):
@@ -22,7 +22,7 @@ def _get_keys(dictionary: dict):
 
 if __name__ == '__main__':
     """
-    Generates the file Exception.py with the exceptions dictionary alphabetically ordered without duplicates.
+    Generates the file exception.py with the exceptions dictionary alphabetically ordered without duplicates.
     """
     try:
         result = ['# Words that will be *not* capitalized\n', 'EXCEPTIONS = {\n']
