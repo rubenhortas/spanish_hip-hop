@@ -6,6 +6,14 @@ Estas herramientas son pequeños scripts en python para mantener el fichero [lis
 
 ## ¿Para qué valen estas herramientas?
 
+## check_exceptions.py
+Genera tres ficheros:
+  * `lines_with_exceptions.txt`: Líneas *con* excepciones en los artistas/títulos.
+  * `lines_without_exceptions.txt`: Líneas *sin* excepciones en los artistas/títulos.
+  * `unused_exceptions.txt`: Excepciones que no se utilizan.
+
+Es útil para ver las transformaciones que se producen al formatear el fichero y para manter reducido el número de excepciones que contiene el diccionario `exceptions.py`.
+
 ### format_file.py
 
 Formatea las líneas del fichero [lista trabajos hip-hop español.csv](https://github.com/ctRl-ES/spanish_hip-hop/edit/master/lista%20trabajos%20hip-hop%20espa%C3%B1ol.csv) para que todas las líneas tengan un formato homogéneo.  
