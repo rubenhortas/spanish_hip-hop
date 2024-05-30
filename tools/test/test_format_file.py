@@ -22,7 +22,7 @@ class TestFormatFile(unittest.TestCase):
 
         for entry in self.albums:
             entry_ = entry.split(self.csv_separator)
-            album = Album(entry_[0], entry_[1], entry_[2], entry_[3], self.csv_separator)  # artist, title, date, format
+            album = Album(entry_[0], entry_[1], entry_[2], entry_[3])  # artist, title, date, format
             result.append(str(album))
 
         self.assertEqual(self.expected_result, result)
