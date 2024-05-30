@@ -3,17 +3,19 @@
 from collections import Counter
 
 CSV_FILE = 'lista trabajos hip-hop español.csv'
+CSV_HEADER = 'Artista,Trabajo,Fecha Publicación,Tipo'
 CSV_SEPARATOR = ','
 
 
 def _get_issues(lines):
+    expected_separators = Counter(CSV_HEADER)[CSV_SEPARATOR]
     extra_separators = []
     parentheses_issues = []
 
     for line in lines:
         line_counter = Counter(line)
 
-        if line_counter[CSV_SEPARATOR] > 3:
+        if line_counter[CSV_SEPARATOR] > expected_separators:
             extra_separators.append(line)
 
         if line_counter['('] != line_counter[')']:

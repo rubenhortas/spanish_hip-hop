@@ -5,10 +5,10 @@ import signal
 from tools.Exception import EXCEPTIONS
 from types import FrameType
 
-CSV_HEADER = 'Artista,Trabajo,Fecha Publicación,Tipo'
 CSV_FILE = 'lista trabajos hip-hop español.csv'
-CSV_OUTPUT_FILE = f"{CSV_FILE[:-4]} - formateado.csv"
+CSV_HEADER = 'Artista,Trabajo,Fecha Publicación,Tipo'
 CSV_SEPARATOR = ','
+CSV_OUTPUT_FILE = f"{CSV_FILE[:-4]} - formateado.csv"
 
 
 class Album:
