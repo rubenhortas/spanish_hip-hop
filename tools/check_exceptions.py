@@ -5,26 +5,12 @@ from tools.libraries.config import CSV_FILE, CSV_SEPARATOR
 from tools.libraries.file_helpers import read_file, write_file
 
 
-def _format_artist(artist) -> (bool, str):
-    result = artist.strip().title()
-    result_ = result.split()
+def _format(string: str) -> (bool, str):
+    result = string
+    words = string.split()
     used_exception = False
 
-    for word in result_:
-        if word.lower() in EXCEPTIONS:
-            used_exception = True
-            used_exceptions.add(word.lower())
-            result = result.replace(word, EXCEPTIONS[word.lower()])
-
-    return used_exception, result
-
-
-def _format_title(title) -> (bool, str):
-    result = title.strip().capitalize()
-    result_ = result.split()
-    used_exception = False
-
-    for word in result_:
+    for word in words:
         if word.lower() in EXCEPTIONS:
             used_exception = True
             used_exceptions.add(word.lower())
@@ -45,8 +31,8 @@ if __name__ == '__main__':
         artist = line_[0]
         title = line_[1]
 
-        artist_has_exceptions, formatted_artist = _format_artist(artist)
-        title_has_exceptions, formatted_title = _format_title(title)
+        artist_has_exceptions, formatted_artist = _format(artist.title())
+        title_has_exceptions, formatted_title = _format(title.capitalize())
 
         if artist_has_exceptions or title_has_exceptions:
             data = f"'{artist}{CSV_SEPARATOR}{title}'"
