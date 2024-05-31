@@ -1,5 +1,5 @@
 from tools.libraries.config import CSV_SEPARATOR
-from tools.exceptions import EXCEPTIONS
+from tools.libraries.string_format import replace_exceptions
 
 
 class Album:
@@ -22,17 +22,7 @@ class Album:
         return self.artist > other.artist and self.publication_date > other.publication_date and self.title > other.title and self.format > other.format
 
     def _format_artist(self, artist: str) -> None:
-        self.artist = self._replace_exceptions(artist.strip().title())
+        self.artist = replace_exceptions(artist.strip().title())
 
     def _format_title(self, title: str) -> None:
-        self.title = self._replace_exceptions(title.strip().capitalize())
-
-    def _replace_exceptions(self, string: str) -> str:
-        string_ = string
-        words = string.split()
-
-        for word in words:
-            if word.lower() in EXCEPTIONS:
-                string_ = string_.replace(word, EXCEPTIONS[word.lower()])
-
-        return string_
+        self.title = replace_exceptions(title.strip().capitalize())
