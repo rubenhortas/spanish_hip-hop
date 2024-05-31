@@ -3,7 +3,7 @@
 from tools.exceptions import EXCEPTIONS
 from tools.libraries.config import CSV_FILE, CSV_SEPARATOR
 from tools.libraries.file_helpers import read_file, write_file
-from tools.libraries.string_format import replace_exceptions
+from tools.libraries.string_utils import replace_exceptions
 
 
 def _get_lines(lines: list) -> (list, list):

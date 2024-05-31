@@ -7,7 +7,7 @@ from tools.libraries.file_helpers import write_file, read_file
 from tools.libraries.os_helpers import handle_sigint, clear_screen
 from tools.libraries.album import Album
 
-CSV_OUTPUT_FILE = f"{CSV_FILE[:-4]} - formateado.csv"
+_OUTPUT_FILE = f"{CSV_FILE[:-4]} - formateado.csv"
 
 
 def _get_albums(line: list) -> list:
@@ -28,13 +28,13 @@ def _get_albums(line: list) -> list:
 def _write_output_file(albums: list) -> None:
     result = [f"{CSV_HEADER}\n"]
     result.extend([f"{str(album)}\n" for album in albums])
-    write_file(CSV_OUTPUT_FILE, result)
+    write_file(_OUTPUT_FILE, result)
 
 
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, handle_sigint)
     clear_screen()
-    print(f"Generating {CSV_OUTPUT_FILE}...")
+    print(f"Generating {_OUTPUT_FILE}...")
 
     lines = read_file(CSV_FILE)[1:]
     albums = _get_albums(lines)

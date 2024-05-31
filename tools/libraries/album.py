@@ -1,5 +1,5 @@
 from tools.libraries.config import CSV_SEPARATOR
-from tools.libraries.string_format import replace_exceptions
+from tools.libraries.string_utils import replace_exceptions
 
 
 class Album:

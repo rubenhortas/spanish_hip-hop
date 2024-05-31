@@ -8,8 +8,8 @@ from tools.libraries.config import CSV_FILE, CSV_SEPARATOR
 from tools.libraries.file_helpers import read_file, write_file
 from tools.libraries.os_helpers import handle_sigint, clear_screen
 
-OUTPUT_FILE = 'duplicados.txt'
-MATCH_THRESHOLD = 0.9  # Seems a reasonable threshold
+_OUTPUT_FILE = 'duplicados.txt'
+_MATCH_THRESHOLD = 0.9  # Seems a reasonable threshold
 
 
 def _get_duplicates(lines: list) -> (list, list):
@@ -28,7 +28,7 @@ def _get_duplicates(lines: list) -> (list, list):
         for j in range(i + 1, num_lines):
             match_ratio = difflib.SequenceMatcher(None, normalized_lines[i][1], normalized_lines[j][1]).ratio()
 
-            if match_ratio > MATCH_THRESHOLD:
+            if match_ratio > _MATCH_THRESHOLD:
                 duplicate = f"{normalized_lines[i][0].strip()}  -> {normalized_lines[j][0]}"
 
                 if match_ratio == 1:
@@ -67,7 +67,7 @@ def _write_output_file(duplicates: list, possible_duplicates: list) -> None:
         issues.extend(possible_duplicates)
         issues.append('\n')
 
-    write_file(OUTPUT_FILE, issues)
+    write_file(_OUTPUT_FILE, issues)
 
 
 if __name__ == '__main__':
