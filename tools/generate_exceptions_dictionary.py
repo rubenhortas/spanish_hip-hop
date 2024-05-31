@@ -35,5 +35,9 @@ if __name__ == '__main__':
     Generates the file exceptions.py with the exceptions dictionary alphabetically ordered without duplicates.
     """
     signal.signal(signal.SIGINT, handle_sigint)
+    print(f"Generating new {OUTPUT_FILE}...")
+
     new_exceptions = _get_exceptions(EXCEPTIONS)
     _write_output_file(new_exceptions)
+
+    print('Done')

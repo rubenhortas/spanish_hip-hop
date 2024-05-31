@@ -54,26 +54,32 @@ def _normalize(line: str) -> str:
     return result
 
 
+def _write_output_file(duplicates: list, possible_duplicates: list) -> None:
+    issues = []
+
+    if duplicates:
+        issues.append('Duplicates:\n\n')
+        issues.extend(duplicates)
+        issues.append('\n')
+
+    if possible_duplicates:
+        issues.append('Possible duplicates:\n\n')
+        issues.extend(possible_duplicates)
+        issues.append('\n')
+
+    write_file(OUTPUT_FILE, issues)
+
+
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, handle_sigint)
     clear_screen()
     print(f"Looking for duplicates in {CSV_FILE}")
+
     lines = read_file(CSV_FILE)[1:]
     duplicates, possible_duplicates = _get_duplicates(lines)
 
     if duplicates or possible_duplicates:
-        issues = []
-
-        if duplicates:
-            issues.append('Duplicates:\n\n')
-            issues.extend(duplicates)
-            issues.append('\n')
-
-        if possible_duplicates:
-            issues.append('Possible duplicates:\n\n')
-            issues.extend(possible_duplicates)
-
-        write_file(OUTPUT_FILE, issues)
-        print('\nDone')
+        _write_output_file(duplicates, possible_duplicates)
+        print('Done')
     else:
         print('No duplicates found.')

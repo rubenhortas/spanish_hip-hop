@@ -5,7 +5,7 @@ from collections import Counter
 
 from tools.libraries.config import CSV_HEADER, CSV_SEPARATOR, CSV_FILE
 from tools.libraries.file_helpers import read_file
-from tools.libraries.os_helpers import handle_sigint
+from tools.libraries.os_helpers import handle_sigint, clear_screen
 
 
 def _get_issues(lines):
@@ -63,6 +63,9 @@ def _print_list(name: str, lines: list) -> None:
 
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, handle_sigint)
+    clear_screen()
+    print(f"Finding lines with issues in {CSV_FILE}...")
+
     lines = read_file(CSV_FILE)[1:]
     extra_separators, parentheses_issues = _get_issues(lines)
 

@@ -25,13 +25,19 @@ def _get_albums(line: list) -> list:
     return sorted(albums)
 
 
-if __name__ == '__main__':
-    signal.signal(signal.SIGINT, handle_sigint)
-    clear_screen()
-    print(f"Generating {CSV_OUTPUT_FILE}")
-    lines = read_file(CSV_FILE)[1:]
-    albums = _get_albums(lines)
+def _write_output_file(albums: list) -> None:
     result = [f"{CSV_HEADER}\n"]
     result.extend([f"{str(album)}\n" for album in albums])
     write_file(CSV_OUTPUT_FILE, result)
+
+
+if __name__ == '__main__':
+    signal.signal(signal.SIGINT, handle_sigint)
+    clear_screen()
+    print(f"Generating {CSV_OUTPUT_FILE}...")
+
+    lines = read_file(CSV_FILE)[1:]
+    albums = _get_albums(lines)
+    _write_output_file(albums)
+
     print('Done')
