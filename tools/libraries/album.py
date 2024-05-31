@@ -21,18 +21,18 @@ class Album:
     def __gt__(self, other):
         return self.artist > other.artist and self.publication_date > other.publication_date and self.title > other.title and self.format > other.format
 
-    def _format_artist(self, artist) -> None:
-        self.artist = artist.strip().title()
-        artist_ = self.artist.split()
+    def _format_artist(self, artist: str) -> None:
+        self.artist = self._replace_exceptions(artist.strip().title())
 
-        for word in artist_:
+    def _format_title(self, title: str) -> None:
+        self.title = self._replace_exceptions(title.strip().capitalize())
+
+    def _replace_exceptions(self, string: str) -> str:
+        string_ = string
+        words = string.split()
+
+        for word in words:
             if word.lower() in EXCEPTIONS:
-                self.artist = self.artist.replace(word, EXCEPTIONS[word.lower()])
+                string_ = string_.replace(word, EXCEPTIONS[word.lower()])
 
-    def _format_title(self, title) -> None:
-        self.title = title.strip().capitalize()
-        title_ = self.title.split()
-
-        for word in title_:
-            if word.lower() in EXCEPTIONS:
-                self.title = self.title.replace(word, EXCEPTIONS[word.lower()])
+        return string_
