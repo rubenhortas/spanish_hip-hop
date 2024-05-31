@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 import signal
 from collections import Counter
 
@@ -8,27 +9,56 @@ from tools.libraries.os_helpers import handle_sigint
 
 
 def _get_issues(lines):
+    wrong_number_separators = []
+    mismatched_parentheses = []
     expected_separators = Counter(CSV_HEADER)[CSV_SEPARATOR]
-    extra_separators = []
-    parentheses_issues = []
 
     for line in lines:
         line_counter = Counter(line)
 
-        if line_counter[CSV_SEPARATOR] > expected_separators:
-            extra_separators.append(line)
+        if _has_wrong_number_separators(line_counter, expected_separators):
+            wrong_number_separators.append(line)
 
-        if line_counter['('] != line_counter[')']:
-            parentheses_issues.append(line)
+        if _has_mismatched_parentheses(line, line_counter):
+            mismatched_parentheses.append(line)
 
-    return extra_separators, parentheses_issues
+    return wrong_number_separators, mismatched_parentheses
+
+
+def _has_wrong_number_separators(line_counter: Counter, expected_separators: int) -> bool:
+    if line_counter[CSV_SEPARATOR] != expected_separators:
+        return True
+
+    return False
+
+
+def _has_mismatched_parentheses(line: str, line_counter: Counter) -> bool:
+    def has_mismatched_parentheses(counter: Counter) -> bool:
+        if counter['('] != counter[')']:
+            return True
+
+        return False
+
+    if has_mismatched_parentheses(line_counter):
+        return True
+    else:
+        words = line.split()
+
+        for word in words:
+            if has_mismatched_parentheses(Counter(word)):
+                return True
+
+    return False
 
 
 def _print_list(name: str, lines: list) -> None:
-    print(f"{name}:\n")
+    if list:
+        print(f"{name}:\n")
 
-    for line in lines:
-        print(line.strip())
+        for line in lines:
+            print(line, end='')
+
+        print()
 
 
 if __name__ == '__main__':
@@ -37,11 +67,7 @@ if __name__ == '__main__':
     extra_separators, parentheses_issues = _get_issues(lines)
 
     if extra_separators or parentheses_issues:
-        if extra_separators:
-            _print_list('Lines with extra separators:\n', extra_separators)
-            print()
-
-        if parentheses_issues:
-            _print_list('Lines with parentheses issues:\n', parentheses_issues)
+        _print_list('Lines with extra separators', extra_separators)
+        _print_list('Lines with mismatched parentheses', parentheses_issues)
     else:
         print('No issues found.')
