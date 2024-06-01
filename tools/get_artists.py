@@ -14,5 +14,5 @@ if __name__ == '__main__':
         if ' & ' not in line_[0] and ' y ' not in line_[0] and '-N-' not in line_[0] and ' vs ' not in line_[0].lower():
             artists.add(line_[0].strip().lower())
 
-    artists_ = [f"\t'{replace_exceptions(artist.title())}':'{artist.upper()}',\n" for artist in artists]
+    artists_ = [f"\t'{replace_exceptions(artist.title())}': '{artist.upper()}',\n" for artist in artists]
     write_file(_OUTPUT_FILE, sorted(artists_))
