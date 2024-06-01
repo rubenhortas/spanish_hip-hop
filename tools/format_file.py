@@ -21,7 +21,7 @@ def _get_formatted_lines(line: list) -> list:
             album = Album(line_[0], line_[1], line_[2], line_[3])  # artist, title, date, format
             album.artist = replace_exceptions(album.artist)
             album.title = replace_exceptions(album.title)
-            replace_volumes(album.title)
+            album.title = replace_volumes(album.title)
             albums.append(album)
         except IndexError:
             print(f"'{line}: bad format")
