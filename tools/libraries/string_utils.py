@@ -2,7 +2,7 @@ import re
 
 from tools.exceptions import EXCEPTIONS
 
-_VOLUME_RE = re.compile(r'((?P<label>(vol|Vol)(\?|(ume)n?)?([.\s]{0,2})\??0?)'
+_VOLUME_RE = re.compile(r'((?P<label>(vol)(\?|(ume)n?)?([.\s]{0,2})\??0?)'
                         r'(?P<num>\d*\.?\d*))'
                         , re.IGNORECASE)
 
