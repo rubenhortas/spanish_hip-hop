@@ -13,6 +13,10 @@ Genera tres ficheros:
   * `unused_exceptions.txt`: Excepciones que no se utilizan.  
     Es útil para ver las transformaciones que se producen al formatear el fichero y para manter reducido el número de excepciones que contiene el diccionario `exceptions.py`.
 
+## generate_exceptions_dictionary.py
+Genera un nuevo diccionario de excepciones (exceptions.py), a partir del actual, ordenado alfabéticamente y sin duplicados.  
+Es útil para desarrollo.
+
 ### format_file.py
 
 Formatea las líneas del fichero [lista trabajos hip-hop español.csv](https://github.com/ctRl-ES/spanish_hip-hop/edit/master/lista%20trabajos%20hip-hop%20espa%C3%B1ol.csv) para que todas las líneas tengan un formato homogéneo.  
