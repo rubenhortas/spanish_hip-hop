@@ -2,8 +2,8 @@ import re
 
 from tools.exceptions import EXCEPTIONS
 
-_VOLUME_RE = re.compile(r'((?P<label>(vol)(\?|(ume)n?)?([.\s]{0,2})\??0?)'
-                        r'(?P<num>\d*\.?\d*))'
+_VOLUME_RE = re.compile(r'((?P<label>(vol)(\?|(ume)n?)?([. ]{0,2})\??0?)'
+                        r'(?P<num>\w*(\.?\d*)?))'
                         , re.IGNORECASE)
 
 
@@ -22,6 +22,6 @@ def replace_volumes(string: str) -> str:
     match = re.search(_VOLUME_RE, string)
 
     if match:
-        return f"Vol. {match.group('num')}"
+        return f"Vol. {match.group('num').upper()}"
 
     return string

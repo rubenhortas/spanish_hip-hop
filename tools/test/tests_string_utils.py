@@ -24,9 +24,6 @@ class TestStringUtils(unittest.TestCase):
             ('Volumen 1', 'Vol. 1'),
             ('volume 1.5', 'Vol. 1.5'),
             ('Volume 1.5', 'Vol. 1.5'),
-        ]
-
-        self.roman_numerals = [
             ('vol i', 'Vol. I'),
             ('Vol I', 'Vol. I'),
             ('vol.ii', 'Vol. II'),
@@ -40,7 +37,7 @@ class TestStringUtils(unittest.TestCase):
             ('vol.ix', 'Vol. IX'),
             ('Vol.IX', 'Vol. IX'),
             ('vol.xxi', 'Vol. XXI'),
-            ('Vol.XXI', 'Vol. XXI'),
+            ('Vol.XXI', 'Vol. XXI')
         ]
 
         self.exceptions = [
@@ -111,7 +108,3 @@ class TestStringUtils(unittest.TestCase):
     def test_exceptions(self):
         for string in self.exceptions:
             self.assertEqual(string, replace_volumes(string))
-
-    def test_roman_numerals(self):
-        for string, expected_result in self.roman_numerals:
-            self.assertEqual(expected_result, replace_volumes(string))
