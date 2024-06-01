@@ -14,7 +14,6 @@ _OUTPUT_FILE = f"{CSV_FILE[:-4]} - formateado.csv"
 def _get_formatted_lines(line: list) -> list:
     lines_ = [line.strip() for line in line]
     albums = []
-    artists = []
 
     for line in lines_:
         try:
