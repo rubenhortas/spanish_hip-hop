@@ -13,7 +13,7 @@ def _get_exceptions(dictionary: dict) -> list:
     new_exceptions = []
 
     for key in dictionary:
-        keys.add(key)
+        keys.add(key.lower())
 
     for key in sorted(list(keys), key=str.lower):
         key_ = key.replace("'", "\\'").lower()
