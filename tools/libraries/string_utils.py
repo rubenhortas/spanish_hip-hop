@@ -1,4 +1,10 @@
+import re
+
 from tools.exceptions import EXCEPTIONS
+
+_VOLUME_RE = re.compile(r'((?P<label>(vol|Vol)(\?|(ume)n?)?([.\s]{0,2})\??0?)'
+                        r'(?P<num>\d*\.?\d*))'
+                        , re.IGNORECASE)
 
 
 def replace_exceptions(string: str) -> str:
@@ -10,3 +16,12 @@ def replace_exceptions(string: str) -> str:
             string_ = string_.replace(word, EXCEPTIONS[word.lower()])
 
     return string_
+
+
+def replace_volumes(string: str) -> str:
+    match = re.search(_VOLUME_RE, string)
+
+    if match:
+        return f"Vol.{match.group('num')}"
+
+    return string
