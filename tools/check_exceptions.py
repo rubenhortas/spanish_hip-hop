@@ -3,24 +3,20 @@
 from tools.exceptions import EXCEPTIONS
 from tools.libraries.config import CSV_FILE, CSV_SEPARATOR
 from tools.libraries.file_helpers import read_file, write_file
-from tools.libraries.string_utils import replace_exceptions
 
 
 def _get_lines(lines: list) -> (list, list):
     lines_with_exceptions = []
     lines_without_exceptions = []
+    lower_exceptions = [exception.lower() for exception in EXCEPTIONS]
 
     for line in lines:
         line_ = line.split(CSV_SEPARATOR)
-        artis = line_[0]
-        title = line_[1]
-        formatted_artist = replace_exceptions(artis)
-        formated_title = replace_exceptions(title)
+        artist_fist_word = line_[0].split()[0]
+        title_first_word = line_[1].split()[0]
 
-        if artis != formatted_artist or title != formated_title:
-            data = f"'{artis}{CSV_SEPARATOR}{title}'"
-            formatted_data = f"'{formatted_artist}{CSV_SEPARATOR}{formated_title}'"
-            lines_with_exceptions.append(f"{data} -> {formatted_data}\n")
+        if artist_fist_word in lower_exceptions or title_first_word in lower_exceptions:
+            lines_with_exceptions.append(line)
         else:
             lines_without_exceptions.append(line)
 

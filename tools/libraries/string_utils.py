@@ -1,27 +1,11 @@
-import re
-
 from tools.exceptions import EXCEPTIONS
 
-_VOLUME_RE = re.compile(r'((?P<label>(vol)(\?|(ume)n?)?([. ]{0,2})\??0?)'
-                        r'(?P<num>\w*(\.?\d*)?))'
-                        , re.IGNORECASE)
 
-
-def replace_exceptions(string: str) -> str:
-    string_ = string
+def capitalize_first_letter(string: str):
     words = string.split()
+    first_word = words[0]
 
-    for word in words:
-        if word.lower() in EXCEPTIONS:
-            string_ = string_.replace(word, EXCEPTIONS[word.lower()])
-
-    return string_
-
-
-def replace_volumes(string: str) -> str:
-    match = re.search(_VOLUME_RE, string)
-
-    if match:
-        return string.replace(match.group(0), f"Vol. {match.group('num').upper()}")
+    if first_word not in EXCEPTIONS:
+        return string[0].upper() + string[1:]
 
     return string

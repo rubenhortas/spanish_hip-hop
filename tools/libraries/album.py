@@ -21,7 +21,7 @@ class Album:
         return self.artist > other.artist and self.publication_date > other.publication_date and self.title > other.title and self.format > other.format
 
     def _format_artist(self, artist: str) -> None:
-        self.artist = artist.strip().title()
+        self.artist = artist.strip()
 
     def _format_title(self, title: str) -> None:
-        self.title = title.strip().capitalize()
+        self.title = title.strip()

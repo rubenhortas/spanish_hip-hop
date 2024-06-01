@@ -6,7 +6,7 @@ from tools.libraries.album import Album
 from tools.libraries.config import CSV_FILE, CSV_HEADER, CSV_SEPARATOR
 from tools.libraries.file_helpers import write_file, read_file
 from tools.libraries.os_helpers import handle_sigint, clear_screen
-from tools.libraries.string_utils import replace_exceptions, replace_volumes
+from tools.libraries.string_utils import capitalize_first_letter
 
 _OUTPUT_FILE = f"{CSV_FILE[:-4]} - formateado.csv"
 
@@ -19,9 +19,8 @@ def _get_formatted_lines(line: list) -> list:
         try:
             line_ = line.split(CSV_SEPARATOR)
             album = Album(line_[0], line_[1], line_[2], line_[3])  # artist, title, date, format
-            album.artist = replace_exceptions(album.artist)
-            album.title = replace_exceptions(album.title)
-            album.title = replace_volumes(album.title)
+            album.artist = capitalize_first_letter(album.artist)
+            album.title = capitalize_first_letter(album.title)
             albums.append(album)
         except IndexError:
             print(f"'{line}: bad format")
