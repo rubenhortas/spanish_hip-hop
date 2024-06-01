@@ -10,17 +10,17 @@ _OUTPUT_FILE = 'exceptions.py'
 
 def _get_exceptions(dictionary: dict) -> list:
     keys = set()
-    new_exceptions = []
+    new_exceptions = set()
 
     for key in dictionary:
-        keys.add(key.lower())
+        keys.add(key)
 
-    for key in sorted(list(keys), key=str.lower):
+    for key in keys:
         key_ = key.replace("'", "\\'").lower()
         value = dictionary[key].replace("'", "\\'")
-        new_exceptions.append(f"\t'{key_}': '{value}',\n")
+        new_exceptions.add(f"\t'{key_}': '{value}',\n")
 
-    return new_exceptions
+    return sorted(list(new_exceptions))
 
 
 def _write_output_file(keys):
