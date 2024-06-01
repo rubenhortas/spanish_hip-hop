@@ -19,14 +19,24 @@ def _get_formatted_lines(line: list) -> list:
         try:
             line_ = line.split(CSV_SEPARATOR)
             album = Album(line_[0], line_[1], line_[2], line_[3])  # artist, title, date, format
-            album.artist = replace_exceptions(album.artist)
-            album.title = replace_exceptions(album.title)
-            album.title = replace_volumes(album.title)
+            album.artist = _format_artist(album.artist)
+
             albums.append(album)
         except IndexError:
             print(f"'{line}: bad format")
 
     return sorted(albums)
+
+
+def _format_artist(artist: str) -> str:
+    return replace_exceptions(artist)
+
+
+def _format_title(title: str) -> str:
+    formatted_title = replace_exceptions(title)
+    formatted_title = replace_volumes(formatted_title)
+
+    return formatted_title
 
 
 def _write_output_file(albums: list) -> None:
