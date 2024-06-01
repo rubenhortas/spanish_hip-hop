@@ -22,6 +22,6 @@ def replace_volumes(string: str) -> str:
     match = re.search(_VOLUME_RE, string)
 
     if match:
-        return f"Vol.{match.group('num')}"
+        return f"Vol. {match.group('num')}"
 
     return string
