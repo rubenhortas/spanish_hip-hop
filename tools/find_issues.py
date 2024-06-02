@@ -19,10 +19,10 @@ def _get_issues(lines) -> (list, list, list):
         if not _has_correct_number_separators(line_counter):
             bad_formatted.append(line)
 
-        if _has_mismatched_parentheses(line, line_counter):
+        if _has_mismatched_symbols(line, line_counter, '(', ')'):
             mismatched_parentheses.append(line)
 
-        if _has_mismatched_square_brackets(line, line_counter):
+        if _has_mismatched_symbols(line, line_counter, '[', ']'):
             mismatched_square_brackets.append(line)
 
     return bad_formatted, mismatched_parentheses, mismatched_square_brackets
@@ -32,39 +32,20 @@ def _has_correct_number_separators(line_counter: Counter):
     return line_counter[CSV_SEPARATOR] == SEPARATOR_NUMBER
 
 
-def _has_mismatched_parentheses(line: str, line_counter: Counter) -> bool:
-    def has_mismatched_parentheses(counter: Counter) -> bool:
-        if counter['('] != counter[')']:
+def _has_mismatched_symbols(line: str, line_counter: Counter, left_symbol: str, right_symbol: str) -> bool:
+    def has_mismatched_symbols(counter: Counter) -> bool:
+        if counter[left_symbol] != counter[right_symbol]:
             return True
 
         return False
 
-    if has_mismatched_parentheses(line_counter):
+    if has_mismatched_symbols(line_counter):
         return True
     else:
         words = line.split()
 
         for word in words:
-            if has_mismatched_parentheses(Counter(word)):
-                return True
-
-    return False
-
-
-def _has_mismatched_square_brackets(line: str, line_counter: Counter) -> bool:
-    def has_mismatched_square_brackets(counter: Counter) -> bool:
-        if counter['['] != counter[']']:
-            return True
-
-        return False
-
-    if has_mismatched_square_brackets(line_counter):
-        return True
-    else:
-        words = line.split()
-
-        for word in words:
-            if has_mismatched_square_brackets(Counter(word)):
+            if has_mismatched_symbols(Counter(word)):
                 return True
 
     return False
@@ -86,10 +67,16 @@ if __name__ == '__main__':
     print(f"Finding lines with issues in {CSV_FILE}...")
 
     lines = read_file(CSV_FILE)[1:]
-    extra_separators, parentheses_issues, mismatched_square_brackets = _get_issues(lines)
+    extra_separators, mismatched_parentheses, mismatched_square_brackets = _get_issues(lines)
 
-    if extra_separators or parentheses_issues or mismatched_square_brackets:
-        _print_list('Bad formatted lines (extra separators)', extra_separators)
-        _print_list('Lines with mismatched parentheses', parentheses_issues)
+    if extra_separators or mismatched_parentheses or mismatched_square_brackets:
+        if extra_separators:
+            _print_list('Bad formatted lines (extra separators)', extra_separators)
+
+        if mismatched_parentheses:
+            _print_list('Lines with mismatched parentheses', mismatched_parentheses)
+
+        if mismatched_square_brackets:
+            _print_list('Lines with mismatched square brackets', mismatched_square_brackets)
     else:
         print('No issues found.')
