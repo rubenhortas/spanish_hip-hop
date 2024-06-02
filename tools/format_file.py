@@ -5,24 +5,27 @@ import signal
 from tools.libraries.album import Album
 from tools.libraries.config import CSV_FILE, CSV_HEADER, CSV_SEPARATOR
 from tools.libraries.file_helpers import write_file, read_file
+from tools.libraries.format_helpers import has_correct_number_separators
 from tools.libraries.os_helpers import handle_sigint, clear_screen
 
 _OUTPUT_FILE = f"{CSV_FILE[:-4]} - formateado.csv"
+_ERROR_FILE = 'errores.txt'
 
 
-def _get_formatted_lines(line: list) -> list:
+def _get_formatted_lines(line: list) -> (list, list):
     lines_ = [line.strip() for line in line]
     albums = []
+    errors = []
 
     for line in lines_:
-        try:
+        if has_correct_number_separators(line):
             line_ = line.split(CSV_SEPARATOR)
             album = Album(line_[0], line_[1], line_[2], line_[3])  # artist, title, date, format
             albums.append(album)
-        except IndexError:
-            print(f"'{line}: bad format")
+        else:
+            errors.append(line)
 
-    return sorted(albums)
+    return sorted(albums), errors
 
 
 def _write_output_file(albums: list) -> None:
@@ -31,13 +34,20 @@ def _write_output_file(albums: list) -> None:
     write_file(_OUTPUT_FILE, result)
 
 
+def _write_error_file(errors: list) -> None:
+    result = ['Bad formatted lines (extra separators)\n']
+    result.extend([f"{error}\n" for error in errors])
+    write_file(_ERROR_FILE, result)
+
+
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, handle_sigint)
     clear_screen()
     print(f"Generating {_OUTPUT_FILE}...")
 
     lines = read_file(CSV_FILE)[1:]
-    formatted_lines = _get_formatted_lines(lines)
+    formatted_lines, errors = _get_formatted_lines(lines)
     _write_output_file(formatted_lines)
+    _write_error_file(errors)
 
     print('Done')
