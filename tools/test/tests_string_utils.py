@@ -23,6 +23,7 @@ class TestStringUtils(unittest.TestCase):
             ('vol.v', 'Vol. V'),
             ('vol.ix', 'Vol. IX'),
             ('vol.xxi', 'Vol. XXI'),
+            ('volúmen 1', 'Volúmen 1')
         ]
 
     def test_replace_volumes(self):
