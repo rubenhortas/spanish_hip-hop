@@ -42,10 +42,10 @@ def _has_mismatched_symbols(line: str, line_counter: Counter, left_symbol: str, 
     if has_mismatched_symbols(line_counter):
         return True
     else:
-        words = line.split()
+        fields = line.split(CSV_SEPARATOR)
 
-        for word in words:
-            if has_mismatched_symbols(Counter(word)):
+        for field in fields:
+            if has_mismatched_symbols(Counter(field)):
                 return True
 
     return False

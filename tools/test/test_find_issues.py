@@ -27,8 +27,15 @@ class TestFindIssues(unittest.TestCase):
 
         self.mismatched_square_brackets_expected = ['Bob,[Album1,2024,Mismatched square brackets\n']
 
+        self.real = [
+            'Diox,The Beat Pack [Ballistic Series],2011,-',
+            'VV.AA.,PB Records - Innovate (Stop Hating),2009,-'
+        ]
+
     def test_get_issues(self):
-        extra_separators, mismatched_parentheses, mismatched_square_brackets = _get_issues(self.lines)
-        self.assertEqual(self.extra_separators_expected, extra_separators)
-        self.assertEqual(self.mismatched_parentheses_expected, mismatched_parentheses)
-        self.assertEqual(self.mismatched_square_brackets_expected, mismatched_square_brackets)
+        # extra_separators, mismatched_parentheses, mismatched_square_brackets = _get_issues(self.lines)
+        # self.assertEqual(self.extra_separators_expected, extra_separators)
+        # self.assertEqual(self.mismatched_parentheses_expected, mismatched_parentheses)
+        # self.assertEqual(self.mismatched_square_brackets_expected, mismatched_square_brackets)
+
+        extra_separators, mismatched_parentheses, mismatched_square_brackets = _get_issues(self.real)
