@@ -34,6 +34,7 @@ def replace_volumes(string: str) -> str:
         new_num = match.group('num').upper()
 
         result = string.replace(match_, f"{new_label} {new_num}")
+
         return result
 
     return string
