@@ -56,8 +56,17 @@ def _replace_artists_in_titles(albums: list, artists: list) -> None:
         title = album.title.split()
 
         for artist in artists:
-            if artist.lower() in title:
-                album.title = album.title.replace(artist.lower(), artist)
+            artist_ = artist.split()
+            artist_in_title = True
+
+            for word in artist_:
+                if word.lower() not in title:
+                    artist_in_title = False
+                    break
+
+            if artist_in_title:
+                for word in artist_:
+                    album.title = album.title.replace(word.lower(), word)
 
     print()
 
