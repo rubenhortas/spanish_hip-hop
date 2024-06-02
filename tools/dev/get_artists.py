@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 
 from tools.libraries.config import CSV_FILE, CSV_SEPARATOR
 from tools.libraries.file_helpers import read_file, write_file
@@ -6,7 +7,7 @@ from tools.libraries.file_helpers import read_file, write_file
 _OUTPUT_FILE = 'artists.txt'
 
 if __name__ == '__main__':
-    lines = read_file(CSV_FILE)[1:]
+    lines = read_file(os.path.join(os.path.abspath('..'), CSV_FILE))[1:]
     artists = set()
 
     for line in lines:

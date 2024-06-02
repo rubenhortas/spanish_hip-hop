@@ -8,7 +8,7 @@ from tools.libraries.config import CSV_FILE, CSV_SEPARATOR
 from tools.libraries.file_helpers import read_file, write_file
 from tools.libraries.os_helpers import handle_sigint, clear_screen
 
-_OUTPUT_FILE = 'duplicados.txt'
+_OUTPUT_FILE = f"{CSV_FILE[:-4]} - duplicados.txt"
 _MATCH_THRESHOLD = 0.9  # Seems a reasonable threshold
 
 
@@ -58,12 +58,12 @@ def _write_output_file(duplicates: list, possible_duplicates: list) -> None:
     issues = []
 
     if duplicates:
-        issues.append('Duplicates:\n\n')
+        issues.append('Duplicados:\n\n')
         issues.extend(duplicates)
         issues.append('\n')
 
     if possible_duplicates:
-        issues.append('Possible duplicates:\n\n')
+        issues.append('Posibles duplicados:\n\n')
         issues.extend(possible_duplicates)
         issues.append('\n')
 

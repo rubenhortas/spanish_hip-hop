@@ -5,6 +5,10 @@ from tools.libraries.config import CSV_FILE, CSV_SEPARATOR
 from tools.libraries.file_helpers import read_file, write_file
 from tools.libraries.string_utils import replace_exceptions
 
+_LINES_WITH_EXCEPTIONS_FILE = 'excepciones - lineas con excepciones.txt'
+_LINES_WITHOUT_EXCEPTIONS_FILE = 'excepciones - lineas sin excepciones.txt'
+_UNUSED_EXCEPTIONS_FILE = 'excepciones - excepciones sin usar.txt'
+
 
 def _get_lines(lines: list) -> (list, list):
     lines_with_exceptions = []
@@ -53,6 +57,6 @@ if __name__ == '__main__':
     lines_with_exceptions, lines_without_exceptions = _get_lines(lines)
     unused_exceptions = _get_unused_exceptions(lines)
 
-    write_file('lines_with_exceptions.txt', lines_with_exceptions)
-    write_file('lines_without_exceptions.txt', lines_without_exceptions)
-    write_file('unused_exceptions.txt', unused_exceptions)
+    write_file(_LINES_WITH_EXCEPTIONS_FILE, lines_with_exceptions)
+    write_file(_LINES_WITHOUT_EXCEPTIONS_FILE, lines_without_exceptions)
+    write_file(_UNUSED_EXCEPTIONS_FILE, unused_exceptions)

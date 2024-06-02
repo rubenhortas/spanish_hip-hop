@@ -9,7 +9,7 @@ from tools.libraries.format_helpers import has_correct_number_separators
 from tools.libraries.os_helpers import handle_sigint, clear_screen
 
 _OUTPUT_FILE = f"{CSV_FILE[:-4]} - formateado.csv"
-_ERROR_FILE = 'errores.txt'
+_ERROR_FILE = f"errores {CSV_FILE}.txt"
 
 
 def _get_formatted_lines(line: list) -> (list, list):
