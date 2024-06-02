@@ -33,9 +33,7 @@ class TestFindIssues(unittest.TestCase):
         ]
 
     def test_get_issues(self):
-        # extra_separators, mismatched_parentheses, mismatched_square_brackets = _get_issues(self.lines)
-        # self.assertEqual(self.extra_separators_expected, extra_separators)
-        # self.assertEqual(self.mismatched_parentheses_expected, mismatched_parentheses)
-        # self.assertEqual(self.mismatched_square_brackets_expected, mismatched_square_brackets)
-
-        extra_separators, mismatched_parentheses, mismatched_square_brackets = _get_issues(self.real)
+        extra_separators, mismatched_parentheses, mismatched_square_brackets = _get_issues(self.lines)
+        self.assertEqual(self.extra_separators_expected, extra_separators)
+        self.assertEqual(self.mismatched_parentheses_expected, mismatched_parentheses)
+        self.assertEqual(self.mismatched_square_brackets_expected, mismatched_square_brackets)
