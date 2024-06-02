@@ -12,13 +12,13 @@ def _get_lines(lines: list) -> (list, list):
 
     for line in lines:
         line_ = line.split(CSV_SEPARATOR)
-        artis = line_[0]
+        artist = line_[0]
         title = line_[1]
-        formatted_artist = replace_exceptions(artis)
+        formatted_artist = replace_exceptions(artist)
         formated_title = replace_exceptions(title)
 
-        if artis != formatted_artist or title != formated_title:
-            data = f"'{artis}{CSV_SEPARATOR}{title}'"
+        if artist != formatted_artist or title != formated_title:
+            data = f"'{artist}{CSV_SEPARATOR}{title}'"
             formatted_data = f"'{formatted_artist}{CSV_SEPARATOR}{formated_title}'"
             lines_with_exceptions.append(f"{data} -> {formatted_data}\n")
         else:
