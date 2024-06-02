@@ -3,6 +3,7 @@ from tools.libraries.string_utils import replace_exceptions, replace_volumes
 
 
 class Album:
+    FORMATS = ['Single', 'EP', 'LP', 'Doble LP', 'Mixtape']
     _ARTIST_SEPARATORS = [' – ', ' & ', ' Y ', ' X ', ' + ', ' Vs ', ' Vs. ', '-N-', '(', ')']
 
     def __init__(self, artist: str, title: str, publication_date: str, album_format: str):
