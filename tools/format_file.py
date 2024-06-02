@@ -78,7 +78,7 @@ def _write_output_file(albums: list) -> None:
 
 
 def _write_error_file(errors: list) -> None:
-    result = ['Bad formatted lines (extra separators)\n']
+    result = ['Bad formatted lines (extra separators)\n\n']
     result.extend([f"{error}\n" for error in errors])
     write_file(_ERROR_FILE, result)
 
