@@ -22,17 +22,18 @@ def replace_volumes(string: str) -> str:
     match = re.search(_VOLUME_RE, string)
 
     if match:
-        label = match.group('label').capitalize()
-        label = label.replace(' ', '')
-        label = label.replace('?', '')
-        label = label.capitalize()
+        match_ = match.group(0)
+        new_label = match.group('label').capitalize()
+        new_label = new_label.replace(' ', '')
+        new_label = new_label.replace('?', '')
+        new_label = new_label.capitalize()
 
-        if label == 'Vol':
-            label = 'Vol.'
+        if new_label == 'Vol':
+            new_label = 'Vol.'
 
-        num = match.group('num').upper()
-        # return string.replace(match.group(0), f"Vol. {match.group('num').upper()}")
-        new_string = f"{label} {num}"
-        return new_string
+        new_num = match.group('num').upper()
+
+        result = string.replace(match_, f"{new_label} {new_num}")
+        return result
 
     return string
