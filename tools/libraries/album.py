@@ -24,6 +24,7 @@ class Album:
     def _format_artist(self, artist: str):
         self.artist = artist.strip().title()
         self.artist = replace_exceptions(self.artist)
+        self.title = replace_volumes(self.title)
 
     def _format_title(self, title: str):
         self.title = title.strip().capitalize()
