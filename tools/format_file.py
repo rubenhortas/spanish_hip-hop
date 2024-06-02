@@ -16,16 +16,50 @@ def _get_formatted_lines(line: list) -> (list, list):
     lines_ = [line.strip() for line in line]
     albums = []
     errors = []
+    artists = set()
+
+    len_lines = len(lines_)
+    current_line = 0
+    print(f"Formating lines... ")
 
     for line in lines_:
+        current_line += 1
+        print(f"\r{current_line}/{len_lines}", end='')
+
         if has_correct_number_separators(line):
             line_ = line.split(CSV_SEPARATOR)
             album = Album(line_[0], line_[1], line_[2], line_[3])  # artist, title, date, format
+
+            for artist in album.get_artists():
+                if artist:
+                    artists.add(artist)
+
             albums.append(album)
         else:
             errors.append(line)
 
+    print()
+    _replace_artists_in_titles(albums, list(artists))
+
     return sorted(albums), errors
+
+
+def _replace_artists_in_titles(albums: list, artists: list) -> None:
+    len_albums = len(albums)
+    current_album = 0
+    print(f"Replacing artist in titles... ")
+
+    for album in albums:
+        current_album += 1
+        print(f"\r{current_album}/{len_albums}", end='')
+
+        title = album.title.split()
+
+        for artist in artists:
+            if artist.lower() in title:
+                album.title = album.title.replace(artist.lower(), artist)
+
+    print()
 
 
 def _write_output_file(albums: list) -> None:
