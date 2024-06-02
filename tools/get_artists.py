@@ -12,8 +12,9 @@ if __name__ == '__main__':
     for line in lines:
         line_ = line.split(CSV_SEPARATOR)
 
-        if ' & ' not in line_[0] and ' y ' not in line_[0] and '-N-' not in line_[0] and ' – ' not in line_[0] and ' vs ' not in line_[0].lower():
-            artists.add(line_[0].strip().lower())
+        # if ' & ' not in line_[0] and ' y ' not in line_[0] and '-N-' not in line_[0] and ' – ' not in line_[0] and ' vs ' not in line_[0].lower():
+        #     artists.add(line_[0].strip().lower())
+        artists.add(line_[0].strip().lower())
 
     # artists_ = [f"\t'{replace_exceptions(artist.title())}': '{artist.upper()}',\n" for artist in artists]  # Dictionary format
     artists_ = [f"\t{artist.title()}\n" for artist in artists]
