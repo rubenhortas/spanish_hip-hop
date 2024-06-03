@@ -4,8 +4,12 @@ import signal
 from collections import Counter
 
 from tools.libraries.config import CSV_SEPARATOR, CSV_FILE, SEPARATOR_NUMBER
-from tools.libraries.file_helpers import read_file
+from tools.libraries.file_helpers import read_file, write_file
 from tools.libraries.os_helpers import handle_sigint, clear_screen
+
+_EXTRA_SEPARATORS_FILE = 'errores - separadores extra.txt'
+_MISMATCHED_PARENTHESES_FILE = 'errores - parentesis.txt'
+_MISMATCHED_SQUARE_BRACKETS_FILE = 'errores - corchetes.txt'
 
 
 def _get_issues(lines) -> (list, list, list):
@@ -51,16 +55,6 @@ def _has_mismatched_symbols(line: str, line_counter: Counter, left_symbol: str, 
     return False
 
 
-def _print_list(name: str, lines: list) -> None:
-    if list:
-        print(f"{name}:\n")
-
-        for line in lines:
-            print(line, end='')
-
-        print()
-
-
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, handle_sigint)
     clear_screen()
@@ -71,12 +65,14 @@ if __name__ == '__main__':
 
     if extra_separators or mismatched_parentheses or mismatched_square_brackets:
         if extra_separators:
-            _print_list('Bad formatted lines (extra separators)', extra_separators)
+            write_file(_EXTRA_SEPARATORS_FILE, extra_separators)
 
         if mismatched_parentheses:
-            _print_list('Lines with mismatched parentheses', mismatched_parentheses)
+            write_file(_MISMATCHED_PARENTHESES_FILE, mismatched_parentheses)
 
         if mismatched_square_brackets:
-            _print_list('Lines with mismatched square brackets', mismatched_square_brackets)
+            write_file(_MISMATCHED_SQUARE_BRACKETS_FILE, mismatched_square_brackets)
+
+        print('Done')
     else:
         print('No issues found.')
