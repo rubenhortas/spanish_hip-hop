@@ -4,7 +4,8 @@ import difflib
 import signal
 import string
 
-from tools.libraries.config import CSV_FILE, CSV_SEPARATOR
+from tools.libraries.album import Album
+from tools.libraries.config import CSV_FILE
 from tools.libraries.file_helpers import read_file, write_file
 from tools.libraries.os_helpers import handle_sigint, clear_screen
 
@@ -42,11 +43,9 @@ def _get_duplicates(lines: list) -> (list, list):
 
 
 def _normalize(line: str) -> str:
-    line_ = line.split(CSV_SEPARATOR)
-    artist = line_[1]
-    title = line_[2]
+    album = Album(line)
 
-    result = f"{artist}{title}".lower().replace(' ', '')
+    result = f"{album.artist}{album.title}".lower().replace(' ', '')
 
     for symbol in string.punctuation:
         result = result.replace(symbol, '')
