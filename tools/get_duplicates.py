@@ -43,8 +43,8 @@ def _get_duplicates(lines: list) -> (list, list):
 
 def _normalize(line: str) -> str:
     line_ = line.split(CSV_SEPARATOR)
-    artist = line_[1]
-    title = line_[2]
+    artist = line_[0]
+    title = line_[1]
 
     result = f"{artist}{title}".lower().replace(' ', '')
 
