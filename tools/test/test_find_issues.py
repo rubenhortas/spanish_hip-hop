@@ -1,36 +1,32 @@
 import unittest
 
-from tools.find_issues import _get_issues
+from tools.get_issues import _get_issues
 
 
 class TestFindIssues(unittest.TestCase):
     def setUp(self):
         self.lines = [
-            'Bob,Album1,2024, Ok\n',
-            'Bob,(Album1),2024, Ok\n',
-            'Bob,[Album1],2024, Ok\n',
-            'Bob,Album1,2024,Extra separator,\n',
-            'Bob,(Album1,2024,Mismatched parentheses\n',
-            'Bob,(Album1,2024,Extra separator + Mismatched parentheses,\n',
-            'Bob,[Album1,2024,Mismatched square brackets\n',
+            # '1,bob,album1,2024,-,-,-,-,-,-,-,-,-,-,-'
+            '1,Bob,Album1,2024,-,-,-,-,-,-,-,-,-,-,Ok\n',
+            '2,Bob,(Album1),2024,-,-,-,-,-,-,-,-,-,-,Ok\n',
+            '3,Bob,[Album1],2024,-,-,-,-,-,-,-,-,-,-,Ok\n',
+            '4,Bob,Album1,2024,-,-,-,-,-,-,-,-,-,-,Extra separator,\n',
+            '5,Bob,(Album1,2024,-,-,-,-,-,-,-,-,-,-,Mismatched parentheses\n',
+            '6,Bob,(Album1,2024,-,-,-,-,-,-,-,-,-,-,Extra separator + Mismatched parentheses,\n',
+            '7,Bob,[Album1,2024,-,-,-,-,-,-,-,-,-,-,Mismatched square brackets\n',
         ]
 
         self.extra_separators_expected = [
-            'Bob,Album1,2024,Extra separator,\n',
-            'Bob,(Album1,2024,Extra separator + Mismatched parentheses,\n'
+            '4,Bob,Album1,2024,-,-,-,-,-,-,-,-,-,-,Extra separator,\n',
+            '6,Bob,(Album1,2024,-,-,-,-,-,-,-,-,-,-,Extra separator + Mismatched parentheses,\n'
         ]
 
         self.mismatched_parentheses_expected = [
-            'Bob,(Album1,2024,Mismatched parentheses\n',
-            'Bob,(Album1,2024,Extra separator + Mismatched parentheses,\n'
+            '5,Bob,(Album1,2024,-,-,-,-,-,-,-,-,-,-,Mismatched parentheses\n',
+            '6,Bob,(Album1,2024,-,-,-,-,-,-,-,-,-,-,Extra separator + Mismatched parentheses,\n'
         ]
 
-        self.mismatched_square_brackets_expected = ['Bob,[Album1,2024,Mismatched square brackets\n']
-
-        self.real = [
-            'Diox,The Beat Pack [Ballistic Series],2011,-',
-            'VV.AA.,PB Records - Innovate (Stop Hating),2009,-'
-        ]
+        self.mismatched_square_brackets_expected = ['7,Bob,[Album1,2024,-,-,-,-,-,-,-,-,-,-,Mismatched square brackets\n']
 
     def test_get_issues(self):
         extra_separators, mismatched_parentheses, mismatched_square_brackets = _get_issues(self.lines)
