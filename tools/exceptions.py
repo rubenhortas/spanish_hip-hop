@@ -1,5 +1,7 @@
 # Words that will be *not* capitalized
 EXCEPTIONS = {
+	'(madrid)': '(Madrid)',
+	'(malaga)': '(Málaga)',
 	'(nh)': '(NH)',
 	'14kt': '14KT',
 	'1st': '1st',
