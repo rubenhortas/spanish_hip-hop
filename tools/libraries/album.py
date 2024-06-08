@@ -4,12 +4,16 @@ from tools.libraries.config import CSV_SEPARATOR, SEPARATOR_NUMBER
 from tools.libraries.string_utils import replace_exceptions, replace_volumes
 
 
+def _has_correct_number_separators(line: str) -> bool:
+    return Counter(line)[CSV_SEPARATOR] == SEPARATOR_NUMBER
+
+
 class Album:
     FORMATS = ['Single', 'EP', 'LP', 'Doble LP', 'Mixtape']
     _ARTIST_SEPARATORS = [' – ', ' & ', ' Y ', ' X ', ' + ', ' Vs ', ' Vs. ', '-N-', '(', ')']
 
     def __init__(self, line: str):
-        if self._has_correct_number_separators(line):
+        if _has_correct_number_separators(line):
             fields = line.split(CSV_SEPARATOR)
 
             self.id = fields[0]  # referencia
@@ -110,9 +114,6 @@ class Album:
             artists = artists.replace(separator, '@')
 
         return artists.split('@')
-
-    def _has_correct_number_separators(self, line: str) -> bool:
-        return Counter(line)[CSV_SEPARATOR] == SEPARATOR_NUMBER
 
     def _has_preserver(self) -> bool:
         return self.preserver != '' and self.preserver != '-'
