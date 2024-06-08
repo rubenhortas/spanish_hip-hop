@@ -3,7 +3,7 @@
 import signal
 
 from tools.libraries.album import Album
-from tools.libraries.config import CSV_FILE, CSV_HEADER, CSV_SEPARATOR
+from tools.libraries.config import CSV_FILE, CSV_HEADER
 from tools.libraries.file_helpers import write_file, read_file
 from tools.libraries.format_helpers import has_correct_number_separators
 from tools.libraries.os_helpers import handle_sigint, clear_screen
@@ -27,8 +27,7 @@ def _get_formatted_lines(line: list) -> (list, list):
         print(f"\r{current_line}/{len_lines}", end='')
 
         if has_correct_number_separators(line):
-            line_ = line.split(CSV_SEPARATOR)
-            album = Album(line_[0], line_[1], line_[2], line_[3])  # artist, title, date, format
+            album = Album(line)  # artist, title, date, format
 
             for artist in album.get_artists():
                 if artist:
