@@ -1,4 +1,6 @@
-from tools.libraries.config import CSV_SEPARATOR
+from collections import Counter
+
+from tools.libraries.config import CSV_SEPARATOR, SEPARATOR_NUMBER
 from tools.libraries.string_utils import replace_exceptions, replace_volumes
 
 
@@ -7,26 +9,29 @@ class Album:
     _ARTIST_SEPARATORS = [' – ', ' & ', ' Y ', ' X ', ' + ', ' Vs ', ' Vs. ', '-N-', '(', ')']
 
     def __init__(self, line: str):
-        fields = line.split(CSV_SEPARATOR)
+        if self._has_correct_number_separators(line):
+            fields = line.split(CSV_SEPARATOR)
 
-        self.id = fields[0]  # referencia
-        self.artist = fields[1].strip()  # artista
-        self.title = fields[2].strip()  # trabajo
-        self.publication_date = fields[3]  # fecha publicación
-        self.format = fields[4].capitalize()  # tipo
-        self.medium = fields[5].upper()  # medio
-        self.preserved_in_digital = fields[6].title()  # preservado en digital
-        self.digital_format = fields[7].upper()  # formato digital
-        self.bit_rate = fields[8]  # bit rate
-        self.preserver = fields[9]  # preservado por
-        self.preservation_date = fields[10]  # fecha preservado
-        self.modification_date = fields[11]  # fecha modidifcado
-        self.source = fields[12]  # fuente
-        self.seen_online = fields[13].title()  # visto online
-        self.notes = fields[14]  # notas
+            self.id = fields[0]  # referencia
+            self.artist = fields[1].strip()  # artista
+            self.title = fields[2].strip()  # trabajo
+            self.publication_date = fields[3]  # fecha publicación
+            self.format = fields[4].capitalize()  # tipo
+            self.medium = fields[5].upper()  # medio
+            self.preserved_in_digital = fields[6].title()  # preservado en digital
+            self.digital_format = fields[7].upper()  # formato digital
+            self.bit_rate = fields[8]  # bit rate
+            self.preserver = fields[9]  # preservado por
+            self.preservation_date = fields[10]  # fecha preservado
+            self.modification_date = fields[11]  # fecha modidifcado
+            self.source = fields[12]  # fuente
+            self.seen_online = fields[13].title()  # visto online
+            self.notes = fields[14]  # notas
 
-        if not self._has_preserver():
-            self._format()
+            if not self._has_preserver():
+                self._format()
+        else:
+            raise ExtraSeparatorsException
 
     def __str__(self):
         return (f"{self.id}{CSV_SEPARATOR}"
@@ -106,6 +111,9 @@ class Album:
 
         return artists.split('@')
 
+    def _has_correct_number_separators(self, line: str) -> bool:
+        return Counter(line)[CSV_SEPARATOR] == SEPARATOR_NUMBER
+
     def _has_preserver(self) -> bool:
         return self.preserver != '' and self.preserver != '-'
 
@@ -135,3 +143,7 @@ class Album:
         self.title = self.title.strip().capitalize()
         self.title = replace_exceptions(self.title)
         self.title = replace_volumes(self.title)
+
+
+class ExtraSeparatorsException(Exception):
+    pass

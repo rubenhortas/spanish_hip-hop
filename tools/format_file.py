@@ -2,14 +2,13 @@
 
 import signal
 
-from tools.libraries.album import Album
+from tools.libraries.album import Album, ExtraSeparatorsException
 from tools.libraries.config import CSV_FILE, CSV_HEADER
 from tools.libraries.file_helpers import write_file, read_file
-from tools.libraries.format_helpers import has_correct_number_separators
 from tools.libraries.os_helpers import handle_sigint, clear_screen
 
 _OUTPUT_FILE = f"{CSV_FILE[:-4]} - formateado.csv"
-_ERROR_FILE = f"errores {CSV_FILE}.txt"
+_ERROR_FILE = f"errores - {CSV_FILE}.txt"
 
 
 def _get_formatted_lines(line: list) -> (list, list):
@@ -26,7 +25,7 @@ def _get_formatted_lines(line: list) -> (list, list):
         current_line += 1
         print(f"\r{current_line}/{len_lines}", end='')
 
-        if has_correct_number_separators(line):
+        try:
             album = Album(line)  # artist, title, date, format
 
             for artist in album.get_artists():
@@ -34,7 +33,7 @@ def _get_formatted_lines(line: list) -> (list, list):
                     artists.add(artist)
 
             albums.append(album)
-        else:
+        except ExtraSeparatorsException:
             errors.append(line)
 
     print()
