@@ -1,11 +1,9 @@
-from collections import Counter
-
-from tools.libraries.config import CSV_SEPARATOR, SEPARATOR_NUMBER
-from tools.libraries.string_utils import replace_exceptions, replace_volumes
+from tools.libraries.config import CSV_SEPARATOR
+from tools.libraries.string_utils import has_correct_number_separators, replace_exceptions, fix_volumes, fix_mismatched_square_brackets, fix_mismatched_parentheses
 
 
-def _has_correct_number_separators(line: str) -> bool:
-    return Counter(line)[CSV_SEPARATOR] == SEPARATOR_NUMBER
+class ExtraSeparatorsException(Exception):
+    pass
 
 
 class Album:
@@ -13,7 +11,7 @@ class Album:
     _ARTIST_SEPARATORS = [' – ', ' & ', ' Y ', ' X ', ' + ', ' Vs ', ' Vs. ', '-N-', '(', ')']
 
     def __init__(self, line: str):
-        if _has_correct_number_separators(line):
+        if has_correct_number_separators(line):
             fields = line.split(CSV_SEPARATOR)
 
             self.id = fields[0]  # referencia
@@ -33,7 +31,7 @@ class Album:
             self.notes = fields[14]  # notas
 
             if not self._has_preserver():
-                self._format()
+                self._format_fields()
         else:
             raise ExtraSeparatorsException
 
@@ -107,8 +105,6 @@ class Album:
 
     def get_artists(self) -> list:
         artists = self.artist
-        artists = artists.replace('(', '@')
-        artists = artists.replace(')', '@')
 
         for separator in self._ARTIST_SEPARATORS:
             artists = artists.replace(separator, '@')
@@ -118,7 +114,7 @@ class Album:
     def _has_preserver(self) -> bool:
         return self.preserver != '' and self.preserver != '-'
 
-    def _format(self):
+    def _format_fields(self):
         self.id = self.id.strip()  # referencia
         self._format_artist()  # artista
         self._format_title()  # trabajo
@@ -137,14 +133,15 @@ class Album:
 
     def _format_artist(self) -> None:
         self.artist = self.artist.strip().title()
-        self.artist = replace_exceptions(self.artist)
-        self.artist = replace_volumes(self.artist)
+        self.artist = self._fix(self.artist)
 
     def _format_title(self) -> None:
         self.title = self.title.strip().capitalize()
-        self.title = replace_exceptions(self.title)
-        self.title = replace_volumes(self.title)
+        self.title = self._fix(self.title)
 
-
-class ExtraSeparatorsException(Exception):
-    pass
+    def _fix(self, string: str) -> str:
+        string_ = replace_exceptions(string)
+        string_ = fix_volumes(string_)
+        string_ = fix_mismatched_square_brackets(string_)
+        string_ = fix_mismatched_parentheses(string_)
+        return string_

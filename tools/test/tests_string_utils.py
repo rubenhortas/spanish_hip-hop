@@ -1,6 +1,6 @@
 import unittest
 
-from tools.libraries.string_utils import replace_volumes
+from tools.libraries.string_utils import fix_volumes
 
 
 class TestStringUtils(unittest.TestCase):
@@ -27,4 +27,4 @@ class TestStringUtils(unittest.TestCase):
 
     def test_replace_volumes(self):
         for string, expected_result in self.positives:
-            self.assertEqual(expected_result, replace_volumes(string))
+            self.assertEqual(expected_result, fix_volumes(string))
