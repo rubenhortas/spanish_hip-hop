@@ -1,7 +1,6 @@
 import unittest
 
 from tools.format_file import Album
-from tools.libraries.config import CSV_SEPARATOR
 
 
 class TestAlbum(unittest.TestCase):
