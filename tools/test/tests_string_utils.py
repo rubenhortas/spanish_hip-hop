@@ -23,6 +23,7 @@ class TestStringUtils(unittest.TestCase):
             ('vol.v', 'Vol. V'),
             ('vol.ix', 'Vol. IX'),
             ('vol.xxi', 'Vol. XXI'),
+            # TODO: Skip 'Voltage', 'Revolucionario', etc
         ]
 
         self.mismatched_parentheses = [
