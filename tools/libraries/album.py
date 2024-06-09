@@ -119,7 +119,7 @@ class Album:
         self._format_artist()  # artista
         self._format_title()  # trabajo
         self.publication_date = self.publication_date.strip()  # fecha publicación
-        self.format = self.format.strip().capitalize()  # tipo
+        self.format = self.format.strip().upper()  # tipo
         self.medium = self.medium.strip().upper()  # medio
         self.preserved_in_digital = self.preserved_in_digital.strip().title()  # preservado en digital
         self.digital_format = self.digital_format.strip().upper()  # formato digital
