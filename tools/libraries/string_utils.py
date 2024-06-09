@@ -6,8 +6,8 @@ from tools.exceptions import EXCEPTIONS
 from tools.libraries.config import CSV_SEPARATOR, SEPARATOR_NUMBER
 
 _VOLUME_RE = re.compile(r'((?P<label>(vol)(\?|(ume)n?)?([. ]{0,2})\??)(?P<num>\w*(\.?\d*)?))', re.IGNORECASE)
-_PARENTHESES_REGEX = re.compile(r'(?P<text>(\(.*\))|(\([\w .-?]+)|[\w .-?]+\))')
-_SQUARE_BRACKETS_REGEX = re.compile(r'(?P<text>(\[.*])|(\[[\w .-?]+)|[\w .-?]+])')
+_PARENTHESES_REGEX = re.compile(r'(?P<text>(\(.*\))|(\([\w .-?]+)|[\w.-?]+\))')
+_SQUARE_BRACKETS_REGEX = re.compile(r'(?P<text>(\[.*])|(\[[\w .-?]+)|[\w.-?]+])')
 
 
 def _fix_mismatched(string: str, left_char: str, right_char: str, regex: Pattern[str]) -> str:
