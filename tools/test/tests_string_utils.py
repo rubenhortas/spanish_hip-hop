@@ -28,17 +28,17 @@ class TestStringUtils(unittest.TestCase):
         ]
 
         self.mismatched_parentheses = [
-            ('1,Bob,Album (instrumentals,-,-,-,-,-,,-,,,-,-,-', '1,Bob,Album (instrumentals),-,-,-,-,-,,-,,,-,-,-'),
-            ('2,Bob,Album instrumentals),-,-,-,-,-,,-,,,-,-,-', '2,Bob,Album (instrumentals),-,-,-,-,-,,-,,,-,-,-'),
-            ('3,Bob,Album (instrumentals),-,-,-,-,-,,-,,,-,-,-', '3,Bob,Album (instrumentals),-,-,-,-,-,,-,,,-,-,-'),
-            ('4,Bob,Album (instrumentals,-),-,-,-,-,,-,,,-,-,-', '4,Bob,Album (instrumentals,-),-,-,-,-,,-,,,-,-,-')
+            ('1,Bob,Album (instrumentals,,,,,,,,,,,,', '1,Bob,Album (instrumentals),,,,,,,,,,,,'),
+            ('2,Bob,Album instrumentals),,,,,,,,,,,,', '2,Bob,Album (instrumentals),,,,,,,,,,,,'),
+            ('3,Bob,Album (instrumentals),,,,,,,,,,,,', '3,Bob,Album (instrumentals),,,,,,,,,,,,'),
+            ('4,Bob,Album (instrumentals,),,,,,,,,,,,', '4,Bob,Album (instrumentals,),,,,,,,,,,,')
         ]
 
         self.mismatched_square_brackets = [
-            ('1,Bob,Album [instrumentals,-,-,-,-,-,,-,,,-,-,-', '1,Bob,Album [instrumentals],-,-,-,-,-,,-,,,-,-,-'),
-            ('2,Bob,Album instrumentals],-,-,-,-,-,,-,,,-,-,-', '2,Bob,Album [instrumentals],-,-,-,-,-,,-,,,-,-,-'),
-            ('3,Bob,Album [instrumentals],-,-,-,-,-,,-,,,-,-,-', '3,Bob,Album [instrumentals],-,-,-,-,-,,-,,,-,-,-'),
-            ('4,Bob,Album [instrumentals,-],-,-,-,-,,-,,,-,-,-', '4,Bob,Album [instrumentals,-],-,-,-,-,,-,,,-,-,-')
+            ('1,Bob,Album [instrumentals,,,,,,,,,,,,', '1,Bob,Album [instrumentals],,,,,,,,,,,,'),
+            ('2,Bob,Album instrumentals],,,,,,,,,,,,', '2,Bob,Album [instrumentals],,,,,,,,,,,,'),
+            ('3,Bob,Album [instrumentals],,,,,,,,,,,,', '3,Bob,Album [instrumentals],,,,,,,,,,,,'),
+            ('4,Bob,Album [instrumentals,],,,,,,,,,,,', '4,Bob,Album [instrumentals,],,,,,,,,,,,')
         ]
 
     def test_fix_volumes(self):

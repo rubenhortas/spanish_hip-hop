@@ -113,7 +113,7 @@ class Album:
         return artists.split('@')
 
     def _has_preserver(self) -> bool:
-        return self.preserver != '' and self.preserver != '-'
+        return self.preserver != ''
 
     def _get_value(self, string: str) -> str:
         if string and string != '-':
@@ -143,5 +143,5 @@ class Album:
         string_ = fix_mismatched_parentheses(string_)
         string_ = fix_volumes(string_)
         string_ = replace_exceptions(string_)
-        
+
         return string_
