@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 import os
 import signal
 
@@ -16,7 +17,7 @@ def _get_artists_from_file() -> list:
 
     for line in lines:
         line_ = line.split(CSV_SEPARATOR)
-        artists_.add(line_[1].strip())
+        artists_.add(line_[1].strip().replace('"', ''))
 
     artists = [f"{artist}" for artist in artists_]
 
@@ -25,22 +26,25 @@ def _get_artists_from_file() -> list:
 
 def _create_dict(artists: list) -> list:
     artists_ = []
+    keys = set()
 
     for artist in artists:
         key = artist.lower().replace("'", "\\'")
 
-        if key in EXCEPTIONS:
-            value = EXCEPTIONS[key]
-        else:
-            value = artist.replace("'", "\\'")
+        if key not in keys:
+            if key in EXCEPTIONS:
+                value = EXCEPTIONS[key]
+            else:
+                value = artist.replace("'", "\\'")
 
-        artists_.append(f"\t'{key.lower()}':'{value}',\n")
+            keys.add(key)
+            artists_.append(f"\t'{key.lower()}': '{value}',\n")
 
-    return artists_
+    return sorted(artists_)
 
 
 def _write_output_file(keys):
-    artists_dictionary = ['ARTISTS = {\n']
+    artists_dictionary = ['# Artist names and translations\n', 'ARTISTS = {\n']
     artists_dictionary.extend(keys)
     artists_dictionary.append('}\n')
     write_file(_OUTPUT_FILE, artists_dictionary)
