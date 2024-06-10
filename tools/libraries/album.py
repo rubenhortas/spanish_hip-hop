@@ -1,5 +1,6 @@
 from tools.libraries.config import CSV_SEPARATOR
-from tools.libraries.string_utils import has_correct_number_separators, replace_exceptions, fix_volumes, fix_mismatched_square_brackets, fix_mismatched_parentheses
+from tools.libraries.string_utils import has_correct_number_separators, replace_exceptions, fix_volumes, \
+    fix_mismatched_square_brackets, fix_mismatched_parentheses
 
 
 class ExtraSeparatorsException(Exception):
@@ -14,24 +15,24 @@ class Album:
         if has_correct_number_separators(line):
             fields = line.split(CSV_SEPARATOR)
 
-            self.id = fields[0]  # referencia
-            self.artist = fields[1].strip()  # artista
-            self.title = fields[2].strip()  # trabajo
-            self.publication_date = fields[3]  # fecha publicación
-            self.format = fields[4].capitalize()  # tipo
-            self.medium = fields[5].upper()  # medio
-            self.preserved_in_digital = fields[6].title()  # preservado en digital
-            self.digital_format = fields[7].upper()  # formato digital
-            self.bit_rate = fields[8]  # bit rate
-            self.preserver = fields[9]  # preservado por
-            self.preservation_date = fields[10]  # fecha preservado
-            self.modification_date = fields[11]  # fecha modidifcado
-            self.source = fields[12]  # fuente
-            self.seen_online = fields[13].title()  # visto online
-            self.notes = fields[14]  # notas
+            self.id = self._get_value(fields[0])  # referencia
+            self.artist = self._get_value(fields[1])  # artista
+            self.title = self._get_value(fields[2])  # trabajo
+            self.publication_date = self._get_value(fields[3])  # fecha publicación
+            self.format = self._get_value(fields[4])  # tipo
+            self.medium = self._get_value(fields[5])  # medio
+            self.preserved_in_digital = self._get_value(fields[6])  # preservado en digital
+            self.digital_format = self._get_value(fields[7])  # formato digital
+            self.bit_rate = self._get_value(fields[8])  # bit rate
+            self.preserver = self._get_value(fields[9])  # preservado por
+            self.preservation_date = self._get_value(fields[10])  # fecha preservado
+            self.modification_date = self._get_value(fields[11])  # fecha modidifcado
+            self.source = self._get_value(fields[12])  # fuente
+            self.seen_online = self._get_value(fields[13])  # visto online
+            self.notes = self._get_value(fields[14])  # notas
 
             if not self._has_preserver():
-                self._format_fields()
+                self._fix_fields()
         else:
             raise ExtraSeparatorsException
 
@@ -114,34 +115,33 @@ class Album:
     def _has_preserver(self) -> bool:
         return self.preserver != '' and self.preserver != '-'
 
-    def _format_fields(self):
-        self.id = self.id.strip()  # referencia
+    def _get_value(self, string: str) -> str:
+        if string and string != '-':
+            return string.strip()
+
+        return ''
+
+    def _fix_fields(self):
         self._format_artist()  # artista
         self._format_title()  # trabajo
-        self.publication_date = self.publication_date.strip()  # fecha publicación
-        self.format = self.format.strip().upper()  # tipo
-        self.medium = self.medium.strip().upper()  # medio
-        self.preserved_in_digital = self.preserved_in_digital.strip().title()  # preservado en digital
-        self.digital_format = self.digital_format.strip().upper()  # formato digital
-        self.bit_rate = self.bit_rate.strip()  # bit rate
-        self.preserver = self.preserver.strip()  # preservado por
-        self.preservation_date = self.preservation_date.strip()  # fecha preservado
-        self.modification_date = self.modification_date.strip()  # fecha modidifcado
-        self.source = self.source.strip()  # fuente
-        self.seen_online = self.seen_online.strip().title()  # visto online
-        self.notes = self.notes.strip()  # notas
+        self.format = self.format.upper()  # tipo
+        self.medium = self.medium.upper()  # medio
+        self.preserved_in_digital = self.preserved_in_digital.title()  # preservado en digital
+        self.digital_format = self.digital_format.upper()  # formato digital
+        self.seen_online = self.seen_online.title()  # visto online
 
     def _format_artist(self) -> None:
-        self.artist = self.artist.strip().title()
+        self.artist = self.artist.title()
         self.artist = self._fix(self.artist)
 
     def _format_title(self) -> None:
-        self.title = self.title.strip().capitalize()
+        self.title = self.title.capitalize()
         self.title = self._fix(self.title)
 
     def _fix(self, string: str) -> str:
-        string_ = replace_exceptions(string)
-        string_ = fix_volumes(string_)
-        string_ = fix_mismatched_square_brackets(string_)
+        string_ = fix_mismatched_square_brackets(string)
         string_ = fix_mismatched_parentheses(string_)
+        string_ = fix_volumes(string_)
+        string_ = replace_exceptions(string_)
+        
         return string_
