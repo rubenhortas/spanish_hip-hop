@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 import signal
 
 from tools.exceptions import EXCEPTIONS
