@@ -1,6 +1,6 @@
 import unittest
 
-from tools.generate_exceptions_dictionary import _get_exceptions
+from tools.dev.generate_exceptions_dictionary import _get_exceptions
 
 
 class TestGenerateExceptionsDictionary(unittest.TestCase):
