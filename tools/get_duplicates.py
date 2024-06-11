@@ -43,7 +43,6 @@ def _get_duplicates(lines: list) -> (list, list):
 
 def _normalize(line: str) -> str:
     album = Album(line)
-
     result = f"{album.artist}{album.title}".lower().replace(' ', '')
 
     for symbol in string.punctuation:
