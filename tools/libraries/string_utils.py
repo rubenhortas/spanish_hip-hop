@@ -18,8 +18,8 @@ def _fix_mismatched(string: str, left_char: str, right_char: str, regex: Pattern
         text_counter = Counter(match_text)
 
         if text_counter[left_char] != text_counter[right_char]:
-            stript_text = match_text.replace(left_char, '').replace(right_char, '')
-            return string.replace(match_text, f"{left_char}{stript_text}{right_char}")
+            text = match_text.replace(left_char, '').replace(right_char, '')
+            return string.replace(match_text, f"{left_char}{text}{right_char}")
 
     return string
 
@@ -49,7 +49,6 @@ def fix_volumes(string: str) -> str:
             new_label = 'Vol.'
 
         new_num = match.group('num').upper()
-
         result = string.replace(match_, f"{new_label} {new_num}")
 
         return result
