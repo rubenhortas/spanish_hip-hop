@@ -6,13 +6,13 @@ from tools.libraries.config import CSV_SEPARATOR, CSV_FILE, SEPARATOR_NUMBER
 from tools.libraries.file_helpers import read_file, write_file
 from tools.libraries.os_helpers import handle_sigint, clear_screen
 
-_EXTRA_SEPARATORS_FILE = 'errores - separadores extra.txt'
+_INCORRECT_SEPARATORS = 'errores - separadores incorrectos.txt'
 _MISMATCHED_PARENTHESES_FILE = 'errores - parentesis.txt'
 _MISMATCHED_SQUARE_BRACKETS_FILE = 'errores - corchetes.txt'
 
 
 def _get_issues(lines) -> (list, list, list):
-    bad_formatted = []
+    incorrect_separators = []
     mismatched_parentheses = []
     mismatched_square_brackets = []
 
@@ -20,7 +20,7 @@ def _get_issues(lines) -> (list, list, list):
         line_counter = Counter(line)
 
         if not _has_correct_number_separators(line_counter):
-            bad_formatted.append(line)
+            incorrect_separators.append(line)
 
         if _has_mismatched_symbols(line, line_counter, '(', ')'):
             mismatched_parentheses.append(line)
@@ -28,7 +28,7 @@ def _get_issues(lines) -> (list, list, list):
         if _has_mismatched_symbols(line, line_counter, '[', ']'):
             mismatched_square_brackets.append(line)
 
-    return bad_formatted, mismatched_parentheses, mismatched_square_brackets
+    return incorrect_separators, mismatched_parentheses, mismatched_square_brackets
 
 
 def _has_correct_number_separators(line_counter: Counter):
@@ -60,11 +60,11 @@ if __name__ == '__main__':
     print(f"Finding lines with issues in {CSV_FILE}...")
 
     lines = read_file(CSV_FILE)[1:]
-    extra_separators, mismatched_parentheses, mismatched_square_brackets = _get_issues(lines)
+    incorrect_separators, mismatched_parentheses, mismatched_square_brackets = _get_issues(lines)
 
-    if extra_separators or mismatched_parentheses or mismatched_square_brackets:
-        if extra_separators:
-            write_file(_EXTRA_SEPARATORS_FILE, extra_separators)
+    if incorrect_separators or mismatched_parentheses or mismatched_square_brackets:
+        if incorrect_separators:
+            write_file(_INCORRECT_SEPARATORS, incorrect_separators)
 
         if mismatched_parentheses:
             write_file(_MISMATCHED_PARENTHESES_FILE, mismatched_parentheses)
