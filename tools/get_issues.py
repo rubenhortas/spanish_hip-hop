@@ -3,8 +3,8 @@ import signal
 from collections import Counter
 
 from tools.libraries.config import CSV_SEPARATOR, CSV_FILE, SEPARATOR_NUMBER
-from tools.libraries.file_helpers import read_file, write_file
-from tools.libraries.os_helpers import handle_sigint, clear_screen
+from tools.helpers.file_helpers import read_file, write_file
+from tools.helpers.os_helpers import handle_sigint, clear_screen
 
 _INCORRECT_SEPARATORS = 'errores - separadores incorrectos.txt'
 _MISMATCHED_PARENTHESES_FILE = 'errores - parentesis.txt'

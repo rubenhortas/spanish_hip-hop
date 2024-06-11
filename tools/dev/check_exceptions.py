@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 from tools.libraries.exceptions import EXCEPTIONS
 from tools.libraries.config import CSV_FILE, CSV_SEPARATOR, CsvPosition
-from tools.libraries.file_helpers import read_file, write_file
-from tools.libraries.string_utils import replace_exceptions
+from tools.helpers.file_helpers import read_file, write_file
+from tools.utils.string_utils import replace_exceptions
 
 _LINES_WITH_EXCEPTIONS_FILE = 'excepciones - lineas con excepciones.txt'
 _LINES_WITHOUT_EXCEPTIONS_FILE = 'excepciones - lineas sin excepciones.txt'

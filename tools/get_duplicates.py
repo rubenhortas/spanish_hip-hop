@@ -5,8 +5,8 @@ import string
 
 from tools.libraries.album import Album
 from tools.libraries.config import CSV_FILE
-from tools.libraries.file_helpers import read_file, write_file
-from tools.libraries.os_helpers import handle_sigint, clear_screen
+from tools.helpers.file_helpers import read_file, write_file
+from tools.helpers.os_helpers import handle_sigint, clear_screen
 
 _OUTPUT_FILE = f"{CSV_FILE[:-4]} - duplicados.txt"
 _MATCH_THRESHOLD = 0.9  # Seems a reasonable threshold

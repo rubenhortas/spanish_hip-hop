@@ -3,8 +3,8 @@ import signal
 
 from tools.libraries.album import Album, ExtraSeparatorsException
 from tools.libraries.config import CSV_FILE, CSV_HEADER
-from tools.libraries.file_helpers import write_file, read_file
-from tools.libraries.os_helpers import handle_sigint, clear_screen
+from tools.helpers.file_helpers import write_file, read_file
+from tools.helpers.os_helpers import handle_sigint, clear_screen
 
 _OUTPUT_FILE = f"{CSV_FILE[:-4]} - formateado.csv"
 _ERROR_FILE = f"{CSV_FILE[:-4]} - errores.csv"

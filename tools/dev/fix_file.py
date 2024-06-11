@@ -4,8 +4,8 @@ import signal
 from collections import Counter
 
 from tools.libraries.config import CSV_FILE, CSV_SEPARATOR, SEPARATOR_NUMBER, CsvPosition
-from tools.libraries.file_helpers import read_file, write_file
-from tools.libraries.os_helpers import handle_sigint, clear_screen
+from tools.helpers.file_helpers import read_file, write_file
+from tools.helpers.os_helpers import handle_sigint, clear_screen
 
 _INPUT_FILE = os.path.join(os.path.abspath('..'), CSV_FILE)
 _OUTPUT_FILE = os.path.join(os.path.abspath('..'), f"{CSV_FILE[:-4]} - arreglado.csv")

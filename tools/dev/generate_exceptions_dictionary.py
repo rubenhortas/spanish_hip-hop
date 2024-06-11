@@ -2,8 +2,8 @@
 import signal
 
 from tools.libraries.exceptions import EXCEPTIONS
-from tools.libraries.file_helpers import write_file
-from tools.libraries.os_helpers import handle_sigint
+from tools.helpers.file_helpers import write_file
+from tools.helpers.os_helpers import handle_sigint
 
 _OUTPUT_FILE = '../libraries/exceptions.py'
 

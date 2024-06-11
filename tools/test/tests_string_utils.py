@@ -1,6 +1,6 @@
 import unittest
 
-from tools.libraries.string_utils import fix_volumes, fix_mismatched_parentheses, fix_mismatched_square_brackets
+from tools.utils.string_utils import fix_volumes, fix_mismatched_parentheses, fix_mismatched_square_brackets
 
 
 class TestStringUtils(unittest.TestCase):

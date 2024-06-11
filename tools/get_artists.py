@@ -3,10 +3,10 @@ import os
 import signal
 
 from tools.libraries.config import CSV_SEPARATOR, CSV_FILE, CsvPosition
-from tools.libraries.dictionary_helpers import create_dictionary
-from tools.libraries.file_helpers import read_file, backup, write_file
-from tools.libraries.list_helpers import create_list
-from tools.libraries.os_helpers import handle_sigint
+from tools.helpers.dictionary_helpers import create_dictionary
+from tools.helpers.file_helpers import read_file, backup, write_file
+from tools.helpers.list_helpers import create_list
+from tools.helpers.os_helpers import handle_sigint
 
 _INPUT_FILE = os.path.join(os.path.abspath(''), CSV_FILE)
 _OUTPUT_FILE = f"{os.path.join(os.path.abspath(''), 'libraries', 'artists.py')}"
