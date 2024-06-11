@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 import signal
 from collections import Counter
 

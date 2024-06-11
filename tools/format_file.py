@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 import signal
 
 from tools.libraries.album import Album, ExtraSeparatorsException

@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 from tools.exceptions import EXCEPTIONS
 from tools.libraries.config import CSV_FILE, CSV_SEPARATOR, CsvPosition
 from tools.libraries.file_helpers import read_file, write_file
