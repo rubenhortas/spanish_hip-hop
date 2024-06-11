@@ -87,7 +87,11 @@ if __name__ == '__main__':
 
     lines = read_file(CSV_FILE)[1:]
     formatted_lines, errors = _get_formatted_lines(lines)
-    _write_output_file(formatted_lines)
-    _write_error_file(errors)
+
+    if formatted_lines:
+        _write_output_file(formatted_lines)
+
+    if errors:
+        _write_error_file(errors)
 
     print('Done')
