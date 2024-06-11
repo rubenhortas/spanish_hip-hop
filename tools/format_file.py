@@ -69,15 +69,17 @@ def _replace_artists_in_titles(albums: list, artists: list) -> None:
 
 
 def _write_output_file(albums: list) -> None:
-    result = [f"{CSV_HEADER}\n"]
-    result.extend([f"{str(album)}\n" for album in albums])
-    write_file(_OUTPUT_FILE, result)
+    if albums:
+        result = [f"{CSV_HEADER}\n"]
+        result.extend([f"{str(album)}\n" for album in albums])
+        write_file(_OUTPUT_FILE, result)
 
 
 def _write_error_file(errors: list) -> None:
-    result = ['Bad formatted lines (extra separators)\n\n']
-    result.extend([f"{error}\n" for error in errors])
-    write_file(_ERROR_FILE, result)
+    if errors:
+        result = ['Bad formatted lines (extra separators)\n\n']
+        result.extend([f"{error}\n" for error in errors])
+        write_file(_ERROR_FILE, result)
 
 
 if __name__ == '__main__':
@@ -88,10 +90,7 @@ if __name__ == '__main__':
     lines = read_file(CSV_FILE)[1:]
     formatted_lines, errors = _get_formatted_lines(lines)
 
-    if formatted_lines:
-        _write_output_file(formatted_lines)
-
-    if errors:
-        _write_error_file(errors)
+    _write_output_file(formatted_lines)
+    _write_error_file(errors)
 
     print('Done')

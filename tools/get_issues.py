@@ -63,15 +63,9 @@ if __name__ == '__main__':
     incorrect_separators, mismatched_parentheses, mismatched_square_brackets = _get_issues(lines)
 
     if incorrect_separators or mismatched_parentheses or mismatched_square_brackets:
-        if incorrect_separators:
-            write_file(_INCORRECT_SEPARATORS, incorrect_separators)
-
-        if mismatched_parentheses:
-            write_file(_MISMATCHED_PARENTHESES_FILE, mismatched_parentheses)
-
-        if mismatched_square_brackets:
-            write_file(_MISMATCHED_SQUARE_BRACKETS_FILE, mismatched_square_brackets)
-
+        write_file(_INCORRECT_SEPARATORS, incorrect_separators)
+        write_file(_MISMATCHED_PARENTHESES_FILE, mismatched_parentheses)
+        write_file(_MISMATCHED_SQUARE_BRACKETS_FILE, mismatched_square_brackets)
         print('Done')
     else:
         print('No issues found.')

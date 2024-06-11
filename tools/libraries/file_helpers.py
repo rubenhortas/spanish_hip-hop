@@ -15,8 +15,9 @@ def read_file(file: str) -> list:
 
 def write_file(file: str, lines: list) -> None:
     try:
-        with open(file, 'w') as f:
-            f.writelines(lines)
+        if lines:
+            with open(file, 'w') as f:
+                f.writelines(lines)
     except FileNotFoundError as file_not_found_error:
         print(f"'{file_not_found_error.filename}' no such file or directory")
         exit(-1)

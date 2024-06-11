@@ -23,11 +23,12 @@ def _get_exceptions(dictionary: dict) -> list:
     return sorted(list(new_exceptions))
 
 
-def _write_output_file(keys):
-    exceptions = ['# Words that will be *not* capitalized\n', 'EXCEPTIONS = {\n']
-    exceptions.extend(keys)
-    exceptions.append('}\n')
-    write_file(_OUTPUT_FILE, exceptions)
+def _write_output_file(keys: list) -> None:
+    if keys:
+        exceptions = ['# Words that will be *not* capitalized\n', 'EXCEPTIONS = {\n']
+        exceptions.extend(keys)
+        exceptions.append('}\n')
+        write_file(_OUTPUT_FILE, exceptions)
 
 
 if __name__ == '__main__':

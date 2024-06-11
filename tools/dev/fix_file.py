@@ -59,12 +59,11 @@ if __name__ == '__main__':
 
     lines = read_file(os.path.join(os.path.abspath('..'), CSV_FILE))
     header = lines[0].replace('"', '')
+
     fixed_lines, errors = _fix(lines[1:])
-
     fixed_lines.insert(0, header)
-    write_file(os.path.join(os.path.abspath(''), _OUTPUT_FILE), fixed_lines)
 
-    if errors:
-        write_file(os.path.join(os.path.abspath(''), _ERROR_FILE), errors)
+    write_file(os.path.join(os.path.abspath(''), _OUTPUT_FILE), fixed_lines)
+    write_file(os.path.join(os.path.abspath(''), _ERROR_FILE), errors)
 
     print('Done')
