@@ -8,18 +8,15 @@ from tools.libraries.file_helpers import read_file, write_file
 from tools.libraries.os_helpers import handle_sigint, clear_screen
 
 _INPUT_FILE = os.path.join(os.path.abspath('..'), CSV_FILE)
-_OUTPUT_FILE = f"{CSV_FILE[:-4]} - arreglado.csv"
-_ERROR_FILE = f"{CSV_FILE[:-4]} - errores.csv"
+_OUTPUT_FILE = os.path.join(os.path.abspath('..'), f"{CSV_FILE[:-4]} - arreglado.csv")
+_ERROR_FILE = os.path.join(os.path.abspath('..'), f"{CSV_FILE[:-4]} - errores.csv")
 
-_FOREIGN_ARTISTS = ['Ace Hood', 'Aqeel', 'Aqueel', 'Asap Mob', 'G Jazz', 'Gavlyn', 'Gee Falcone', 'Jim Jones',
-                    'Kafu Banton', 'Kev Brown',
-                    'Kidz In The Hall', 'Random Axe', 'Red Pill', 'Rick Ross', 'Schoolboy Q', 'Sean Combs',
-                    'Snak The Ripper', 'Stan Forebee',
-                    'Stat Quo', 'Statik Selektah', 'Step Brothers', 'Strange Fruit Project', 'Street Bucks',
-                    'String Theory',
-                    'Strong Arm Steady', 'TNGHT', 'Tenacity', 'Terrace Martin', 'Tragedy Khadafi', 'Vinnie Paz',
-                    'Wadada Sound System', 'Wale',
-                    'Wiz Khalifa', 'Young Jeezy']
+_FOREIGN_ARTISTS = ['Ace Hood', 'Ali G indahouse', 'Aqeel', 'Aqueel', 'Asap Mob', 'G Jazz', 'Gavlyn', 'Gee Falcone',
+                    'Jim Jones', 'Kafu Banton', 'Kev Brown', 'Kidz In The Hall', 'Random Axe', 'Red Pill', 'Rick Ross',
+                    'Schoolboy Q', 'Sean Combs', 'Snak The Ripper', 'Stan Forebee', 'Stat Quo', 'Statik Selektah',
+                    'Step Brothers', 'Strange Fruit Project', 'Street Bucks', 'String Theory', 'Strong Arm Steady',
+                    'TNGHT', 'Tenacity', 'Terrace Martin', 'Tragedy Khadafi', 'Vinnie Paz', 'Wadada Sound System',
+                    'Wale', 'Wiz Khalifa', 'Young Jeezy']
 _DESCONOCIDOS = ['desconocido', '[desconocido]', 'intérprete desconocido']
 
 
