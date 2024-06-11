@@ -1,4 +1,4 @@
-from tools.libraries.artists import ARTIST_SEPARATORS
+from tools.libraries.artists import SEPARATORS
 from tools.libraries.config import CSV_SEPARATOR, CsvPosition
 from tools.libraries.string_utils import has_correct_number_separators, replace_exceptions, fix_volumes, \
     fix_mismatched_square_brackets, fix_mismatched_parentheses
@@ -9,9 +9,6 @@ class ExtraSeparatorsException(Exception):
 
 
 class Album:
-    # FORMATS = ['Directo', 'Doble LP', 'EP', 'LP', 'Maqueta', 'Maxi Single', 'Mixtape', 'Promo', 'Recopilatorio',
-    #            'Single']
-
     def __init__(self, line: str):
         if has_correct_number_separators(line):
             values = line.split(CSV_SEPARATOR)
@@ -108,7 +105,7 @@ class Album:
     def get_artists(self) -> list:
         artists = self.artist
 
-        for separator in ARTIST_SEPARATORS:
+        for separator in SEPARATORS:
             artists = artists.replace(separator, '@')
 
         return artists.split('@')

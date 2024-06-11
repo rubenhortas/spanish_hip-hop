@@ -57,7 +57,7 @@ def _has_mismatched_symbols(line: str, line_counter: Counter, left_symbol: str, 
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, handle_sigint)
     clear_screen()
-    print(f"Finding lines with issues in {CSV_FILE}...")
+    print(f"Buscando líneas con problemas en '{CSV_FILE}'...")
 
     lines = read_file(CSV_FILE)[1:]
     incorrect_separators, mismatched_parentheses, mismatched_square_brackets = _get_issues(lines)
@@ -66,6 +66,6 @@ if __name__ == '__main__':
         write_file(_INCORRECT_SEPARATORS, incorrect_separators)
         write_file(_MISMATCHED_PARENTHESES_FILE, mismatched_parentheses)
         write_file(_MISMATCHED_SQUARE_BRACKETS_FILE, mismatched_square_brackets)
-        print('Done')
+        print('Hecho')
     else:
-        print('No issues found.')
+        print('No se han encontrado problemas')

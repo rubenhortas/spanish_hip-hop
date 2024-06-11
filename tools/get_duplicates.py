@@ -66,15 +66,15 @@ def _write_output_file(duplicates: list, possible_duplicates: list) -> None:
             issues.append('\n')
 
         write_file(_OUTPUT_FILE, issues)
-        print('Done')
+        print('Hecho')
     else:
-        print('No duplicates found')
+        print('No se han encontrado duplicados')
 
 
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, handle_sigint)
     clear_screen()
-    print(f"Looking for duplicates in {CSV_FILE}")
+    print(f"Buscando duplicados en '{CSV_FILE}'")
 
     lines = read_file(CSV_FILE)[1:]
     duplicates, possible_duplicates = _get_duplicates(lines)

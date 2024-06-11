@@ -25,20 +25,17 @@ def _get_exceptions(dictionary: dict) -> list:
 
 def _write_output_file(keys: list) -> None:
     if keys:
-        exceptions = ['# Words that will be *not* capitalized\n', 'EXCEPTIONS = {\n']
+        exceptions = ['EXCEPTIONS = {\n']
         exceptions.extend(keys)
         exceptions.append('}\n')
         write_file(_OUTPUT_FILE, exceptions)
 
 
 if __name__ == '__main__':
-    """
-    Generates the file exceptions.py with the exceptions dictionary alphabetically ordered without duplicates.
-    """
     signal.signal(signal.SIGINT, handle_sigint)
-    print(f"Generating new {_OUTPUT_FILE}...")
+    print(f"Generando nuevo '{_OUTPUT_FILE}'...")
 
     new_exceptions = _get_exceptions(EXCEPTIONS)
     _write_output_file(new_exceptions)
 
-    print('Done')
+    print('Hecho')

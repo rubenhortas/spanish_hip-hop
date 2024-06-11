@@ -7,7 +7,7 @@ from tools.libraries.file_helpers import write_file, read_file
 from tools.libraries.os_helpers import handle_sigint, clear_screen
 
 _OUTPUT_FILE = f"{CSV_FILE[:-4]} - formateado.csv"
-_ERROR_FILE = f"errores - {CSV_FILE}.txt"
+_ERROR_FILE = f"{CSV_FILE[:-4]} - errores.csv"
 
 
 def _get_formatted_lines(line: list) -> (list, list):
@@ -15,13 +15,14 @@ def _get_formatted_lines(line: list) -> (list, list):
     albums = []
     errors = []
     artists = set()
-
     len_lines = len(lines_)
     current_line = 0
-    print(f"Formating lines... ")
+
+    print(f"Formateando líneas... ")
 
     for line in lines_:
         current_line += 1
+
         print(f"\r{current_line}/{len_lines}", end='')
 
         try:
@@ -36,6 +37,7 @@ def _get_formatted_lines(line: list) -> (list, list):
             errors.append(line)
 
     print()
+
     _replace_artists_in_titles(albums, list(artists))
 
     return sorted(albums), errors
@@ -44,10 +46,12 @@ def _get_formatted_lines(line: list) -> (list, list):
 def _replace_artists_in_titles(albums: list, artists: list) -> None:
     len_albums = len(albums)
     current_album = 0
-    print(f"Replacing artist in titles... ")
+
+    print(f"Reemplazando artistas en los títulos... ")
 
     for album in albums:
         current_album += 1
+
         print(f"\r{current_album}/{len_albums}", end='')
 
         title = album.title.split()
@@ -77,7 +81,7 @@ def _write_output_file(albums: list) -> None:
 
 def _write_error_file(errors: list) -> None:
     if errors:
-        result = ['Bad formatted lines (extra separators)\n\n']
+        result = ['Líneas mal formateadas (Número inválido de separadores):\n\n']
         result.extend([f"{error}\n" for error in errors])
         write_file(_ERROR_FILE, result)
 
@@ -85,7 +89,7 @@ def _write_error_file(errors: list) -> None:
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, handle_sigint)
     clear_screen()
-    print(f"Generating {_OUTPUT_FILE}...")
+    print(f"Generando '{_OUTPUT_FILE}'...")
 
     lines = read_file(CSV_FILE)[1:]
     formatted_lines, errors = _get_formatted_lines(lines)
@@ -93,4 +97,4 @@ if __name__ == '__main__':
     _write_output_file(formatted_lines)
     _write_error_file(errors)
 
-    print('Done')
+    print('Hecho')
