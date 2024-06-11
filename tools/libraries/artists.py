@@ -1,4 +1,5 @@
-# Artist names and translations
+ARTIST_SEPARATORS = [' – ', ' & ', ' Y ', ' X ', ' + ', ' Vs ', ' Vs. ', '-N-', '(', ')']
+
 ARTISTS = {
 	'& rei (andrei)': '& rei (andrei)',
 	'& rei': '& rei',

@@ -5,7 +5,7 @@ import signal
 import string
 
 from tools.libraries.album import Album
-from tools.libraries.config import CSV_FILE
+from tools.libraries.config import CSV_FILE, CsvPosition
 from tools.libraries.file_helpers import read_file, write_file
 from tools.libraries.os_helpers import handle_sigint, clear_screen
 
@@ -30,7 +30,7 @@ def _get_duplicates(lines: list) -> (list, list):
             match_ratio = difflib.SequenceMatcher(None, normalized_lines[i][1], normalized_lines[j][1]).ratio()
 
             if match_ratio > _MATCH_THRESHOLD:
-                duplicate = f"{normalized_lines[i][0].strip()}  -> {normalized_lines[j][0]}"
+                duplicate = f"{normalized_lines[i][CsvPosition.ARTIST.value].strip()}  -> {normalized_lines[j][CsvPosition.ARTIST.value]}"
 
                 if match_ratio == 1:
                     duplicates.append(duplicate)

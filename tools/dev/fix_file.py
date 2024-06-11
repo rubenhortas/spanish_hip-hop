@@ -4,7 +4,7 @@ import os
 import signal
 from collections import Counter
 
-from tools.libraries.config import CSV_FILE, CSV_SEPARATOR, SEPARATOR_NUMBER
+from tools.libraries.config import CSV_FILE, CSV_SEPARATOR, SEPARATOR_NUMBER, CsvPosition
 from tools.libraries.file_helpers import read_file, write_file
 from tools.libraries.os_helpers import handle_sigint, clear_screen
 
@@ -28,25 +28,25 @@ def _fix(lines: list) -> (list, list):
 
     for line in lines:
         if Counter(line)[CSV_SEPARATOR] == SEPARATOR_NUMBER:
-            fields = line.split(CSV_SEPARATOR)
+            values = line.split(CSV_SEPARATOR)
 
-            if fields[1] not in _FOREIGN_ARTISTS:
-                if fields[9] == '-' or fields[9] == '':  # Is not preserved
-                    fixed_fields = []
+            if values[CsvPosition.ARTIST.value] not in _FOREIGN_ARTISTS:
+                if values[CsvPosition.PRESERVER.value] == '-' or values[CsvPosition.PRESERVER.value] == '':
+                    fixed_values = []
 
-                    for field in fields:
-                        field_ = field
+                    for value in values:
+                        value_ = value
 
-                        if field_:
-                            if field_[0] == '"' and field_[-1] == '"':
-                                field_ = field_[1:-1]
+                        if value_:
+                            if value_[0] == '"' and value_[-1] == '"':
+                                value_ = value_[1:-1]
 
-                            if field_.lower() in _DESCONOCIDOS:
-                                field_ = ''
+                            if value_.lower() in _DESCONOCIDOS:
+                                value_ = ''
 
-                        fixed_fields.append(field_)
+                        fixed_values.append(value_)
 
-                    fixed_lines.append(CSV_SEPARATOR.join(fixed_fields))
+                    fixed_lines.append(CSV_SEPARATOR.join(fixed_values))
         else:
             errors.append(line)
 

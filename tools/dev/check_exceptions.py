@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from tools.exceptions import EXCEPTIONS
-from tools.libraries.config import CSV_FILE, CSV_SEPARATOR
+from tools.libraries.config import CSV_FILE, CSV_SEPARATOR, CsvPosition
 from tools.libraries.file_helpers import read_file, write_file
 from tools.libraries.string_utils import replace_exceptions
 
@@ -16,8 +16,8 @@ def _get_lines(lines: list) -> (list, list):
 
     for line in lines:
         line_ = line.split(CSV_SEPARATOR)
-        artist = line_[0]
-        title = line_[1]
+        artist = line_[CsvPosition.ARTIST.value]
+        title = line_[CsvPosition.TITLE.value]
         formatted_artist = replace_exceptions(artist)
         formated_title = replace_exceptions(title)
 
@@ -42,8 +42,8 @@ def _get_unused_exceptions(lines: list) -> list:
 
     for line in lines:
         line_ = line.split(CSV_SEPARATOR)
-        _find_exceptions(line_[0].lower().split())
-        _find_exceptions(line_[1].lower().split())
+        _find_exceptions(line_[CsvPosition.ARTIST.value].lower().split())
+        _find_exceptions(line_[CsvPosition.TITLE.value].lower().split())
 
     for k in EXCEPTIONS:
         if k not in used_exceptions:
