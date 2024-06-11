@@ -1,5 +1,5 @@
-from tools.libraries.artists import SEPARATORS
-from tools.libraries.config import CSV_SEPARATOR, CsvPosition
+from tools.domain.artists import SEPARATORS
+from tools.domain.config import CSV_SEPARATOR, CsvPosition
 from tools.utils.string_utils import has_correct_number_separators, replace_exceptions, fix_volumes, \
     fix_mismatched_square_brackets, fix_mismatched_parentheses
 

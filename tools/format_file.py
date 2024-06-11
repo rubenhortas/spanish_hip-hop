@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import signal
 
-from tools.libraries.album import Album, ExtraSeparatorsException
-from tools.libraries.config import CSV_FILE, CSV_HEADER
+from tools.domain.album import Album, ExtraSeparatorsException
+from tools.domain.config import CSV_FILE, CSV_HEADER
 from tools.helpers.file_helpers import write_file, read_file
 from tools.helpers.os_helpers import handle_sigint, clear_screen
 

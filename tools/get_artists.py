@@ -2,14 +2,14 @@
 import os
 import signal
 
-from tools.libraries.config import CSV_SEPARATOR, CSV_FILE, CsvPosition
+from tools.domain.config import CSV_SEPARATOR, CSV_FILE, CsvPosition
 from tools.helpers.dictionary_helpers import create_dictionary
 from tools.helpers.file_helpers import read_file, backup, write_file
 from tools.helpers.list_helpers import create_list
 from tools.helpers.os_helpers import handle_sigint
 
 _INPUT_FILE = os.path.join(os.path.abspath(''), CSV_FILE)
-_OUTPUT_FILE = f"{os.path.join(os.path.abspath(''), 'libraries', 'artists.py')}"
+_OUTPUT_FILE = f"{os.path.join(os.path.abspath(''), 'domain', 'artists.py')}"
 
 
 def _get_artists(lines: list) -> (list, list):

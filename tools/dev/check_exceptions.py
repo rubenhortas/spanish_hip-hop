@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-from tools.libraries.exceptions import EXCEPTIONS
-from tools.libraries.config import CSV_FILE, CSV_SEPARATOR, CsvPosition
+from tools.domain.exceptions import EXCEPTIONS
+from tools.domain.config import CSV_FILE, CSV_SEPARATOR, CsvPosition
 from tools.helpers.file_helpers import read_file, write_file
 from tools.utils.string_utils import replace_exceptions
 

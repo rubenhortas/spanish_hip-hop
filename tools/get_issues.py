@@ -2,7 +2,7 @@
 import signal
 from collections import Counter
 
-from tools.libraries.config import CSV_SEPARATOR, CSV_FILE, SEPARATOR_NUMBER
+from tools.domain.config import CSV_SEPARATOR, CSV_FILE, SEPARATOR_NUMBER
 from tools.helpers.file_helpers import read_file, write_file
 from tools.helpers.os_helpers import handle_sigint, clear_screen
 
