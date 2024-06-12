@@ -35,9 +35,9 @@ def _get_artists(lines: list) -> (dict, list):
                 key = artist.lower()
 
                 if key in artists and album.has_preserver():
-                    artists[key] = album.artist
+                    artists[key] = artist
                 else:
-                    artists[key] = album.artist
+                    artists[key] = artist
 
         for separator in album_separators:
             separators.add(separator)
