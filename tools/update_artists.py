@@ -51,15 +51,6 @@ def _write_output_file(artists: list, separators: list) -> None:
     write_file(_OUTPUT_FILE, result)
 
 
-def _get_list_values(values: list) -> list:
-    lst = []
-
-    for value in values:
-        lst.append(f"'{value}',\n")
-
-    return lst
-
-
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, handle_sigint)
     print(f"Generando nuevo '{_OUTPUT_FILE}'...")
