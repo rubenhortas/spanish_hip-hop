@@ -59,9 +59,11 @@ if __name__ == '__main__':
     header = lines[0].replace('"', '')
 
     fixed_lines, errors = _fix(lines[1:])
-    fixed_lines.insert(0, header)
 
-    write_file(_OUTPUT_FILE, fixed_lines)
+    if fixed_lines:
+        fixed_lines.insert(0, header)
+        write_file(_OUTPUT_FILE, fixed_lines)
+
     write_file(_ERROR_FILE, errors)
 
     print('Hecho')
