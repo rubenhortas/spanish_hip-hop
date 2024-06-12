@@ -1,3 +1,4 @@
+import datetime
 import shutil
 
 
@@ -34,8 +35,8 @@ def write_file(file: str, lines: list) -> None:
 
 def backup(file: str) -> None:
     try:
-        dst = f"{file}.bkp"
-        shutil.copy(file, dst)
+        timestamp = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
+        shutil.copy(file, f"{file}_{timestamp}.bkp")
     except FileNotFoundError as file_not_found_error:
         print(f"'{file_not_found_error.filename}' no se encuentra el fichero o el directorio")
         exit(-1)

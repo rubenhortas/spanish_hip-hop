@@ -8,7 +8,7 @@ from tools.utils.list_utils import create_python_list, create_python_dictionary
 from tools.helpers.os_helpers import handle_sigint
 
 _INPUT_FILE = os.path.join(os.path.abspath(''), CSV_FILE)
-_OUTPUT_FILE = f"{os.path.join(os.path.abspath(''), 'domain', 'artists.py')}"
+_OUTPUT_FILE = f"{os.path.join(os.path.abspath(''), 'config', 'artists.py')}"
 
 
 def _get_artists(lines: list) -> (list, list):
