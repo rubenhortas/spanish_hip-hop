@@ -40,16 +40,16 @@ def fix_volumes(string: str) -> str:
 
     if match:
         match_ = match.group(0)
-        new_label = match.group('label').capitalize()
-        new_label = new_label.replace(' ', '')
-        new_label = new_label.replace('?', '')
-        new_label = new_label.capitalize()
+        vol_label = match.group('label').capitalize()
+        vol_label = vol_label.replace(' ', '')
+        vol_label = vol_label.replace('?', '')
+        vol_label = vol_label.capitalize()
 
-        if new_label == 'Vol':
-            new_label = 'Vol.'
+        if vol_label == 'Vol':
+            vol_label = 'Vol.'
 
-        new_num = match.group('num').upper()
-        result = string.replace(match_, f"{new_label} {new_num}")
+        vol_num = match.group('num').upper()
+        result = string.replace(match_, f"{vol_label} {vol_num}")
 
         return result
 
