@@ -7,7 +7,7 @@ from tools.crosscutting.strings import GENERATING_NEW, DONE
 from tools.domain.album import Album
 from tools.helpers.file_helpers import read_file, backup, write_file
 from tools.helpers.os_helpers import handle_sigint
-from tools.utils.list_utils import create_python_list, create_python_dictionary
+from tools.utils.list_utils import create_python_list
 
 _INPUT_FILE = os.path.join(os.path.abspath(''), CSV_FILE)
 _OUTPUT_FILE = f"{os.path.join(os.path.abspath(''), 'config', 'artists.py')}"
@@ -47,7 +47,7 @@ def _get_artists(lines: list) -> (dict, list):
 
 def _write_output_file(artists: dict, separators: list) -> None:
     separators = create_python_list('SEPARATORS', separators)
-    art = create_python_dictionary('ARTISTS', artists)
+    art = create_python_list('ARTISTS', artists)
 
     result = []
     result.extend(separators)

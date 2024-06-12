@@ -1,8 +1,27 @@
+from typing import overload
+
 from tools.utils.string_utils import convert_to_python_string
 
 
-def create_python_list(lst_name: str, values: list) -> list:
-    lst = [f"{lst_name.upper()} = [\n"]
+@overload
+def create_python_list(name: str, values: list) -> list:
+    ...
+
+
+@overload
+def create_python_list(name: str, dictionary: dict) -> list:
+    ...
+
+
+def create_python_list(name: str, values: list | dict) -> list:
+    if isinstance(values, list):
+        return _create_python_list_from_list(name, values)
+    elif isinstance(values, dict):
+        return _create_python_list_from_dictionary(name, values)
+
+
+def _create_python_list_from_list(name: str, values: list) -> list:
+    lst = [f"{name.upper()} = [\n"]
 
     for value in values:
         lst.append(f"\t'{convert_to_python_string(value)}',\n")
@@ -12,7 +31,7 @@ def create_python_list(lst_name: str, values: list) -> list:
     return lst
 
 
-def create_python_dictionary(name: str, dictionary: dict) -> list:
+def _create_python_list_from_dictionary(name: str, dictionary: dict) -> list:
     lst = [f"{name.upper()} = " + '{\n']
 
     for key in dictionary:
