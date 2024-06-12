@@ -2,6 +2,7 @@
 import signal
 
 from tools.config.exceptions import EXCEPTIONS
+from tools.crosscutting.strings import GENERATING_NEW, DONE
 from tools.helpers.file_helpers import write_file
 from tools.helpers.os_helpers import handle_sigint
 
@@ -33,9 +34,9 @@ def _write_output_file(keys: list) -> None:
 
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, handle_sigint)
-    print(f"Generando nuevo '{_OUTPUT_FILE}'...")
+    print(f"{GENERATING_NEW} '{_OUTPUT_FILE}'...")
 
     new_exceptions = _get_exceptions(EXCEPTIONS)
     _write_output_file(new_exceptions)
 
-    print('Hecho')
+    print(DONE)

@@ -3,6 +3,7 @@ import os
 import signal
 
 from tools.config.config import CSV_SEPARATOR, CSV_FILE, CsvPosition
+from tools.crosscutting.strings import GENERATING_NEW, DONE
 from tools.helpers.file_helpers import read_file, backup, write_file
 from tools.utils.list_utils import create_python_list, create_python_dictionary
 from tools.helpers.os_helpers import handle_sigint
@@ -53,7 +54,7 @@ def _write_output_file(artists: list, separators: list) -> None:
 
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, handle_sigint)
-    print(f"Generando nuevo '{_OUTPUT_FILE}'...")
+    print(f"{GENERATING_NEW} '{_OUTPUT_FILE}'...")
 
     lines = read_file(_INPUT_FILE)[1:]
     artists, separators = _get_artists(lines)
@@ -61,4 +62,4 @@ if __name__ == '__main__':
     backup(_OUTPUT_FILE)
     _write_output_file(artists, separators)
 
-    print('Hecho')
+    print(DONE)

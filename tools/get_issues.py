@@ -3,16 +3,18 @@ import signal
 from collections import Counter
 
 from tools.config.config import CSV_SEPARATOR, CSV_FILE, SEPARATOR_NUMBER
+from tools.crosscutting.strings import SEARCHING_FOR_LINES_WITH_PROBLEMS_IN, DONE, NO_PROBLEMS_FOUND, ERRORS, \
+    WRONG_SEPARATORS_NUMBER, MISMATCHED_PARENTHESES, MISMATCHED_SQUARE_BRACKETS
 from tools.helpers.file_helpers import read_file, write_file
 from tools.helpers.os_helpers import handle_sigint, clear_screen
 
-_INCORRECT_SEPARATORS = 'errores - separadores incorrectos.txt'
-_MISMATCHED_PARENTHESES_FILE = 'errores - parentesis.txt'
-_MISMATCHED_SQUARE_BRACKETS_FILE = 'errores - corchetes.txt'
+_WRONG_SEPARATORS_NUMBER = f"{ERRORS}-{WRONG_SEPARATORS_NUMBER}.txt"
+_MISMATCHED_PARENTHESES_FILE = f"{ERRORS}-{MISMATCHED_PARENTHESES}.txt"
+_MISMATCHED_SQUARE_BRACKETS_FILE = f"{ERRORS}-{MISMATCHED_SQUARE_BRACKETS}.txt"
 
 
 def _get_issues(lines) -> (list, list, list):
-    incorrect_separators = []
+    wrong_separators_number = []
     mismatched_parentheses = []
     mismatched_square_brackets = []
 
@@ -20,7 +22,7 @@ def _get_issues(lines) -> (list, list, list):
         line_counter = Counter(line)
 
         if not _has_correct_number_separators(line_counter):
-            incorrect_separators.append(line)
+            wrong_separators_number.append(line)
 
         if _has_mismatched_symbols(line, line_counter, '(', ')'):
             mismatched_parentheses.append(line)
@@ -28,7 +30,7 @@ def _get_issues(lines) -> (list, list, list):
         if _has_mismatched_symbols(line, line_counter, '[', ']'):
             mismatched_square_brackets.append(line)
 
-    return incorrect_separators, mismatched_parentheses, mismatched_square_brackets
+    return wrong_separators_number, mismatched_parentheses, mismatched_square_brackets
 
 
 def _has_correct_number_separators(line_counter: Counter):
@@ -57,15 +59,15 @@ def _has_mismatched_symbols(line: str, line_counter: Counter, left_symbol: str, 
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, handle_sigint)
     clear_screen()
-    print(f"Buscando líneas con problemas en '{CSV_FILE}'...")
+    print(f"{SEARCHING_FOR_LINES_WITH_PROBLEMS_IN} '{CSV_FILE}'...")
 
     lines = read_file(CSV_FILE)[1:]
-    incorrect_separators, mismatched_parentheses, mismatched_square_brackets = _get_issues(lines)
+    wrong_separators_number, mismatched_parentheses, mismatched_square_brackets = _get_issues(lines)
 
-    if incorrect_separators or mismatched_parentheses or mismatched_square_brackets:
-        write_file(_INCORRECT_SEPARATORS, incorrect_separators)
+    if wrong_separators_number or mismatched_parentheses or mismatched_square_brackets:
+        write_file(_WRONG_SEPARATORS_NUMBER, wrong_separators_number)
         write_file(_MISMATCHED_PARENTHESES_FILE, mismatched_parentheses)
         write_file(_MISMATCHED_SQUARE_BRACKETS_FILE, mismatched_square_brackets)
-        print('Hecho')
+        print(DONE)
     else:
-        print('No se han encontrado problemas')
+        print(NO_PROBLEMS_FOUND)

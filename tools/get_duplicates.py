@@ -3,12 +3,14 @@ import difflib
 import signal
 import string
 
+from tools.crosscutting.strings import DONE, DUPLICATES, POSSIBLE_DUPLICATES, NO_DUPLICATES_FOUND, \
+    LOOKING_FOR_DUPLICATES_IN
 from tools.domain.album import Album
 from tools.config.config import CSV_FILE
 from tools.helpers.file_helpers import read_file, write_file
 from tools.helpers.os_helpers import handle_sigint, clear_screen
 
-_OUTPUT_FILE = f"{CSV_FILE[:-4]} - duplicados.txt"
+_OUTPUT_FILE = f"{CSV_FILE[:-4]}-{DUPLICATES.lower()}.txt"
 _MATCH_THRESHOLD = 0.9  # Seems a reasonable threshold
 
 
@@ -56,25 +58,25 @@ def _write_output_file(duplicates: list, possible_duplicates: list) -> None:
         issues = []
 
         if duplicates:
-            issues.append('Duplicados:\n\n')
+            issues.append(f"{DUPLICATES}:\n\n")
             issues.extend(duplicates)
             issues.append('\n')
 
         if possible_duplicates:
-            issues.append('Posibles duplicados:\n\n')
+            issues.append(f"{POSSIBLE_DUPLICATES}:\n\n")
             issues.extend(possible_duplicates)
             issues.append('\n')
 
         write_file(_OUTPUT_FILE, issues)
-        print('Hecho')
+        print(DONE)
     else:
-        print('No se han encontrado duplicados')
+        print(NO_DUPLICATES_FOUND)
 
 
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, handle_sigint)
     clear_screen()
-    print(f"Buscando duplicados en '{CSV_FILE}'")
+    print(f"{LOOKING_FOR_DUPLICATES_IN} '{CSV_FILE}'...")
 
     lines = read_file(CSV_FILE)[1:]
     duplicates, possible_duplicates = _get_duplicates(lines)

@@ -1,12 +1,16 @@
 #!/usr/bin/env python
+import string
+
 from tools.config.exceptions import EXCEPTIONS
 from tools.config.config import CSV_FILE, CSV_SEPARATOR, CsvPosition
+from tools.crosscutting import strings
+from tools.crosscutting.strings import LINES_WITH_EXCEPTIONS, LINES_WITHOUT_EXCEPTIONS, UNUSED_EXCEPTIONS
 from tools.helpers.file_helpers import read_file, write_file
 from tools.utils.string_utils import replace_exceptions
 
-_LINES_WITH_EXCEPTIONS_FILE = 'excepciones - lineas con excepciones.txt'
-_LINES_WITHOUT_EXCEPTIONS_FILE = 'excepciones - lineas sin excepciones.txt'
-_UNUSED_EXCEPTIONS_FILE = 'excepciones - excepciones sin usar.txt'
+_LINES_WITH_EXCEPTIONS_FILE = f"{strings.EXCEPTIONS.lower()}-{LINES_WITH_EXCEPTIONS.lower()}.txt"
+_LINES_WITHOUT_EXCEPTIONS_FILE = f"{strings.EXCEPTIONS.lower()}-{LINES_WITHOUT_EXCEPTIONS.lower()}.txt"
+_UNUSED_EXCEPTIONS_FILE = f"{strings.EXCEPTIONS.lower()}-{UNUSED_EXCEPTIONS.lower()}.txt"
 
 
 def _get_lines(lines: list) -> (list, list):

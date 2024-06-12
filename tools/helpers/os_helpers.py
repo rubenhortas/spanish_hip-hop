@@ -1,9 +1,11 @@
 import os
 from types import FrameType
 
+from tools.crosscutting.strings import STOPPED
+
 
 def handle_sigint(signal: int, frame: FrameType) -> None:
-    print('\rStopped')
+    print(f"\r{STOPPED}")
     exit(0)
 
 

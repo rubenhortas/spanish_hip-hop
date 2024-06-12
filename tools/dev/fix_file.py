@@ -4,12 +4,13 @@ import signal
 from collections import Counter
 
 from tools.config.config import CSV_FILE, CSV_SEPARATOR, SEPARATOR_NUMBER, CsvPosition
+from tools.crosscutting.strings import FIXING, DONE, ERRORS, FIXED
 from tools.helpers.file_helpers import read_file, write_file
 from tools.helpers.os_helpers import handle_sigint, clear_screen
 
 _INPUT_FILE = os.path.join(os.path.abspath('..'), CSV_FILE)
-_OUTPUT_FILE = os.path.join(os.path.abspath('..'), f"{CSV_FILE[:-4]} - arreglado.csv")
-_ERROR_FILE = os.path.join(os.path.abspath('..'), f"{CSV_FILE[:-4]} - errores.csv")
+_OUTPUT_FILE = os.path.join(os.path.abspath('..'), f"{CSV_FILE[:-4]}-{FIXED.lower()}.csv")
+_ERROR_FILE = os.path.join(os.path.abspath('..'), f"{CSV_FILE[:-4]}-{ERRORS.lower()}.csv")
 _FOREIGN_ARTISTS = ['Ace Hood', 'Ali G indahouse', 'Aqeel', 'Aqueel', 'Asap Mob', 'G Jazz', 'Gavlyn', 'Gee Falcone',
                     'Jim Jones', 'Kafu Banton', 'Kev Brown', 'Kidz In The Hall', 'Random Axe', 'Red Pill', 'Rick Ross',
                     'Schoolboy Q', 'Sean Combs', 'Snak The Ripper', 'Stan Forebee', 'Stat Quo', 'Statik Selektah',
@@ -53,7 +54,7 @@ def _fix(lines: list) -> (list, list):
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, handle_sigint)
     clear_screen()
-    print(f"Arreglando '{CSV_FILE}'...")
+    print(f"{FIXING} '{CSV_FILE}'...")
 
     lines = read_file(_INPUT_FILE)
     header = lines[0].replace('"', '')
@@ -66,4 +67,4 @@ if __name__ == '__main__':
 
     write_file(_ERROR_FILE, errors)
 
-    print('Hecho')
+    print(DONE)
