@@ -131,14 +131,15 @@ class Album:
 
     def _format_artist(self) -> None:
         self.artist = self.artist.title()
-        self.artist = self._fix(self.artist)
+        self.artist = self._format(self.artist)
 
     def _format_title(self) -> None:
         self.title = self.title.capitalize()
-        self.title = self._fix(self.title)
+        self.title = self._format(self.title)
 
-    def _fix(self, string: str) -> str:
-        string_ = fix_mismatched_square_brackets(string)
+    def _format(self, string: str) -> str:
+        string_ = string.replace('"', '')
+        string_ = fix_mismatched_square_brackets(string_)
         string_ = fix_mismatched_parentheses(string_)
         string_ = fix_volumes(string_)
         string_ = replace_exceptions(string_)
