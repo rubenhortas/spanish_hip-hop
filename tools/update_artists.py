@@ -16,9 +16,6 @@ def _get_artists(lines: list) -> (list, list):
     artists_ = set()
     separators_ = set()
 
-    separators_.add('y')
-    separators_.add('Y')
-
     for line in lines:
         line_ = line.split(CSV_SEPARATOR)
         line_value = line_[CsvPosition.ARTIST.value].strip()
@@ -32,7 +29,7 @@ def _get_artists(lines: list) -> (list, list):
         words = line_value.split()
 
         for word in words:
-            if len(word) == 1 and not word.isalnum():
+            if len(word) == 1 and (word.lower() == 'y' or not word.isalnum()):
                 separators_.add(word)
             elif word.isalnum() and not word.isnumeric():
                 artists_.add(word)
