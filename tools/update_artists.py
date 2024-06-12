@@ -9,12 +9,12 @@ from tools.utils.list_utils import create_python_list, create_python_dictionary
 from tools.helpers.os_helpers import handle_sigint
 
 _INPUT_FILE = os.path.join(os.path.abspath(''), CSV_FILE)
-_OUTPUT_FILE = f"{os.path.join(os.path.abspath(''), 'config', 'artists3.py')}"
+_OUTPUT_FILE = f"{os.path.join(os.path.abspath(''), 'config', 'artists.py')}"
 
 
 def _get_artists(lines: list) -> (list, list):
-    artists_ = set()
-    separators_ = set()
+    artists = set()
+    separators = set()
 
     for line in lines:
         line_ = line.split(CSV_SEPARATOR)
@@ -24,17 +24,17 @@ def _get_artists(lines: list) -> (list, list):
         line_value = line_value.replace('[', '').replace(']', '')
 
         if not line_value.isnumeric():
-            artists_.add(line_value)
+            artists.add(line_value)
 
         words = line_value.split()
 
         for word in words:
             if len(word) == 1 and (word.lower() == 'y' or not word.isalnum()):
-                separators_.add(word)
+                separators.add(word)
             elif word.isalnum() and not word.isnumeric():
-                artists_.add(word)
+                artists.add(word)
 
-    return sorted(list(artists_)), sorted(list(separators_))
+    return sorted(list(artists)), sorted(list(separators))
 
 
 def _write_output_file(artists: list, separators: list) -> None:
