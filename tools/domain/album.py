@@ -1,4 +1,3 @@
-from tools.config.artists import SEPARATORS
 from tools.config.config import CSV_SEPARATOR, CsvPosition
 from tools.utils.string_utils import has_correct_number_separators, replace_exceptions, fix_volumes, \
     fix_mismatched_square_brackets, fix_mismatched_parentheses
@@ -29,7 +28,7 @@ class Album:
             self.seen_online = self._get_value(values[CsvPosition.SEEN_ONLINE.value])
             self.notes = self._get_value(values[CsvPosition.NOTES.value])
 
-            if not self._has_preserver():
+            if not self.has_preserver():
                 self._fix_values()
         else:
             raise WrongSeparatorsException
@@ -102,15 +101,24 @@ class Album:
                 and self.seen_online > other.seen_online
                 and self.notes > other.notes)
 
-    def get_artists(self) -> list:
-        artists = self.artist
+    def get_artists(self) -> (list, list):
+        artists = []
+        separators = []
 
-        for separator in SEPARATORS:
-            artists = artists.replace(separator, '@')
+        album_artist = self.artist
+        album_artist = album_artist.replace('(', '').replace(')', '')
+        album_artist = album_artist.replace('[', '').replace(']', '')
+        words = album_artist.split()
 
-        return artists.split('@')
+        for word in words:
+            if len(word) == 1 and (word.lower() == 'y' or not word.isalnum()):
+                separators.append(word)
+            else:
+                artists.append(word)
 
-    def _has_preserver(self) -> bool:
+        return artists, separators
+
+    def has_preserver(self) -> bool:
         return self.preserver != ''
 
     def _get_value(self, string: str) -> str:

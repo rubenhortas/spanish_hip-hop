@@ -2,42 +2,50 @@
 import os
 import signal
 
-from tools.config.config import CSV_SEPARATOR, CSV_FILE, CsvPosition
+from tools.config.config import CSV_FILE
 from tools.crosscutting.strings import GENERATING_NEW, DONE
+from tools.domain.album import Album
 from tools.helpers.file_helpers import read_file, backup, write_file
-from tools.utils.list_utils import create_python_list, create_python_dictionary
 from tools.helpers.os_helpers import handle_sigint
+from tools.utils.list_utils import create_python_list, create_python_dictionary
 
 _INPUT_FILE = os.path.join(os.path.abspath(''), CSV_FILE)
 _OUTPUT_FILE = f"{os.path.join(os.path.abspath(''), 'config', 'artists.py')}"
 
 
-def _get_artists(lines: list) -> (list, list):
-    artists = set()
+def _get_artists(lines: list) -> (dict, list):
+    artists = {}
     separators = set()
 
     for line in lines:
-        line_ = line.split(CSV_SEPARATOR)
-        line_value = line_[CsvPosition.ARTIST.value].strip()
-        line_value = line_value.replace('"', '')
-        line_value = line_value.replace('(', '').replace(')', '')
-        line_value = line_value.replace('[', '').replace(']', '')
+        album = Album(line)
 
-        if not line_value.isnumeric():
-            artists.add(line_value)
+        key = album.artist.lower()
 
-        words = line_value.split()
+        if not album.artist.isnumeric():
+            if key in artists and album.has_preserver():
+                artists[key] = album.artist
+            else:
+                artists[key] = album.artist
 
-        for word in words:
-            if len(word) == 1 and (word.lower() == 'y' or not word.isalnum()):
-                separators.add(word)
-            elif word.isalnum() and not word.isnumeric():
-                artists.add(word)
+        album_artists, album_separators = album.get_artists()
 
-    return sorted(list(artists)), sorted(list(separators))
+        for artist in album_artists:
+            if artist.isalnum() and not artist.isnumeric():
+                key = artist.lower()
+
+                if key in artists and album.has_preserver():
+                    artists[key] = album.artist
+                else:
+                    artists[key] = album.artist
+
+        for separator in album_separators:
+            separators.add(separator)
+
+    return dict(sorted(artists.items())), sorted(list(separators))
 
 
-def _write_output_file(artists: list, separators: list) -> None:
+def _write_output_file(artists: dict, separators: list) -> None:
     separators = create_python_list('SEPARATORS', separators)
     art = create_python_dictionary('ARTISTS', artists)
 
