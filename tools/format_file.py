@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import signal
 
-from tools.domain.album import Album, ExtraSeparatorsException
+from tools.domain.album import Album, IncorrectSeparatorsException
 from tools.config.config import CSV_FILE, CSV_HEADER
 from tools.helpers.file_helpers import write_file, read_file
 from tools.helpers.os_helpers import handle_sigint, clear_screen
@@ -33,7 +33,7 @@ def _get_formatted_lines(line: list) -> (list, list):
                     artists.add(artist)
 
             albums.append(album)
-        except ExtraSeparatorsException:
+        except IncorrectSeparatorsException:
             errors.append(line)
 
     print()

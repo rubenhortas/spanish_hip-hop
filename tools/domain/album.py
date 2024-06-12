@@ -4,7 +4,7 @@ from tools.utils.string_utils import has_correct_number_separators, replace_exce
     fix_mismatched_square_brackets, fix_mismatched_parentheses
 
 
-class ExtraSeparatorsException(Exception):
+class IncorrectSeparatorsException(Exception):
     pass
 
 
@@ -32,7 +32,7 @@ class Album:
             if not self._has_preserver():
                 self._fix_values()
         else:
-            raise ExtraSeparatorsException
+            raise IncorrectSeparatorsException
 
     def __str__(self):
         return (f"{self.id}{CSV_SEPARATOR}"
