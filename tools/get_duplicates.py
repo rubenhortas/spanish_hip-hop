@@ -4,7 +4,7 @@ import signal
 import string
 
 from tools.domain.album import Album
-from tools.domain.config import CSV_FILE
+from tools.config.config import CSV_FILE
 from tools.helpers.file_helpers import read_file, write_file
 from tools.helpers.os_helpers import handle_sigint, clear_screen
 

@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import signal
 
-from tools.domain.exceptions import EXCEPTIONS
+from tools.config.exceptions import EXCEPTIONS
 from tools.helpers.file_helpers import write_file
 from tools.helpers.os_helpers import handle_sigint
 
-_OUTPUT_FILE = '../domain/exceptions.py'
+_OUTPUT_FILE = '../config/exceptions.py'
 
 
 def _get_exceptions(dictionary: dict) -> list:

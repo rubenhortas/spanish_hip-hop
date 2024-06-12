@@ -2,7 +2,7 @@
 import os
 import signal
 
-from tools.domain.config import CSV_SEPARATOR, CSV_FILE, CsvPosition
+from tools.config.config import CSV_SEPARATOR, CSV_FILE, CsvPosition
 from tools.helpers.dictionary_helpers import create_dictionary
 from tools.helpers.file_helpers import read_file, backup, write_file
 from tools.helpers.list_helpers import create_list
