@@ -10,20 +10,6 @@ _PARENTHESES_REGEX = re.compile(r'(?P<text>(\(.*\))|(\([\w .-?]+)|[\w.-?]+\))')
 _SQUARE_BRACKETS_REGEX = re.compile(r'(?P<text>(\[.*])|(\[[\w .-?]+)|[\w.-?]+])')
 
 
-def _fix_mismatched(string: str, left_char: str, right_char: str, regex: Pattern[str]) -> str:
-    match = re.search(regex, string)
-
-    if match:
-        match_text = match.group('text')
-        text_counter = Counter(match_text)
-
-        if text_counter[left_char] != text_counter[right_char]:
-            text = match_text.replace(left_char, '').replace(right_char, '')
-            return string.replace(match_text, f"{left_char}{text}{right_char}")
-
-    return string
-
-
 def replace_exceptions(string: str) -> str:
     string_ = string
     words = string.split()
@@ -66,3 +52,21 @@ def fix_mismatched_square_brackets(string: str) -> str:
 
 def fix_mismatched_parentheses(string: str) -> str:
     return _fix_mismatched(string, '(', ')', _PARENTHESES_REGEX)
+
+
+def convert_to_python_string(string: str) -> str:
+    return string.replace("'", "\\'")
+
+
+def _fix_mismatched(string: str, left_char: str, right_char: str, regex: Pattern[str]) -> str:
+    match = re.search(regex, string)
+
+    if match:
+        match_text = match.group('text')
+        text_counter = Counter(match_text)
+
+        if text_counter[left_char] != text_counter[right_char]:
+            text = match_text.replace(left_char, '').replace(right_char, '')
+            return string.replace(match_text, f"{left_char}{text}{right_char}")
+
+    return string

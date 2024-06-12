@@ -3,9 +3,8 @@ import os
 import signal
 
 from tools.config.config import CSV_SEPARATOR, CSV_FILE, CsvPosition
-from tools.helpers.dictionary_helpers import create_dictionary
 from tools.helpers.file_helpers import read_file, backup, write_file
-from tools.helpers.list_helpers import create_list
+from tools.utils.list_utils import create_python_list, create_python_dictionary
 from tools.helpers.os_helpers import handle_sigint
 
 _INPUT_FILE = os.path.join(os.path.abspath(''), CSV_FILE)
@@ -22,16 +21,16 @@ def _get_artists(lines: list) -> (list, list):
     for line in lines:
         line_ = line.split(CSV_SEPARATOR)
         line_value = line_[CsvPosition.ARTIST.value].strip()
-        line_value = line_value.replace('"', '').replace("'", "\\'")
+        line_value = line_value.replace('"', '')
         line_value = line_value.replace('(', '').replace(')', '')
         line_value = line_value.replace('[', '').replace(']', '')
 
         if not line_value.isnumeric():
             artists_.add(line_value)
 
-        line_value_ = line_value.split()
+        words = line_value.split()
 
-        for word in line_value_:
+        for word in words:
             if len(word) == 1 and not word.isalnum():
                 separators_.add(word)
             elif word.isalnum() and not word.isnumeric():
@@ -41,8 +40,8 @@ def _get_artists(lines: list) -> (list, list):
 
 
 def _write_output_file(artists: list, separators: list) -> None:
-    separators = create_list('SEPARATORS', separators)
-    art = create_dictionary('ARTISTS', artists)
+    separators = create_python_list('SEPARATORS', separators)
+    art = create_python_dictionary('ARTISTS', artists)
 
     result = []
     result.extend(separators)
