@@ -12,6 +12,7 @@ class Album:
         if has_correct_number_separators(line):
             values = line.split(CSV_SEPARATOR)
 
+            # CSV values
             self.id = self._get_value(values[CsvPosition.ID.value])
             self.artist = self._get_value(values[CsvPosition.ARTIST.value])
             self.title = self._get_value(values[CsvPosition.TITLE.value])
@@ -27,6 +28,10 @@ class Album:
             self.source = self._get_value(values[CsvPosition.SOURCE.value])
             self.seen_online = self._get_value(values[CsvPosition.SEEN_ONLINE.value])
             self.notes = self._get_value(values[CsvPosition.NOTES.value])
+
+            # Not CSV values
+            self._artists_separators = []
+            self._artists = []
 
             if not self.has_preserver():
                 self._format_values()
@@ -101,25 +106,43 @@ class Album:
                 and self.seen_online > other.seen_online
                 and self.notes > other.notes)
 
-    def get_artists(self) -> (list, list):
-        artists = []
-        separators = []
-
-        album_artist = self.artist
-        album_artist = album_artist.replace('(', '').replace(')', '')
-        album_artist = album_artist.replace('[', '').replace(']', '')
-        words = album_artist.split()
-
-        for word in words:
-            if len(word) == 1 and (word.lower() == 'y' or not word.isalnum()):
-                separators.append(word)
-            else:
-                artists.append(word)
-
-        return artists, separators
-
     def has_preserver(self) -> bool:
         return self.preserver != ''
+
+    def get_artists(self) -> list:
+        if not self._artists:
+            if not self._artists_separators:
+                self.get_artist_separators()
+
+            album_artist = self.artist
+            album_artist = album_artist.replace('(', '').replace(')', '')
+            album_artist = album_artist.replace('[', '').replace(']', '')
+
+            for separator in self._artists_separators:
+                album_artist = album_artist.replace(separator, '|')
+
+            artists_ = album_artist.split('|')
+
+            for artist in artists_:
+                artist_ = artist.strip()
+
+                if artist_:
+                    self._artists.append(artist_)
+                    
+        return self._artists
+
+    def get_artist_separators(self) -> list:
+        if not self._artists_separators:
+            separators = []
+            words = self.artist.split()
+
+            for word in words:
+                if len(word) == 1 and (word.lower() == 'y' or not word.isalnum()):
+                    separators.append(word)
+
+            self._artists_separators = separators
+
+        return self._artists_separators
 
     def _get_value(self, string: str) -> str:
         if string and string != '-':
