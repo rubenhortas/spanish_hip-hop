@@ -29,7 +29,7 @@ class Album:
             self.notes = self._get_value(values[CsvPosition.NOTES.value])
 
             if not self.has_preserver():
-                self._fix_values()
+                self._format_values()
         else:
             raise WrongSeparatorsException
 
@@ -127,7 +127,7 @@ class Album:
 
         return ''
 
-    def _fix_values(self):
+    def _format_values(self):
         self._format_artist()
         self._format_title()
         self.format = self.format.upper()
@@ -139,17 +139,18 @@ class Album:
 
     def _format_artist(self) -> None:
         self.artist = self.artist.title()
-        self.artist = self._format(self.artist)
+        self.artist = self._fix(self.artist)
+        self.artist = replace_exceptions(self.artist)
 
     def _format_title(self) -> None:
         self.title = self.title.capitalize()
-        self.title = self._format(self.title)
+        self.title = self._fix(self.title)
+        self.title = replace_exceptions(self.title)
 
-    def _format(self, string: str) -> str:
+    def _fix(self, string: str) -> str:
         string_ = string.replace('"', '')
         string_ = fix_mismatched_square_brackets(string_)
         string_ = fix_mismatched_parentheses(string_)
         string_ = fix_volumes(string_)
-        string_ = replace_exceptions(string_)
 
         return string_
