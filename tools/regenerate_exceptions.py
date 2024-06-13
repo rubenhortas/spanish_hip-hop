@@ -4,7 +4,7 @@ import signal
 
 from tools.config.exceptions import EXCEPTIONS
 from tools.crosscutting.strings import GENERATING_NEW, DONE
-from tools.helpers.file_helpers import write_file
+from tools.helpers.file_helpers import write_file, backup
 from tools.helpers.os_helpers import handle_sigint
 
 _OUTPUT_FILE = os.path.join(os.path.abspath(''), 'config', 'exceptions.py')
@@ -38,6 +38,8 @@ if __name__ == '__main__':
     print(f"{GENERATING_NEW} '{_OUTPUT_FILE}'...")
 
     new_exceptions = _get_exceptions(EXCEPTIONS)
+
+    backup(_OUTPUT_FILE)
     _write_output_file(new_exceptions)
 
     print(DONE)
