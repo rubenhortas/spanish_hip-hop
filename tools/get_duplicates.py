@@ -8,7 +8,7 @@ from tools.crosscutting.strings import DONE, DUPLICATES, POSSIBLE_DUPLICATES, NO
 from tools.domain.album import Album
 from tools.helpers.file_helpers import read_file, write_file
 from tools.helpers.os_helpers import handle_sigint, clear_screen
-from tools.utils.string_utils import remove_puntuation_symbols
+from tools.utils.string_utils import remove_punctuation_symbols
 
 _OUTPUT_FILE = f"{CSV_FILE[:-4]}-{DUPLICATES.lower()}.txt"
 _MATCH_THRESHOLD = 0.9  # Seems a reasonable threshold
@@ -43,7 +43,7 @@ def _normalize(line: str) -> str:
     album = Album(line)
     result = f"{album.artist}{album.title}".lower()
     result = result.replace(' ', '')
-    result = remove_puntuation_symbols(result)
+    result = remove_punctuation_symbols(result)
 
     return result
 

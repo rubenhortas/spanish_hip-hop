@@ -12,14 +12,16 @@ _SQUARE_BRACKETS_REGEX = re.compile(r'(?P<text>(\[.*])|(\[[\w .-?]+)|[\w.-?]+])'
 
 
 def replace_exceptions(s: str) -> str:
-    string_ = s
+    s_ = s
     words = s.split()
 
     for word in words:
-        if word.lower() in EXCEPTIONS:
-            string_ = string_.replace(word, EXCEPTIONS[word.lower()])
+        key = word.lower()
 
-    return string_
+        if key in EXCEPTIONS:
+            s_ = s_.replace(word, EXCEPTIONS[key])
+
+    return s_
 
 
 def fix_volumes(s: str) -> str:
@@ -59,7 +61,7 @@ def convert_to_python_string(s: str) -> str:
     return s.replace("'", "\\'")
 
 
-def remove_puntuation_symbols(s: str) -> str:
+def remove_punctuation_symbols(s: str) -> str:
     s_ = s
 
     for symbol in string.punctuation:
