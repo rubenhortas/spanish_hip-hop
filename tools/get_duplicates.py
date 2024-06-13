@@ -15,14 +15,10 @@ _MATCH_THRESHOLD = 0.9  # Seems a reasonable threshold
 
 
 def _get_duplicates(lines: list) -> (list, list):
-    normalized_lines = []
+    normalized_lines = [_normalize(line) for line in lines]
+    num_lines = len(normalized_lines)
     duplicates = []
     possible_duplicates = []
-
-    for line in lines:
-        normalized_lines.append((line, _normalize(line)))
-
-    num_lines = len(normalized_lines)
 
     for i in range(num_lines):
         print(f"\r{i + 1}/{num_lines}", end='')
