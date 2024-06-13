@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
+import copy
 import os
 import signal
 
+from tools.config.artists import ARTISTS, SEPARATORS
 from tools.config.config import CSV_FILE
 from tools.crosscutting.strings import GENERATING_NEW, DONE
 from tools.domain.album import Album
@@ -15,14 +17,14 @@ _OUTPUT_FILE = f"{os.path.join(os.path.abspath(''), 'config', 'artists.py')}"
 
 def _get_artists(lines: list) -> (dict, list):
     def _update_artists(artist: str) -> None:
-        if not artist.isnumeric():
+        if not artist.isnumeric():  # Numbers will not be transformed
             key = artist.lower()
 
             if key not in artists or album.has_preserver():
                 artists[key] = artist
 
-    artists = {}
-    separators = set()
+    artists = copy.deepcopy(ARTISTS)  # Deep copy
+    separators = SEPARATORS
 
     for line in lines:
         album = Album(line)
