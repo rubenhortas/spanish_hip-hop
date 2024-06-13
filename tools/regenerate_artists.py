@@ -13,37 +13,6 @@ _INPUT_FILE = os.path.join(os.path.abspath(''), CSV_FILE)
 _OUTPUT_FILE = f"{os.path.join(os.path.abspath(''), 'config', 'artists.py')}"
 
 
-# def _get_artists(lines: list) -> (dict, list):
-#     artists = {}
-#     separators = set()
-#
-#     for line in lines:
-#         album = Album(line)
-#
-#         key = album.artist.lower()
-#
-#         if not album.artist.isnumeric():
-#             if key in artists and album.has_preserver():
-#                 artists[key] = album.artist
-#             else:
-#                 artists[key] = album.artist
-#
-#         album_artists, album_separators = album.get_artists()
-#
-#         for artist in album_artists:
-#             if artist.isalnum() and not artist.isnumeric():
-#                 key = artist.lower()
-#
-#                 if key in artists and album.has_preserver():
-#                     artists[key] = artist
-#                 else:
-#                     artists[key] = artist
-#
-#         for separator in album_separators:
-#             separators.add(separator)
-#
-#     return dict(sorted(artists.items())), sorted(list(separators))
-
 def _get_artists(lines: list) -> (dict, list):
     def _update_artists(artist: str) -> None:
         if not artist.isnumeric():
