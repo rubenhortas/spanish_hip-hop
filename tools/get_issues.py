@@ -24,10 +24,10 @@ def _get_issues(lines) -> (list, list, list):
         if not _has_correct_number_separators(line_counter):
             wrong_separators_number.append(line)
 
-        if _has_mismatched_symbols(line, line_counter, '(', ')'):
+        if _has_mismatched(line, line_counter, '(', ')'):
             mismatched_parentheses.append(line)
 
-        if _has_mismatched_symbols(line, line_counter, '[', ']'):
+        if _has_mismatched(line, line_counter, '[', ']'):
             mismatched_square_brackets.append(line)
 
     return wrong_separators_number, mismatched_parentheses, mismatched_square_brackets
@@ -37,7 +37,7 @@ def _has_correct_number_separators(line_counter: Counter):
     return line_counter[CSV_SEPARATOR] == SEPARATOR_NUMBER
 
 
-def _has_mismatched_symbols(line: str, line_counter: Counter, left_symbol: str, right_symbol: str) -> bool:
+def _has_mismatched(line: str, line_counter: Counter, left_symbol: str, right_symbol: str) -> bool:
     def has_mismatched_symbols(counter: Counter) -> bool:
         if counter[left_symbol] != counter[right_symbol]:
             return True
