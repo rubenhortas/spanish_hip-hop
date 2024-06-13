@@ -1,4 +1,5 @@
 import re
+import string
 from collections import Counter
 from typing import Pattern
 
@@ -10,9 +11,9 @@ _PARENTHESES_REGEX = re.compile(r'(?P<text>(\(.*\))|(\([\w .-?]+)|[\w.-?]+\))')
 _SQUARE_BRACKETS_REGEX = re.compile(r'(?P<text>(\[.*])|(\[[\w .-?]+)|[\w.-?]+])')
 
 
-def replace_exceptions(string: str) -> str:
-    string_ = string
-    words = string.split()
+def replace_exceptions(s: str) -> str:
+    string_ = s
+    words = s.split()
 
     for word in words:
         if word.lower() in EXCEPTIONS:
@@ -21,8 +22,8 @@ def replace_exceptions(string: str) -> str:
     return string_
 
 
-def fix_volumes(string: str) -> str:
-    match = re.search(_VOLUME_RE, string)
+def fix_volumes(s: str) -> str:
+    match = re.search(_VOLUME_RE, s)
 
     if match:
         match_text = match.group(0)
@@ -35,31 +36,40 @@ def fix_volumes(string: str) -> str:
             vol_label = 'Vol.'
 
         vol_num = match.group('num').upper()
-        result = string.replace(match_text, f"{vol_label} {vol_num}")
+        result = s.replace(match_text, f"{vol_label} {vol_num}")
 
         return result
 
-    return string
+    return s
 
 
 def has_correct_number_separators(line: str) -> bool:
     return Counter(line)[CSV_SEPARATOR] == SEPARATOR_NUMBER
 
 
-def fix_mismatched_square_brackets(string: str) -> str:
-    return _fix_mismatched(string, '[', ']', _SQUARE_BRACKETS_REGEX)
+def fix_mismatched_square_brackets(s: str) -> str:
+    return _fix_mismatched(s, '[', ']', _SQUARE_BRACKETS_REGEX)
 
 
-def fix_mismatched_parentheses(string: str) -> str:
-    return _fix_mismatched(string, '(', ')', _PARENTHESES_REGEX)
+def fix_mismatched_parentheses(s: str) -> str:
+    return _fix_mismatched(s, '(', ')', _PARENTHESES_REGEX)
 
 
-def convert_to_python_string(string: str) -> str:
-    return string.replace("'", "\\'")
+def convert_to_python_string(s: str) -> str:
+    return s.replace("'", "\\'")
 
 
-def _fix_mismatched(string: str, left_char: str, right_char: str, regex: Pattern[str]) -> str:
-    match = re.search(regex, string)
+def remove_puntuation_symbols(s: str) -> str:
+    s_ = s
+
+    for symbol in string.punctuation:
+        s_ = s_.replace(symbol, '')
+
+    return s
+
+
+def _fix_mismatched(s: str, left_char: str, right_char: str, regex: Pattern[str]) -> str:
+    match = re.search(regex, s)
 
     if match:
         match_text = match.group('text')
@@ -67,6 +77,6 @@ def _fix_mismatched(string: str, left_char: str, right_char: str, regex: Pattern
 
         if text_counter[left_char] != text_counter[right_char]:
             text = match_text.replace(left_char, '').replace(right_char, '')
-            return string.replace(match_text, f"{left_char}{text}{right_char}")
+            return s.replace(match_text, f"{left_char}{text}{right_char}")
 
-    return string
+    return s

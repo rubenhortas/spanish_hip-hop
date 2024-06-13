@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 import difflib
 import signal
-import string
 
+from tools.config.config import CSV_FILE
 from tools.crosscutting.strings import DONE, DUPLICATES, POSSIBLE_DUPLICATES, NO_DUPLICATES_FOUND, \
     LOOKING_FOR_DUPLICATES_IN
 from tools.domain.album import Album
-from tools.config.config import CSV_FILE
 from tools.helpers.file_helpers import read_file, write_file
 from tools.helpers.os_helpers import handle_sigint, clear_screen
+from tools.utils.string_utils import remove_puntuation_symbols
 
 _OUTPUT_FILE = f"{CSV_FILE[:-4]}-{DUPLICATES.lower()}.txt"
 _MATCH_THRESHOLD = 0.9  # Seems a reasonable threshold
@@ -45,10 +45,9 @@ def _get_duplicates(lines: list) -> (list, list):
 
 def _normalize(line: str) -> str:
     album = Album(line)
-    result = f"{album.artist}{album.title}".lower().replace(' ', '')
-
-    for symbol in string.punctuation:
-        result = result.replace(symbol, '')
+    result = f"{album.artist}{album.title}".lower()
+    result = result.replace(' ', '')
+    result = remove_puntuation_symbols(result)
 
     return result
 
