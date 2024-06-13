@@ -25,7 +25,7 @@ def fix_volumes(string: str) -> str:
     match = re.search(_VOLUME_RE, string)
 
     if match:
-        match_ = match.group(0)
+        match_text = match.group(0)
         vol_label = match.group('label').capitalize()
         vol_label = vol_label.replace(' ', '')
         vol_label = vol_label.replace('?', '')
@@ -35,7 +35,7 @@ def fix_volumes(string: str) -> str:
             vol_label = 'Vol.'
 
         vol_num = match.group('num').upper()
-        result = string.replace(match_, f"{vol_label} {vol_num}")
+        result = string.replace(match_text, f"{vol_label} {vol_num}")
 
         return result
 
