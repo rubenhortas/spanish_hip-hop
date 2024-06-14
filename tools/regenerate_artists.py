@@ -29,18 +29,19 @@ def _get_artists(lines: list) -> (dict, list):
 
     for line in lines:
         line_ = line.split(CSV_SEPARATOR)
-        artist = line_[CsvPosition.ARTIST]
-        is_preserved = line_[CsvPosition.PRESERVER] != '' and line_[CsvPosition.PRESERVER] != '-'
+        artist = line_[CsvPosition.ARTIST.value]
+        is_preserved = line_[CsvPosition.PRESERVER.value] != '' and line_[CsvPosition.PRESERVER.value] != '-'
 
         _update_artists(artist)
 
-        artists, separators = Album.get_artists(artist)
+        artists_, separators_ = Album.get_artists(artist)
 
-        for artist in artists:
+        for artist in artists_:
             _update_artists(artist)
 
-        for separator in separators:
-            separators.add(separator)
+        for separator in separators_:
+            if separator not in separators:
+                separators.append(separator)
 
     return dict(sorted(artists.items())), sorted(list(separators))
 
