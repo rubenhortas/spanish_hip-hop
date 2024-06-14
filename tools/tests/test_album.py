@@ -28,4 +28,4 @@ class TestAlbum(unittest.TestCase):
     def test_get_artists(self):
         for artist, expected_result in self.artists:
             # lower to test the resulting lists only
-            self.assertEqual(expected_result, [artist.lower() for artist in Album.get_artists])
+            self.assertEqual(expected_result, [artist.lower() for artist in Album.get_artists(artist)])
