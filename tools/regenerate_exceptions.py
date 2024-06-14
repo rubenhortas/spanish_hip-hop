@@ -34,6 +34,22 @@ def _write_output_file(keys: list) -> None:
 
 
 if __name__ == '__main__':
+    """
+    Removes duplicates from the 'EXCEPTIONS' exception dictionary (file /config/exceptions.py) 
+    and sorts the dictionary alphabetically.
+
+    Dictionary format: 'key': 'value',
+        EXCEPTIONS = {
+            'foo': 'fOo',
+            'bar': 'BaR',
+        }
+    
+        * 'key': The lowercase word.
+        * 'value': The value to be formatted to (both for album titles and artist names).
+            - Setting a format exception is used to preserve uppercase, lowercase, special words, etc., 
+              for example: 'f0o BaR the album'.
+            - Exceptions will also apply to artist names, for example: 'f0o BaR,fOo BaR the album,...'
+    """
     signal.signal(signal.SIGINT, handle_sigint)
     print(f"{GENERATING_NEW} '{_OUTPUT_FILE}'...")
 

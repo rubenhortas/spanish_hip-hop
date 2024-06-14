@@ -60,9 +60,9 @@ def _write_output_file(artists: dict, separators: list) -> None:
 
 if __name__ == '__main__':
     """
-    Updates the artist name translation dictionary: '/config/artists.py'.
+    Updates the artist name translation dictionary 'ARTISTS' (file '/config/artists.py').
     Combines the artist names from the 'ARTISTS' dictionary (file '/config/artists.py') with the artist names 
-    from the albums in the albums file.
+    from the albums in the albums file (the CSV file).
     The resulting dictionary will be free of duplicates and alphabetically sorted.
 
     Dictionary format: 'key': 'value',
@@ -72,10 +72,10 @@ if __name__ == '__main__':
 
         * 'key': The artist name in lowercase
         * 'value': The name that the artist name will be formatted to, and will appear as in the final file.
-            - The default format is 'title', i.e. the first letter of each word in uppercase, 
+            - The default format is 'titlecase', i.e. the first letter of each word in uppercase, 
               for example: 'Bob The Foobar'.
             - Setting an artist name format is used to preserve uppercase, lowercase, special words, etc.,
-            - for example: 'BoB ThE FooBaR'.
+              for example: 'BoB ThE FooBaR'.
             - When formatting the name exceptions defined in the EXCEPTIONS dictionary (file '/config/exceptions.py') 
               will also apply to the artist.
     """
