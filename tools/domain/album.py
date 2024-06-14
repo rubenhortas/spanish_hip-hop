@@ -106,6 +106,14 @@ class Album:
                 and self._seen_online > other._seen_online
                 and self._notes > other._notes)
 
+    @staticmethod
+    def format_artist(artist: str) -> str:
+        artist_ = artist.title()
+        artist_ = Album._fix(artist_)
+        artist_ = replace_exceptions(artist_)
+
+        return artist_
+
     def has_preserver(self) -> bool:
         return self._preserver != ''
 
@@ -128,7 +136,7 @@ class Album:
 
                 if artist_:
                     self._artists.append(artist_)
-                    
+
         return self._artists
 
     def get_artist_separators(self) -> list:
@@ -144,14 +152,24 @@ class Album:
 
         return self._artists_separators
 
-    def _get_value(self, string: str) -> str:
+    @staticmethod
+    def _get_value(string: str) -> str:
         if string and string != '-':
             return string.strip()
 
         return ''
 
+    @staticmethod
+    def _fix(string: str) -> str:
+        string_ = string.replace('"', '')
+        string_ = fix_mismatched_square_brackets(string_)
+        string_ = fix_mismatched_parentheses(string_)
+        string_ = fix_volumes(string_)
+
+        return string_
+
     def _format_values(self):
-        self._format_artist()
+        self.artist = Album.format_artist(self.artist)
         self._format_title()
         self._format = self._format.upper()
         self._medium = self._medium.upper()
@@ -160,20 +178,7 @@ class Album:
         self._digital_format = self._digital_format.upper()
         self._seen_online = self._seen_online.capitalize()
 
-    def _format_artist(self) -> None:
-        self.artist = self.artist.title()
-        self.artist = self._fix(self.artist)
-        self.artist = replace_exceptions(self.artist)
-
     def _format_title(self) -> None:
         self.title = self.title.capitalize()
         self.title = self._fix(self.title)
         self.title = replace_exceptions(self.title)
-
-    def _fix(self, string: str) -> str:
-        string_ = string.replace('"', '')
-        string_ = fix_mismatched_square_brackets(string_)
-        string_ = fix_mismatched_parentheses(string_)
-        string_ = fix_volumes(string_)
-
-        return string_
