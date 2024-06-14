@@ -16,18 +16,18 @@ class Album:
             self.id = self._get_value(values[CsvPosition.ID.value])
             self.artist = self._get_value(values[CsvPosition.ARTIST.value])
             self.title = self._get_value(values[CsvPosition.TITLE.value])
-            self.publication_date = self._get_value(values[CsvPosition.PUBLICATION_DATE.value])
-            self.format = self._get_value(values[CsvPosition.FORMAT.value])
-            self.medium = self._get_value(values[CsvPosition.MEDIUM.value])
-            self.preserved_in_digital = self._get_value(values[CsvPosition.PRESERVED_IN_DIGITAL.value])
-            self.digital_format = self._get_value(values[CsvPosition.DIGITAL_FORMAT.value])
-            self.bit_rate = self._get_value(values[CsvPosition.BIT_RATE.value])
-            self.preserver = self._get_value(values[CsvPosition.PRESERVER.value])
-            self.preservation_date = self._get_value(values[CsvPosition.PRESERVATION_DATE.value])
-            self.modification_date = self._get_value(values[CsvPosition.MODIFICATION_DATE.value])
-            self.source = self._get_value(values[CsvPosition.SOURCE.value])
-            self.seen_online = self._get_value(values[CsvPosition.SEEN_ONLINE.value])
-            self.notes = self._get_value(values[CsvPosition.NOTES.value])
+            self._publication_date = self._get_value(values[CsvPosition.PUBLICATION_DATE.value])
+            self._format = self._get_value(values[CsvPosition.FORMAT.value])
+            self._medium = self._get_value(values[CsvPosition.MEDIUM.value])
+            self._preserved_in_digital = self._get_value(values[CsvPosition.PRESERVED_IN_DIGITAL.value])
+            self._digital_format = self._get_value(values[CsvPosition.DIGITAL_FORMAT.value])
+            self._bit_rate = self._get_value(values[CsvPosition.BIT_RATE.value])
+            self._preserver = self._get_value(values[CsvPosition.PRESERVER.value])
+            self._preservation_date = self._get_value(values[CsvPosition.PRESERVATION_DATE.value])
+            self._modification_date = self._get_value(values[CsvPosition.MODIFICATION_DATE.value])
+            self._source = self._get_value(values[CsvPosition.SOURCE.value])
+            self._seen_online = self._get_value(values[CsvPosition.SEEN_ONLINE.value])
+            self._notes = self._get_value(values[CsvPosition.NOTES.value])
 
             # Not CSV values
             self._artists_separators = []
@@ -42,72 +42,72 @@ class Album:
         return (f"{self.id}{CSV_SEPARATOR}"
                 f"{self.artist}{CSV_SEPARATOR}"
                 f"{self.title}{CSV_SEPARATOR}"
-                f"{self.publication_date}{CSV_SEPARATOR}"
-                f"{self.format}{CSV_SEPARATOR}"
-                f"{self.medium}{CSV_SEPARATOR}"
-                f"{self.preserved_in_digital}{CSV_SEPARATOR}"
-                f"{self.digital_format}{CSV_SEPARATOR}"
-                f"{self.bit_rate}{CSV_SEPARATOR}"
-                f"{self.preserver}{CSV_SEPARATOR}"
-                f"{self.preservation_date}{CSV_SEPARATOR}"
-                f"{self.modification_date}{CSV_SEPARATOR}"
-                f"{self.source}{CSV_SEPARATOR}"
-                f"{self.seen_online}{CSV_SEPARATOR}"
-                f"{self.notes}")
+                f"{self._publication_date}{CSV_SEPARATOR}"
+                f"{self._format}{CSV_SEPARATOR}"
+                f"{self._medium}{CSV_SEPARATOR}"
+                f"{self._preserved_in_digital}{CSV_SEPARATOR}"
+                f"{self._digital_format}{CSV_SEPARATOR}"
+                f"{self._bit_rate}{CSV_SEPARATOR}"
+                f"{self._preserver}{CSV_SEPARATOR}"
+                f"{self._preservation_date}{CSV_SEPARATOR}"
+                f"{self._modification_date}{CSV_SEPARATOR}"
+                f"{self._source}{CSV_SEPARATOR}"
+                f"{self._seen_online}{CSV_SEPARATOR}"
+                f"{self._notes}")
 
     def __eq__(self, other):
         return (self.id == other.id
                 and self.artist == other.artist
                 and self.title == other.title
-                and self.publication_date == other.publication_date
-                and self.format == other.format
-                and self.medium == other.medium
-                and self.preserved_in_digital == other.preserved_in_digital
-                and self.digital_format == other.digital_format
-                and self.bit_rate == other.bit_rate
-                and self.preserver == other.preserver
-                and self.preservation_date == other.preservation_date
-                and self.modification_date == other.modification_date
-                and self.source == other.source
-                and self.seen_online == other.seen_online
-                and self.notes == other.notes)
+                and self._publication_date == other._publication_date
+                and self._format == other._format
+                and self._medium == other._medium
+                and self._preserved_in_digital == other._preserved_in_digital
+                and self._digital_format == other._digital_format
+                and self._bit_rate == other._bit_rate
+                and self._preserver == other._preserver
+                and self._preservation_date == other._preservation_date
+                and self._modification_date == other._modification_date
+                and self._source == other._source
+                and self._seen_online == other._seen_online
+                and self._notes == other._notes)
 
     def __lt__(self, other):
         return (self.id < other.id
                 and self.artist < other.artist
-                and self.publication_date < other.publication_date
+                and self._publication_date < other._publication_date
                 and self.title < other.title
-                and self.format < other.format
-                and self.medium < other.medium
-                and self.preserved_in_digital < other.preserved_in_digital
-                and self.digital_format < other.digital_format
-                and self.bit_rate < other.bit_rate
-                and self.preserver < other.preserver
-                and self.preservation_date < other.preservation_date
-                and self.modification_date < other.modification_date
-                and self.source < other.source
-                and self.seen_online < other.seen_online
-                and self.notes < other.notes)
+                and self._format < other._format
+                and self._medium < other._medium
+                and self._preserved_in_digital < other._preserved_in_digital
+                and self._digital_format < other._digital_format
+                and self._bit_rate < other._bit_rate
+                and self._preserver < other._preserver
+                and self._preservation_date < other._preservation_date
+                and self._modification_date < other._modification_date
+                and self._source < other._source
+                and self._seen_online < other._seen_online
+                and self._notes < other._notes)
 
     def __gt__(self, other):
         return (self.id > other.id
                 and self.artist > other.artist
-                and self.publication_date > other.publication_date
+                and self._publication_date > other._publication_date
                 and self.title > other.title
-                and self.format > other.format
-                and self.medium > other.medium
-                and self.preserved_in_digital > other.preserved_in_digital
-                and self.digital_format > other.digital_format
-                and self.bit_rate > other.bit_rate
-                and self.preserver > other.preserver
-                and self.preservation_date > other.preservation_date
-                and self.modification_date > other.modification_date
-                and self.source > other.source
-                and self.seen_online > other.seen_online
-                and self.notes > other.notes)
+                and self._format > other._format
+                and self._medium > other._medium
+                and self._preserved_in_digital > other._preserved_in_digital
+                and self._digital_format > other._digital_format
+                and self._bit_rate > other._bit_rate
+                and self._preserver > other._preserver
+                and self._preservation_date > other._preservation_date
+                and self._modification_date > other._modification_date
+                and self._source > other._source
+                and self._seen_online > other._seen_online
+                and self._notes > other._notes)
 
     def has_preserver(self) -> bool:
-        return self.preserver != ''
+        return self._preserver != ''
 
     def get_artists(self) -> list:
         if not self._artists:
@@ -153,12 +153,12 @@ class Album:
     def _format_values(self):
         self._format_artist()
         self._format_title()
-        self.format = self.format.upper()
-        self.medium = self.medium.upper()
-        self.preserved_in_digital = self.preserved_in_digital.capitalize()
-        self.bit_rate = self.bit_rate.upper()
-        self.digital_format = self.digital_format.upper()
-        self.seen_online = self.seen_online.capitalize()
+        self._format = self._format.upper()
+        self._medium = self._medium.upper()
+        self._preserved_in_digital = self._preserved_in_digital.capitalize()
+        self._bit_rate = self._bit_rate.upper()
+        self._digital_format = self._digital_format.upper()
+        self._seen_online = self._seen_online.capitalize()
 
     def _format_artist(self) -> None:
         self.artist = self.artist.title()
