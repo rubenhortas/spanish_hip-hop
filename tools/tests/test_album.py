@@ -17,7 +17,7 @@ class TestAlbum(unittest.TestCase):
             ('bob mc + 1234', ['bob mc', '1234']),
             ('bob mc + alice & foobar (01.02.2024', ['bob mc', 'alice', 'foobar 01.02.2024']),
             ('&bob', ['&bob']),
-            # ('&bob & alice', ['&bob', 'alice']),
+            ('&bob & alice', ['&bob', 'alice'])
         ]
 
     def test_format_album(self):

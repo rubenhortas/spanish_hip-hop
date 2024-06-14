@@ -11,7 +11,7 @@ class Album:
     @property
     def artists(self):
         return Album.get_artists(self.artist)
-    
+
     def __init__(self, line: str):
         if has_correct_number_separators(line):
             values = line.split(CSV_SEPARATOR)
@@ -124,7 +124,7 @@ class Album:
         album_artist = album_artist.replace('[', '').replace(']', '')
 
         for separator in separators:
-            album_artist = album_artist.replace(separator, '|')
+            album_artist = album_artist.replace(f" {separator}", '|')
 
         album_artists = album_artist.split('|')
 
