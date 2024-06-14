@@ -1,8 +1,7 @@
 #!/usr/bin/env python
-import string
 
-from tools.config.exceptions import EXCEPTIONS
 from tools.config.config import CSV_FILE, CSV_SEPARATOR, CsvPosition
+from tools.config.exceptions import EXCEPTIONS
 from tools.crosscutting import strings
 from tools.crosscutting.strings import LINES_WITH_EXCEPTIONS, LINES_WITHOUT_EXCEPTIONS, UNUSED_EXCEPTIONS
 from tools.helpers.file_helpers import read_file, write_file
