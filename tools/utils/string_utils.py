@@ -11,9 +11,9 @@ _PARENTHESES_REGEX = re.compile(r'(?P<text>(\(.*\))|(\([\w .-?]+)|[\w.-?]+\))')
 _SQUARE_BRACKETS_REGEX = re.compile(r'(?P<text>(\[.*])|(\[[\w .-?]+)|[\w.-?]+])')
 
 
-def replace_exceptions(s: str) -> str:
-    s_ = s
-    words = s.split()
+def replace_exceptions(string: str) -> str:
+    s_ = string
+    words = string.split()
 
     for word in words:
         key = word.lower()
@@ -24,8 +24,8 @@ def replace_exceptions(s: str) -> str:
     return s_
 
 
-def fix_volumes(s: str) -> str:
-    match = re.search(_VOLUME_RE, s)
+def fix_volumes(string: str) -> str:
+    match = re.search(_VOLUME_RE, string)
 
     if match:
         match_text = match.group(0)
@@ -38,40 +38,40 @@ def fix_volumes(s: str) -> str:
             vol_label = 'Vol.'
 
         vol_num = match.group('num').upper()
-        result = s.replace(match_text, f"{vol_label} {vol_num}")
+        result = string.replace(match_text, f"{vol_label} {vol_num}")
 
         return result
 
-    return s
+    return string
 
 
 def has_correct_number_separators(line: str) -> bool:
     return Counter(line)[CSV_SEPARATOR] == SEPARATOR_NUMBER
 
 
-def fix_mismatched_square_brackets(s: str) -> str:
-    return _fix_mismatched(s, '[', ']', _SQUARE_BRACKETS_REGEX)
+def fix_mismatched_square_brackets(string: str) -> str:
+    return _fix_mismatched(string, '[', ']', _SQUARE_BRACKETS_REGEX)
 
 
-def fix_mismatched_parentheses(s: str) -> str:
-    return _fix_mismatched(s, '(', ')', _PARENTHESES_REGEX)
+def fix_mismatched_parentheses(string: str) -> str:
+    return _fix_mismatched(string, '(', ')', _PARENTHESES_REGEX)
 
 
-def convert_to_python_string(s: str) -> str:
-    return s.replace("'", "\\'")
+def convert_to_python_string(string: str) -> str:
+    return string.replace("'", "\\'")
 
 
-def remove_punctuation_symbols(s: str) -> str:
-    s_ = s
+def remove_punctuation_symbols(string_: str) -> str:
+    clean_string = string_
 
     for symbol in string.punctuation:
-        s_ = s_.replace(symbol, '')
+        clean_string = clean_string.replace(symbol, '')
 
-    return s
+    return clean_string
 
 
-def _fix_mismatched(s: str, left_char: str, right_char: str, regex: Pattern[str]) -> str:
-    match = re.search(regex, s)
+def _fix_mismatched(string: str, left_char: str, right_char: str, regex: Pattern[str]) -> str:
+    match = re.search(regex, string)
 
     if match:
         match_text = match.group('text')
@@ -79,6 +79,6 @@ def _fix_mismatched(s: str, left_char: str, right_char: str, regex: Pattern[str]
 
         if text_counter[left_char] != text_counter[right_char]:
             text = match_text.replace(left_char, '').replace(right_char, '')
-            return s.replace(match_text, f"{left_char}{text}{right_char}")
+            return string.replace(match_text, f"{left_char}{text}{right_char}")
 
-    return s
+    return string
