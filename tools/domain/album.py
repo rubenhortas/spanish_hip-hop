@@ -115,7 +115,7 @@ class Album:
         return artist_
 
     @staticmethod
-    def get_artists(artist: str) -> list:
+    def get_artists(artist: str) -> (list, list):
         artists = []
         separators = Album._get_separators(artist)
 
@@ -134,7 +134,7 @@ class Album:
             if artist_:
                 artists.append(artist_)
 
-        return artists
+        return artists, separators
 
     def has_preserver(self) -> bool:
         return self.preserver != ''

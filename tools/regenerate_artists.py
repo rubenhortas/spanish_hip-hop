@@ -34,7 +34,7 @@ def _get_artists(lines: list) -> (dict, list):
 
         _update_artists(artist)
 
-        artists, separators = Album.get_artists
+        artists, separators = Album.get_artists(artist)
 
         for artist in artists:
             _update_artists(artist)
@@ -47,12 +47,12 @@ def _get_artists(lines: list) -> (dict, list):
 
 def _write_output_file(artists: dict, separators: list) -> None:
     separators = create_python_list('SEPARATORS', separators)
-    art = create_python_list('ARTISTS', artists)
+    artists = create_python_list('ARTISTS', artists)
 
     result = []
     result.extend(separators)
     result.append('\n')
-    result.extend(art)
+    result.extend(artists)
 
     write_file(_OUTPUT_FILE, result)
 
