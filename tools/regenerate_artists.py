@@ -4,7 +4,7 @@ import os
 import signal
 
 from tools.config.artists import ARTISTS, SEPARATORS
-from tools.config.config import CSV_FILE
+from tools.config.config import CSV_FILE, CSV_SEPARATOR, CsvPosition
 from tools.crosscutting.strings import GENERATING_NEW, DONE
 from tools.domain.album import Album
 from tools.helpers.file_helpers import read_file, backup, write_file
@@ -20,21 +20,26 @@ def _get_artists(lines: list) -> (dict, list):
         if not artist.isnumeric():  # Numbers will not be transformed
             key = artist.lower()
 
-            if key not in artists or album.has_preserver():
+            if key not in artists or is_preserved:
+                # If the album is preserved, the prevailing value is the preserved one
                 artists[key] = artist
 
     artists = copy.deepcopy(ARTISTS)  # Deep copy
     separators = SEPARATORS
 
     for line in lines:
-        album = Album(line)
+        line_ = line.split(CSV_SEPARATOR)
+        artist = line_[CsvPosition.ARTIST]
+        is_preserved = line_[CsvPosition.PRESERVER] != '' and line_[CsvPosition.PRESERVER] != '-'
 
-        _update_artists(album.artist)
+        _update_artists(artist)
 
-        for artist in album.get_artists():
+        artists, separators = Album.get_artists
+
+        for artist in artists:
             _update_artists(artist)
 
-        for separator in album.get_artist_separators():
+        for separator in separators:
             separators.add(separator)
 
     return dict(sorted(artists.items())), sorted(list(separators))

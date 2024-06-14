@@ -30,7 +30,7 @@ def _get_formatted_lines(line: list) -> (list, list):
         try:
             album = Album(line)
 
-            for artist in album.get_artists():
+            for artist in album.artists:
                 if artist:
                     artists.add(artist)
 

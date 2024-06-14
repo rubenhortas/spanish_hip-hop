@@ -15,7 +15,9 @@ class TestAlbum(unittest.TestCase):
         self.artists = [
             ('bob mc & alice', ['bob mc', 'alice']),
             ('bob mc + 1234', ['bob mc', '1234']),
-            ('bob mc + alice & foobar (01.02.2024', ['bob mc', 'alice', 'foobar 01.02.2024'])
+            ('bob mc + alice & foobar (01.02.2024', ['bob mc', 'alice', 'foobar 01.02.2024']),
+            ('&bob', ['&bob']),
+            # ('&bob & alice', ['&bob', 'alice']),
         ]
 
     def test_format_album(self):
@@ -23,6 +25,7 @@ class TestAlbum(unittest.TestCase):
             album = Album(line)
             self.assertEqual(expected_result, str(album))
 
-    def test_format_artist(self):
+    def test_get_artists(self):
         for artist, expected_result in self.artists:
-            self.assertEqual(artist, Album.format_artist(artist).lower())  # lower to test the resulting lists only
+            # lower to test the resulting lists only
+            self.assertEqual(expected_result, [artist.lower() for artist in Album.get_artists])
