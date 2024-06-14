@@ -59,6 +59,27 @@ def _write_output_file(artists: dict, separators: list) -> None:
 
 
 if __name__ == '__main__':
+    """
+    Updates the artist name translation dictionary: '/config/artists.py'.
+    Combines the artist names from the 'ARTISTS' dictionary (file '/config/artists.py') with the artist names 
+    from the albums in the albums file.
+    The resulting dictionary will be free of duplicates and alphabetically sorted.
+
+    Dictionary format: 'key': 'value',
+        ARTISTS = {
+            'bob the foobar': 'Bob The Foobar',
+        }
+
+        * 'key': The artist name in lowercase
+        * 'value': The name that the artist name will be formatted to, and will appear as in the final file.
+            - The default format is 'title', i.e. the first letter of each word in uppercase, 
+              for example: 'Bob The Foobar'.
+            - Setting an artist name format is used to preserve uppercase, lowercase, special words, etc.,
+            - for example: 'BoB ThE FooBaR'.
+            - When formatting the name exceptions defined in the EXCEPTIONS dictionary (file '/config/exceptions.py') 
+              will also apply to the artist.
+    """
+
     signal.signal(signal.SIGINT, handle_sigint)
     print(f"{GENERATING_NEW} '{_OUTPUT_FILE}'...")
 
