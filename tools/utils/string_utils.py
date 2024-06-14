@@ -12,16 +12,16 @@ _SQUARE_BRACKETS_REGEX = re.compile(r'(?P<text>(\[.*])|(\[[\w .-?]+)|[\w.-?]+])'
 
 
 def replace_exceptions(string: str) -> str:
-    s_ = string
+    string_ = string
     words = string.split()
 
     for word in words:
         key = word.lower()
 
         if key in EXCEPTIONS:
-            s_ = s_.replace(word, EXCEPTIONS[key])
+            string_ = string_.replace(word, EXCEPTIONS[key])
 
-    return s_
+    return string_
 
 
 def fix_volumes(string: str) -> str:
