@@ -19,6 +19,7 @@ def _get_artists(lines: list) -> (dict, list):
     def _update_artists(artist: str) -> None:
         if not artist.isnumeric():  # Numbers will not be transformed
             key = artist.lower()
+            used_keys.add(key)
 
             if key not in artists and not is_preserved:
                 artists[key] = artist.title()
@@ -30,6 +31,7 @@ def _get_artists(lines: list) -> (dict, list):
     separators = SEPARATORS
     current_line = 0
     len_lines = len(lines)
+    used_keys = set()
 
     for line in lines:
         current_line += 1
@@ -49,6 +51,13 @@ def _get_artists(lines: list) -> (dict, list):
         for separator in separators_:
             if separator not in separators:
                 separators.append(separator)
+
+    # Delete unused keys
+    artists_keys = [key for key in artists]
+
+    for key in artists_keys:
+        if key not in used_keys:
+            artists.pop(key)
 
     if lines:
         print()
