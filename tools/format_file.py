@@ -13,17 +13,16 @@ _ERROR_FILE = f"{CSV_FILE[:-4]}-{ERRORS.lower()}.csv"
 
 
 def _get_formatted_lines(line: list) -> (list, list):
-    lines_ = [line.strip() for line in line]
-    len_lines = len(lines_)
     albums = []
     errors = []
+    lines_ = [line.strip() for line in line]
+    len_lines = len(lines_)
     current_line = 0
 
     print(f"{FORMATTING_LINES}...")
 
     for line in lines_:
         current_line += 1
-
         print(f"\r{current_line}/{len_lines}", end='')
 
         try:

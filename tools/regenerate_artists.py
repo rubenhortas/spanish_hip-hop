@@ -26,8 +26,13 @@ def _get_artists(lines: list) -> (dict, list):
 
     artists = copy.deepcopy(ARTISTS)  # Deep copy
     separators = SEPARATORS
+    current_line = 0
+    len_lines = len(lines)
 
     for line in lines:
+        current_line += 1
+        print(f"\r{current_line}/{len_lines}", end='')
+
         line_ = line.split(CSV_SEPARATOR)
         artist = line_[CsvPosition.ARTIST.value]
         is_preserved = line_[CsvPosition.PRESERVER.value] != '' and line_[CsvPosition.PRESERVER.value] != '-'
@@ -42,6 +47,8 @@ def _get_artists(lines: list) -> (dict, list):
         for separator in separators_:
             if separator not in separators:
                 separators.append(separator)
+
+    print()
 
     return dict(sorted(artists.items())), sorted(list(separators))
 
