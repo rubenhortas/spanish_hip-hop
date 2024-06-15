@@ -22,7 +22,7 @@ def _get_artists(lines: list) -> (dict, list):
 
             if key not in artists or is_preserved:
                 # If the album is preserved, the prevailing value is the preserved one
-                artists[key] = artist
+                artists[key] = artist.title()
 
     artists = copy.deepcopy(ARTISTS)  # Deep copy
     separators = SEPARATORS
