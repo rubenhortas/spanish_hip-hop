@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 import os
 import signal
-from collections import Counter
 
-from tools.config.config import CSV_FILE, CSV_SEPARATOR, SEPARATOR_NUMBER, CsvPosition
+from tools.config.config import CSV_FILE, CsvPosition
 from tools.crosscutting.strings import FIXING, DONE, ERRORS, FIXED
-from tools.helpers.file_helpers import read_file, write_file
+from tools.helpers.file_helpers import read_csv_file, write_csv_file
 from tools.helpers.os_helpers import handle_sigint, clear_screen
 
 _INPUT_FILE = os.path.join(os.path.abspath('..'), CSV_FILE)
@@ -20,35 +19,25 @@ _FOREIGN_ARTISTS = ['Ace Hood', 'Ali G indahouse', 'Aqeel', 'Aqueel', 'Asap Mob'
 _DESCONOCIDOS = ['desconocido', '[desconocido]', 'intérprete desconocido']
 
 
-def _fix(lines: list) -> (list, list):
-    fixed_lines = []
+def _fix(lines: list, fields_number: int) -> (list, list):
     errors = []
 
     for line in lines:
-        if Counter(line)[CSV_SEPARATOR] == SEPARATOR_NUMBER:
-            values = line.split(CSV_SEPARATOR)
+        if len(line) == fields_number:
+            if line[CsvPosition.ARTIST.value] not in _FOREIGN_ARTISTS:
+                if line[CsvPosition.PRESERVER.value] == '' or line[CsvPosition.PRESERVER.value] == '-':
+                    value_index = 0
 
-            if values[CsvPosition.ARTIST.value] not in _FOREIGN_ARTISTS:
-                if values[CsvPosition.PRESERVER.value] == '-' or values[CsvPosition.PRESERVER.value] == '':
-                    fixed_values = []
+                    for value in line:
+                        if value and value.lower() in _DESCONOCIDOS:
+                            line[value_index] = ''
 
-                    for value in values:
-                        value_ = value
-
-                        if value_:
-                            if value_[0] == '"' and value_[-1] == '"':
-                                value_ = value_[1:-1]
-
-                            if value_.lower() in _DESCONOCIDOS:
-                                value_ = ''
-
-                        fixed_values.append(value_)
-
-                    fixed_lines.append(CSV_SEPARATOR.join(fixed_values))
+                        value_index += 1
         else:
             errors.append(line)
+            lines.remove(line)
 
-    return fixed_lines, errors
+    return lines, errors
 
 
 if __name__ == '__main__':
@@ -56,15 +45,18 @@ if __name__ == '__main__':
     clear_screen()
     print(f"{FIXING} '{CSV_FILE}'...")
 
-    lines = read_file(_INPUT_FILE)
-    header = lines[0].replace('"', '')
+    lines = read_csv_file(_INPUT_FILE)
 
-    fixed_lines, errors = _fix(lines[1:])
+    if lines:
+        csv_header = lines[0]
+        fixed_lines, errors = _fix(lines[1:], len(csv_header))
 
-    if fixed_lines:
-        fixed_lines.insert(0, header)
-        write_file(_OUTPUT_FILE, fixed_lines)
+        if fixed_lines:
+            fixed_lines.insert(0, csv_header)
+            write_csv_file(_OUTPUT_FILE, fixed_lines)
 
-    write_file(_ERROR_FILE, errors)
+        if errors:
+            errors.insert(0, csv_header)
+            write_csv_file(_ERROR_FILE, errors)
 
     print(DONE)

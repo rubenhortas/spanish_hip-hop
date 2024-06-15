@@ -4,7 +4,6 @@ from collections import Counter
 from typing import Pattern
 
 from tools.config.exceptions import EXCEPTIONS
-from tools.config.config import CSV_SEPARATOR, SEPARATOR_NUMBER
 
 _VOLUME_RE = re.compile(r'((?P<label>(vol)(\?|(ume)n?)?([. ]{0,2})\??\b)(?P<num>\w*(\.?\d*)?))', re.IGNORECASE)
 _PARENTHESES_REGEX = re.compile(r'(?P<text>(\(.*\))|(\([\w .-?]+)|[\w.-?]+\))')
@@ -45,8 +44,12 @@ def fix_volumes(string: str) -> str:
     return string
 
 
-def has_correct_number_separators(line: str) -> bool:
-    return Counter(line)[CSV_SEPARATOR] == SEPARATOR_NUMBER
+def has_mismatched_square_brackets(string: str) -> bool:
+    return _has_mismatched(string, '[', ']')
+
+
+def has_mismatched_parentheses(string: str) -> bool:
+    return _has_mismatched(string, '(', ')')
 
 
 def fix_mismatched_square_brackets(string: str) -> str:
@@ -68,6 +71,11 @@ def remove_punctuation_symbols(string_: str) -> str:
         clean_string = clean_string.replace(symbol, '')
 
     return clean_string
+
+
+def _has_mismatched(string: str, left_char: str, right_char: str) -> bool:
+    string_counter = Counter(string)
+    return string_counter[left_char] != string_counter[right_char]
 
 
 def _fix_mismatched(string: str, left_char: str, right_char: str, regex: Pattern[str]) -> str:

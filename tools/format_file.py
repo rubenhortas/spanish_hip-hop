@@ -1,52 +1,50 @@
 #!/usr/bin/env python3
 import signal
 
-from tools.config.config import CSV_FILE, CSV_HEADER
-from tools.crosscutting.strings import FORMATTING_LINES, POORLY_FORMATTED_LINES_INVALID_NUMBER_OF_SEPARATORS, \
-    GENERATING, DONE, FORMATTED, ERRORS
-from tools.domain.album import Album, WrongSeparatorsException
-from tools.helpers.file_helpers import write_file, read_file
+from tools.config.config import CSV_FILE
+from tools.crosscutting.strings import FORMATTING_LINES, GENERATING, DONE, FORMATTED, ERRORS, WRONG_FIELDS_NUMBER
+from tools.domain.album import Album, WrongFieldsNumberException
+from tools.helpers.file_helpers import read_csv_file, write_csv_file
 from tools.helpers.os_helpers import handle_sigint, clear_screen
 
 _OUTPUT_FILE = f"{CSV_FILE[:-4]}-{FORMATTED.lower()}.csv"
-_ERROR_FILE = f"{CSV_FILE[:-4]}-{ERRORS.lower()}.csv"
+_ERROR_FILE = f"{CSV_FILE[:-4]}-{ERRORS.lower()}-{WRONG_FIELDS_NUMBER}.csv"
 
 
-def _get_formatted_lines(line: list) -> (list, list):
+def _get_formatted_lines(lines: list, fields_number: int) -> (list, list):
     albums = []
-    errors = []
-    lines_ = [line.strip() for line in line]
-    len_lines = len(lines_)
+    wrong_lines = []
+    lines_number = len(lines)
     current_line = 0
 
     print(f"{FORMATTING_LINES}...")
 
-    for line in lines_:
+    for line in lines:
         current_line += 1
-        print(f"\r{current_line}/{len_lines}", end='')
+        print(f"\r{current_line}/{lines_number}", end='')
 
         try:
-            albums.append(Album(line))
-        except WrongSeparatorsException:
-            errors.append(line)
+            albums.append(Album(line, fields_number))
+        except WrongFieldsNumberException:
+            wrong_lines.append(line)
 
     print()
 
-    return sorted(albums), errors
+    return sorted(albums), wrong_lines
 
 
-def _write_output_file(albums: list) -> None:
+def _write_output_file(header: list, albums: list) -> None:
     if albums:
-        result = [f"{CSV_HEADER}\n"]
-        result.extend([f"{str(album)}\n" for album in albums])
-        write_file(_OUTPUT_FILE, result)
+        result = [header]
+        result.extend(albums)
+        write_csv_file(_OUTPUT_FILE, result)
 
 
-def _write_error_file(errors: list) -> None:
+def _write_error_file(header: list, errors: list) -> None:
     if errors:
-        result = [f"{POORLY_FORMATTED_LINES_INVALID_NUMBER_OF_SEPARATORS}:\n\n"]
-        result.extend([f"{error}\n" for error in errors])
-        write_file(_ERROR_FILE, result)
+        result = [header]
+        result.extend(errors)
+        write_csv_file(_ERROR_FILE, result)
 
 
 if __name__ == '__main__':
@@ -54,10 +52,13 @@ if __name__ == '__main__':
     clear_screen()
     print(f"{GENERATING} '{_OUTPUT_FILE}'...")
 
-    lines = read_file(CSV_FILE)[1:]
-    formatted_lines, errors = _get_formatted_lines(lines)
+    lines = read_csv_file(CSV_FILE)
 
-    _write_output_file(formatted_lines)
-    _write_error_file(errors)
+    if lines:
+        header = lines[0]
+        formatted_lines, wrong_lines = _get_formatted_lines(lines[1:], len(header))
+
+        _write_output_file(header, formatted_lines)
+        _write_error_file(header, wrong_lines)
 
     print(DONE)

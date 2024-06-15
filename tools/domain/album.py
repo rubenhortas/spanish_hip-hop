@@ -1,9 +1,8 @@
-from tools.config.config import CSV_SEPARATOR, CsvPosition
-from tools.utils.string_utils import has_correct_number_separators, replace_exceptions, fix_volumes, \
-    fix_mismatched_square_brackets, fix_mismatched_parentheses
+from tools.config.config import CSV_DELIMITER, CsvPosition
+from tools.utils.string_utils import replace_exceptions, fix_volumes, fix_mismatched_square_brackets, fix_mismatched_parentheses
 
 
-class WrongSeparatorsException(Exception):
+class WrongFieldsNumberException(Exception):
     pass
 
 
@@ -12,47 +11,45 @@ class Album:
     def artists(self):
         return Album.get_artists(self.artist)
 
-    def __init__(self, line: str):
-        if has_correct_number_separators(line):
-            values = line.split(CSV_SEPARATOR)
-
+    def __init__(self, line: str, fields_number: int):
+        if len(line) == fields_number:
             # CSV values
-            self.id = self._get_value(values[CsvPosition.ID.value])
-            self.artist = self._get_value(values[CsvPosition.ARTIST.value])
-            self.title = self._get_value(values[CsvPosition.TITLE.value])
-            self.publication_date = self._get_value(values[CsvPosition.PUBLICATION_DATE.value])
-            self.format = self._get_value(values[CsvPosition.FORMAT.value])
-            self.medium = self._get_value(values[CsvPosition.MEDIUM.value])
-            self.preserved_in_digital = self._get_value(values[CsvPosition.PRESERVED_IN_DIGITAL.value])
-            self.digital_format = self._get_value(values[CsvPosition.DIGITAL_FORMAT.value])
-            self.bit_rate = self._get_value(values[CsvPosition.BIT_RATE.value])
-            self.preserver = self._get_value(values[CsvPosition.PRESERVER.value])
-            self.preservation_date = self._get_value(values[CsvPosition.PRESERVATION_DATE.value])
-            self.modification_date = self._get_value(values[CsvPosition.MODIFICATION_DATE.value])
-            self.source = self._get_value(values[CsvPosition.SOURCE.value])
-            self.seen_online = self._get_value(values[CsvPosition.SEEN_ONLINE.value])
-            self.notes = self._get_value(values[CsvPosition.NOTES.value])
+            self.id = self._get_value(line[CsvPosition.ID.value])
+            self.artist = self._get_value(line[CsvPosition.ARTIST.value])
+            self.title = self._get_value(line[CsvPosition.TITLE.value])
+            self.publication_date = self._get_value(line[CsvPosition.PUBLICATION_DATE.value])
+            self.format = self._get_value(line[CsvPosition.FORMAT.value])
+            self.medium = self._get_value(line[CsvPosition.MEDIUM.value])
+            self.preserved_in_digital = self._get_value(line[CsvPosition.PRESERVED_IN_DIGITAL.value])
+            self.digital_format = self._get_value(line[CsvPosition.DIGITAL_FORMAT.value])
+            self.bit_rate = self._get_value(line[CsvPosition.BIT_RATE.value])
+            self.preserver = self._get_value(line[CsvPosition.PRESERVER.value])
+            self.preservation_date = self._get_value(line[CsvPosition.PRESERVATION_DATE.value])
+            self.modification_date = self._get_value(line[CsvPosition.MODIFICATION_DATE.value])
+            self.source = self._get_value(line[CsvPosition.SOURCE.value])
+            self.seen_online = self._get_value(line[CsvPosition.SEEN_ONLINE.value])
+            self.notes = self._get_value(line[CsvPosition.NOTES.value])
 
             if not self.has_preserver():
                 self._format_values()
         else:
-            raise WrongSeparatorsException
+            raise WrongFieldsNumberException
 
     def __str__(self):
-        return (f"{self.id}{CSV_SEPARATOR}"
-                f"{self.artist}{CSV_SEPARATOR}"
-                f"{self.title}{CSV_SEPARATOR}"
-                f"{self.publication_date}{CSV_SEPARATOR}"
-                f"{self.format}{CSV_SEPARATOR}"
-                f"{self.medium}{CSV_SEPARATOR}"
-                f"{self.preserved_in_digital}{CSV_SEPARATOR}"
-                f"{self.digital_format}{CSV_SEPARATOR}"
-                f"{self.bit_rate}{CSV_SEPARATOR}"
-                f"{self.preserver}{CSV_SEPARATOR}"
-                f"{self.preservation_date}{CSV_SEPARATOR}"
-                f"{self.modification_date}{CSV_SEPARATOR}"
-                f"{self.source}{CSV_SEPARATOR}"
-                f"{self.seen_online}{CSV_SEPARATOR}"
+        return (f"{self.id}{CSV_DELIMITER}"
+                f"{self.artist}{CSV_DELIMITER}"
+                f"{self.title}{CSV_DELIMITER}"
+                f"{self.publication_date}{CSV_DELIMITER}"
+                f"{self.format}{CSV_DELIMITER}"
+                f"{self.medium}{CSV_DELIMITER}"
+                f"{self.preserved_in_digital}{CSV_DELIMITER}"
+                f"{self.digital_format}{CSV_DELIMITER}"
+                f"{self.bit_rate}{CSV_DELIMITER}"
+                f"{self.preserver}{CSV_DELIMITER}"
+                f"{self.preservation_date}{CSV_DELIMITER}"
+                f"{self.modification_date}{CSV_DELIMITER}"
+                f"{self.source}{CSV_DELIMITER}"
+                f"{self.seen_online}{CSV_DELIMITER}"
                 f"{self.notes}")
 
     def __eq__(self, other):
@@ -159,8 +156,7 @@ class Album:
 
     @staticmethod
     def _fix(string: str) -> str:
-        string_ = string.replace('"', '')
-        string_ = fix_mismatched_square_brackets(string_)
+        string_ = fix_mismatched_square_brackets(string)
         string_ = fix_mismatched_parentheses(string_)
         string_ = fix_volumes(string_)
 

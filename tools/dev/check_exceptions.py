@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from tools.config.config import CSV_FILE, CSV_SEPARATOR, CsvPosition
+from tools.config.config import CSV_FILE, CSV_DELIMITER, CsvPosition
 from tools.config.exceptions import EXCEPTIONS
 from tools.crosscutting import strings
 from tools.crosscutting.strings import LINES_WITH_EXCEPTIONS, LINES_WITHOUT_EXCEPTIONS, UNUSED_EXCEPTIONS
@@ -17,15 +17,15 @@ def _get_lines(lines: list) -> (list, list):
     lines_without_exceptions = []
 
     for line in lines:
-        line_ = line.split(CSV_SEPARATOR)
+        line_ = line.split(CSV_DELIMITER)
         artist = line_[CsvPosition.ARTIST.value]
         title = line_[CsvPosition.TITLE.value]
         formatted_artist = replace_exceptions(artist)
         formated_title = replace_exceptions(title)
 
         if artist != formatted_artist or title != formated_title:
-            data = f"'{artist}{CSV_SEPARATOR}{title}'"
-            formatted_data = f"'{formatted_artist}{CSV_SEPARATOR}{formated_title}'"
+            data = f"'{artist}{CSV_DELIMITER}{title}'"
+            formatted_data = f"'{formatted_artist}{CSV_DELIMITER}{formated_title}'"
             lines_with_exceptions.append(f"{data} -> {formatted_data}\n")
         else:
             lines_without_exceptions.append(line)
@@ -43,7 +43,7 @@ def _get_unused_exceptions(lines: list) -> list:
     used_exceptions = set()
 
     for line in lines:
-        line_ = line.split(CSV_SEPARATOR)
+        line_ = line.split(CSV_DELIMITER)
         _find_exceptions(line_[CsvPosition.ARTIST.value].lower().split())
         _find_exceptions(line_[CsvPosition.TITLE.value].lower().split())
 
