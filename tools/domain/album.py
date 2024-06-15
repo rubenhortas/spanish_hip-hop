@@ -133,6 +133,23 @@ class Album:
 
         return artists, separators
 
+    def list(self) -> list:
+        return [self.id,
+                self.artist,
+                self.title,
+                self.publication_date,
+                self.format,
+                self.medium,
+                self.preserved_in_digital,
+                self.digital_format,
+                self.bit_rate,
+                self.preserver,
+                self.preservation_date,
+                self.modification_date,
+                self.source,
+                self.seen_online,
+                self.notes]
+
     def has_preserver(self) -> bool:
         return self.preserver != ''
 

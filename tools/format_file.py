@@ -24,7 +24,7 @@ def _get_formatted_lines(lines: list, fields_number: int) -> (list, list):
         print(f"\r{current_line}/{lines_number}", end='')
 
         try:
-            albums.append(Album(line, fields_number))
+            albums.append(Album(line, fields_number).list())
         except WrongFieldsNumberException:
             wrong_lines.append(line)
 
