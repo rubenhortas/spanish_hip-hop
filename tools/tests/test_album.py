@@ -6,9 +6,9 @@ from tools.format_file import Album
 class TestAlbum(unittest.TestCase):
     def setUp(self):
         self.albums = [
-            # ('1,bob mc & alice dj,,,,,,,,,,,,,', '1,Bob MC & Alice DJ,,,,,,,,,,,,,'),
-            # ('1,bob mc,the album vol. ii,,,,,,,,,,,,', '1,Bob MC,The album Vol. II,,,,,,,,,,,,'),
-            # ('1,BoB Mc, ThE aLBuM,,,,,,,preserver,,,,,', '1,BoB Mc,ThE aLBuM,,,,,,,preserver,,,,,'),
+            ('1,bob mc & alice dj,,,,,,,,,,,,,', '1,Bob MC & Alice DJ,,,,,,,,,,,,,'),
+            ('1,bob mc,the album vol. ii,,,,,,,,,,,,', '1,Bob MC,The album Vol. II,,,,,,,,,,,,'),
+            ('1,BoB Mc, ThE aLBuM,,,,,,,preserver,,,,,', '1,BoB Mc,ThE aLBuM,,,,,,,preserver,,,,,'),
             ('1,bob,"bob, the foobar",,,,,,,,,,,,', '1,Bob,"Bob the foobar",,,,,,,,,,,,')
         ]
 
