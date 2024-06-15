@@ -20,9 +20,11 @@ def _get_artists(lines: list) -> (dict, list):
         if not artist.isnumeric():  # Numbers will not be transformed
             key = artist.lower()
 
-            if key not in artists or is_preserved:
-                # If the album is preserved, the prevailing value is the preserved one
+            if key not in artists:
                 artists[key] = artist.title()
+
+            if is_preserved:  # If the album is preserved, the prevailing value is the preserved one
+                artists[key] = artist
 
     artists = copy.deepcopy(ARTISTS)  # Deep copy
     separators = SEPARATORS
