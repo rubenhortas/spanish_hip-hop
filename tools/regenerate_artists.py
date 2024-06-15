@@ -50,7 +50,8 @@ def _get_artists(lines: list) -> (dict, list):
             if separator not in separators:
                 separators.append(separator)
 
-    print()
+    if lines:
+        print()
 
     return dict(sorted(artists.items())), sorted(list(separators))
 
