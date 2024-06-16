@@ -1,22 +1,9 @@
-import unittest
-
-from tools.config.config import CsvPosition
 from tools.get_issues import _get_issues
+from tools.tests.test_csv_file import TestCsv
 
 
-class TestFindIssues(unittest.TestCase):
-    def _create_line(self, album_id: str, artist: str, title: str) -> list:
-        line = ['' for _ in range(len(self.header))]
-
-        line[CsvPosition.ID.value] = album_id
-        line[CsvPosition.ARTIST.value] = artist
-        line[CsvPosition.TITLE.value] = title
-
-        return line
-
+class TestFindIssues(TestCsv):
     def setUp(self):
-        self.header = ['Referencia', 'Artista', 'Trabajo', 'Fecha Publicación', 'Tipo', 'Medio', 'Preservado en digital', 'Formato digital', 'Bitrate', 'Preservado por', 'Fecha preservado', 'Fecha modificado', 'Fuente', 'Visto online', 'Notas']
-
         line = self._create_line('1', 'Bob', 'Album')
 
         extra_separator_line = line.copy()

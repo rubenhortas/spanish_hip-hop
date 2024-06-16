@@ -1,24 +1,10 @@
-import unittest
-
-from tools.config.config import CsvPosition
 from tools.domain.album import WrongFieldsNumberException
 from tools.format_file import Album
+from tools.tests.test_csv_file import TestCsv
 
 
-class TestAlbum(unittest.TestCase):
-    def _create_line(self, album_id: str, artist: str, title: str, preserver: str = '') -> list:
-        line = ['' for _ in range(len(self.header))]
-
-        line[CsvPosition.ID.value] = album_id
-        line[CsvPosition.ARTIST.value] = artist
-        line[CsvPosition.TITLE.value] = title
-        line[CsvPosition.PRESERVER.value] = preserver
-
-        return line
-
+class TestAlbum(TestCsv):
     def setUp(self):
-        self.header = ['Referencia', 'Artista', 'Trabajo', 'Fecha Publicación', 'Tipo', 'Medio', 'Preservado en digital', 'Formato digital', 'Bitrate', 'Preservado por', 'Fecha preservado', 'Fecha modificado', 'Fuente', 'Visto online', 'Notas']
-
         self.albums = [
             (self._create_line('1', 'bob and alice', 'the album'), self._create_line('1', 'Bob And Alice', 'The album')),  # Artist titlecased and title capitalized
             (self._create_line('1', ' bob and alice ', ' the album '), self._create_line('1', 'Bob And Alice', 'The album')),  # Delete whitespaces from fields
