@@ -8,7 +8,12 @@ from tools.format_file import Album
 class TestAlbum(unittest.TestCase):
 
     def _create_line(self, album_id: str, artist: str, title: str, preserver: str = '') -> list:
-        line = ['' for _ in range(len(self.header))]
+        # line = ['' for _ in range(len(self.header))]
+        line = []
+
+        for i in range(len(self.header)):
+            line.append('')
+
         line[CsvPosition.ID.value] = album_id
         line[CsvPosition.ARTIST.value] = artist
         line[CsvPosition.TITLE.value] = title
@@ -38,11 +43,19 @@ class TestAlbum(unittest.TestCase):
         ]
 
     def test_wrong_fields_number_exception(self):
+        wrong_lines = []
         line = self._create_line('1', 'bob and alice', 'the album')
-        line.append('extra field')
 
-        with self.assertRaises(WrongFieldsNumberException):
-            Album(line, len(self.header))
+        extra_field_line = line
+        extra_field_line.append('extra field')
+        wrong_lines.append(extra_field_line)
+
+        less_fields_line = line[1:3]
+        wrong_lines.append(less_fields_line)
+
+        for line in wrong_lines:
+            with self.assertRaises(WrongFieldsNumberException):
+                Album(extra_field_line, len(self.header))
 
     def test_format_album(self):
         for line, expected_result in self.albums:
