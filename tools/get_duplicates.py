@@ -26,7 +26,7 @@ def _get_duplicates(lines: list) -> (list, list):
             match_ratio = difflib.SequenceMatcher(None, lines_[i][1], lines_[j][1]).ratio()
 
             if match_ratio > _MATCH_THRESHOLD:
-                duplicate = f"{lines_[i][0].strip()}  -> {lines_[j][0]}\n"
+                duplicate = f"{lines_[i][0].strip()}  -> {lines_[j][0]}"
 
                 if match_ratio == 1:
                     duplicates.append(duplicate)
@@ -64,12 +64,18 @@ def _write_output_file(duplicates: list, possible_duplicates: list) -> None:
 
         if duplicates:
             issues.append(f"{DUPLICATES}:\n\n")
-            issues.extend(duplicates)
+
+            for duplicate in duplicates:
+                issues.append(f"{duplicate}\n")
+
             issues.append('\n')
 
         if possible_duplicates:
             issues.append(f"{POSSIBLE_DUPLICATES}:\n\n")
-            issues.extend(possible_duplicates)
+
+            for possible_duplicate in possible_duplicates:
+                issues.append(f"{possible_duplicate}\n")
+
             issues.append('\n')
 
         write_file(_OUTPUT_FILE, issues)
