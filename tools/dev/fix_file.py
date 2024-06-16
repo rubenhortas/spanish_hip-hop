@@ -29,8 +29,12 @@ def _fix(lines: list, num_fields: int) -> (list, list):
                     value_index = 0
 
                     for value in line:
-                        if value and value.lower() in _DESCONOCIDOS:
-                            line[value_index] = ''
+                        if value:
+                            if value == '-':
+                                line[value_index] = ''
+
+                            if value.lower() in _DESCONOCIDOS:
+                                line[value_index] = ''
 
                         value_index += 1
         else:
