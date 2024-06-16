@@ -1,6 +1,7 @@
 import unittest
 
 from tools.config.config import CsvPosition
+from tools.domain.album import WrongFieldsNumberException
 from tools.format_file import Album
 
 
@@ -35,6 +36,13 @@ class TestAlbum(unittest.TestCase):
             ('&bob', ['&bob']),
             ('&bob & alice', ['&bob', 'alice'])
         ]
+
+    def test_wrong_fields_number_exception(self):
+        line = self._create_line('1', 'bob and alice', 'the album')
+        line.append('extra field')
+
+        with self.assertRaises(WrongFieldsNumberException):
+            Album(line, len(self.header))
 
     def test_format_album(self):
         for line, expected_result in self.albums:
