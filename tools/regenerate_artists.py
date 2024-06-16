@@ -4,10 +4,10 @@ import os
 import signal
 
 from tools.config.artists import ARTISTS, SEPARATORS
-from tools.config.config import CSV_FILE, CSV_DELIMITER, CsvPosition
+from tools.config.config import CSV_FILE, CsvPosition
 from tools.crosscutting.strings import GENERATING_NEW, DONE
 from tools.domain.album import Album
-from tools.helpers.file_helpers import write_file, read_csv_file
+from tools.helpers.file_helpers import write_file, read_csv_file, backup
 from tools.helpers.os_helpers import handle_sigint
 from tools.utils.list_utils import create_python_list
 
@@ -37,9 +37,8 @@ def _get_artists(lines: list) -> (dict, list):
         current_line += 1
         print(f"\r{current_line}/{len_lines}", end='')
 
-        line_ = line.split(CSV_DELIMITER)
-        artist = line_[CsvPosition.ARTIST.value]
-        is_preserved = line_[CsvPosition.PRESERVER.value] != '' and line_[CsvPosition.PRESERVER.value] != '-'
+        artist = line[CsvPosition.ARTIST.value]
+        is_preserved = line[CsvPosition.PRESERVER.value] != '' and line[CsvPosition.PRESERVER.value] != '-'
 
         _update_artists(artist)
 
@@ -102,7 +101,7 @@ if __name__ == '__main__':
     signal.signal(signal.SIGINT, handle_sigint)
     print(f"{GENERATING_NEW} '{_OUTPUT_FILE}'...")
 
-    lines = read_file(_INPUT_FILE)[1:]
+    lines = read_csv_file(_INPUT_FILE)[1:]
     artists, separators = _get_artists(lines)
 
     backup(_OUTPUT_FILE)
