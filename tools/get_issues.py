@@ -13,7 +13,7 @@ _MISMATCHED_PARENTHESES_FILE = f"{CSV_FILE[:-4]}-{ERRORS.lower()}-{MISMATCHED_PA
 _MISMATCHED_SQUARE_BRACKETS_FILE = f"{CSV_FILE[:-4]}-{ERRORS.lower()}-{MISMATCHED_SQUARE_BRACKETS}.csv"
 
 
-def _get_issues(lines, num_fields) -> (list, list, list):
+def _get_issues(lines: list, num_fields: int) -> (list, list, list):
     wrong_fields_number = []
     mismatched_parentheses = []
     mismatched_square_brackets = []
@@ -53,6 +53,7 @@ if __name__ == '__main__':
     print(f"{SEARCHING_FOR_LINES_WITH_PROBLEMS_IN} '{CSV_FILE}'...")
 
     lines = read_csv_file(CSV_FILE)
+
     if lines:
         csv_header = lines[0]
         wrong_fields_number_lines, mismatched_parentheses_lines, mismatched_square_brackets_lines = _get_issues(lines, len(csv_header))
