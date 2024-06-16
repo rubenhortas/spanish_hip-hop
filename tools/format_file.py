@@ -14,14 +14,14 @@ _ERROR_FILE = f"{CSV_FILE[:-4]}-{ERRORS.lower()}-{WRONG_FIELDS_NUMBER}.csv"
 def _get_formatted_lines(lines: list, fields_number: int) -> (list, list):
     albums = []
     wrong_lines = []
-    lines_number = len(lines)
+    num_lines = len(lines)
     current_line = 0
 
     print(f"{FORMATTING_LINES}...")
 
     for line in lines:
         current_line += 1
-        print(f"\r{current_line}/{lines_number}", end='')
+        print(f"\r{current_line}/{num_lines}", end='')
 
         try:
             albums.append(Album(line, fields_number).list())

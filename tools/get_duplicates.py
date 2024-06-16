@@ -2,11 +2,10 @@
 import difflib
 import signal
 
-from tools.config.config import CSV_FILE
+from tools.config.config import CSV_FILE, CsvPosition, CSV_DELIMITER
 from tools.crosscutting.strings import DONE, DUPLICATES, POSSIBLE_DUPLICATES, NO_DUPLICATES_FOUND, \
     LOOKING_FOR_DUPLICATES_IN
-from tools.domain.album import Album
-from tools.helpers.file_helpers import read_file, write_file
+from tools.helpers.file_helpers import write_file, read_csv_file
 from tools.helpers.os_helpers import handle_sigint, clear_screen
 from tools.utils.string_utils import remove_punctuation_symbols
 
@@ -15,8 +14,8 @@ _MATCH_THRESHOLD = 0.9  # Seems a reasonable threshold
 
 
 def _get_duplicates(lines: list) -> (list, list):
-    normalized_lines = [_normalize(line) for line in lines]
-    num_lines = len(normalized_lines)
+    lines_ = _normalize_lines(lines)
+    num_lines = len(lines_)
     duplicates = []
     possible_duplicates = []
 
@@ -24,10 +23,10 @@ def _get_duplicates(lines: list) -> (list, list):
         print(f"\r{i + 1}/{num_lines}", end='')
 
         for j in range(i + 1, num_lines):
-            match_ratio = difflib.SequenceMatcher(None, normalized_lines[i][1], normalized_lines[j][1]).ratio()
+            match_ratio = difflib.SequenceMatcher(None, lines_[i][1], lines_[j][1]).ratio()
 
             if match_ratio > _MATCH_THRESHOLD:
-                duplicate = f"{normalized_lines[i][0].strip()}  -> {normalized_lines[j][0]}"
+                duplicate = f"{lines_[i][0].strip()}  -> {lines_[j][0]}\n"
 
                 if match_ratio == 1:
                     duplicates.append(duplicate)
@@ -39,13 +38,24 @@ def _get_duplicates(lines: list) -> (list, list):
     return duplicates, possible_duplicates
 
 
-def _normalize(line: str) -> str:
-    album = Album(line)
-    result = f"{album.artist}{album.title}".lower()
-    result = result.replace(' ', '')
-    result = remove_punctuation_symbols(result)
+def _normalize_lines(lines: list) -> list:
+    normalized_lines = []
 
-    return result
+    for line in lines:
+        line_resume_info = f"{line[CsvPosition.ID.value]}{CSV_DELIMITER}{line[CsvPosition.ARTIST.value]}{CSV_DELIMITER}{line[CsvPosition.TITLE.value]}..."
+        line_value = _normalize(line[CsvPosition.ARTIST.value], line[CsvPosition.TITLE.value])
+        line_info = (line_resume_info, line_value)
+        normalized_lines.append(line_info)
+
+    return normalized_lines
+
+
+def _normalize(artist: str, title: str) -> str:
+    value = f"{artist}{title}"
+    value = value.replace(' ', '')
+    value = remove_punctuation_symbols(value)
+
+    return value
 
 
 def _write_output_file(duplicates: list, possible_duplicates: list) -> None:
@@ -63,9 +73,9 @@ def _write_output_file(duplicates: list, possible_duplicates: list) -> None:
             issues.append('\n')
 
         write_file(_OUTPUT_FILE, issues)
-        print(DONE)
+        print(f"\n{DONE}")
     else:
-        print(NO_DUPLICATES_FOUND)
+        print(f"{NO_DUPLICATES_FOUND}")
 
 
 if __name__ == '__main__':
@@ -73,7 +83,7 @@ if __name__ == '__main__':
     clear_screen()
     print(f"{LOOKING_FOR_DUPLICATES_IN} '{CSV_FILE}'...")
 
-    lines = read_file(CSV_FILE)[1:]
+    lines = read_csv_file(CSV_FILE)[1:]
     duplicates, possible_duplicates = _get_duplicates(lines)
 
     _write_output_file(duplicates, possible_duplicates)

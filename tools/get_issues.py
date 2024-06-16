@@ -13,13 +13,13 @@ _MISMATCHED_PARENTHESES_FILE = f"{CSV_FILE[:-4]}-{ERRORS.lower()}-{MISMATCHED_PA
 _MISMATCHED_SQUARE_BRACKETS_FILE = f"{CSV_FILE[:-4]}-{ERRORS.lower()}-{MISMATCHED_SQUARE_BRACKETS}.csv"
 
 
-def _get_issues(lines, fields_number) -> (list, list, list):
+def _get_issues(lines, num_fields) -> (list, list, list):
     wrong_fields_number = []
     mismatched_parentheses = []
     mismatched_square_brackets = []
 
     for line in lines:
-        if len(line) != fields_number:
+        if len(line) != num_fields:
             wrong_fields_number.append(line)
 
         if _has_mismatched_parentheses(line):

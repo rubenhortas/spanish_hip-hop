@@ -19,11 +19,11 @@ _FOREIGN_ARTISTS = ['Ace Hood', 'Ali G indahouse', 'Aqeel', 'Aqueel', 'Asap Mob'
 _DESCONOCIDOS = ['desconocido', '[desconocido]', 'intérprete desconocido']
 
 
-def _fix(lines: list, fields_number: int) -> (list, list):
+def _fix(lines: list, num_fields: int) -> (list, list):
     errors = []
 
     for line in lines:
-        if len(line) == fields_number:
+        if len(line) == num_fields:
             if line[CsvPosition.ARTIST.value] not in _FOREIGN_ARTISTS:
                 if line[CsvPosition.PRESERVER.value] == '' or line[CsvPosition.PRESERVER.value] == '-':
                     value_index = 0

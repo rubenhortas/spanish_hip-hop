@@ -11,8 +11,8 @@ class Album:
     def artists(self):
         return Album.get_artists(self.artist)
 
-    def __init__(self, line: str, fields_number: int):
-        if len(line) == fields_number:
+    def __init__(self, line: str, num_fields: int):
+        if len(line) == num_fields:
             # CSV values
             self.id = self._get_value(line[CsvPosition.ID.value])
             self.artist = self._get_value(line[CsvPosition.ARTIST.value])
