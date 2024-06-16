@@ -7,7 +7,7 @@ class TestGenerateExceptionsDictionary(unittest.TestCase):
     def setUp(self):
         self.dictionary = {
             'key1': 'KEY1',
-            'key1': 'KEY1',
+            'key1': 'KEY1',  # duplicated key
             'key2': 'KEY2'
         }
 
