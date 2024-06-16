@@ -6,7 +6,6 @@ from tools.format_file import Album
 
 
 class TestAlbum(unittest.TestCase):
-
     def _create_line(self, album_id: str, artist: str, title: str, preserver: str = '') -> list:
         line = ['' for _ in range(len(self.header))]
 
