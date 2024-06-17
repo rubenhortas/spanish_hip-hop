@@ -10,6 +10,15 @@ from tools.helpers.os_helpers import handle_sigint
 _OUTPUT_FILE = os.path.join(os.path.abspath(''), 'config', 'exceptions.py')
 
 
+def regenerate_exceptions_dictionary() -> None:
+    print(f"{GENERATING_NEW} '{_OUTPUT_FILE}'...")
+
+    new_exceptions = _get_exceptions(EXCEPTIONS)
+
+    backup(_OUTPUT_FILE)
+    _write_output_file(new_exceptions)
+
+
 def _get_exceptions(dictionary: dict) -> list:
     keys = set()
     new_exceptions = set()
@@ -51,11 +60,7 @@ if __name__ == '__main__':
             - Exceptions will also apply to artist names, for example: 'f0o BaR,fOo BaR the album,...'
     """
     signal.signal(signal.SIGINT, handle_sigint)
-    print(f"{GENERATING_NEW} '{_OUTPUT_FILE}'...")
 
-    new_exceptions = _get_exceptions(EXCEPTIONS)
-
-    backup(_OUTPUT_FILE)
-    _write_output_file(new_exceptions)
+    regenerate_exceptions_dictionary()
 
     print(DONE)

@@ -15,10 +15,9 @@ _INPUT_FILE = os.path.join(os.path.abspath(''), CSV_FILE)
 _OUTPUT_FILE = f"{os.path.join(os.path.abspath(''), 'config', 'artists.py')}"
 
 
-def regenerate_artists() -> None:
+def regenerate_artists_dictionary(lines: list) -> None:
     print(f"{GENERATING_NEW} '{_OUTPUT_FILE}'...")
 
-    lines = read_csv_file(_INPUT_FILE)[1:]
     artists, separators = _get_artists(lines)
 
     backup(_OUTPUT_FILE)
@@ -113,5 +112,8 @@ if __name__ == '__main__':
     """
 
     signal.signal(signal.SIGINT, handle_sigint)
-    regenerate_artists()
+
+    lines = read_csv_file(_INPUT_FILE)[1:]
+    regenerate_artists_dictionary(lines)
+
     print(DONE)
