@@ -32,14 +32,14 @@ def _do_file_operation(func: Callable) -> Callable:
 
 @_do_file_operation
 def read_csv_file(file: str) -> list:
-    with open(file, mode='r') as csv_file:
+    with open(file, mode='r', newline='', encoding='utf-8') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=CSV_DELIMITER, quotechar='"')
         return list(csv_reader)
 
 
 @_do_file_operation
 def write_csv_file(file: str, rows: list) -> None:
-    with open(file, mode='w') as csv_file:
+    with open(file, mode='w', newline='', encoding='utf-8') as csv_file:
         csv_writer = csv.writer(csv_file, delimiter=CSV_DELIMITER, quotechar='"')
 
         for row in rows:
@@ -48,13 +48,13 @@ def write_csv_file(file: str, rows: list) -> None:
 
 @_do_file_operation
 def read_file(file: str) -> list:
-    with open(file, 'r') as f:
+    with open(file, 'r', encoding='utf-8') as f:
         return f.readlines()
 
 
 @_do_file_operation
 def write_file(file: str, lines: list) -> None:
-    with open(file, 'w') as f:
+    with open(file, 'w', encoding='utf-8') as f:
         f.writelines(lines)
 
 
