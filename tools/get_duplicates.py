@@ -15,14 +15,14 @@ _MATCH_THRESHOLD = 0.9  # Seems a reasonable threshold
 
 def _get_duplicates(lines: list) -> (list, list):
     lines_ = _normalize_lines(lines)
-    num_lines = len(lines_)
+    lines_num = len(lines_)
     duplicates = []
     possible_duplicates = []
 
-    for i in range(num_lines):
-        print(f"\r{i + 1}/{num_lines}", end='')
+    for i in range(lines_num):
+        print(f"\r{i + 1}/{lines_num}", end='')
 
-        for j in range(i + 1, num_lines):
+        for j in range(i + 1, lines_num):
             match_ratio = difflib.SequenceMatcher(None, lines_[i][1], lines_[j][1]).ratio()
 
             if match_ratio > _MATCH_THRESHOLD:
