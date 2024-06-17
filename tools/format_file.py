@@ -35,10 +35,11 @@ def _get_formatted_lines(lines: list, fields_number: int) -> (list, list):
         current_line += 1
         print(f"\r{current_line}/{lines_num}", end='')
 
-        try:
-            albums.append(Album(line, fields_number).list())
-        except WrongFieldsNumberException:
-            wrong_lines.append(line)
+        if line:
+            try:
+                albums.append(Album(line, fields_number).list())
+            except WrongFieldsNumberException:
+                wrong_lines.append(line)
 
     print()
 

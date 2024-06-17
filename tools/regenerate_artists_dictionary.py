@@ -46,19 +46,20 @@ def _get_artists(lines: list) -> (dict, list):
         current_line += 1
         print(f"\r{current_line}/{len_lines}", end='')
 
-        artist = line[CsvPosition.ARTIST.value]
-        is_preserved = line[CsvPosition.PRESERVER.value] != '' and line[CsvPosition.PRESERVER.value] != '-'
+        if line:
+            artist = line[CsvPosition.ARTIST.value]
+            is_preserved = line[CsvPosition.PRESERVER.value] != '' and line[CsvPosition.PRESERVER.value] != '-'
 
-        _update_artists_dictionary(artist)
-
-        artists_, separators_ = Album.get_artists(artist)
-
-        for artist in artists_:
             _update_artists_dictionary(artist)
 
-        for separator in separators_:
-            if separator not in separators:
-                separators.append(separator)
+            artists_, separators_ = Album.get_artists(artist)
+
+            for artist in artists_:
+                _update_artists_dictionary(artist)
+
+            for separator in separators_:
+                if separator not in separators:
+                    separators.append(separator)
 
     if lines:
         artists = _delete_unused_keys(artists, used_keys)
