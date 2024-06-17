@@ -6,7 +6,7 @@ from tools.crosscutting.strings import SEARCHING_FOR_LINES_WITH_PROBLEMS_IN, DON
     WRONG_FIELDS_NUMBER, MISMATCHED_PARENTHESES, MISMATCHED_SQUARE_BRACKETS
 from tools.helpers.file_helpers import read_csv_file, write_csv_file
 from tools.helpers.os_helpers import handle_sigint, clear_screen
-from tools.utils.string_utils import has_mismatched_parentheses, has_mismatched_square_brackets
+from tools.utils.string_utils import has_mismatched_parentheses, has_mismatched_square_brackets, has_mismatched_quotes
 
 _WRONG_FIELDS_NUMBER = f"{CSV_FILE[:-4]}-{ERRORS.lower()}-{WRONG_FIELDS_NUMBER}.csv"
 _MISMATCHED_PARENTHESES_FILE = f"{CSV_FILE[:-4]}-{ERRORS.lower()}-{MISMATCHED_PARENTHESES}.csv"
@@ -15,7 +15,8 @@ _MISMATCHED_SQUARE_BRACKETS_FILE = f"{CSV_FILE[:-4]}-{ERRORS.lower()}-{MISMATCHE
 _issues = {
     'wrong_fields_number': [],
     'mismatched_parentheses': [],
-    'mismatched_square_brackets': []
+    'mismatched_square_brackets': [],
+    'mismatched_quotes': []
 }
 
 
@@ -31,6 +32,9 @@ def _get_issues(lines: list, fields_num: int) -> None:
             if _has_mismatched_square_brackets(line):
                 _issues['mismatched_square_brackets'].append(line)
 
+            if _has_mismatched_quotes(line):
+                _issues['mismatched_quotes'].append(line)
+
 
 def _has_mismatched_parentheses(line: list) -> bool:
     for value in line:
@@ -43,6 +47,14 @@ def _has_mismatched_parentheses(line: list) -> bool:
 def _has_mismatched_square_brackets(line: list) -> bool:
     for value in line:
         if has_mismatched_square_brackets(value):
+            return True
+
+    return False
+
+
+def _has_mismatched_quotes(line: list) -> bool:
+    for value in line:
+        if has_mismatched_quotes(value):
             return True
 
     return False

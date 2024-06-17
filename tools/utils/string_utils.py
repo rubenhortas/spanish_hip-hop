@@ -52,6 +52,10 @@ def has_mismatched_parentheses(string: str) -> bool:
     return _has_mismatched(string, '(', ')')
 
 
+def has_mismatched_quotes(string: str) -> bool:
+    return Counter(string)[''] % 2 != 0
+
+
 def fix_mismatched_square_brackets(string: str) -> str:
     return _fix_mismatched(string, '[', ']', _SQUARE_BRACKETS_REGEX)
 
