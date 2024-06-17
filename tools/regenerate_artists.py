@@ -15,8 +15,18 @@ _INPUT_FILE = os.path.join(os.path.abspath(''), CSV_FILE)
 _OUTPUT_FILE = f"{os.path.join(os.path.abspath(''), 'config', 'artists.py')}"
 
 
+def regenerate_artists() -> None:
+    print(f"{GENERATING_NEW} '{_OUTPUT_FILE}'...")
+
+    lines = read_csv_file(_INPUT_FILE)[1:]
+    artists, separators = _get_artists(lines)
+
+    backup(_OUTPUT_FILE)
+    _write_output_file(artists, separators)
+
+
 def _get_artists(lines: list) -> (dict, list):
-    def _update_artists(artist: str) -> None:
+    def _update_artists_dictionary(artist: str) -> None:
         if not artist.isnumeric():  # Numbers will not be transformed
             key = artist.lower()
             used_keys.add(key)
@@ -40,28 +50,32 @@ def _get_artists(lines: list) -> (dict, list):
         artist = line[CsvPosition.ARTIST.value]
         is_preserved = line[CsvPosition.PRESERVER.value] != '' and line[CsvPosition.PRESERVER.value] != '-'
 
-        _update_artists(artist)
+        _update_artists_dictionary(artist)
 
         artists_, separators_ = Album.get_artists(artist)
 
         for artist in artists_:
-            _update_artists(artist)
+            _update_artists_dictionary(artist)
 
         for separator in separators_:
             if separator not in separators:
                 separators.append(separator)
 
-    # Delete unused keys
+    if lines:
+        artists = _delete_unused_keys(artists, used_keys)
+        print()
+
+    return dict(sorted(artists.items())), sorted(list(separators))
+
+
+def _delete_unused_keys(artists: dict, used_keys: set) -> dict:
     artists_keys = [key for key in artists]
 
     for key in artists_keys:
         if key not in used_keys:
             artists.pop(key)
 
-    if lines:
-        print()
-
-    return dict(sorted(artists.items())), sorted(list(separators))
+    return artists
 
 
 def _write_output_file(artists: dict, separators: list) -> None:
@@ -99,12 +113,5 @@ if __name__ == '__main__':
     """
 
     signal.signal(signal.SIGINT, handle_sigint)
-    print(f"{GENERATING_NEW} '{_OUTPUT_FILE}'...")
-
-    lines = read_csv_file(_INPUT_FILE)[1:]
-    artists, separators = _get_artists(lines)
-
-    backup(_OUTPUT_FILE)
-    _write_output_file(artists, separators)
-
+    regenerate_artists()
     print(DONE)
