@@ -7,16 +7,16 @@ from tools.crosscutting.strings import FIXING, DONE, ERRORS, FIXED
 from tools.helpers.file_helpers import read_csv_file, write_csv_file
 from tools.helpers.os_helpers import handle_sigint, clear_screen
 
-_INPUT_FILE = os.path.join(os.path.abspath('..'), CSV_FILE)
-_OUTPUT_FILE = os.path.join(os.path.abspath('..'), f"{CSV_FILE[:-4]}-{FIXED.lower()}.csv")
-_ERROR_FILE = os.path.join(os.path.abspath('..'), f"{CSV_FILE[:-4]}-{ERRORS.lower()}.csv")
+_INPUT_FILE = os.path.join(os.path.abspath(''), CSV_FILE)
+_OUTPUT_FILE = os.path.join(os.path.abspath(''), f"{CSV_FILE[:-4]}-{FIXED.lower()}.csv")
+_ERROR_FILE = os.path.join(os.path.abspath(''), f"{CSV_FILE[:-4]}-{ERRORS.lower()}.csv")
 _FOREIGN_ARTISTS = ['Ace Hood', 'Ali G indahouse', 'Aqeel', 'Aqueel', 'Asap Mob', 'G Jazz', 'Gavlyn', 'Gee Falcone',
                     'Jim Jones', 'Kafu Banton', 'Kev Brown', 'Kidz In The Hall', 'Random Axe', 'Red Pill', 'Rick Ross',
                     'Schoolboy Q', 'Sean Combs', 'Snak The Ripper', 'Stan Forebee', 'Stat Quo', 'Statik Selektah',
                     'Step Brothers', 'Strange Fruit Project', 'Street Bucks', 'String Theory', 'Strong Arm Steady',
                     'TNGHT', 'Tenacity', 'Terrace Martin', 'Tragedy Khadafi', 'Vinnie Paz', 'Wadada Sound System',
                     'Wale', 'Wiz Khalifa', 'Young Jeezy']
-_DESCONOCIDOS = ['desconocido', '[desconocido]', 'intérprete desconocido']
+_DESCONOCIDOS = ['desconocido', '[desconocido]', 'intérprete desconocido', '-']
 
 
 def _fix(lines: list, num_fields: int) -> (list, list):
@@ -30,9 +30,6 @@ def _fix(lines: list, num_fields: int) -> (list, list):
 
                     for value in line:
                         if value:
-                            if value == '-':
-                                line[value_index] = ''
-
                             if value.lower() in _DESCONOCIDOS:
                                 line[value_index] = ''
 
