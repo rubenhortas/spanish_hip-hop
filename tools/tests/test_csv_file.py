@@ -1,10 +1,10 @@
 import unittest
 
-from tools.config.config import CsvPosition
+from tools.config.config import CsvPosition, CSV_HEADER
 
 
 class TestCsv(unittest.TestCase):
-    header = ['Referencia', 'Artista', 'Trabajo', 'Fecha Publicación', 'Tipo', 'Medio', 'Preservado en digital', 'Formato digital', 'Bitrate', 'Preservado por', 'Fecha preservado', 'Fecha modificado', 'Fuente', 'Visto online', 'Notas']
+    header = CSV_HEADER
 
     def _create_line(self, album_id: str, artist: str, title: str, preserver: str = '') -> list:
         line = ['' for _ in range(len(self.header))]

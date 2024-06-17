@@ -1,6 +1,10 @@
 from enum import Enum
 
 CSV_FILE = 'Spanish hip-hop list - Lista de trabajos.csv'
+CSV_HEADER = ['Referencia', 'Artista', 'Trabajo', 'Fecha Publicación', 'Tipo', 'Medio', 'Preservado en digital',
+              'Formato digital', 'Bitrate', 'Preservado por', 'Fecha preservado', 'Fecha modificado', 'Fuente',
+              'Visto online', 'Notas']
+
 CSV_DELIMITER = ','
 
 

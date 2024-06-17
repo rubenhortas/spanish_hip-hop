@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import signal
 
-from tools.config.config import CSV_FILE
+from tools.config.config import CSV_FILE, CSV_HEADER
 from tools.crosscutting.strings import SEARCHING_FOR_LINES_WITH_PROBLEMS_IN, DONE, NO_PROBLEMS_FOUND, ERRORS, \
     WRONG_FIELDS_NUMBER, MISMATCHED_PARENTHESES, MISMATCHED_SQUARE_BRACKETS
 from tools.helpers.file_helpers import read_csv_file, write_csv_file
@@ -55,8 +55,8 @@ if __name__ == '__main__':
     lines = read_csv_file(CSV_FILE)
 
     if lines:
-        csv_header = lines[0]
-        wrong_fields_number_lines, mismatched_parentheses_lines, mismatched_square_brackets_lines = _get_issues(lines, len(csv_header))
+        wrong_fields_number_lines, mismatched_parentheses_lines, mismatched_square_brackets_lines = _get_issues(lines,
+                                                                                                                len(CSV_HEADER))
 
         if wrong_fields_number_lines or mismatched_parentheses_lines or mismatched_square_brackets_lines:
             write_csv_file(_WRONG_FIELDS_NUMBER, wrong_fields_number_lines)

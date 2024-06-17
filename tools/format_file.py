@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import signal
 
-from tools.config.config import CSV_FILE
+from tools.config.config import CSV_FILE, CSV_HEADER
 from tools.crosscutting.strings import FORMATTING_LINES, GENERATING, DONE, FORMATTED, ERRORS, WRONG_FIELDS_NUMBER
 from tools.domain.album import Album, WrongFieldsNumberException
 from tools.helpers.file_helpers import read_csv_file, write_csv_file
@@ -33,16 +33,16 @@ def _get_formatted_lines(lines: list, fields_number: int) -> (list, list):
     return sorted(albums), wrong_lines
 
 
-def _write_output_file(header: list, albums: list) -> None:
+def _write_output_file(albums: list) -> None:
     if albums:
-        result = [header]
+        result = [CSV_HEADER]
         result.extend(albums)
         write_csv_file(_OUTPUT_FILE, result)
 
 
-def _write_error_file(header: list, errors: list) -> None:
+def _write_error_file(errors: list) -> None:
     if errors:
-        result = [header]
+        result = [CSV_HEADER]
         result.extend(errors)
         write_csv_file(_ERROR_FILE, result)
 
@@ -55,10 +55,9 @@ if __name__ == '__main__':
     lines = read_csv_file(CSV_FILE)
 
     if lines:
-        header = lines[0]
-        formatted_lines, wrong_lines = _get_formatted_lines(lines[1:], len(header))
+        formatted_lines, wrong_lines = _get_formatted_lines(lines[1:], len(CSV_HEADER))
 
-        _write_output_file(header, formatted_lines)
-        _write_error_file(header, wrong_lines)
+        _write_output_file(formatted_lines)
+        _write_error_file(wrong_lines)
 
     print(DONE)

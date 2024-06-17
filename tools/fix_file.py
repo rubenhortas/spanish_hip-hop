@@ -2,7 +2,7 @@
 import os
 import signal
 
-from tools.config.config import CSV_FILE, CsvPosition
+from tools.config.config import CSV_FILE, CsvPosition, CSV_HEADER
 from tools.crosscutting.strings import FIXING, DONE, ERRORS, FIXED
 from tools.helpers.file_helpers import read_csv_file, write_csv_file
 from tools.helpers.os_helpers import handle_sigint, clear_screen
@@ -49,15 +49,14 @@ if __name__ == '__main__':
     lines = read_csv_file(_INPUT_FILE)
 
     if lines:
-        csv_header = lines[0]
-        fixed_lines, errors = _fix(lines[1:], len(csv_header))
+        fixed_lines, errors = _fix(lines[1:], len(CSV_HEADER))
 
         if fixed_lines:
-            fixed_lines.insert(0, csv_header)
+            fixed_lines.insert(0, CSV_HEADER)
             write_csv_file(_OUTPUT_FILE, fixed_lines)
 
         if errors:
-            errors.insert(0, csv_header)
+            errors.insert(0, CSV_HEADER)
             write_csv_file(_ERROR_FILE, errors)
 
     print(DONE)
