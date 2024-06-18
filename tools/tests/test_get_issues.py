@@ -10,6 +10,9 @@ class TestFindIssues(TestCsv):
         extra_separator_line[0] = '6'
         extra_separator_line.append('extra field')
 
+        minus_separator_line = line[:-1]
+        minus_separator_line[0] = '7'
+
         self.lines = [
             line,  # Ok
             self._create_line('2', 'Bob', '(Album)'),  # Ok
@@ -17,15 +20,19 @@ class TestFindIssues(TestCsv):
             self._create_line('4', 'Bob', '(Album'),  # Mismatched parentheses
             self._create_line('5', 'Bob', '[Album'),  # Mismatched square brackets
             extra_separator_line,
+            minus_separator_line,
         ]
 
         self.wrong_field_numbers_expected = [
-            ['6', 'Bob', 'Album', '', '', '', '', '', '', '', '', '', '', '', '', 'extra field']]
+            extra_separator_line,
+            minus_separator_line
+        ]
         self.mismatched_parentheses_expected = [
-            ['4', 'Bob', '(Album', '', '', '', '', '', '', '', '', '', '', '', '']
+            self._create_line('4', 'Bob', '(Album')
         ]
         self.mismatched_square_brackets_expected = [
-            ['5', 'Bob', '[Album', '', '', '', '', '', '', '', '', '', '', '', '']]
+            self._create_line('5', 'Bob', '[Album')
+        ]
 
     def test_get_issues(self):
         issues = _get_issues(self.lines, len(self.header))
