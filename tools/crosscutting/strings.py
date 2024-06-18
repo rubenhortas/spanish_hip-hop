@@ -1,3 +1,4 @@
+DELETED_LINES = 'Líneas elminadas'
 DONE = 'Hecho'
 DUPLICATES = 'Duplicados'
 ERRORS = 'Errores'
