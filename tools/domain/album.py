@@ -1,5 +1,6 @@
 from tools.config.config import CSV_DELIMITER, CsvPosition
-from tools.utils.string_utils import replace_exceptions, fix_volumes, fix_mismatched_square_brackets, fix_mismatched_parentheses
+from tools.utils.string_utils import replace_exceptions, fix_volumes, fix_mismatched_square_brackets, \
+    fix_mismatched_parentheses
 
 
 class WrongFieldsNumberException(Exception):
@@ -103,14 +104,6 @@ class Album:
                 and self.notes > other.notes)
 
     @staticmethod
-    def format_artist(artist: str) -> str:
-        artist_ = artist.title()
-        artist_ = Album._fix(artist_)
-        artist_ = replace_exceptions(artist_)
-
-        return artist_
-
-    @staticmethod
     def get_artists(artist: str) -> (list, list):
         artists = []
         separators = Album._get_separators(artist)
@@ -179,7 +172,7 @@ class Album:
         return string_
 
     def _format_values(self):
-        self.artist = Album.format_artist(self.artist)
+        self._format_artist()
         self._format_title()
         self.format = self.format.upper()
         self.medium = self.medium.upper()
@@ -187,6 +180,10 @@ class Album:
         self.bit_rate = self.bit_rate.upper()
         self.digital_format = self.digital_format.upper()
         self.seen_online = self.seen_online.capitalize()
+
+    def _format_artist(self) -> None:
+        self.artist = self.artist.title()
+        self.artist = self._fix(self.artist)
 
     def _format_title(self) -> None:
         self.title = self.title.capitalize()
