@@ -3,7 +3,7 @@ import os
 import signal
 
 from tools.config.config import CSV_FILE, CsvPosition, CSV_HEADER
-from tools.crosscutting.strings import FIXING, DONE, FIXED, DELETED_LINES, WRONG_FIELDS_NUMBER, FOREIGN_ARTISTS
+from tools.crosscutting.strings import FIXING, DONE, FIXED, WRONG_FIELDS_NUMBER, FOREIGN_ARTISTS
 from tools.helpers.file_helpers import read_csv_file, write_csv_file
 from tools.helpers.os_helpers import handle_sigint, clear_screen
 
