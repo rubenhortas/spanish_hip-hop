@@ -19,14 +19,16 @@ class TestFindIssues(TestCsv):
             extra_separator_line,
         ]
 
-        self.extra_separators_expected = [
+        self.wrong_field_numbers_expected = [
             ['6', 'Bob', 'Album', '', '', '', '', '', '', '', '', '', '', '', '', 'extra field']]
-        self.mismatched_parentheses_expected = [['4', 'Bob', '(Album', '', '', '', '', '', '', '', '', '', '', '', '']]
+        self.mismatched_parentheses_expected = [
+            ['4', 'Bob', '(Album', '', '', '', '', '', '', '', '', '', '', '', '']
+        ]
         self.mismatched_square_brackets_expected = [
             ['5', 'Bob', '[Album', '', '', '', '', '', '', '', '', '', '', '', '']]
 
     def test_get_issues(self):
         issues = _get_issues(self.lines, len(self.header))
-        self.assertEqual(self.extra_separators_expected, issues.wrong_fields_number)
+        self.assertEqual(self.wrong_field_numbers_expected, issues.wrong_fields_number)
         self.assertEqual(self.mismatched_parentheses_expected, issues.mismatched_parentheses)
         self.assertEqual(self.mismatched_square_brackets_expected, issues.mismatched_square_brackets)
