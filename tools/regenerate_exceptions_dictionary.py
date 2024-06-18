@@ -54,10 +54,10 @@ if __name__ == '__main__':
         }
     
         * 'key': The lowercase word.
-        * 'value': The value to be formatted to (both for album titles and artist names).
+        * 'value': The value to which the word be transformed in the titles.
             - Setting a format exception is used to preserve uppercase, lowercase, special words, etc., 
               for example: 'f0o BaR the album'.
-            - Exceptions will also apply to artist names, for example: 'f0o BaR,fOo BaR the album,...'
+            - Exceptions will *not* apply to artist names.
     """
     signal.signal(signal.SIGINT, handle_sigint)
 

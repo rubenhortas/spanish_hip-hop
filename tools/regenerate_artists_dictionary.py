@@ -103,13 +103,12 @@ if __name__ == '__main__':
         }
 
         * 'key': The artist name in lowercase
-        * 'value': The name that the artist name will be formatted to, and will appear as in the final file.
-            - The default format is 'titlecase', i.e. the first letter of each word in uppercase, 
-              for example: 'Bob The Foobar'.
+        * 'value': The name that the artist name will be transformed to.
+            - The default format is 'titlecase' (the first letter of each word in uppercase), i.e:  'Bob The Foobar'.
             - Setting an artist name format is used to preserve uppercase, lowercase, special words, etc.,
-              for example: 'BoB ThE FooBaR'.
+              i.e.: 'BoB ThE FooBaR'.
             - When formatting the name exceptions defined in the EXCEPTIONS dictionary (file '/config/exceptions.py') 
-              will also apply to the artist.
+              will *not* be applied to the artist.
     """
 
     signal.signal(signal.SIGINT, handle_sigint)
