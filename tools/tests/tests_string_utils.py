@@ -1,7 +1,7 @@
 import unittest
 
 from tools.utils.string_utils import fix_volumes, fix_mismatched_parentheses, fix_mismatched_square_brackets, \
-    has_mismatched_parentheses, has_mismatched_square_brackets, has_mismatched_quotes
+    has_mismatched_parentheses, has_mismatched_square_brackets, has_mismatched_quotes, fix_mismatched_quotes
 
 
 class TestStringUtils(unittest.TestCase):
@@ -53,6 +53,11 @@ class TestStringUtils(unittest.TestCase):
             ('Album "instrumentals"', 'Album "instrumentals"')
         ]
 
+        self.mismatched_quotes = [
+            ('Album "instrumentals', 'Album "instrumentals"'),
+            ('Album instrumentals"', 'Album "instrumentals"')
+        ]
+
     def test_fix_volumes(self):
         for string, expected_result in self.volumes:
             self.assertEqual(expected_result, fix_volumes(string))
@@ -85,3 +90,7 @@ class TestStringUtils(unittest.TestCase):
     def test_has_mismatched_quotes(self):
         for string, _ in self.matched_quotes:
             self.assertFalse(has_mismatched_quotes(string))
+
+    def test_fix_mismatched_quotes(self):
+        for string, expected_result in self.mismatched_quotes:
+            self.assertEqual(expected_result, fix_mismatched_quotes(string))

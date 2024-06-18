@@ -8,6 +8,7 @@ from tools.config.exceptions import EXCEPTIONS
 _VOLUME_RE = re.compile(r'((?P<label>(vol)(\?|(ume)n?)?([. ]{0,2})\??\b)(?P<num>\w*(\.?\d*)?))', re.IGNORECASE)
 _PARENTHESES_REGEX = re.compile(r'(?P<text>(\(.*\))|(\([\w .-?]+)|[\w.-?]+\))')
 _SQUARE_BRACKETS_REGEX = re.compile(r'(?P<text>(\[.*])|(\[[\w .-?]+)|[\w.-?]+])')
+_QUOTES_REGEX = re.compile(r'(?P<text>(("\w*)|(\w*")))')
 
 
 def replace_exceptions(string: str) -> str:
@@ -62,6 +63,17 @@ def fix_mismatched_square_brackets(string: str) -> str:
 
 def fix_mismatched_parentheses(string: str) -> str:
     return _fix_mismatched(string, '(', ')', _PARENTHESES_REGEX)
+
+
+def fix_mismatched_quotes(string: str) -> str:
+    match = re.search(_QUOTES_REGEX, string)
+
+    if match:
+        match_text = match.group('text')
+        text = match_text.replace('"', '')
+        return string.replace(match_text, f"\"{text}\"")
+
+    return string
 
 
 def convert_to_python_string(string: str) -> str:
