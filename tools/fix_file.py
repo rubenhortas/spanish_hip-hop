@@ -20,25 +20,29 @@ _DESCONOCIDOS = ['desconocido', '[desconocido]', 'intérprete desconocido', '-']
 
 
 def _fix(lines: list, fields_num: int) -> (list, list):
+    lines_ = []
     errors = []
 
     for line in lines:
         if len(line) == fields_num:
             if line[CsvPosition.ARTIST.value] not in _FOREIGN_ARTISTS:
                 if line[CsvPosition.PRESERVER.value] == '' or line[CsvPosition.PRESERVER.value] == '-':
+                    line_ = line
                     value_index = 0
 
-                    for value in line:
+                    for value in line_:
                         if value:
                             if value.lower() in _DESCONOCIDOS:
-                                line[value_index] = ''
+                                line_[value_index] = ''
 
                         value_index += 1
+                        
+                lines_.append(line)
         else:
             errors.append(line)
             lines.remove(line)
 
-    return lines, errors
+    return lines_, errors
 
 
 if __name__ == '__main__':
