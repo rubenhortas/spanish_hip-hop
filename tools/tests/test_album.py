@@ -24,17 +24,17 @@ class TestAlbum(TestCsv):
         ]
 
     def test_wrong_fields_number_exception(self):
-        wrong_lines = []
+        wrong_field_lines = []
         line = self._create_line('1', 'bob and alice', 'the album')
 
         extra_field_line = line
         extra_field_line.append('extra field')
-        wrong_lines.append(extra_field_line)
+        wrong_field_lines.append(extra_field_line)
 
         less_fields_line = line[1:3]
-        wrong_lines.append(less_fields_line)
+        wrong_field_lines.append(less_fields_line)
 
-        for line in wrong_lines:
+        for _ in wrong_field_lines:
             with self.assertRaises(WrongFieldsNumberException):
                 Album(extra_field_line, len(self.header))
 
