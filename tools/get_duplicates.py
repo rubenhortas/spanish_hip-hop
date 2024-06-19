@@ -18,15 +18,19 @@ def _get_duplicates(lines: list) -> (list, list):
     lines_num = len(lines_)
     duplicates = []
     possible_duplicates = []
+    sequence_matcher = difflib.SequenceMatcher(None)
 
     for i in range(lines_num):
         print(f"\r{i + 1}/{lines_num}", end='')
 
+        sequence_matcher.set_seq1(lines_[i][1])
+
         for j in range(i + 1, lines_num):
-            match_ratio = difflib.SequenceMatcher(None, lines_[i][1], lines_[j][1]).ratio()
+            sequence_matcher.set_seq2(lines_[j][1])
+            match_ratio = sequence_matcher.ratio()
 
             if match_ratio > _MATCH_THRESHOLD:
-                duplicate = f"{lines_[i][0].strip()}  -> {lines_[j][0]}"
+                duplicate = f"{lines_[i][0].strip()} -> {lines_[j][0]}"
 
                 if match_ratio == 1:
                     duplicates.append(duplicate)
