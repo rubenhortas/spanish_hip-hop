@@ -91,6 +91,9 @@ class TestStringUtils(unittest.TestCase):
         for string, _ in self.matched_quotes:
             self.assertFalse(has_mismatched_quotes(string))
 
+        for string, _ in self.mismatched_quotes:
+            self.assertTrue(has_mismatched_quotes(string))
+
     def test_fix_mismatched_quotes(self):
         for string, expected_result in self.mismatched_quotes:
             self.assertEqual(expected_result, fix_mismatched_quotes(string))
