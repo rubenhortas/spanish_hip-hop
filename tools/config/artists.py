@@ -50,11 +50,11 @@ ARTISTS = {
 	'2rdoble': '2Rdoble',
 	'2rk': '2Rk',
 	'2º arte': '2º Arte',
-	'3 \'ojazz': '3 \'Ojazz',
+	'3 \'ojazz': '3 \'Ojazz',  # Preservado por rodrigozzz
 	'3001 productions': '3001 Productions',
 	'3001 productions & poeta de asfalto en': '3001 Productions & Poeta De Asfalto En',
 	'31 rap school': '31 Rap School',
-	'3hd': '3hd',
+	'3hd': '3hd',  # Preservado por rodrigozzz
 	'4 ele': '4 Ele',
 	'4 real carnales': '4 Real Carnales',
 	'40 grados': '40 Grados',
@@ -63,7 +63,7 @@ ARTISTS = {
 	'4son': '4Son',
 	'4to poder': '4To Poder',
 	'5.uno': '5.Uno',
-	'507 posse': '507 posse',
+	'507 posse': '507 posse',  # Preservado por rodrigozzz
 	'5mentarios': '5Mentarios',
 	'6mo': '6Mo',
 	'6mo (seismo)': '6Mo (Seismo)',
@@ -74,14 +74,14 @@ ARTISTS = {
 	'7 notas 7 colores y la puta opepé': '7 Notas 7 Colores Y La Puta Opepé',
 	'728producciones': '728Producciones',
 	'8ojos': '8Ojos',
-	'957 kolt': '957 kolt',
+	'957 kolt': '957 kolt',  # Preservado por rodrigozzz
 	'96porciento': '96Porciento',
 	'9milimetros': '9Milimetros',
 	'9milímetros': '9Milímetros',
 	'9th wonder': '9Th Wonder',
 	'a diestro': 'A Diestro',
 	'a diestro y siniestro': 'A Diestro Y Siniestro',
-	'a gran escala': 'A Gran Escala',
+	'a gran escala': 'A Gran Escala',  # Preservado por rodrigozzz
 	'a lo perro': 'A Lo Perro',
 	'a rajatabla': 'A Rajatabla',
 	'a tempo real': 'A Tempo Real',
@@ -92,7 +92,7 @@ ARTISTS = {
 	'a. cheeze & eseneka': 'A. Cheeze & Eseneka',
 	'a.baliti': 'A.Baliti',
 	'a.baliti & dj volo': 'A.Baliti & Dj Volo',
-	'a2velas': 'A2Velas',
+	'a2velas': 'A2Velas',  # Preservado por rodrigozzz
 	'a3bandas': 'A3Bandas',
 	'aaron': 'Aaron',
 	'aaron beats': 'Aaron Beats',
@@ -110,7 +110,7 @@ ARTISTS = {
 	'accion sanchez': 'Accion Sanchez',
 	'accion sanchez y dj zeth': 'Accion Sanchez Y Dj Zeth',
 	'accion sanchez y jefe de la m': 'Accion Sanchez Y Jefe De La M',
-	'acción sánchez': 'Acción Sánchez',
+	'acción sánchez': 'Acción Sánchez',  # Preservado por rodrigozzz
 	'acción sánchez & dj saot st': 'Acción Sánchez & Dj Saot St',
 	'acción sánchez y jefe de la m': 'Acción Sánchez Y Jefe De La M',
 	'acción sánchez y zonah producciones': 'Acción Sánchez Y Zonah Producciones',
@@ -164,7 +164,7 @@ ARTISTS = {
 	'aisho & wol': 'Aisho & Wol',
 	'aitor': 'Aitor',
 	'aitor coca': 'Aitor Coca',
-	'aj posse': 'AJ Posse',
+	'aj posse': 'AJ Posse',  # Preservado por rodrigozzz
 	'akademia de alkimistas': 'Akademia De Alkimistas',
 	'akira': 'Akira',
 	'akira y neura': 'Akira Y Neura',
@@ -174,7 +174,7 @@ ARTISTS = {
 	'akoso verbal': 'Akoso Verbal',
 	'akr': 'Akr',
 	'aktibistaz': 'Aktibistaz',
-	'aktividad vandálika': 'Aktividad Vandálika',
+	'aktividad vandálika': 'Aktividad Vandálika',  # Preservado por rodrigozzz
 	'akto': 'Akto',
 	'aktur sound (ital slave)': 'Aktur Sound (Ital Slave)',
 	'aktur sound ital slave': 'Aktur Sound Ital Slave',
@@ -205,7 +205,7 @@ ARTISTS = {
 	'alicante zona absurda': 'Alicante Zona Absurda',
 	'all day': 'All Day',
 	'all day green': 'All Day Green',
-	'all mc\'s': 'All MC\'s',
+	'all mc\'s': 'All MC\'s',  # Preservado por rodrigozzz
 	'allen beller': 'Allen Beller',
 	'allende ley': 'Allende Ley',
 	'alma de nómada': 'Alma De Nómada',
@@ -236,7 +236,7 @@ ARTISTS = {
 	'ambito kinitoh': 'Ambito Kinitoh',
 	'ambkor': 'Ambkor',
 	'ambos lados': 'Ambos Lados',
-	'amenofis': 'Amenofis',
+	'amenofis': 'Amenofis',  # Preservado por rodrigozzz
 	'amores perros': 'Amores Perros',
 	'an3stesia': 'An3Stesia',
 	'anbt': 'Anbt',
@@ -245,7 +245,7 @@ ARTISTS = {
 	'angel.g soundz': 'Angel.G Soundz',
 	'angodi': 'Angodi',
 	'anibassia vals': 'Anibassia Vals',
-	'aniki': 'Aniki',
+	'aniki': 'Aniki',  # Preservado por rodrigozzz
 	'animal': 'Animal',
 	'anise of monkey': 'Anise Of Monkey',
 	'annie insoul': 'Annie Insoul',
@@ -294,7 +294,7 @@ ARTISTS = {
 	'arrebato': 'Arrebato',
 	'arrythmical notes': 'Arrythmical Notes',
 	'arsi': 'Arsi',
-	'art2': 'Art2',
+	'art2': 'Art2',  # Preservado por rodrigozzz
 	'arte': 'Arte',
 	'arte aka trabubu': 'Arte Aka Trabubu',
 	'arte aka trabubu & test farm': 'Arte Aka Trabubu & Test Farm',
@@ -339,7 +339,7 @@ ARTISTS = {
 	'audiogenic': 'Audiogenic',
 	'aukan': 'Aukan',
 	'auronz': 'Auronz',
-	'autonomía estomakal': 'Autonomía Estomakal',
+	'autonomía estomakal': 'Autonomía Estomakal',  # Preservado por rodrigozzz
 	'autores dramaturgos': 'Autores Dramaturgos',
 	'awon': 'Awon',
 	'awon & phoniks': 'Awon & Phoniks',
@@ -366,11 +366,11 @@ ARTISTS = {
 	'bad sound system': 'Bad Sound System',
 	'baelso': 'Baelso',
 	'baff': 'Baff',
-	'baghira': 'Baghira',
+	'baghira': 'Baghira',  # Preservado por rodrigozzz
 	'baghira & emce erne': 'Baghira & Emce Erne',
 	'baja clase': 'Baja Clase',
 	'bajo mínimos': 'Bajo Mínimos',
-	'bajo sospecha': 'Bajo sospecha',
+	'bajo sospecha': 'Bajo sospecha',  # Preservado por rodrigozzz
 	'bajo zero': 'Bajo Zero',
 	'bajozero che': 'Bajozero Che',
 	'baker 19710': 'Baker 19710',
@@ -380,14 +380,14 @@ ARTISTS = {
 	'balles mc': 'Balles Mc',
 	'balles mc y dj irusta': 'Balles Mc Y Dj Irusta',
 	'bambú': 'Bambú',
-	'banda armada': 'Banda armada',
+	'banda armada': 'Banda armada',  # Preservado por rodrigozzz
 	'bandaancha': 'Bandaancha',
 	'bandaancha (con sinzensura)': 'Bandaancha (Con Sinzensura)',
 	'bandaancha con sinzensura': 'Bandaancha Con Sinzensura',
-	'bandalona': 'Bandalona',
+	'bandalona': 'Bandalona',  # Preservado por rodrigozzz
 	'bandio': 'Bandio',
 	'bangha dealers': 'Bangha Dealers',
-	'bankito blanko': 'Bankito Blanko',
+	'bankito blanko': 'Bankito Blanko',  # Preservado por rodrigozzz
 	'bano': 'Bano',
 	'baos': 'Baos',
 	'barbass sound': 'Barbass Sound',
@@ -401,7 +401,7 @@ ARTISTS = {
 	'barrymc': 'Barrymc',
 	'baseh': 'Baseh',
 	'bassi': 'Bassi',
-	'baster': 'Baster',
+	'baster': 'Baster',  # Preservado por rodrigozzz
 	'bastian trama': 'Bastian Trama',
 	'bastos guerreros del ritmo': 'Bastos Guerreros Del Ritmo',
 	'batto': 'Batto',
@@ -435,12 +435,12 @@ ARTISTS = {
 	'benjamin': 'Benjamin',
 	'benny soprano': 'Benny Soprano',
 	'beroots bangers': 'Beroots Bangers',
-	'berre del buyete': 'Berre del buyete',
+	'berre del buyete': 'Berre del buyete',  # Preservado por rodrigozzz
 	'beryer': 'Beryer',
 	'beryer & rayco': 'Beryer & Rayco',
 	'beskansa': 'Beskansa',
 	'bfunk': 'Bfunk',
-	'bhensinz': 'Bhensinz',
+	'bhensinz': 'Bhensinz',  # Preservado por rodrigozzz
 	'bhor d': 'Bhor D',
 	'bidabol': 'Bidabol',
 	'bien sobre mal': 'Bien Sobre Mal',
@@ -454,9 +454,9 @@ ARTISTS = {
 	'big mike gorila': 'Big Mike Gorila',
 	'big moon': 'Big Moon',
 	'big sábanas': 'Big Sábanas',
-	'big uebo': 'Big uebo',
+	'big uebo': 'Big uebo',  # Preservado por rodrigozzz
 	'bihache crew': 'Bihache Crew',
-	'bilboriginal': 'Bilboriginal',
+	'bilboriginal': 'Bilboriginal',  # Preservado por rodrigozzz
 	'billy el niño': 'Billy El Niño',
 	'billy el niño & don dinero': 'Billy El Niño & Don Dinero',
 	'bilpack hardproz': 'Bilpack Hardproz',
@@ -517,9 +517,9 @@ ARTISTS = {
 	'bon korleony': 'Bon Korleony',
 	'bona': 'Bona',
 	'bona & ciclo': 'Bona & Ciclo',
-	'boo-dooh': 'Boo-Dooh',
+	'boo-dooh': 'Boo-Dooh',  # Preservado por rodrigozzz
 	'boogie k': 'Boogie K',
-	'bop 241': 'bop 241',
+	'bop 241': 'bop 241',  # Preservado por rodrigozzz
 	'borga': 'Borga',
 	'borga & dj zil': 'Borga & Dj Zil',
 	'boricua bomb squad': 'Boricua Bomb Squad',
@@ -546,7 +546,7 @@ ARTISTS = {
 	'bronquitis crónica': 'Bronquitis Crónica',
 	'brosdol': 'Brosdol',
 	'brother selected': 'Brother Selected',
-	'bruce banner': 'Bruce Banner',
+	'bruce banner': 'Bruce Banner',  # Preservado por rodrigozzz
 	'brumasound': 'Brumasound',
 	'bso yo soy la juani': 'Bso Yo Soy La Juani',
 	'btg': 'Btg',
@@ -559,7 +559,7 @@ ARTISTS = {
 	'buenacrema': 'Buenacrema',
 	'buenaletra': 'Buenaletra',
 	'bueno trueman': 'Bueno Trueman',
-	'bufank': 'Bufank',
+	'bufank': 'Bufank',  # Preservado por rodrigozzz
 	'buff1': 'Buff1',
 	'buhoschicos': 'Buhoschicos',
 	'bumpy knuckles': 'Bumpy Knuckles',
@@ -599,7 +599,7 @@ ARTISTS = {
 	'candela cla': 'Candela Cla',
 	'canes': 'Canes',
 	'canibal destroy': 'Canibal Destroy',
-	'cantinela fina': 'Cantinela Fina',
+	'cantinela fina': 'Cantinela Fina',  # Preservado por rodrigozzz
 	'canto cardiaco crew': 'Canto Cardiaco Crew',
 	'caos urbano': 'Caos Urbano',
 	'caos urbano ': 'Caos Urbano ',
@@ -625,7 +625,7 @@ ARTISTS = {
 	'carpin': 'Carpin',
 	'cartel de santa': 'Cartel De Santa',
 	'cashflow': 'Cashflow',
-	'caso abierto': 'Caso Abierto',
+	'caso abierto': 'Caso Abierto',  # Preservado por rodrigozzz
 	'casoman': 'Casoman',
 	'casoman & la meka 55': 'Casoman & La Meka 55',
 	'casoman & skl69': 'Casoman & Skl69',
@@ -676,7 +676,7 @@ ARTISTS = {
 	'cheb rubën': 'Cheb Rubën',
 	'cheb rubën & sh música': 'Cheb Rubën & Sh Música',
 	'cheerdealer beats': 'Cheerdealer Beats',
-	'chef dompi': 'Chef Dompi',
+	'chef dompi': 'Chef Dompi',  # Preservado por rodrigozzz
 	'cheke': 'Cheke',
 	'cheke & senior': 'Cheke & Senior',
 	'cheke en blanko': 'Cheke En Blanko',
@@ -723,7 +723,7 @@ ARTISTS = {
 	'chus': 'Chus',
 	'ciclo': 'Ciclo',
 	'ciclo y bona': 'Ciclo Y Bona',
-	'cientouno': 'Cientouno',
+	'cientouno': 'Cientouno',  # Preservado por rodrigozzz
 	'científico': 'Científico',
 	'cifra3': 'Cifra3',
 	'ciniko': 'Ciniko',
@@ -736,9 +736,9 @@ ARTISTS = {
 	'cjgaditano': 'Cjgaditano',
 	'ck2/akp': 'Ck2/Akp',
 	'ckf': 'Ckf',
-	'claan': 'Claan',
+	'claan': 'Claan',  # Preservado por rodrigozzz
 	'clan 12': 'Clan 12',
-	'clark kent': 'Clark Kent',
+	'clark kent': 'Clark Kent',  # Preservado por rodrigozzz
 	'clase sur': 'Clase Sur',
 	'clasiko': 'Clasiko',
 	'cloaka company': 'Cloaka Company',
@@ -748,19 +748,19 @@ ARTISTS = {
 	'cloud & nayck': 'Cloud & Nayck',
 	'cls': 'Cls',
 	'club social': 'Club Social',
-	'cmc': 'CMC',
+	'cmc': 'CMC',  # Preservado por rodrigozzz
 	'coartada perfecta': 'Coartada Perfecta',
 	'cobra team': 'Cobra Team',
 	'coco er virus': 'Coco Er Virus',
 	'code': 'Code',
-	'cofradía de rimadores': 'Cofradía de Rimadores',
+	'cofradía de rimadores': 'Cofradía de Rimadores',  # Preservado por rodrigozzz
 	'cogollo': 'Cogollo',
 	'cogollo y troya': 'Cogollo Y Troya',
 	'coka bazoka': 'Coka Bazoka',
 	'coke navarro': 'Coke Navarro',
 	'coldman': 'Coldman',
 	'coldman beats': 'Coldman Beats',
-	'colectivo asesino': 'Colectivo Asesino',
+	'colectivo asesino': 'Colectivo Asesino',  # Preservado por rodrigozzz
 	'coleta': 'Coleta',
 	'coleta & ciclo': 'Coleta & Ciclo',
 	'coleta & joako': 'Coleta & Joako',
@@ -807,7 +807,7 @@ ARTISTS = {
 	'core tb': 'Core Tb',
 	'corredores de bloque': 'Corredores De Bloque',
 	'corsarios del tiempo': 'Corsarios Del Tiempo',
-	'corte perfecto': 'Corte Perfecto',
+	'corte perfecto': 'Corte Perfecto',  # Preservado por Jaime
 	'cosa fina': 'Cosa Fina',
 	'cosa fina y dj chaman': 'Cosa Fina Y Dj Chaman',
 	'cosa nostra': 'Cosa Nostra',
@@ -818,9 +818,9 @@ ARTISTS = {
 	'costa & carmona': 'Costa & Carmona',
 	'costello': 'Costello',
 	'costello manzzino': 'Costello Manzzino',
-	'costra rap': 'Costra rap',
+	'costra rap': 'Costra rap',  # Preservado por rodrigozzz
 	'coten prod': 'Coten Prod',
-	'cowproducciones': 'Cowproducciones',
+	'cowproducciones': 'Cowproducciones',  # Preservado por Jaime
 	'cpv': 'Cpv',
 	'cqd': 'Cqd',
 	'cqn': 'Cqn',
@@ -834,12 +834,12 @@ ARTISTS = {
 	'craso y krah': 'Craso Y Krah',
 	'crazy': 'Crazy',
 	'crazy foras': 'Crazy Foras',
-	'crazy from da c': 'Crazy From Da C',
+	'crazy from da c': 'Crazy From Da C',  # Preservado por rodrigozzz
 	'crazy mike': 'Crazy Mike',
 	'cream files (pina&lito)': 'Cream Files (Pina&Lito)',
 	'cream files pina&lito': 'Cream Files Pina&Lito',
 	'crema': 'Crema',
-	'cres': 'Cres',
+	'cres': 'Cres',  # Preservado por rodrigozzz
 	'cres x !llmind': 'Cres X !Llmind',
 	'cres y valdés': 'Cres Y Valdés',
 	'crew cuervos': 'Crew Cuervos',
@@ -847,7 +847,7 @@ ARTISTS = {
 	'crim79': 'Crim79',
 	'crim79 & dj keal': 'Crim79 & Dj Keal',
 	'crim79 y dj keal': 'Crim79 Y Dj Keal',
-	'crimen perfecto': 'Crimen Perfecto',
+	'crimen perfecto': 'Crimen Perfecto',  # Preservado por rodrigozzz
 	'crimen x': 'Crimen X',
 	'criterioh': 'Criterioh',
 	'criterioh y post': 'Criterioh Y Post',
@@ -875,7 +875,7 @@ ARTISTS = {
 	'cultura profetica': 'Cultura Profetica',
 	'culturopolis community': 'Culturopolis Community',
 	'cum laude': 'Cum Laude',
-	'cum laude las altas esferas el gran cthulhu': 'Cum laude las altas esferas el gran cthulhu',
+	'cum laude las altas esferas el gran cthulhu': 'Cum laude las altas esferas el gran cthulhu',  # Preservado por rodrigozzz
 	'cum laude y las altas esferas': 'Cum Laude Y Las Altas Esferas',
 	'curren$y': 'Curren$Y',
 	'curren$y & the alchemist': 'Curren$Y & The Alchemist',
@@ -898,7 +898,7 @@ ARTISTS = {
 	'd. gómez': 'D. Gómez',
 	'd. gómez -n- pocas libras': 'D. Gómez -N- Pocas Libras',
 	'd.c dogg.a.k.a lil perro': 'D.C Dogg.A.K.A Lil Perro',
-	'd.j.c.': 'D.J.C.',
+	'd.j.c.': 'D.J.C.',  # Preservado por rodrigozzz
 	'd.l. blando': 'D.L. Blando',
 	'd.nash': 'D.Nash',
 	'd.nash y flash': 'D.Nash Y Flash',
@@ -916,7 +916,7 @@ ARTISTS = {
 	'da2': 'Da2',
 	'dacapo show': 'Dacapo Show',
 	'dacream': 'Dacream',
-	'dad maza': 'Dad Maza',
+	'dad maza': 'Dad Maza',  # Preservado por rodrigozzz
 	'daddy cobra': 'Daddy Cobra',
 	'daddy maza': 'Daddy Maza',
 	'dager': 'Dager',
@@ -927,13 +927,13 @@ ARTISTS = {
 	'dakah': 'Dakah',
 	'dakaneh': 'Dakaneh',
 	'dakaneh bravo': 'Dakaneh Bravo',
-	'dali': 'Dali',
-	'dali tonny chee': 'Dali tonny chee',
+	'dali': 'Dali',  # Preservado por rodrigozzz
+	'dali tonny chee': 'Dali tonny chee',  # Preservado por rodrigozzz
 	'dammau': 'Dammau',
 	'dammau & yester': 'Dammau & Yester',
 	'damn money': 'Damn Money',
 	'dan': 'Dan',
-	'danger911': 'Danger911',
+	'danger911': 'Danger911',  # Preservado por rodrigozzz
 	'dani de doj': 'Dani De Doj',
 	'dani ro': 'Dani Ro',
 	'dani ro vs uni-mate': 'Dani Ro Vs Uni-Mate',
@@ -950,7 +950,7 @@ ARTISTS = {
 	'danstara musik': 'Danstara Musik',
 	'dantitan': 'Dantitan',
 	'darco': 'Darco',
-	'dark': 'Dark',
+	'dark': 'Dark',  # Preservado por rodrigozzz
 	'dark hood emporio': 'Dark Hood Emporio',
 	'dark hood familia': 'Dark Hood Familia',
 	'dark la eme': 'Dark La Eme',
@@ -987,9 +987,9 @@ ARTISTS = {
 	'de lo simple': 'De Lo Simple',
 	'de puta madre': 'De Puta Madre',
 	'de repente...idc': 'De Repente...Idc',
-	'de-lyrix': 'De-Lyrix',
+	'de-lyrix': 'De-Lyrix',  # Preservado por rodrigozzz
 	'dead presidents': 'Dead Presidents',
-	'deadman': 'Deadman',
+	'deadman': 'Deadman',  # Preservado por rodrigozzz
 	'dealma': 'Dealma',
 	'deanima': 'Deanima',
 	'debes': 'Debes',
@@ -997,13 +997,13 @@ ARTISTS = {
 	'debuenostontos': 'Debuenostontos',
 	'decko': 'Decko',
 	'decko aka el rey del bloke': 'Decko Aka El Rey Del Bloke',
-	'def con dos': 'Def Con Dos',
+	'def con dos': 'Def Con Dos',  # Preservado por rodrigozzz
 	'def squad': 'Def Squad',
 	'defensa propia': 'Defensa Propia',
 	'defensores del litrofono': 'Defensores Del Litrofono',
 	'defé fuentes': 'Defé Fuentes',
 	'dejota': 'Dejota',
-	'dejota soyez': 'Dejota Soyez',
+	'dejota soyez': 'Dejota Soyez',  # Preservado por rodrigozzz
 	'dejota sre': 'Dejota Sre',
 	'dekoh': 'Dekoh',
 	'del palo exclusive': 'Del Palo Exclusive',
@@ -1038,14 +1038,14 @@ ARTISTS = {
 	'desafia tu criterio': 'Desafia Tu Criterio',
 	'desarmo': 'Desarmo',
 	'desarmo y shava': 'Desarmo Y Shava',
-	'desastre natural': 'Desastre Natural',
+	'desastre natural': 'Desastre Natural',  # Preservado por rodrigozzz
 	'descaraos hood boyz': 'Descaraos Hood Boyz',
 	'descentra2': 'Descentra2',
 	'descompas': 'Descompas',
 	'descompas & geronacion': 'Descompas & Geronacion',
 	'desde lo alto del muro': 'Desde Lo Alto Del Muro',
 	'desechos all star': 'Desechos All Star',
-	'desechos sociales': 'Desechos Sociales',
+	'desechos sociales': 'Desechos Sociales',  # Preservado por Jaime
 	'deso': 'Deso',
 	'desolado': 'Desolado',
 	'desorden acustico': 'Desorden Acustico',
@@ -1062,11 +1062,11 @@ ARTISTS = {
 	'deywuankenovy': 'Deywuankenovy',
 	'deywuankenovy y serokah': 'Deywuankenovy Y Serokah',
 	'dezege producciones': 'Dezege Producciones',
-	'dfmc\'s': 'DFMC\'s',
+	'dfmc\'s': 'DFMC\'s',  # Preservado por rodrigozzz
 	'dg': 'Dg',
 	'dgtr': 'Dgtr',
 	'dharmakarma': 'Dharmakarma',
-	'dheformer': 'Dheformer',
+	'dheformer': 'Dheformer',  # Preservado por rodrigozzz
 	'dhira': 'Dhira',
 	'dia sexto': 'Dia Sexto',
 	'diabolic': 'Diabolic',
@@ -1077,7 +1077,7 @@ ARTISTS = {
 	'diego garzia': 'Diego Garzia',
 	'diego minano': 'Diego Minano',
 	'diego rodriguez': 'Diego Rodriguez',
-	'diegoego': 'Diegoego',
+	'diegoego': 'Diegoego',  # Preservado por rodrigozzz
 	'dieguito': 'Dieguito',
 	'diemaster': 'Diemaster',
 	'diesel': 'Diesel',
@@ -1101,7 +1101,7 @@ ARTISTS = {
 	'distrito funk': 'Distrito Funk',
 	'distrito funk y paxins': 'Distrito Funk Y Paxins',
 	'diversidad': 'Diversidad',
-	'diyicaro': 'Diyicaro',
+	'diyicaro': 'Diyicaro',  # Preservado por rodrigozzz
 	'dj 2d2': 'Dj 2D2',
 	'dj alca': 'Dj Alca',
 	'dj arek': 'Dj Arek',
@@ -1146,7 +1146,7 @@ ARTISTS = {
 	'dj griffi': 'Dj Griffi',
 	'dj griffi y dj 2d2': 'Dj Griffi Y Dj 2D2',
 	'dj grime': 'Dj Grime',
-	'dj gusa': 'DJ Gusa',
+	'dj gusa': 'DJ Gusa',  # Preservado por rodrigozzz
 	'dj h1c': 'Dj H1C',
 	'dj harden': 'Dj Harden',
 	'dj hem': 'Dj Hem',
@@ -1206,13 +1206,13 @@ ARTISTS = {
 	'dj pache': 'Dj Pache',
 	'dj paco a.k.a. dj jam': 'Dj Paco A.K.A. Dj Jam',
 	'dj paharo': 'Dj Paharo',
-	'dj paradox': 'Dj Paradox',
+	'dj paradox': 'Dj Paradox',  # Preservado por rodrigozzz
 	'dj pera': 'Dj Pera',
 	'dj pera aka bull romero': 'Dj Pera Aka Bull Romero',
 	'dj phet': 'Dj Phet',
 	'dj pjotar': 'Dj Pjotar',
 	'dj poe': 'Dj Poe',
-	'dj potas': 'DJ Potas',
+	'dj potas': 'DJ Potas',  # Preservado por rodrigozzz
 	'dj potas & allen beller': 'Dj Potas & Allen Beller',
 	'dj premier': 'Dj Premier',
 	'dj premier & bumpy knuckles': 'Dj Premier & Bumpy Knuckles',
@@ -1225,7 +1225,7 @@ ARTISTS = {
 	'dj real & el cansino': 'Dj Real & El Cansino',
 	'dj real y el cansino': 'Dj Real Y El Cansino',
 	'dj renf': 'Dj Renf',
-	'dj rone': 'DJ Rone',
+	'dj rone': 'DJ Rone',  # Preservado por rodrigozzz
 	'dj rulox': 'Dj Rulox',
 	'dj rune': 'Dj Rune',
 	'dj saico': 'Dj Saico',
@@ -1264,7 +1264,7 @@ ARTISTS = {
 	'dj tres': 'Dj Tres',
 	'dj triqui': 'Dj Triqui',
 	'dj uni': 'Dj Uni',
-	'dj uve': 'DJ Uve',
+	'dj uve': 'DJ Uve',  # Preservado por rodrigozzz
 	'dj uve y dj thabeat': 'Dj Uve Y Dj Thabeat',
 	'dj uve y dj tres': 'Dj Uve Y Dj Tres',
 	'dj verse': 'Dj Verse',
@@ -1274,7 +1274,7 @@ ARTISTS = {
 	'dj willor y dj woogie': 'Dj Willor Y Dj Woogie',
 	'dj wilor': 'Dj Wilor',
 	'dj woogie': 'Dj Woogie',
-	'dj yata': 'DJ Yata',
+	'dj yata': 'DJ Yata',  # Preservado por rodrigozzz
 	'dj yekey': 'Dj Yekey',
 	'dj yep': 'Dj Yep',
 	'dj yulian': 'Dj Yulian',
@@ -1321,7 +1321,7 @@ ARTISTS = {
 	'doblezero': 'Doblezero',
 	'doc diamond': 'Doc Diamond',
 	'doctor arruga': 'Doctor Arruga',
-	'doctor kajota': 'Doctor Kajota',
+	'doctor kajota': 'Doctor Kajota',  # Preservado por rodrigozzz
 	'dodo power': 'Dodo Power',
 	'dogal': 'Dogal',
 	'dogma crew': 'Dogma Crew',
@@ -1355,7 +1355,7 @@ ARTISTS = {
 	'downrocks': 'Downrocks',
 	'dowty ebi': 'Dowty Ebi',
 	'dowty ebi vs cartel hispano': 'Dowty Ebi Vs Cartel Hispano',
-	'dpc': 'DPC',
+	'dpc': 'DPC',  # Preservado por rodrigozzz
 	'dpc-k': 'Dpc-K',
 	'dph party': 'Dph Party',
 	'dr gwon presenta': 'Dr Gwon Presenta',
@@ -1377,7 +1377,7 @@ ARTISTS = {
 	'druida': 'Druida',
 	'drujas': 'Drujas',
 	'drumdrama': 'Drumdrama',
-	'drumset': 'Drumset',
+	'drumset': 'Drumset',  # Preservado por rodrigozzz
 	'dsg aka her': 'Dsg Aka Her',
 	'dtmd': 'Dtmd',
 	'dual shock': 'Dual Shock',
@@ -1386,14 +1386,14 @@ ARTISTS = {
 	'dudley perkins': 'Dudley Perkins',
 	'due': 'Due',
 	'duende': 'Duende',
-	'duke': 'Duke',
-	'duke + dark': 'Duke + Dark',
+	'duke': 'Duke',  # Preservado por rodrigozzz
+	'duke + dark': 'Duke + Dark',  # Preservado por rodrigozzz
 	'duke sam': 'Duke Sam',
 	'dunky fynky': 'Dunky Fynky',
 	'duo kie': 'Duo Kie',
 	'durag dynasty': 'Durag Dynasty',
 	'durgin': 'Durgin',
-	'duro': 'duro',
+	'duro': 'duro',  # Preservado por rodrigozzz
 	'duruyae': 'Duruyae',
 	'duse': 'Duse',
 	'duval nc': 'Duval Nc',
@@ -1407,8 +1407,8 @@ ARTISTS = {
 	'e. tárraga y zeilen': 'E. Tárraga Y Zeilen',
 	'e.m.g': 'E.M.G',
 	'e.n.p.': 'E.N.P.',
-	'e1md': 'E1MD',
-	'eat meat': 'Eat meat',
+	'e1md': 'E1MD',  # Preservado por rodrigozzz
+	'eat meat': 'Eat meat',  # Preservado por rodrigozzz
 	'eclipse': 'Eclipse',
 	'eddine saïd': 'Eddine Saïd',
 	'eddy drammeh': 'Eddy Drammeh',
@@ -1420,7 +1420,7 @@ ARTISTS = {
 	'efrén': 'Efrén',
 	'egoliat': 'Egoliat',
 	'egoliat & magic beats': 'Egoliat & Magic Beats',
-	'ehler danloss': 'Ehler Danloss',
+	'ehler danloss': 'Ehler Danloss',  # Preservado por rodrigozzz
 	'ehler danloss & ciclo': 'Ehler Danloss & Ciclo',
 	'ehpamenoh?': 'Ehpamenoh?',
 	'eimoman': 'Eimoman',
@@ -1441,7 +1441,7 @@ ARTISTS = {
 	'el bola': 'El Bola',
 	'el brujo presentan...': 'El Brujo Presentan...',
 	'el cansino': 'El Cansino',
-	'el cerebro': 'El Cerebro',
+	'el cerebro': 'El Cerebro',  # Preservado por rodrigozzz
 	'el charolito romaní': 'El Charolito Romaní',
 	'el chaval': 'El Chaval',
 	'el chavo': 'El Chavo',
@@ -1468,7 +1468,7 @@ ARTISTS = {
 	'el east el': 'El East El',
 	'el eje': 'El Eje',
 	'el elegido': 'El Elegido',
-	'el esbozo de la lirica': 'El Esbozo de la Lirica',
+	'el esbozo de la lirica': 'El Esbozo de la Lirica',  # Preservado por rodrigozzz
 	'el ese': 'El Ese',
 	'el extranjero': 'El Extranjero',
 	'el fara': 'El Fara',
@@ -1480,7 +1480,7 @@ ARTISTS = {
 	'el gela': 'El Gela',
 	'el gitano antón': 'El Gitano Antón',
 	'el gori': 'El Gori',
-	'el gran cthulhu': 'El gran cthulhu',
+	'el gran cthulhu': 'El gran cthulhu',  # Preservado por rodrigozzz
 	'el gremio': 'El Gremio',
 	'el grin': 'El Grin',
 	'el guacho sonámbulo': 'El Guacho Sonámbulo',
@@ -1494,12 +1494,12 @@ ARTISTS = {
 	'el kalabozo': 'El Kalabozo',
 	'el kalabozo de la muerte': 'El Kalabozo De La Muerte',
 	'el kalabozo de los muertos': 'El Kalabozo De Los Muertos',
-	'el klan de los dedeté': 'El Klan de los Dedeté',
+	'el klan de los dedeté': 'El Klan de los Dedeté',  # Preservado por rodrigozzz
 	'el kolgaito del puerto': 'El Kolgaito Del Puerto',
 	'el leo': 'El Leo',
 	'el lukaz': 'El Lukaz',
 	'el lukaz & dj caution': 'El Lukaz & Dj Caution',
-	'el límite': 'El Límite',
+	'el límite': 'El Límite',  # Preservado por rodrigozzz
 	'el maese kds': 'El Maese Kds',
 	'el mapa': 'El Mapa',
 	'el meditador': 'El Meditador',
@@ -1530,9 +1530,9 @@ ARTISTS = {
 	'el perro diamante y lechowski': 'El Perro Diamante Y Lechowski',
 	'el perro golfo': 'El Perro Golfo',
 	'el perro sin amo': 'El Perro Sin Amo',
-	'el piezas': 'El piezas',
+	'el piezas': 'El piezas',  # Preservado por rodrigozzz
 	'el pillo astuto': 'El Pillo Astuto',
-	'el piter': 'El piter',
+	'el piter': 'El piter',  # Preservado por rodrigozzz
 	'el poeta': 'El Poeta',
 	'el polaco': 'El Polaco',
 	'el profeta': 'El Profeta',
@@ -1541,15 +1541,15 @@ ARTISTS = {
 	'el puto coke': 'El Puto Coke',
 	'el puto coke y dj limbo': 'El Puto Coke Y Dj Limbo',
 	'el puto de': 'El Puto De',
-	'el puto kue': 'El puto kue',
+	'el puto kue': 'El puto kue',  # Preservado por rodrigozzz
 	'el puto marmaster': 'El Puto Marmaster',
 	'el puto marmaster & mna productions': 'El Puto Marmaster & Mna Productions',
 	'el puto marmaster y mna productions': 'El Puto Marmaster Y Mna Productions',
 	'el puto negro': 'El Puto Negro',
 	'el puto rey': 'El Puto Rey',
-	'el puto sark': 'El Puto Sark',
+	'el puto sark': 'El Puto Sark',  # Preservado por rodrigozzz
 	'el rats': 'El Rats',
-	'el roko': 'El roko',
+	'el roko': 'El roko',  # Preservado por rodrigozzz
 	'el romano': 'El Romano',
 	'el roockie': 'El Roockie',
 	'el rubio': 'El Rubio',
@@ -1558,8 +1558,8 @@ ARTISTS = {
 	'el santo': 'El Santo',
 	'el santo & tosko': 'El Santo & Tosko',
 	'el seis': 'El Seis',
-	'el ser': 'El Ser',
-	'el ser y ser': 'El Ser y Ser',
+	'el ser': 'El Ser',  # Preservado por rodrigozzz
+	'el ser y ser': 'El Ser y Ser',  # Preservado por rodrigozzz
 	'el sicario': 'El Sicario',
 	'el siervo': 'El Siervo',
 	'el silent': 'El Silent',
@@ -1601,13 +1601,13 @@ ARTISTS = {
 	'elite lirika': 'Elite Lirika',
 	'elite producciones': 'Elite Producciones',
 	'eliteproducciones': 'Eliteproducciones',
-	'elmapa': 'elMapa',
+	'elmapa': 'elMapa',  # Preservado por rodrigozzz
 	'elmaskeh': 'Elmaskeh',
 	'elmes gong': 'Elmes Gong',
 	'eloze': 'Eloze',
 	'elpakito': 'Elpakito',
 	'elpakito y fonkshow': 'Elpakito Y Fonkshow',
-	'elphomega': 'Elphomega',
+	'elphomega': 'Elphomega',  # Preservado por rodrigozzz
 	'elphomega ': 'Elphomega ',
 	'elphomega y elvira': 'Elphomega Y Elvira',
 	'elsabe': 'Elsabe',
@@ -1622,7 +1622,7 @@ ARTISTS = {
 	'emezeta': 'Emezeta',
 	'emi666': 'Emi666',
 	'emilio rojas': 'Emilio Rojas',
-	'emma-o': 'Emma-O',
+	'emma-o': 'Emma-O',  # Preservado por rodrigozzz
 	'emme': 'Emme',
 	'encrisis': 'Encrisis',
 	'endecah': 'Endecah',
@@ -1637,7 +1637,7 @@ ARTISTS = {
 	'eneyser y luismicarma': 'Eneyser Y Luismicarma',
 	'enfermo producciones (temas exclusivos)': 'Enfermo Producciones (Temas Exclusivos)',
 	'enfermo producciones temas exclusivos': 'Enfermo Producciones Temas Exclusivos',
-	'enfermos del subsuelo': 'Enfermos del subsuelo',
+	'enfermos del subsuelo': 'Enfermos del subsuelo',  # Preservado por Jaime
 	'enigmah': 'Enigmah',
 	'enrike': 'Enrike',
 	'enrike y dmohl': 'Enrike Y Dmohl',
@@ -1672,8 +1672,8 @@ ARTISTS = {
 	'escandaloso xpósito & hartosopash': 'Escandaloso Xpósito & Hartosopash',
 	'escritura automática': 'Escritura Automática',
 	'escualo': 'Escualo',
-	'escuela de lenguaje frío': 'Escuela de lenguaje frío',
-	'escuela de lenguaje frío y duro': 'Escuela de lenguaje frío y duro',
+	'escuela de lenguaje frío': 'Escuela de lenguaje frío',  # Preservado por rodrigozzz
+	'escuela de lenguaje frío y duro': 'Escuela de lenguaje frío y duro',  # Preservado por rodrigozzz
 	'ese a ene hache': 'Ese A Ene Hache',
 	'ese benex': 'Ese Benex',
 	'ese benex y periko plazer': 'Ese Benex Y Periko Plazer',
@@ -1689,7 +1689,7 @@ ARTISTS = {
 	'esoteric & stu bangas': 'Esoteric & Stu Bangas',
 	'esquina del rap': 'Esquina Del Rap',
 	'estado mental': 'Estado Mental',
-	'estado permanente': 'Estado permanente',
+	'estado permanente': 'Estado permanente',  # Preservado por rodrigozzz
 	'estail': 'Estail',
 	'estarlik': 'Estarlik',
 	'estel ocean': 'Estel Ocean',
@@ -1712,7 +1712,7 @@ ARTISTS = {
 	'exkizo & bueno trueman': 'Exkizo & Bueno Trueman',
 	'exopoetics': 'Exopoetics',
 	'expediente oculto': 'Expediente Oculto',
-	'expresión en conserva': 'Expresión en conserva',
+	'expresión en conserva': 'Expresión en conserva',  # Preservado por rodrigozzz
 	'expresión lirika': 'Expresión Lirika',
 	'externo': 'Externo',
 	'extravagancia': 'Extravagancia',
@@ -1734,8 +1734,8 @@ ARTISTS = {
 	'fade in': 'Fade In',
 	'fado': 'Fado',
 	'faeloh': 'Faeloh',
-	'falsa alarma': 'Falsa Alarma',
-	'falsa identidad': 'Falsa Identidad',
+	'falsa alarma': 'Falsa Alarma',  # Preservado por rodrigozzz
+	'falsa identidad': 'Falsa Identidad',  # Preservado por rodrigozzz
 	'falsalarma': 'Falsalarma',
 	'falsalrama': 'Falsalrama',
 	'familia corporacion': 'Familia Corporacion',
@@ -1755,8 +1755,8 @@ ARTISTS = {
 	'fat fish': 'Fat Fish',
 	'fat fish kalashnikov': 'Fat Fish Kalashnikov',
 	'fat squad': 'Fat Squad',
-	'fatcapo': 'Fatcapo',
-	'fatcapo y dj rone': 'Fatcapo y DJ Rone',
+	'fatcapo': 'Fatcapo',  # Preservado por rodrigozzz
+	'fatcapo y dj rone': 'Fatcapo y DJ Rone',  # Preservado por rodrigozzz
 	'fatsibah': 'Fatsibah',
 	'fatsibah & lil bdee': 'Fatsibah & Lil Bdee',
 	'fbeats': 'Fbeats',
@@ -1802,7 +1802,7 @@ ARTISTS = {
 	'flying lotus': 'Flying Lotus',
 	'fnestaselecta': 'Fnestaselecta',
 	'folie a trois': 'Folie A Trois',
-	'folie à trois': 'Folie à Trois',
+	'folie à trois': 'Folie à Trois',  # Preservado por rodrigozzz
 	'fondo krítico': 'Fondo Krítico',
 	'fonkilates': 'Fonkilates',
 	'fonkshow': 'Fonkshow',
@@ -1840,17 +1840,17 @@ ARTISTS = {
 	'fuck1': 'Fuck1',
 	'fuck1 & dirty game': 'Fuck1 & Dirty Game',
 	'fuera del margen': 'Fuera Del Margen',
-	'fuerza de choque': 'Fuerza de Choque',
+	'fuerza de choque': 'Fuerza de Choque',  # Preservado por rodrigozzz
 	'fugas': 'Fugas',
 	'fuktor zero': 'Fuktor Zero',
 	'full house bastards': 'Full House Bastards',
 	'full nelson': 'Full Nelson',
-	'fundación': 'Fundación',
+	'fundación': 'Fundación',  # Preservado por rodrigozzz
 	'funkopolitan': 'Funkopolitan',
 	'fuoli': 'Fuoli',
 	'fusion de nobles': 'Fusion De Nobles',
-	'fusion klan': 'Fusion Klan',
-	'fusión nivel-uno': 'Fusión Nivel-Uno',
+	'fusion klan': 'Fusion Klan',  # Preservado por rodrigozzz
+	'fusión nivel-uno': 'Fusión Nivel-Uno',  # Preservado por rodrigozzz
 	'félix': 'Félix',
 	'fórmula zero': 'Fórmula Zero',
 	'g. soldier': 'G. Soldier',
@@ -1868,7 +1868,7 @@ ARTISTS = {
 	'gamberros pro': 'Gamberros Pro',
 	'ganda': 'Ganda',
 	'gandul el as': 'Gandul El As',
-	'gangsta squad': 'Gangsta Squad',
+	'gangsta squad': 'Gangsta Squad',  # Preservado por rodrigozzz
 	'ganja xl': 'Ganja Xl',
 	'ganjahr family': 'Ganjahr Family',
 	'garavis': 'Garavis',
@@ -1881,7 +1881,7 @@ ARTISTS = {
 	'gee male': 'Gee Male',
 	'gee malee': 'Gee Malee',
 	'generacion91': 'Generacion91',
-	'general d.': 'General D.',
+	'general d.': 'General D.',  # Preservado por rodrigozzz
 	'genioh': 'Genioh',
 	'genioh y cadierno': 'Genioh Y Cadierno',
 	'genios de la cachimba': 'Genios De La Cachimba',
@@ -1894,10 +1894,10 @@ ARTISTS = {
 	'ger1': 'Ger1',
 	'gerardo el vago': 'Gerardo El Vago',
 	'geronacion': 'Geronacion',
-	'geronación': 'Geronación',
+	'geronación': 'Geronación',  # Preservado por rodrigozzz
 	'gese': 'Gese',
 	'gha': 'Gha',
-	'ghetto 69': 'Ghetto 69',
+	'ghetto 69': 'Ghetto 69',  # Preservado por rodrigozzz
 	'ghost man': 'Ghost Man',
 	'giane kaneda': 'Giane Kaneda',
 	'giano one': 'Giano One',
@@ -1909,7 +1909,7 @@ ARTISTS = {
 	'gita emcee': 'Gita Emcee',
 	'gita mc': 'Gita Mc',
 	'gitano anton': 'Gitano Anton',
-	'gizmo': 'Gizmo',
+	'gizmo': 'Gizmo',  # Preservado por Padaes
 	'gizmo y jaf': 'Gizmo Y Jaf',
 	'gkhan': 'Gkhan',
 	'gkhan y karvoh': 'Gkhan Y Karvoh',
@@ -1939,14 +1939,14 @@ ARTISTS = {
 	'gran rodrigo': 'Gran Rodrigo',
 	'grand d': 'Grand D',
 	'grand groove': 'Grand Groove',
-	'granpurismo': 'Granpurismo',
+	'granpurismo': 'Granpurismo',  # Preservado por rodrigozzz
 	'granpurismo & cool remember': 'Granpurismo & Cool Remember',
-	'granpurismo & hazhe': 'Granpurismo & Hazhe',
+	'granpurismo & hazhe': 'Granpurismo & Hazhe',  # Preservado por rodrigozzz
 	'gransan': 'Gransan',
-	'granyak': 'GranYak',
-	'granyak & dj paradox': 'GranYak & Dj Paradox',
+	'granyak': 'GranYak',  # Preservado por rodrigozzz
+	'granyak & dj paradox': 'GranYak & Dj Paradox',  # Preservado por rodrigozzz
 	'gravedad cero': 'Gravedad Cero',
-	'gravementegrave': 'Gravementegrave',
+	'gravementegrave': 'Gravementegrave',  # Preservado por rodrigozzz
 	'gravsound': 'Gravsound',
 	'greca': 'Greca',
 	'green district': 'Green District',
@@ -1978,7 +1978,7 @@ ARTISTS = {
 	'guiyo': 'Guiyo',
 	'gumy kastellano': 'Gumy Kastellano',
 	'gus gusano': 'Gus Gusano',
-	'guti': 'Guti',
+	'guti': 'Guti',  # Preservado por rodrigozzz
 	'gutier hardcore': 'Gutier Hardcore',
 	'gvn sound': 'Gvn Sound',
 	'gwiz': 'Gwiz',
@@ -2009,9 +2009,9 @@ ARTISTS = {
 	'hannibal stax': 'Hannibal Stax',
 	'hannibal stax & marco polo': 'Hannibal Stax & Marco Polo',
 	'har': 'Har',
-	'hardcore boys': 'Hardcore boys',
-	'hardcore street': 'Hardcore Street',
-	'hardcore stress': 'Hardcore Stress',
+	'hardcore boys': 'Hardcore boys',  # Preservado por rodrigozzz
+	'hardcore street': 'Hardcore Street',  # Preservado por rodrigozzz
+	'hardcore stress': 'Hardcore Stress',  # Preservado por rodrigozzz
 	'harlot': 'Harlot',
 	'harlot y luis prods': 'Harlot Y Luis Prods',
 	'harry haller': 'Harry Haller',
@@ -2028,7 +2028,7 @@ ARTISTS = {
 	'hasta la última gota': 'Hasta La Última Gota',
 	'havoc': 'Havoc',
 	'haze': 'Haze',
-	'hazhe': 'Hazhe',
+	'hazhe': 'Hazhe',  # Preservado por rodrigozzz
 	'hc': 'Hc',
 	'hcb': 'Hcb',
 	'hdc': 'Hdc',
@@ -2048,7 +2048,7 @@ ARTISTS = {
 	'hermano l, ras sanchez, roots seeker': 'Hermano L, Ras Sanchez, Roots Seeker',
 	'hermano l, ras sanchez, roots seeker y kiki sound': 'Hermano L, Ras Sanchez, Roots Seeker Y Kiki Sound',
 	'hermanos de sangre': 'Hermanos De Sangre',
-	'hermanos herméticos': 'Hermanos Herméticos',
+	'hermanos herméticos': 'Hermanos Herméticos',  # Preservado por rodrigozzz
 	'herri black': 'Herri Black',
 	'hh4e': 'Hh4E',
 	'hi.moez': 'Hi.Moez',
@@ -2068,14 +2068,14 @@ ARTISTS = {
 	'hijos bastardos': 'Hijos Bastardos',
 	'hijos de la práctica': 'Hijos De La Práctica',
 	'hijos del kaos': 'Hijos Del Kaos',
-	'hin-chu boys': 'Hin-Chu Boys',
+	'hin-chu boys': 'Hin-Chu Boys',  # Preservado por rodrigozzz
 	'hinchu boys': 'HinChu Boys',
 	'hip hop live tv dvd': 'Hip Hop Live Tv Dvd',
 	'hip hop nation': 'Hip Hop Nation',
 	'hip hop nueva escuela 2': 'Hip Hop Nueva Escuela 2',
 	'hip hop sevilla': 'Hip Hop Sevilla',
-	'hip-hoprror': 'Hip-Hoprror',
-	'hipnotik': 'HipnotiK',
+	'hip-hoprror': 'Hip-Hoprror',  # Preservado por rodrigozzz
+	'hipnotik': 'HipnotiK',  # Preservado por rodrigozzz
 	'hippaly': 'Hippaly',
 	'hiroshima pro': 'Hiroshima Pro',
 	'hispano all scratchs': 'Hispano All Scratchs',
@@ -2096,13 +2096,13 @@ ARTISTS = {
 	'hospitalet cartel': 'Hospitalet Cartel',
 	'hr': 'Hr',
 	'hst': 'Hst',
-	'hu head': 'Hu Head',
+	'hu head': 'Hu Head',  # Preservado por rodrigozzz
 	'hucho': 'Hucho',
 	'hueco': 'Hueco',
 	'hueco & dj sama': 'Hueco & Dj Sama',
 	'huellas de barro': 'Huellas De Barro',
 	'hugo': 'Hugo',
-	'humildemente fuertes': 'Humildemente Fuertes',
+	'humildemente fuertes': 'Humildemente Fuertes',  # Preservado por rodrigozzz
 	'humo': 'Humo',
 	'humo denso': 'Humo Denso',
 	'humor negro': 'Humor Negro',
@@ -2165,8 +2165,8 @@ ARTISTS = {
 	'invandra': 'Invandra',
 	'invert': 'Invert',
 	'inze brashier': 'Inze Brashier',
-	'ipar rap eroak': 'Ipar Rap Eroak',
-	'ipar rap-eroak': 'Ipar Rap-Eroak',
+	'ipar rap eroak': 'Ipar Rap Eroak',  # Preservado por rodrigozzz
+	'ipar rap-eroak': 'Ipar Rap-Eroak',  # Preservado por rodrigozzz
 	'irene': 'Irene',
 	'irene lombard': 'Irene Lombard',
 	'irie lion sound feat hermano l': 'Irie Lion Sound Feat Hermano L',
@@ -2204,7 +2204,7 @@ ARTISTS = {
 	'jackobo hernandez': 'Jackobo Hernandez',
 	'jacobino': 'Jacobino',
 	'jacobino & qube': 'Jacobino & Qube',
-	'jaf': 'Jaf',
+	'jaf': 'Jaf',  # Preservado por rodrigozzz
 	'jah nattoh': 'Jah Nattoh',
 	'jahdaman': 'Jahdaman',
 	'jaheiddy': 'Jaheiddy',
@@ -2228,7 +2228,7 @@ ARTISTS = {
 	'jas': 'Jas',
 	'jasta posse': 'Jasta Posse',
 	'jauría': 'Jauría',
-	'javi dj': 'Javi DJ',
+	'javi dj': 'Javi DJ',  # Preservado por rodrigozzz
 	'javi el ues': 'Javi El Ues',
 	'javier el nohble': 'Javier El Nohble',
 	'javier el nohble y manuel $in fé': 'Javier El Nohble Y Manuel $In Fé',
@@ -2241,7 +2241,7 @@ ARTISTS = {
 	'jay eem': 'Jay Eem',
 	'jayder': 'Jayder',
 	'jazstastilo': 'Jazstastilo',
-	'jazz two': 'Jazz Two',
+	'jazz two': 'Jazz Two',  # Preservado por rodrigozzz
 	'jazzmen': 'Jazzmen',
 	'jazzta': 'Jazzta',
 	'jazzy dark': 'Jazzy Dark',
@@ -2265,9 +2265,9 @@ ARTISTS = {
 	'jerva & i-ace': 'Jerva & I-Ace',
 	'jerva.agz': 'Jerva.Agz',
 	'jesuly': 'Jesuly',
-	'jesús existe': 'Jesús Existe',
-	'jesús existe  y chef dompi': 'Jesús Existe  y Chef Dompi',
-	'jesús existe & folie à trois': 'Jesús Existe & Folie à Trois',
+	'jesús existe': 'Jesús Existe',  # Preservado por rodrigozzz
+	'jesús existe  y chef dompi': 'Jesús Existe  y Chef Dompi',  # Preservado por rodrigozzz
+	'jesús existe & folie à trois': 'Jesús Existe & Folie à Trois',  # Preservado por rodrigozzz
 	'jet set conexión': 'Jet Set Conexión',
 	'jewel': 'Jewel',
 	'jhon': 'Jhon',
@@ -2275,7 +2275,7 @@ ARTISTS = {
 	'jht': 'Jht',
 	'jimbo': 'Jimbo',
 	'jj doom': 'Jj Doom',
-	'jml': 'JML',
+	'jml': 'JML',  # Preservado por rodrigozzz
 	'jml & king der': 'Jml & King Der',
 	'jml y king-der': 'Jml Y King-Der',
 	'jnj': 'Jnj',
@@ -2332,7 +2332,7 @@ ARTISTS = {
 	'jotamayuscula': 'Jotamayuscula',
 	'jotamayuscula vol 3': 'Jotamayuscula Vol 3',
 	'jotamayuscula y supernafamacho': 'Jotamayuscula Y Supernafamacho',
-	'jotamayúscula': 'Jotamayúscula',
+	'jotamayúscula': 'Jotamayúscula',  # Preservado por rodrigozzz
 	'jotamayúscula & lion sitté': 'Jotamayúscula & Lion Sitté',
 	'jotandjota': 'Jotandjota',
 	'journalist 103': 'Journalist 103',
@@ -2370,7 +2370,7 @@ ARTISTS = {
 	'jverde': 'Jverde',
 	'jóvenes ocultos': 'Jóvenes Ocultos',
 	'k': 'K',
-	'k-directo': 'K-Directo',
+	'k-directo': 'K-Directo',  # Preservado por rodrigozzz
 	'k-lean vol.1': 'K-Lean Vol.1',
 	'k-lean vol.2': 'K-Lean Vol.2',
 	'k-nalón': 'K-Nalón',
@@ -2412,7 +2412,7 @@ ARTISTS = {
 	'kako y el chaval': 'Kako Y El Chaval',
 	'kakta': 'Kakta',
 	'kaktan': 'Kaktan',
-	'kalaña cmd': 'Kalaña CMD',
+	'kalaña cmd': 'Kalaña CMD',  # Preservado por Jaime
 	'kallid': 'Kallid',
 	'kaloncha aka supah fast players': 'Kaloncha Aka Supah Fast Players',
 	'kaloncha sound': 'Kaloncha Sound',
@@ -2431,7 +2431,7 @@ ARTISTS = {
 	'kanyh': 'Kanyh',
 	'kaos': 'Kaos',
 	'karim': 'Karim',
-	'karisma': 'Karisma',
+	'karisma': 'Karisma',  # Preservado por rodrigozzz
 	'kariuko': 'Kariuko',
 	'karlos': 'Karlos',
 	'karmasound': 'Karmasound',
@@ -2445,7 +2445,7 @@ ARTISTS = {
 	'karvoh y dekoh': 'Karvoh Y Dekoh',
 	'karvoh y dj rune': 'Karvoh Y Dj Rune',
 	'kas': 'Kas',
-	'kase.o': 'Kase.O',
+	'kase.o': 'Kase.O',  # Preservado por rodrigozzz
 	'kaso aparte': 'Kaso Aparte',
 	'kastigo sikologiko': 'Kastigo Sikologiko',
 	'katarsis lirika': 'Katarsis Lirika',
@@ -2456,7 +2456,7 @@ ARTISTS = {
 	'kaze': 'Kaze',
 	'kazu': 'Kazu',
 	'kbpo2se': 'Kbpo2Se',
-	'kbposse': 'KBPosse',
+	'kbposse': 'KBPosse',  # Preservado por rodrigozzz
 	'kbposse ': 'Kbposse ',
 	'kc mg': 'Kc Mg',
 	'kc mg & stash house': 'Kc Mg & Stash House',
@@ -2466,7 +2466,7 @@ ARTISTS = {
 	'kechu prods': 'Kechu Prods',
 	'kedir': 'Kedir',
 	'kedro': 'Kedro',
-	'keekc': 'Keekc',
+	'keekc': 'Keekc',  # Preservado por rodrigozzz
 	'keibi': 'Keibi',
 	'keishal': 'Keishal',
 	'kelu': 'Kelu',
@@ -2512,7 +2512,7 @@ ARTISTS = {
 	'kindilan': 'Kindilan',
 	'king der': 'King Der',
 	'king der y jml': 'King Der Y Jml',
-	'king ron': 'King Ron',
+	'king ron': 'King Ron',  # Preservado por rodrigozzz
 	'king-der': 'King-Der',
 	'king-der y jml': 'King-Der Y Jml',
 	'kingder': 'Kingder',
@@ -2522,7 +2522,7 @@ ARTISTS = {
 	'kiro': 'Kiro',
 	'kiyotina producciones': 'Kiyotina Producciones',
 	'kkwt': 'Kkwt',
-	'klan faxtoor': 'Klan Faxtoor',
+	'klan faxtoor': 'Klan Faxtoor',  # Preservado por rodrigozzz
 	'klei moumantai': 'Klei Moumantai',
 	'kmk': 'Kmk',
 	'knightowl a.k.a. tekolote': 'Knightowl A.K.A. Tekolote',
@@ -2532,7 +2532,7 @@ ARTISTS = {
 	'koar': 'Koar',
 	'kodigo norte': 'Kodigo Norte',
 	'kodra': 'Kodra',
-	'kolores rasta': 'Kolores Rasta',
+	'kolores rasta': 'Kolores Rasta',  # Preservado por rodrigozzz
 	'konexion': 'Konexion',
 	'kongo': 'Kongo',
 	'kontracorriente': 'Kontracorriente',
@@ -2555,15 +2555,15 @@ ARTISTS = {
 	'krah': 'Krah',
 	'kraken': 'Kraken',
 	'krazé': 'Krazé',
-	'krazé negrozé': 'Krazé Negrozé',
+	'krazé negrozé': 'Krazé Negrozé',  # Preservado por rodrigozzz
 	'kromo': 'Kromo',
-	'krono': 'Krono',
+	'krono': 'Krono',  # Preservado por rodrigozzz
 	'krono & charleston drama': 'Krono & Charleston Drama',
-	'krono y jaf': 'Krono y Jaf',
+	'krono y jaf': 'Krono y Jaf',  # Preservado por rodrigozzz
 	'kryger mc': 'Kryger Mc',
 	'kryger mc + dj frank': 'Kryger Mc + Dj Frank',
-	'krítika': 'Krítika',
-	'krítika y mensaje': 'Krítika y Mensaje',
+	'krítika': 'Krítika',  # Preservado por rodrigozzz
+	'krítika y mensaje': 'Krítika y Mensaje',  # Preservado por rodrigozzz
 	'ks boyz': 'Ks Boyz',
 	'ksl squad': 'Ksl Squad',
 	'kuando alguien oculta sonrisas': 'Kuando Alguien Oculta Sonrisas',
@@ -2597,11 +2597,11 @@ ARTISTS = {
 	'l4 crew': 'L4 Crew',
 	'la 50180': 'La 50180',
 	'la alta escuela': 'La Alta Escuela',
-	'la altas esferas': 'La altas esferas',
+	'la altas esferas': 'La altas esferas',  # Preservado por rodrigozzz
 	'la bala fria': 'La Bala Fria',
 	'la bestia': 'La Bestia',
 	'la bohème': 'La Bohème',
-	'la bongo': 'La Bongo',
+	'la bongo': 'La Bongo',  # Preservado por rodrigozzz
 	'la calle familia': 'La Calle Familia',
 	'la cap deleite': 'La Cap Deleite',
 	'la cara b': 'La Cara B',
@@ -2629,9 +2629,9 @@ ARTISTS = {
 	'la excepción': 'La Excepción',
 	'la extraña pareja': 'La Extraña Pareja',
 	'la fa la famila tu mismo': 'La Fa La Famila Tu Mismo',
-	'la familia': 'La Familia',
-	'la furia del levante': 'La Furia del Levante',
-	'la furia del levante ': 'La Furia del Levante ',
+	'la familia': 'La Familia',  # Preservado por rodrigozzz
+	'la furia del levante': 'La Furia del Levante',  # Preservado por rodrigozzz
+	'la furia del levante ': 'La Furia del Levante ',  # Preservado por rodrigozzz
 	'la fusión': 'La Fusión',
 	'la g': 'La G',
 	'la galerna': 'La Galerna',
@@ -2641,21 +2641,21 @@ ARTISTS = {
 	'la gesta': 'La Gesta',
 	'la golferia del este': 'La Golferia Del Este',
 	'la gota que colma': 'La Gota Que Colma',
-	'la gran ele': 'La Gran Ele',
-	'la gran z': 'La Gran Z',
+	'la gran ele': 'La Gran Ele',  # Preservado por rodrigozzz
+	'la gran z': 'La Gran Z',  # Preservado por rodrigozzz
 	'la groove': 'La Groove',
 	'la h suena': 'La H Suena',
 	'la herejia': 'La Herejia',
 	'la hostia en verso': 'La Hostia En Verso',
 	'la huella studios': 'La Huella Studios',
-	'la jauría de rimas': 'La Jauría de Rimas',
+	'la jauría de rimas': 'La Jauría de Rimas',  # Preservado por rodrigozzz
 	'la jerga fósil': 'La Jerga Fósil',
 	'la jnk': 'La Jnk',
 	'la jodida comuna unimental': 'La Jodida Comuna Unimental',
 	'la jose': 'La Jose',
 	'la jota nostra': 'La Jota Nostra',
 	'la konexión': 'La Konexión',
-	'la kosa nostra': 'La Kosa Nostra',
+	'la kosa nostra': 'La Kosa Nostra',  # Preservado por rodrigozzz
 	'la kátana': 'La Kátana',
 	'la lefa negra': 'La Lefa Negra',
 	'la ley del más fuerte': 'La Ley Del Más Fuerte',
@@ -2665,14 +2665,14 @@ ARTISTS = {
 	'la maga mc': 'La Maga Mc',
 	'la mala': 'La Mala',
 	'la mala y el cuervo': 'La Mala Y El Cuervo',
-	'la meka': 'La Meka',
+	'la meka': 'La Meka',  # Preservado por rodrigozzz
 	'la meka 55': 'La Meka 55',
 	'la meka55': 'La Meka55',
 	'la melodia': 'La Melodia',
 	'la musique d\'ordinateur': 'La Musique D\'Ordinateur',
 	'la musique d\'ordinateur y costa': 'La Musique D\'Ordinateur Y Costa',
 	'la nota mas alta': 'La Nota Mas Alta',
-	'la novena': 'La novena',
+	'la novena': 'La novena',  # Preservado por Jaime
 	'la odysea presenta': 'La Odysea Presenta',
 	'la oreja de evander': 'La Oreja De Evander',
 	'la otra escuela': 'La Otra Escuela',
@@ -2685,17 +2685,17 @@ ARTISTS = {
 	'la pfg': 'La Pfg',
 	'la pke': 'La Pke',
 	'la plaga': 'La Plaga',
-	'la puta g': 'La Puta G',
-	'la puta kueva': 'La Puta Kueva',
+	'la puta g': 'La Puta G',  # Preservado por rodrigozzz
+	'la puta kueva': 'La Puta Kueva',  # Preservado por rodrigozzz
 	'la puta opepe': 'La Puta Opepe',
 	'la puta opepé': 'La Puta Opepé',
-	'la puta opp': 'La Puta OPP',
+	'la puta opp': 'La Puta OPP',  # Preservado por rodrigozzz
 	'la puta élite': 'La Puta Élite',
 	'la raiz': 'La Raiz',
 	'la ratonera studios': 'La Ratonera Studios',
 	'la resistencia': 'La Resistencia',
 	'la revenge': 'La Revenge',
-	'la secta del verso': 'La Secta del Verso',
+	'la secta del verso': 'La Secta del Verso',  # Preservado por rodrigozzz
 	'la sel': 'La Sel',
 	'la septima enseñanza': 'La Septima Enseñanza',
 	'la sierra': 'La Sierra',
@@ -2720,7 +2720,7 @@ ARTISTS = {
 	'la x': 'La X',
 	'la última esperanza': 'La Última Esperanza',
 	'labmatik': 'Labmatik',
-	'labroka': 'Labroka',
+	'labroka': 'Labroka',  # Preservado por rodrigozzz
 	'lacausah': 'Lacausah',
 	'ladek': 'Ladek',
 	'ladiëresis': 'Ladiëresis',
@@ -2747,7 +2747,7 @@ ARTISTS = {
 	'las flores azules': 'Las Flores Azules',
 	'lasai': 'Lasai',
 	'lasai man': 'Lasai Man',
-	'lashe': 'Lashe',
+	'lashe': 'Lashe',  # Preservado por rodrigozzz
 	'lashe y jml': 'Lashe Y Jml',
 	'lasio': 'Lasio',
 	'latabarap': 'Latabarap',
@@ -2758,7 +2758,7 @@ ARTISTS = {
 	'latex diamond & sholo truth': 'Latex Diamond & Sholo Truth',
 	'latex diamond y dj jooz': 'Latex Diamond Y Dj Jooz',
 	'latigo': 'Latigo',
-	'latin mafia crew': 'Latin Mafia Crew',
+	'latin mafia crew': 'Latin Mafia Crew',  # Preservado por rodrigozzz
 	'latragam': 'Latragam',
 	'laura': 'Laura',
 	'laurax': 'Laurax',
@@ -2772,7 +2772,7 @@ ARTISTS = {
 	'lebuqe': 'Lebuqe',
 	'lechowski': 'Lechowski',
 	'lechu': 'Lechu',
-	'lechuga': 'Lechuga',
+	'lechuga': 'Lechuga',  # Preservado por rodrigozzz
 	'leds': 'Leds',
 	'lee kool cleef': 'Lee Kool Cleef',
 	'lee shangra': 'Lee Shangra',
@@ -2789,8 +2789,8 @@ ARTISTS = {
 	'lesky': 'Lesky',
 	'lesky & dino bbd': 'Lesky & Dino Bbd',
 	'lethargo': 'Lethargo',
-	'lex luthorz': 'Lex Luthorz',
-	'lex luthorz & pablo': 'Lex Luthorz & Pablo',
+	'lex luthorz': 'Lex Luthorz',  # Preservado por rodrigozzz
+	'lex luthorz & pablo': 'Lex Luthorz & Pablo',  # Preservado por rodrigozzz
 	'lexa': 'Lexa',
 	'ley de piratería': 'Ley De Piratería',
 	'ley rico': 'Ley Rico',
@@ -2840,7 +2840,7 @@ ARTISTS = {
 	'lmno & kev brown': 'Lmno & Kev Brown',
 	'lmp beatz': 'Lmp Beatz',
 	'lmp beatz y mike gorila': 'Lmp Beatz Y Mike Gorila',
-	'lo rap penat': 'Lo Rap Penat',
+	'lo rap penat': 'Lo Rap Penat',  # Preservado por rodrigozzz
 	'loaiza': 'Loaiza',
 	'lobo garnata': 'Lobo Garnata',
 	'loco': 'Loco',
@@ -2852,7 +2852,7 @@ ARTISTS = {
 	'locus amenus y nerviozzo': 'Locus Amenus Y Nerviozzo',
 	'logic': 'Logic',
 	'loko-nlace': 'Loko-Nlace',
-	'lokomás': 'Lokomás',
+	'lokomás': 'Lokomás',  # Preservado por rodrigozzz
 	'lom c': 'Lom C',
 	'lone': 'Lone',
 	'lonely days': 'Lonely Days',
@@ -2881,7 +2881,7 @@ ARTISTS = {
 	'lowlight': 'Lowlight',
 	'lsk': 'Lsk',
 	'lt': 'Lt',
-	'lucer king': 'Lucer King',
+	'lucer king': 'Lucer King',  # Preservado por rodrigozzz
 	'ludacris': 'Ludacris',
 	'luis kierkegaard': 'Luis Kierkegaard',
 	'luis prods': 'Luis Prods',
@@ -2896,7 +2896,7 @@ ARTISTS = {
 	'lírico': 'Lírico',
 	'lítera sin mákula': 'Lítera Sin Mákula',
 	'lógicos': 'Lógicos',
-	'm-90': 'M-90',
+	'm-90': 'M-90',  # Preservado por Jaime
 	'm-phazes': 'M-Phazes',
 	'm. cooker': 'M. Cooker',
 	'm. cooker & kenny ken': 'M. Cooker & Kenny Ken',
@@ -2960,7 +2960,7 @@ ARTISTS = {
 	'mala mafia': 'Mala Mafia',
 	'mala rodriguez': 'Mala Rodriguez',
 	'mala rodríguez': 'Mala Rodríguez',
-	'malafama squad': 'Malafama Squad',
+	'malafama squad': 'Malafama Squad',  # Preservado por rodrigozzz
 	'maldita': 'Maldita',
 	'maleantes': 'Maleantes',
 	'malik shäh': 'Malik Shäh',
@@ -2998,7 +2998,7 @@ ARTISTS = {
 	'marin & bombony montana': 'Marin & Bombony Montana',
 	'mario': 'Mario',
 	'mario soul': 'Mario Soul',
-	'marka 2': 'Marka 2',
+	'marka 2': 'Marka 2',  # Preservado por rodrigozzz
 	'markes': 'Markes',
 	'markes & gorka suaia': 'Markes & Gorka Suaia',
 	'markes iraizoz': 'Markes Iraizoz',
@@ -3034,14 +3034,14 @@ ARTISTS = {
 	'mc deux': 'Mc Deux',
 	'mc doble': 'Mc Doble',
 	'mc joni': 'Mc Joni',
-	'mc junior': 'MC Junior',
-	'mc lee': 'MC Lee',
+	'mc junior': 'MC Junior',  # Preservado por rodrigozzz
+	'mc lee': 'MC Lee',  # Preservado por rodrigozzz
 	'mc lemon': 'Mc Lemon',
 	'mc lito': 'Mc Lito',
 	'mc lito y duende': 'Mc Lito Y Duende',
 	'mc melodee x cookin\' soul': 'Mc Melodee X Cookin\' Soul',
-	'mc mr': 'MC MR',
-	'mc mr & javi dj': 'MC MR & Javi DJ',
+	'mc mr': 'MC MR',  # Preservado por rodrigozzz
+	'mc mr & javi dj': 'MC MR & Javi DJ',  # Preservado por rodrigozzz
 	'mc murci': 'Mc Murci',
 	'mc murci y dj nano': 'Mc Murci Y Dj Nano',
 	'mc randy': 'Mc Randy',
@@ -3050,11 +3050,11 @@ ARTISTS = {
 	'mc silver': 'Mc Silver',
 	'mc souchy': 'Mc Souchy',
 	'mc souchy y mc ben': 'Mc Souchy Y Mc Ben',
-	'mc twix': 'MC Twix',
-	'mc twix & dj potas': 'MC Twix & DJ Potas',
+	'mc twix': 'MC Twix',  # Preservado por rodrigozzz
+	'mc twix & dj potas': 'MC Twix & DJ Potas',  # Preservado por rodrigozzz
 	'mc wor': 'Mc Wor',
 	'mc zebra': 'Mc Zebra',
-	'mcb': 'MCB',
+	'mcb': 'MCB',  # Preservado por rodrigozzz
 	'mcmistas crew': 'Mcmistas Crew',
 	'md kramg': 'Md Kramg',
 	'mde click': 'Mde Click',
@@ -3072,7 +3072,7 @@ ARTISTS = {
 	'men in mad': 'Men In Mad',
 	'mendozah': 'Mendozah',
 	'menikmatiko': 'Menikmatiko',
-	'mensaje': 'Mensaje',
+	'mensaje': 'Mensaje',  # Preservado por rodrigozzz
 	'mensajeros de la rima': 'Mensajeros De La Rima',
 	'ment': 'Ment',
 	'mentalmenta': 'Mentalmenta',
@@ -3096,7 +3096,7 @@ ARTISTS = {
 	'metricadiez': 'Metricadiez',
 	'metrópolis gang': 'Metrópolis Gang',
 	'mey': 'Mey',
-	'mf edi': 'MF Edi',
+	'mf edi': 'MF Edi',  # Preservado por rodrigozzz
 	'mgme\'s': 'Mgme\'S',
 	'mhoro': 'Mhoro',
 	'mi cara b': 'Mi Cara B',
@@ -3105,7 +3105,7 @@ ARTISTS = {
 	'mic gerónimo': 'Mic Gerónimo',
 	'miceh': 'Miceh',
 	'michael kunay': 'Michael Kunay',
-	'michael myers mob': 'Michael Myers Mob',
+	'michael myers mob': 'Michael Myers Mob',  # Preservado por rodrigozzz
 	'michi (de la bongo)': 'Michi (De La Bongo)',
 	'michi de la bongo': 'Michi De La Bongo',
 	'micro de palo': 'Micro De Palo',
@@ -3132,7 +3132,7 @@ ARTISTS = {
 	'mios tios + worse': 'Mios Tios + Worse',
 	'mishe': 'Mishe',
 	'mismo': 'Mismo',
-	'miss kaos': 'Miss Kaos',
+	'miss kaos': 'Miss Kaos',  # Preservado por rodrigozzz
 	'miss motosierra': 'Miss Motosierra',
 	'mission hispana': 'Mission Hispana',
 	'mista t': 'Mista T',
@@ -3199,9 +3199,9 @@ ARTISTS = {
 	'mrt lion': 'Mrt Lion',
 	'mrv': 'Mrv',
 	'ms maiko': 'Ms Maiko',
-	'mtc': 'MTC',
+	'mtc': 'MTC',  # Preservado por rodrigozzz
 	'mucho muchacho': 'Mucho Muchacho',
-	'muerte acústica': 'Muerte Acústica',
+	'muerte acústica': 'Muerte Acústica',  # Preservado por rodrigozzz
 	'muevete': 'Muevete',
 	'muevete cosafina': 'Muevete Cosafina',
 	'murianafobia': 'Murianafobia',
@@ -3222,8 +3222,8 @@ ARTISTS = {
 	'método mental': 'Método Mental',
 	'método shintaro': 'Método Shintaro',
 	'míos tíos': 'Míos Tíos',
-	'mítiko': 'Mítiko',
-	'mítiko & dj yata': 'Mítiko & DJ Yata',
+	'mítiko': 'Mítiko',  # Preservado por rodrigozzz
+	'mítiko & dj yata': 'Mítiko & DJ Yata',  # Preservado por rodrigozzz
 	'n': 'N',
 	'n - ko': 'N - Ko',
 	'n - ko & dj orbe': 'N - Ko & Dj Orbe',
@@ -3232,11 +3232,11 @@ ARTISTS = {
 	'n-wise': 'N-Wise',
 	'n3w lment': 'N3W Lment',
 	'nach': 'Nach',
-	'nach scratch': 'Nach Scratch',
+	'nach scratch': 'Nach Scratch',  # Preservado por rodrigozzz
 	'nachorte': 'Nachorte',
 	'nacidos de la tierra': 'Nacidos De La Tierra',
 	'nackflow': 'Nackflow',
-	'nada': 'Nada',
+	'nada': 'Nada',  # Preservado por rodrigozzz
 	'nada por nadie': 'Nada Por Nadie',
 	'naes beats': 'Naes Beats',
 	'nail': 'Nail',
@@ -3278,7 +3278,7 @@ ARTISTS = {
 	'nava': 'Nava',
 	'nayck': 'Nayck',
 	'nazion sur': 'Nazion Sur',
-	'nazión sur': 'Nazión Sur',
+	'nazión sur': 'Nazión Sur',  # Preservado por rodrigozzz
 	'nazza': 'Nazza',
 	'nclave': 'Nclave',
 	'nebula': 'Nebula',
@@ -3308,7 +3308,7 @@ ARTISTS = {
 	'nerko': 'Nerko',
 	'nerko (de el gremio)': 'Nerko (De El Gremio)',
 	'nerko de el gremio': 'Nerko De El Gremio',
-	'nerviozzo': 'Nerviozzo',
+	'nerviozzo': 'Nerviozzo',  # Preservado por rodrigozzz
 	'nerviozzo + locus amenus': 'Nerviozzo + Locus Amenus',
 	'nestakilla': 'Nestakilla',
 	'nestakilla & ciclo': 'Nestakilla & Ciclo',
@@ -3317,13 +3317,13 @@ ARTISTS = {
 	'nethone': 'Nethone',
 	'neura': 'Neura',
 	'neuro': 'Neuro',
-	'new black fussion': 'New Black Fussion',
+	'new black fussion': 'New Black Fussion',  # Preservado por rodrigozzz
 	'newton': 'Newton',
 	'nexel': 'Nexel',
 	'nexus 6': 'Nexus 6',
 	'neyb': 'Neyb',
 	'nez': 'Nez',
-	'nhemesis': 'Nhemesis',
+	'nhemesis': 'Nhemesis',  # Preservado por rodrigozzz
 	'nhémesis': 'Nhémesis',
 	'nicolay': 'Nicolay',
 	'nicolay & kay': 'Nicolay & Kay',
@@ -3331,9 +3331,9 @@ ARTISTS = {
 	'niggaswing': 'Niggaswing',
 	'niggaswing sergio martin': 'Niggaswing Sergio Martin',
 	'niggy-m': 'Niggy-M',
-	'nigro': 'Nigro',
+	'nigro': 'Nigro',  # Preservado por rodrigozzz
 	'nikas': 'Nikas',
-	'niko': 'Niko',
+	'niko': 'Niko',  # Preservado por rodrigozzz
 	'nikoh estilo sucio': 'Nikoh Estilo Sucio',
 	'ning1': 'Ning1',
 	'ninhato': 'Ninhato',
@@ -3365,7 +3365,7 @@ ARTISTS = {
 	'nona': 'Nona',
 	'nonduermas bros': 'Nonduermas Bros',
 	'nones': 'Nones',
-	'nongratos': 'Nongratos',
+	'nongratos': 'Nongratos',  # Preservado por rodrigozzz
 	'nonimo': 'Nonimo',
 	'nora larock': 'Nora Larock',
 	'nordik beast': 'Nordik Beast',
@@ -3389,7 +3389,7 @@ ARTISTS = {
 	'ntc posse': 'Ntc Posse',
 	'ntoxick': 'Ntoxick',
 	'ntoxick + bres 403': 'Ntoxick + Bres 403',
-	'nue 99': 'Nue 99',
+	'nue 99': 'Nue 99',  # Preservado por rodrigozzz
 	'nueva era': 'Nueva Era',
 	'nueva especie': 'Nueva Especie',
 	'nukleo, salomon': 'Nukleo, Salomon',
@@ -3444,7 +3444,7 @@ ARTISTS = {
 	'oscar (fuckthaposse)': 'Oscar (Fuckthaposse)',
 	'oscar fuckthaposse': 'Oscar Fuckthaposse',
 	'oscarasecas': 'Oscarasecas',
-	'ose': 'Ose',
+	'ose': 'Ose',  # Preservado por rodrigozzz
 	'ose – la bestia': 'Ose – La Bestia',
 	'osiris': 'Osiris',
 	'ossian': 'Ossian',
@@ -3457,7 +3457,7 @@ ARTISTS = {
 	'pa la peña': 'Pa La Peña',
 	'paal': 'Paal',
 	'paal y miceh': 'Paal Y Miceh',
-	'pablo': 'Pablo',
+	'pablo': 'Pablo',  # Preservado por rodrigozzz
 	'pablo a.c.c (suddak)': 'Pablo A.C.C (Suddak)',
 	'pablo a.c.c suddak': 'Pablo A.C.C Suddak',
 	'pablo hasél': 'Pablo Hasél',
@@ -3476,7 +3476,7 @@ ARTISTS = {
 	'paco macías': 'Paco Macías',
 	'paco macías y merxe presentan: becool': 'Paco Macías Y Merxe Presentan: Becool',
 	'pacozü': 'Pacozü',
-	'pacto entre castellanos': 'Pacto entre castellanos',
+	'pacto entre castellanos': 'Pacto entre castellanos',  # Preservado por rodrigozzz
 	'padres': 'Padres',
 	'padrino': 'Padrino',
 	'padrino mc': 'Padrino Mc',
@@ -3511,7 +3511,7 @@ ARTISTS = {
 	'pecaos (pekados capitales)': 'Pecaos (Pekados Capitales)',
 	'pecaos pekados capitales': 'Pecaos Pekados Capitales',
 	'pedro cano': 'Pedro Cano',
-	'pedro josé': 'Pedro José',
+	'pedro josé': 'Pedro José',  # Preservado por rodrigozzz
 	'pedro la droga': 'Pedro La Droga',
 	'pedro ladroga': 'Pedro Ladroga',
 	'pedro ladroga & shaolin': 'Pedro Ladroga & Shaolin',
@@ -3523,7 +3523,7 @@ ARTISTS = {
 	'pekeño': 'Pekeño',
 	'pekeño & dj jhomp': 'Pekeño & Dj Jhomp',
 	'pekeño zergiote': 'Pekeño Zergiote',
-	'pen mc': 'Pen Mc',
+	'pen mc': 'Pen Mc',  # Preservado por rodrigozzz
 	'pensador loco': 'Pensador Loco',
 	'pequeno pha': 'Pequeno Pha',
 	'per nocta': 'Per Nocta',
@@ -3545,10 +3545,10 @@ ARTISTS = {
 	'peter north & hi.moez': 'Peter North & Hi.Moez',
 	'peter north & the isolitics': 'Peter North & The Isolitics',
 	'peter north y neo': 'Peter North Y Neo',
-	'peter parker': 'Peter Parker',
+	'peter parker': 'Peter Parker',  # Preservado por rodrigozzz
 	'peter v. pérez': 'Peter V. Pérez',
 	'peña': 'Peña',
-	'pgp': 'PGP',
+	'pgp': 'PGP',  # Preservado por rodrigozzz
 	'phalantas': 'Phalantas',
 	'phinto': 'Phinto',
 	'phone': 'Phone',
@@ -3580,7 +3580,7 @@ ARTISTS = {
 	'planet asia': 'Planet Asia',
 	'pleno efecto': 'Pleno Efecto',
 	'pnk': 'Pnk',
-	'poder latino': 'Poder Latino',
+	'poder latino': 'Poder Latino',  # Preservado por rodrigozzz
 	'poder mental': 'Poder Mental',
 	'poesia sublime': 'Poesia Sublime',
 	'poeta de asfalto en': 'Poeta De Asfalto En',
@@ -3602,9 +3602,9 @@ ARTISTS = {
 	'porta': 'Porta',
 	'portavoces del cielo': 'Portavoces Del Cielo',
 	'pose': 'Pose',
-	'posse 10': 'Posse 10',
+	'posse 10': 'Posse 10',  # Preservado por rodrigozzz
 	'post': 'Post',
-	'pou': 'Pou',
+	'pou': 'Pou',  # Preservado por rodrigozzz
 	'pow': 'Pow',
 	'pozabeat': 'Pozabeat',
 	'pozo': 'Pozo',
@@ -3627,7 +3627,7 @@ ARTISTS = {
 	'priveyt': 'Priveyt',
 	'priveyt y jml': 'Priveyt Y Jml',
 	'produccion hiphop': 'Produccion Hiphop',
-	'profanoh aka mikrohash': 'Profanoh aka Mikrohash',
+	'profanoh aka mikrohash': 'Profanoh aka Mikrohash',  # Preservado por rodrigozzz
 	'professor angel dust': 'Professor Angel Dust',
 	'professor angel dust and ph force': 'Professor Angel Dust And Ph Force',
 	'profugos': 'Profugos',
@@ -3639,7 +3639,7 @@ ARTISTS = {
 	'príncipe palanca': 'Príncipe Palanca',
 	'pseudónimo': 'Pseudónimo',
 	'psicocerebrales': 'Psicocerebrales',
-	'psicohiphopatas': 'Psicohiphopatas',
+	'psicohiphopatas': 'Psicohiphopatas',  # Preservado por rodrigozzz
 	'psycho pro': 'Psycho Pro',
 	'puente': 'Puente',
 	'pulcro': 'Pulcro',
@@ -3647,13 +3647,13 @@ ARTISTS = {
 	'pumaia': 'Pumaia',
 	'punto de encuentro': 'Punto De Encuentro',
 	'punto de fuga': 'Punto De Fuga',
-	'punto final': 'Punto Final',
+	'punto final': 'Punto Final',  # Preservado por rodrigozzz
 	'pura sangre': 'Pura Sangre',
 	'purebloc': 'Purebloc',
 	'puro': 'Puro',
 	'purpose': 'Purpose',
 	'purpose & confidence': 'Purpose & Confidence',
-	'puskas': 'Puskas',
+	'puskas': 'Puskas',  # Preservado por rodrigozzz
 	'puskas & ochoa': 'Puskas & Ochoa',
 	'puskas & ochoa-ley de vida ': 'Puskas & Ochoa-Ley De Vida ',
 	'puto': 'Puto',
@@ -3667,7 +3667,7 @@ ARTISTS = {
 	'putopía': 'Putopía',
 	'putotreze': 'Putotreze',
 	'puzzle': 'Puzzle',
-	'púgiles': 'Púgiles',
+	'púgiles': 'Púgiles',  # Preservado por rodrigozzz
 	'quaderno quarentena': 'Quaderno Quarentena',
 	'qube': 'Qube',
 	'queena montana': 'Queena Montana',
@@ -3681,7 +3681,7 @@ ARTISTS = {
 	'qué pasa!': 'Qué Pasa!',
 	'r de rumba': 'R De Rumba',
 	'r de rumba y xhelazz': 'R De Rumba Y Xhelazz',
-	'r-evolución': 'R-Evolución',
+	'r-evolución': 'R-Evolución',  # Preservado por rodrigozzz
 	'r.lechowski': 'R.Lechowski',
 	'r.lechowski & el perro diamante (flowklorikos)': 'R.Lechowski & El Perro Diamante (Flowklorikos)',
 	'r.ortega': 'R.Ortega',
@@ -3690,7 +3690,7 @@ ARTISTS = {
 	'ra': 'Ra',
 	'rabasco': 'Rabasco',
 	'rabia maña': 'Rabia Maña',
-	'rack eterno': 'Rack Eterno',
+	'rack eterno': 'Rack Eterno',  # Preservado por rodrigozzz
 	'radi 12': 'Radi 12',
 	'rafa': 'Rafa',
 	'rafa 205': 'Rafa 205',
@@ -3709,7 +3709,7 @@ ARTISTS = {
 	'raikoh': 'Raikoh',
 	'raly': 'Raly',
 	'raly vs curro': 'Raly Vs Curro',
-	'raly vs. curro': 'Raly vs. Curro',
+	'raly vs. curro': 'Raly vs. Curro',  # Preservado por rodrigozzz
 	'ram moham': 'Ram Moham',
 	'ramalous the chef': 'Ramalous The Chef',
 	'ramy': 'Ramy',
@@ -3734,10 +3734,10 @@ ARTISTS = {
 	'rapnroll': 'Rapnroll',
 	'rapp gotti': 'Rapp Gotti',
 	'rappobre': 'Rappobre',
-	'rapsoda': 'Rapsoda',
+	'rapsoda': 'Rapsoda',  # Preservado por rodrigozzz
 	'rapsoda & la jose': 'Rapsoda & La Jose',
-	'rapsusklei': 'Rapsusklei',
-	'rapsusklei & aniki': 'Rapsusklei & Aniki',
+	'rapsusklei': 'Rapsusklei',  # Preservado por rodrigozzz
+	'rapsusklei & aniki': 'Rapsusklei & Aniki',  # Preservado por rodrigozzz
 	'rapsusklei & hazhe': 'Rapsusklei & Hazhe',
 	'rapsusklei & the flow fanatics': 'Rapsusklei & The Flow Fanatics',
 	'rapsusklei (el puto sark)': 'Rapsusklei (El Puto Sark)',
@@ -3773,11 +3773,11 @@ ARTISTS = {
 	'razon de ser': 'Razon De Ser',
 	'razz lacalle': 'Razz Lacalle',
 	'rc': 'Rc',
-	'rca conexsion': 'RCA conexsion',
+	'rca conexsion': 'RCA conexsion',  # Preservado por rodrigozzz
 	'rca flacos': 'Rca Flacos',
 	'rca flacos & izah': 'Rca Flacos & Izah',
 	'rca flacos y el punto': 'Rca Flacos Y El Punto',
-	'rcs': 'RCS',
+	'rcs': 'RCS',  # Preservado por rodrigozzz
 	'rcs crew': 'Rcs Crew',
 	'rdm': 'Rdm',
 	'rdn nediar': 'Rdn Nediar',
@@ -3796,7 +3796,7 @@ ARTISTS = {
 	'reas': 'Reas',
 	'rebeldi': 'Rebeldi',
 	'rebeldia': 'Rebeldia',
-	'red': 'Red',
+	'red': 'Red',  # Preservado por rodrigozzz
 	'redi': 'Redi',
 	'rees': 'Rees',
 	'reivax': 'Reivax',
@@ -3824,7 +3824,7 @@ ARTISTS = {
 	'revil': 'Revil',
 	'rey jahb producciones presenta': 'Rey Jahb Producciones Presenta',
 	'rh klandestino': 'Rh Klandestino',
-	'rhajha': 'Rhajha',
+	'rhajha': 'Rhajha',  # Preservado por rodrigozzz
 	'rhiff': 'Rhiff',
 	'rhymefest': 'Rhymefest',
 	'rhythm and poetry': 'Rhythm And Poetry',
@@ -3853,7 +3853,7 @@ ARTISTS = {
 	'rocabeats': 'Rocabeats',
 	'roci': 'Roci',
 	'rock or die boyz': 'Rock Or Die Boyz',
-	'rockafort': 'Rockafort',
+	'rockafort': 'Rockafort',  # Preservado por rodrigozzz
 	'rockets': 'Rockets',
 	'rocksmith': 'Rocksmith',
 	'rocky': 'Rocky',
@@ -3870,7 +3870,7 @@ ARTISTS = {
 	'rom baby': 'Rom Baby',
 	'romo': 'Romo',
 	'romo & d.unison': 'Romo & D.Unison',
-	'rompyendo eskemas': 'Rompyendo Eskemas',
+	'rompyendo eskemas': 'Rompyendo Eskemas',  # Preservado por rodrigozzz
 	'roockie jackye': 'Roockie Jackye',
 	'roockye jackye': 'Roockye Jackye',
 	'roockye jackye y big hozone': 'Roockye Jackye Y Big Hozone',
@@ -3884,9 +3884,9 @@ ARTISTS = {
 	'round kill-a': 'Round Kill-A',
 	'roy mercurio': 'Roy Mercurio',
 	'roy mercurio y elhombreviento': 'Roy Mercurio Y Elhombreviento',
-	'rpd': 'RPD',
+	'rpd': 'RPD',  # Preservado por rodrigozzz
 	'rs': 'Rs',
-	'rs232': 'RS232',
+	'rs232': 'RS232',  # Preservado por rodrigozzz
 	'rubens': 'Rubens',
 	'rubens y dj nasty': 'Rubens Y Dj Nasty',
 	'rubi': 'Rubi',
@@ -3901,26 +3901,26 @@ ARTISTS = {
 	'ruste juxx': 'Ruste Juxx',
 	'ruste juxx & the arcitype': 'Ruste Juxx & The Arcitype',
 	'rwb': 'Rwb',
-	'rwc': 'RWC',
+	'rwc': 'RWC',  # Preservado por rodrigozzz
 	'ryma': 'Ryma',
 	'ryma 3xl': 'Ryma 3Xl',
 	'ryser': 'Ryser',
 	'réquiem': 'Réquiem',
 	's curro': 'S Curro',
 	's curro & papa wilson': 'S Curro & Papa Wilson',
-	's de a': 'S de A',
+	's de a': 'S de A',  # Preservado por rodrigozzz
 	's+s': 'S+S',
 	's-koria': 'S-Koria',
 	's.a.c.h.a': 'S.A.C.H.A',
 	's.a.k.e': 'S.A.K.E',
-	's.c.r.': 'S.C.R.',
+	's.c.r.': 'S.C.R.',  # Preservado por rodrigozzz
 	's.h.o.': 'S.H.O.',
 	's.h.o. & 5mentarios': 'S.H.O. & 5Mentarios',
-	's.k.b. posse': 'S.K.B. Posse',
+	's.k.b. posse': 'S.K.B. Posse',  # Preservado por rodrigozzz
 	's.o.s': 'S.O.S',
 	's.u.r.': 'S.U.R.',
-	'sace 2': 'Sace 2',
-	'sace 2 oscuro': 'Sace 2 Oscuro',
+	'sace 2': 'Sace 2',  # Preservado por rodrigozzz
+	'sace 2 oscuro': 'Sace 2 Oscuro',  # Preservado por rodrigozzz
 	'sadic': 'Sadic',
 	'sadic y most': 'Sadic Y Most',
 	'sadikof': 'Sadikof',
@@ -3939,7 +3939,7 @@ ARTISTS = {
 	'sale': 'Sale',
 	'salor ak-47': 'Salor Ak-47',
 	'salvador medina': 'Salvador Medina',
-	'salvaje': 'Salvaje',
+	'salvaje': 'Salvaje',  # Preservado por rodrigozzz
 	'samael (9mm)': 'Samael (9Mm)',
 	'samael 9mm': 'Samael 9Mm',
 	'samy marto': 'Samy Marto',
@@ -3984,7 +3984,7 @@ ARTISTS = {
 	'sbrv': 'Sbrv',
 	'sc crew': 'Sc Crew',
 	'sceno': 'Sceno',
-	'scr': 'SCR',
+	'scr': 'SCR',  # Preservado por rodrigozzz
 	'scr & the old school orquesta': 'Scr & The Old School Orquesta',
 	'scratchciatella': 'Scratchciatella',
 	'sdave': 'Sdave',
@@ -4024,7 +4024,7 @@ ARTISTS = {
 	'sentido komún': 'Sentido Komún',
 	'sentoh': 'Sentoh',
 	'septimo cielo': 'Septimo Cielo',
-	'ser': 'Ser',
+	'ser': 'Ser',  # Preservado por rodrigozzz
 	'sereno': 'Sereno',
 	'sereno, loco': 'Sereno, Loco',
 	'sereno, loco y dj muns': 'Sereno, Loco Y Dj Muns',
@@ -4041,7 +4041,7 @@ ARTISTS = {
 	'seviya': 'Seviya',
 	'señor g': 'Señor G',
 	'señor r': 'Señor R',
-	'sfdk': 'SFDK',
+	'sfdk': 'SFDK',  # Preservado por rodrigozzz
 	'sférico dj': 'Sférico Dj',
 	'sh música': 'Sh Música',
 	'shabu': 'Shabu',
@@ -4051,7 +4051,7 @@ ARTISTS = {
 	'shabu one shant y big hozone': 'Shabu One Shant Y Big Hozone',
 	'shan': 'Shan',
 	'shan y koru': 'Shan Y Koru',
-	'shankio': 'Shankio',
+	'shankio': 'Shankio',  # Preservado por rodrigozzz
 	'shaolin': 'Shaolin',
 	'sharif': 'Sharif',
 	'sharif y rapsusklei': 'Sharif Y Rapsusklei',
@@ -4151,7 +4151,7 @@ ARTISTS = {
 	'skone, kevin y mario': 'Skone, Kevin Y Mario',
 	'skoria': 'Skoria',
 	'skou': 'Skou',
-	'skp': 'SKP',
+	'skp': 'SKP',  # Preservado por rodrigozzz
 	'skposse \'96': 'Skposse \'96',
 	'skratch comando': 'Skratch Comando',
 	'skylee cru': 'Skylee Cru',
@@ -4173,7 +4173,7 @@ ARTISTS = {
 	'smokey f': 'Smokey F',
 	'smoky la moka': 'Smoky La Moka',
 	'snak': 'Snak',
-	'snas': 'Snas',
+	'snas': 'Snas',  # Preservado por rodrigozzz
 	'snnifer': 'Snnifer',
 	'snow': 'Snow',
 	'soborno': 'Soborno',
@@ -4197,7 +4197,7 @@ ARTISTS = {
 	'sonido klandestino': 'Sonido Klandestino',
 	'sonido thc': 'Sonido Thc',
 	'sonido thc n-fecto': 'Sonido Thc N-Fecto',
-	'sopa': 'Sopa',
+	'sopa': 'Sopa',  # Preservado por rodrigozzz
 	'sopa de lefa': 'Sopa De Lefa',
 	'sophy zoo': 'Sophy Zoo',
 	'sordi2': 'Sordi2',
@@ -4219,7 +4219,7 @@ ARTISTS = {
 	'soukin': 'Soukin',
 	'soukin & lince santos': 'Soukin & Lince Santos',
 	'soul bullets': 'Soul Bullets',
-	'soul divos': 'Soul Divos',
+	'soul divos': 'Soul Divos',  # Preservado por rodrigozzz
 	'soul kids': 'Soul Kids',
 	'soul raiders': 'Soul Raiders',
 	'soul shakers': 'Soul Shakers',
@@ -4235,7 +4235,7 @@ ARTISTS = {
 	'spanish fly': 'Spanish Fly',
 	'spanish players': 'Spanish Players',
 	'spanky loco presenta': 'Spanky Loco Presenta',
-	'spi': 'Spi',
+	'spi': 'Spi',  # Preservado por rodrigozzz
 	'spitting essence': 'Spitting Essence',
 	'spo': 'Spo',
 	'squalo': 'Squalo',
@@ -4261,7 +4261,7 @@ ARTISTS = {
 	'statik selektah': 'Statik Selektah',
 	'stealthraps': 'Stealthraps',
 	'stereobeats': 'Stereobeats',
-	'stereodosis': 'Stereodosis',
+	'stereodosis': 'Stereodosis',  # Preservado por rodrigozzz
 	'stigma líriko': 'Stigma Líriko',
 	'stik figa': 'Stik Figa',
 	'stiko': 'Stiko',
@@ -4279,8 +4279,8 @@ ARTISTS = {
 	'sua': 'Sua',
 	'suak59': 'Suak59',
 	'subconsciente': 'Subconsciente',
-	'subsuelo': 'Subsuelo',
-	'subterráneo sustyle': 'Subterráneo Sustyle',
+	'subsuelo': 'Subsuelo',  # Preservado por rodrigozzz
+	'subterráneo sustyle': 'Subterráneo Sustyle',  # Preservado por rodrigozzz
 	'subze': 'Subze',
 	'subze y christina': 'Subze Y Christina',
 	'subze y mono': 'Subze Y Mono',
@@ -4332,7 +4332,7 @@ ARTISTS = {
 	'swett y dohz': 'Swett Y Dohz',
 	'syla': 'Syla',
 	'synno': 'Synno',
-	'sátira sativa': 'Sátira Sativa',
+	'sátira sativa': 'Sátira Sativa',  # Preservado por rodrigozzz
 	'síndrome underground': 'Síndrome Underground',
 	'sólo raza natural': 'Sólo Raza Natural',
 	't': 'T',
@@ -4377,7 +4377,7 @@ ARTISTS = {
 	'test farm': 'Test Farm',
 	'tetuán most wanted': 'Tetuán Most Wanted',
 	'tfollen a pelo': 'Tfollen A Pelo',
-	'thandem': 'Thandem',
+	'thandem': 'Thandem',  # Preservado por rodrigozzz
 	'tharama': 'Tharama',
 	'tharama y tarzan': 'Tharama Y Tarzan',
 	'the alchemist': 'The Alchemist',
@@ -4463,7 +4463,7 @@ ARTISTS = {
 	'trafik': 'Trafik',
 	'trafik & dj rune': 'Trafik & Dj Rune',
 	'trafik y jompy': 'Trafik Y Jompy',
-	'tragedia': 'Tragedia',
+	'tragedia': 'Tragedia',  # Preservado por rodrigozzz
 	'traknueve': 'Traknueve',
 	'tramaturgia': 'Tramaturgia',
 	'tramo': 'Tramo',
@@ -4498,7 +4498,7 @@ ARTISTS = {
 	'tron dosh y vicc pro': 'Tron Dosh Y Vicc Pro',
 	'tron-dosh': 'Tron-Dosh',
 	'tropa r': 'Tropa R',
-	'trovadores de la lírica perdida': 'Trovadores de la Lírica Perdida',
+	'trovadores de la lírica perdida': 'Trovadores de la Lírica Perdida',  # Preservado por rodrigozzz
 	'troya': 'Troya',
 	'tröikadedra': 'Tröikadedra',
 	'tsigan': 'Tsigan',
@@ -4516,7 +4516,7 @@ ARTISTS = {
 	'tykelh': 'Tykelh',
 	'tzaboo': 'Tzaboo',
 	'tánatos': 'Tánatos',
-	'tío pol': 'Tío Pol',
+	'tío pol': 'Tío Pol',  # Preservado por rodrigozzz
 	'u-rie 22.07.05': 'U-Rie 22.07.05',
 	'uenede': 'Uenede',
 	'ugly heroes': 'Ugly Heroes',
@@ -4529,7 +4529,7 @@ ARTISTS = {
 	'underflow': 'Underflow',
 	'underground delicatessen': 'Underground Delicatessen',
 	'underground sensse': 'Underground Sensse',
-	'underrap': 'Underrap',
+	'underrap': 'Underrap',  # Preservado por rodrigozzz
 	'underworld studio': 'Underworld Studio',
 	'uni-mate': 'Uni-Mate',
 	'unifyah sound system': 'Unifyah Sound System',
@@ -4564,7 +4564,7 @@ ARTISTS = {
 	'vagop session.es': 'Vagop Session.Es',
 	'vagos': 'Vagos',
 	'vagos y maleantes': 'Vagos Y Maleantes',
-	'valdés': 'Valdés',
+	'valdés': 'Valdés',  # Preservado por rodrigozzz
 	'valichow': 'Valichow',
 	'valle del kaos': 'Valle Del Kaos',
 	'van deep': 'Van Deep',
@@ -4578,7 +4578,7 @@ ARTISTS = {
 	'veneno manuel': 'Veneno Manuel',
 	'vera': 'Vera',
 	'verbal kent': 'Verbal Kent',
-	'verbo': 'Verbo',
+	'verbo': 'Verbo',  # Preservado por rodrigozzz
 	'verdaderos kreyentes de la religion del hip hop': 'Verdaderos Kreyentes De La Religion Del Hip Hop',
 	'verdaderos kreyentes de la religion del hip-hop': 'Verdaderos Kreyentes De La Religion Del Hip-Hop',
 	'veridikoos': 'Veridikoos',
@@ -4589,7 +4589,7 @@ ARTISTS = {
 	'versus': 'Versus',
 	'verídikoos': 'Verídikoos',
 	'vhysen': 'Vhysen',
-	'vial rap': 'Vial Rap',
+	'vial rap': 'Vial Rap',  # Preservado por rodrigozzz
 	'vic vega': 'Vic Vega',
 	'vicc pro': 'Vicc Pro',
 	'vicen tendero': 'Vicen Tendero',
@@ -4624,14 +4624,14 @@ ARTISTS = {
 	'voodoo sunday': 'Voodoo Sunday',
 	'vortice': 'Vortice',
 	'voto en blanco': 'Voto En Blanco',
-	'voz armada': 'Voz Armada',
+	'voz armada': 'Voz Armada',  # Preservado por rodrigozzz
 	'voz blanca': 'Voz Blanca',
-	'voz en off': 'Voz en Off',
+	'voz en off': 'Voz en Off',  # Preservado por rodrigozzz
 	'vps': 'Vps',
 	'vsecuela': 'Vsecuela',
 	'vsk': 'Vsk',
-	'vv. aa.': 'VV. AA.',
-	'vv.aa.': 'VV.AA.',
+	'vv. aa.': 'VV. AA.',  # Preservado por rodrigozzz
+	'vv.aa.': 'VV.AA.',  # Preservado por rodrigozzz
 	'w.cheff': 'W.Cheff',
 	'wadada sound system': 'Wadada Sound System',
 	'wahin makinaciones': 'Wahin Makinaciones',
@@ -4642,7 +4642,7 @@ ARTISTS = {
 	'war4 presenta tarari que te beat': 'War4 Presenta Tarari Que Te Beat',
 	'wario': 'Wario',
 	'wase': 'Wase',
-	'wase -n- j. sanchez': 'Wase -N- J. Sanchez',
+	'wase -n- j. sanchez': 'Wase -N- J. Sanchez',  # Preservado por rodrigozzz
 	'wase -n- j. sánchez': 'Wase -N- J. Sánchez',
 	'wase-n-j.sanchez and yako muñoz presents c.o.s most': 'Wase-N-J.Sanchez And Yako Muñoz Presents C.O.S Most',
 	'wash': 'Wash',
@@ -4666,7 +4666,7 @@ ARTISTS = {
 	'wol': 'Wol',
 	'wood lagers': 'Wood Lagers',
 	'worse': 'Worse',
-	'woyza': 'Woyza',
+	'woyza': 'Woyza',  # Preservado por rodrigozzz
 	'wp': 'Wp',
 	'wyz montecristo': 'Wyz Montecristo',
 	'wyz montecristo & científico': 'Wyz Montecristo & Científico',
@@ -4752,7 +4752,7 @@ ARTISTS = {
 	'zar1': 'Zar1',
 	'zaragoza claan': 'Zaragoza Claan',
 	'zaragoza represent 20 minutos vol.1': 'Zaragoza Represent 20 Minutos Vol.1',
-	'zaragoza zulú': 'Zaragoza Zulú',
+	'zaragoza zulú': 'Zaragoza Zulú',  # Preservado por rodrigozzz
 	'zare': 'Zare',
 	'zarman': 'Zarman',
 	'zathico': 'Zathico',
@@ -4795,14 +4795,14 @@ ARTISTS = {
 	'zilez y wol': 'Zilez Y Wol',
 	'ziontifik': 'Ziontifik',
 	'zkdh': 'Zkdh',
-	'znp': 'ZNP',
+	'znp': 'ZNP',  # Preservado por rodrigozzz
 	'znp alicante': 'Znp Alicante',
-	'znp y rcs': 'ZNP y RCS',
+	'znp y rcs': 'ZNP y RCS',  # Preservado por rodrigozzz
 	'zode': 'Zode',
-	'zoe-2': 'Zoe-2',
+	'zoe-2': 'Zoe-2',  # Preservado por rodrigozzz
 	'zoko selektah': 'Zoko Selektah',
-	'zona norte posse': 'Zona Norte Posse',
-	'zona prohibida': 'Zona Prohibida',
+	'zona norte posse': 'Zona Norte Posse',  # Preservado por rodrigozzz
+	'zona prohibida': 'Zona Prohibida',  # Preservado por rodrigozzz
 	'zona sur': 'Zona Sur',
 	'zona sur beats': 'Zona Sur Beats',
 	'zona zero': 'Zona Zero',
@@ -4834,7 +4834,7 @@ ARTISTS = {
 	'ñete rodríguez': 'Ñete Rodríguez',
 	'ñete y coten prod': 'Ñete Y Coten Prod',
 	'ómicron': 'Ómicron',
-	'óxido de funk': 'Óxido de funk',
+	'óxido de funk': 'Óxido de funk',  # Preservado por rodrigozzz
 	'último aviso': 'Último Aviso',
 	'úrsula': 'Úrsula',
 	'úrsula & asylumef': 'Úrsula & Asylumef',

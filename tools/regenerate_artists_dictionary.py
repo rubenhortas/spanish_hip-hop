@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
-import copy
 import os
 import signal
 
 from tools.config.artists import ARTISTS, DELIMITERS
 from tools.config.config import CSV_FILE, CsvPosition
-from tools.crosscutting.strings import GENERATING_NEW, DONE
+from tools.crosscutting.strings import GENERATING_NEW, DONE, PRESERVED_BY
 from tools.domain.album import Album
 from tools.helpers.file_helpers import write_file, read_csv_file, backup
 from tools.helpers.os_helpers import handle_sigint
@@ -27,21 +26,25 @@ def regenerate_artists_dictionary(lines: list) -> None:
 def _get_artists(lines: list) -> (dict, list):
     def _update_artists_dictionary(artist: str) -> None:
         if not artist.isnumeric():  # Numbers will not be transformed
-            is_preserved = line[CsvPosition.PRESERVER.value] != '' and line[CsvPosition.PRESERVER.value] != '-'
+            preserver = line[CsvPosition.PRESERVER.value]
+            is_preserved = preserver != '' and preserver != '-'
             key = artist.lower()
             used_keys.add(key)
 
             if key not in artists and not is_preserved:
-                artists[key] = artist.title()
+                artists[key] = (artist.title(), '')
 
             if is_preserved:  # If the album is preserved, the prevailing value is the preserved one
-                artists[key] = artist
+                artists[key] = (artist, f"# {PRESERVED_BY} {preserver}")
 
-    artists = copy.deepcopy(ARTISTS)
+    artists = {}
     delimiters = DELIMITERS
     current_line = 0
     len_lines = len(lines)
     used_keys = set()
+
+    for key in ARTISTS:
+        artists[key] = (ARTISTS[key], '')
 
     for line in lines:
         current_line += 1
