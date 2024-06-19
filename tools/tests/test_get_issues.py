@@ -4,17 +4,17 @@ from tools.tests.test_csv_file import TestCsv
 
 class TestFindIssues(TestCsv):
     def setUp(self):
-        line = self._create_line('1', 'Bob', 'Album')
+        line_ok_len = self._create_line('1', 'Bob', 'Album')
 
-        extra_separator_line = line.copy()
+        extra_separator_line = line_ok_len.copy()
         extra_separator_line[0] = '6'
         extra_separator_line.append('extra field')
 
-        minus_separator_line = line[:-1]
+        minus_separator_line = line_ok_len[:-1]
         minus_separator_line[0] = '7'
 
         self.lines = [
-            line,  # Ok
+            line_ok_len,  # Ok
             self._create_line('2', 'Bob', '(Album)'),  # Ok
             self._create_line('3', 'Bob', '[Album]'),  # Ok
             self._create_line('4', 'Bob', '(Album'),  # Mismatched parentheses
