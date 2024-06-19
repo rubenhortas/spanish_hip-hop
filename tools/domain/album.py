@@ -147,14 +147,14 @@ class Album:
 
     @staticmethod
     def _get_delimiters(artist: str) -> list:
-        separators = []
+        delimiters = []
         artists = artist.split()
 
         for word in artists:
             if len(word) == 1 and (word.lower() == 'y' or not word.isalnum()):
-                separators.append(word)
+                delimiters.append(word)
 
-        return separators
+        return delimiters
 
     @staticmethod
     def _get_value(string: str) -> str:

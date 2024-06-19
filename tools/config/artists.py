@@ -1,4 +1,4 @@
-SEPARATORS = [
+DELIMITERS = [
 	'&',
 	'+',
 	'-',

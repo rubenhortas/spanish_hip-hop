@@ -3,7 +3,7 @@ import copy
 import os
 import signal
 
-from tools.config.artists import ARTISTS, SEPARATORS
+from tools.config.artists import ARTISTS, DELIMITERS
 from tools.config.config import CSV_FILE, CsvPosition
 from tools.crosscutting.strings import GENERATING_NEW, DONE
 from tools.domain.album import Album
@@ -18,10 +18,10 @@ _OUTPUT_FILE = f"{os.path.join(os.path.abspath(''), 'config', 'artists.py')}"
 def regenerate_artists_dictionary(lines: list) -> None:
     print(f"{GENERATING_NEW} '{_OUTPUT_FILE}'...")
 
-    artists, separators = _get_artists(lines)
+    artists, delimiters = _get_artists(lines)
 
     backup(_OUTPUT_FILE)
-    _write_output_file(artists, separators)
+    _write_output_file(artists, delimiters)
 
 
 def _get_artists(lines: list) -> (dict, list):
@@ -38,7 +38,7 @@ def _get_artists(lines: list) -> (dict, list):
                 artists[key] = artist
 
     artists = copy.deepcopy(ARTISTS)
-    separators = SEPARATORS
+    delimiters = DELIMITERS
     current_line = 0
     len_lines = len(lines)
     used_keys = set()
@@ -58,14 +58,14 @@ def _get_artists(lines: list) -> (dict, list):
                 _update_artists_dictionary(artist)
 
             for delimiter in artists_delimiters:
-                if delimiter not in separators:
-                    separators.append(delimiter)
+                if delimiter not in delimiters:
+                    delimiters.append(delimiter)
 
     if lines:
         artists = _delete_unused_keys(artists, used_keys)
         print()
 
-    return dict(sorted(artists.items())), sorted(list(separators))
+    return dict(sorted(artists.items())), sorted(list(delimiters))
 
 
 def _delete_unused_keys(artists: dict, used_keys: set) -> dict:
@@ -78,12 +78,12 @@ def _delete_unused_keys(artists: dict, used_keys: set) -> dict:
     return artists
 
 
-def _write_output_file(artists: dict, separators: list) -> None:
-    separators = create_python_list('SEPARATORS', separators)
+def _write_output_file(artists: dict, delimiters: list) -> None:
+    delimiters = create_python_list('DELIMITERS', delimiters)
     artists = create_python_list('ARTISTS', artists)
 
     result = []
-    result.extend(separators)
+    result.extend(delimiters)
     result.append('\n')
     result.extend(artists)
 
