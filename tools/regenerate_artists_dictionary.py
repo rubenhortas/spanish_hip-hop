@@ -32,7 +32,7 @@ def _get_artists(lines: list) -> (dict, list):
             used_keys.add(key)
 
             if key not in artists and not is_preserved:
-                artists[key] = (artist.title(), '')
+                artists[key] = (artist.title(), '')  # 'key': ('value', 'comment')
 
             if is_preserved:  # If the album is preserved, the prevailing value is the preserved one
                 artists[key] = (artist, f"# {PRESERVED_BY} {preserver}")
@@ -44,7 +44,7 @@ def _get_artists(lines: list) -> (dict, list):
     used_keys = set()
 
     for key in ARTISTS:
-        artists[key] = (ARTISTS[key], '')
+        artists[key] = (ARTISTS[key], '')  # 'key': ('value', 'comment')
 
     for line in lines:
         current_line += 1
