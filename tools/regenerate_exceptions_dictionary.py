@@ -13,10 +13,10 @@ _OUTPUT_FILE = os.path.join(os.path.abspath(''), 'config', 'exceptions.py')
 def regenerate_exceptions_dictionary() -> None:
     print(f"{GENERATING_NEW} '{_OUTPUT_FILE}'...")
 
-    new_exceptions = _get_exceptions(EXCEPTIONS)
+    exceptions = _get_exceptions(EXCEPTIONS)
 
     backup(_OUTPUT_FILE)
-    _write_output_file(new_exceptions)
+    _write_output_file(exceptions)
 
 
 def _get_exceptions(dictionary: dict) -> list:
@@ -34,10 +34,10 @@ def _get_exceptions(dictionary: dict) -> list:
     return sorted(new_exceptions)
 
 
-def _write_output_file(keys: list) -> None:
-    if keys:
+def _write_output_file(values: list) -> None:
+    if values:
         exceptions = ['EXCEPTIONS = {\n']
-        exceptions.extend(keys)
+        exceptions.extend(values)
         exceptions.append('}\n')
         write_file(_OUTPUT_FILE, exceptions)
 
