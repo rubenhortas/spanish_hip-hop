@@ -1,6 +1,6 @@
 from tools.config.config import CSV_DELIMITER, CsvPosition
 from tools.utils.string_utils import replace_exceptions, fix_volumes, fix_mismatched_square_brackets, \
-    fix_mismatched_parentheses
+    fix_mismatched_parentheses, fix_mismatched_quotes
 
 
 class WrongFieldsNumberException(Exception):
@@ -167,6 +167,7 @@ class Album:
     def _fix(string: str) -> str:
         string_ = fix_mismatched_square_brackets(string)
         string_ = fix_mismatched_parentheses(string_)
+        string_ = fix_mismatched_quotes(string_)
         string_ = fix_volumes(string_)
 
         return string_
