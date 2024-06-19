@@ -36,7 +36,7 @@ def _get_artists(lines: list) -> (dict, list):
             if is_preserved:  # If the album is preserved, the prevailing value is the preserved one
                 artists[key] = artist
 
-    artists = copy.deepcopy(ARTISTS)  # Deep copy
+    artists = copy.deepcopy(ARTISTS)
     separators = SEPARATORS
     current_line = 0
     len_lines = len(lines)
