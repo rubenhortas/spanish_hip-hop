@@ -27,6 +27,7 @@ def regenerate_artists_dictionary(lines: list) -> None:
 def _get_artists(lines: list) -> (dict, list):
     def _update_artists_dictionary(artist: str) -> None:
         if not artist.isnumeric():  # Numbers will not be transformed
+            is_preserved = line[CsvPosition.PRESERVER.value] != '' and line[CsvPosition.PRESERVER.value] != '-'
             key = artist.lower()
             used_keys.add(key)
 
@@ -48,7 +49,6 @@ def _get_artists(lines: list) -> (dict, list):
 
         if line:
             artist = line[CsvPosition.ARTIST.value]
-            is_preserved = line[CsvPosition.PRESERVER.value] != '' and line[CsvPosition.PRESERVER.value] != '-'
 
             _update_artists_dictionary(artist)
 
