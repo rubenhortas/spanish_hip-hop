@@ -6,8 +6,8 @@ from typing import Pattern
 from tools.config.exceptions import EXCEPTIONS
 
 _VOLUME_RE = re.compile(r'((?P<label>(vol)(\?|(ume)n?)?([. ]{0,2})\??\b)(?P<num>\w*(\.?\d*)?))', re.IGNORECASE)
-_PARENTHESES_REGEX = re.compile(r'(?P<text>(\(.*\))|(\([\w .-?]+)|[\w.-?]+\))')
-_SQUARE_BRACKETS_REGEX = re.compile(r'(?P<text>(\[.*])|(\[[\w .-?]+)|[\w.-?]+])')
+_PARENTHESES_REGEX = re.compile(r'(?P<text>(\(.*\))|(\(\w+)|\w+\))')
+_SQUARE_BRACKETS_REGEX = re.compile(r'(?P<text>(\[.*])|(\[\w+)|\w+])')
 _QUOTES_REGEX = re.compile(r'(?P<text>(("\w*)|(\w*")))')
 
 

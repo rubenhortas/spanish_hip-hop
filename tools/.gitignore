@@ -3,3 +3,4 @@
 *.bkp
 backups/
 __pycache__
+/dev/
