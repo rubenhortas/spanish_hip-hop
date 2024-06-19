@@ -106,14 +106,14 @@ class Album:
     @staticmethod
     def get_artists(artist: str) -> (list, list):
         artists = []
-        separators = Album._get_separators(artist)
+        delimiters = Album._get_delimiters(artist)
 
         album_artist = artist
         album_artist = album_artist.replace('(', '').replace(')', '')
         album_artist = album_artist.replace('[', '').replace(']', '')
 
-        for separator in separators:
-            album_artist = album_artist.replace(f" {separator}", '|')
+        for delimiter in delimiters:
+            album_artist = album_artist.replace(f" {delimiter}", '|')
 
         album_artists = album_artist.split('|')
 
@@ -123,7 +123,7 @@ class Album:
             if artist_:
                 artists.append(artist_)
 
-        return artists, separators
+        return artists, delimiters
 
     def list(self) -> list:
         return [self.id,
@@ -146,7 +146,7 @@ class Album:
         return self.preserver != ''
 
     @staticmethod
-    def _get_separators(artist: str) -> list:
+    def _get_delimiters(artist: str) -> list:
         separators = []
         artists = artist.split()
 
