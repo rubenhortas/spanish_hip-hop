@@ -10,11 +10,13 @@ class TestFindIssues(TestCsv):
         self.line4 = self._create_line('4', 'Bob', '(Album')  # Mismatched parentheses
         self.line5 = self._create_line('5', 'Bob', '[Album')  # Mismatched square brackets
 
-        self.line6 = self.line_ok_len.copy()  # Line with extra fields
+        # Line with extra fields
+        self.line6 = self.line_ok_len.copy()
         self.line6[0] = '6'
         self.line6.append('extra field')
 
-        self.line7 = self.line_ok_len[:-1]  # Line with minus fields
+        # Line with minus fields
+        self.line7 = self.line_ok_len[:-1]
         self.line7[0] = '7'
 
         # Lines with publication date in title, but not in field
