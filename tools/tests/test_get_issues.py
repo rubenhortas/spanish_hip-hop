@@ -4,54 +4,62 @@ from tools.tests.test_csv_file import TestCsv
 
 class TestFindIssues(TestCsv):
     def setUp(self):
-        line_ok_len = self._create_line('1', 'Bob', 'Album')
+        self.line_ok_len = self._create_line('1', 'Bob', 'Album')  # Ok
+        self.line2 = self._create_line('2', 'Bob', '(Album)')  # Ok
+        self.line3 = self._create_line('3', 'Bob', '[Album]')  # Ok
+        self.line4 = self._create_line('4', 'Bob', '(Album')  # Mismatched parentheses
+        self.line5 = self._create_line('5', 'Bob', '[Album')  # Mismatched square brackets
 
-        extra_delimiter_line = line_ok_len.copy()
-        extra_delimiter_line[0] = '6'
-        extra_delimiter_line.append('extra field')
+        self.line6 = self.line_ok_len.copy()  # Line with extra fields
+        self.line6[0] = '6'
+        self.line6.append('extra field')
 
-        minus_delimiter_line = line_ok_len[:-1]
-        minus_delimiter_line[0] = '7'
+        self.line7 = self.line_ok_len[:-1]  # Line with minus fields
+        self.line7[0] = '7'
+
+        # Lines with publication date in title, but not in field
+        self.line8 = self._create_line('8', 'Bob 2024', 'Album')
+        self.line9 = self._create_line('9', 'Bob [2024]', 'Album')
+        self.line10 = self._create_line('10', 'Bob (2024) foo year', 'Album')
+
+        # Lines with album format in title, but not in field
+        self.line11 = self._create_line('11', 'Bob (EP) foo format', 'Album')
 
         self.lines = [
-            line_ok_len,  # Ok
-            self._create_line('2', 'Bob', '(Album)'),  # Ok
-            self._create_line('3', 'Bob', '[Album]'),  # Ok
-            self._create_line('4', 'Bob', '(Album'),  # Mismatched parentheses
-            self._create_line('5', 'Bob', '[Album'),  # Mismatched square brackets
-            extra_delimiter_line,
-            minus_delimiter_line,
-
-            # Publication date in title, but not in field
-            self._create_line('6', 'Bob 2024', 'Album'),
-            self._create_line('7', 'Bob [2024]', 'Album'),
-            self._create_line('8', 'Bob (2024) foo year', 'Album'),
-
-            # Album format in title, but not in field
-            self._create_line('8', 'Bob (EP) foo format', 'Album')
-        ]
-
-        self.wrong_field_numbers_expected = [
-            extra_delimiter_line,
-            minus_delimiter_line
+            self.line_ok_len,
+            self.line2,
+            self.line3,
+            self.line4,
+            self.line5,
+            self.line6,
+            self.line7,
+            self.line8,
+            self.line9,
+            self.line10,
+            self.line11
         ]
 
         self.mismatched_parentheses_expected = [
-            self._create_line('4', 'Bob', '(Album')
+            self.line4
         ]
 
         self.mismatched_square_brackets_expected = [
-            self._create_line('5', 'Bob', '[Album')
+            self.line5
+        ]
+
+        self.wrong_field_numbers_expected = [
+            self.line6,
+            self.line7
         ]
 
         self.publication_date_in_title_expected = [
-            self._create_line('6', 'Bob 2024', 'Album'),
-            self._create_line('7', 'Bob [2024]', 'Album'),
-            self._create_line('8', 'Bob (2024) foo year', 'Album')
+            self.line8,
+            self.line9,
+            self.line10
         ]
 
         self.album_format_in_title_expected = [
-            self._create_line('8', 'Bob (EP) foo format', 'Album')
+            self.line11
         ]
 
     def test_get_issues(self):
