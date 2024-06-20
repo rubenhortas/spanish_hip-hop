@@ -2,10 +2,10 @@
 import re
 import signal
 
-from tools.config.config import CSV_FILE, CSV_HEADER, CsvPosition
+from tools.config.config import CSV_FILE, CSV_HEADER, CsvPosition, ALBUM_FORMATS
 from tools.crosscutting.strings import SEARCHING_FOR_LINES_WITH_PROBLEMS_IN, DONE, NO_PROBLEMS_FOUND, ERRORS, \
     WRONG_FIELDS_NUMBER, MISMATCHED_PARENTHESES, MISMATCHED_SQUARE_BRACKETS, MISMATCHED_QUOTES, IMPROVEMENTS, \
-    POSSIBLE_PUBLICATION_DATE_IN_TITLE
+    POSSIBLE_PUBLICATION_DATE_IN_TITLE, POSSIBLE_ALBUM_FORMAT_IN_TITLE
 from tools.helpers.file_helpers import read_csv_file, write_csv_file
 from tools.helpers.os_helpers import handle_sigint, clear_screen
 from tools.utils.string_utils import has_mismatched_parentheses, has_mismatched_square_brackets, has_mismatched_quotes
@@ -15,6 +15,8 @@ _MISMATCHED_PARENTHESES_FILE = f"{CSV_FILE[:-4]}-{ERRORS.lower()}-{MISMATCHED_PA
 _MISMATCHED_SQUARE_BRACKETS_FILE = f"{CSV_FILE[:-4]}-{ERRORS.lower()}-{MISMATCHED_SQUARE_BRACKETS.lower()}.csv"
 _MISMATCHED_QUOTES_FILE = f"{CSV_FILE[:-4]}-{ERRORS.lower()}-{MISMATCHED_QUOTES.lower()}.csv"
 _POSSIBLE_PUBLICATION_DATE = f"{CSV_FILE[:-4]}-{IMPROVEMENTS.lower()}-{POSSIBLE_PUBLICATION_DATE_IN_TITLE.lower()}.csv"
+_POSSIBLE_ALBUM_FORMAT = f"{CSV_FILE[:-4]}-{IMPROVEMENTS.lower()}-{POSSIBLE_ALBUM_FORMAT_IN_TITLE.lower()}.csv"
+
 _REGEX_YEAR = r'.*\d{4}.*'
 
 
@@ -24,13 +26,15 @@ class _FileIssues:
     mismatched_square_brackets = []
     mismatched_quotes = []
     possible_publication_date = []
+    possible_album_format = []
 
     def there_are_issues(self) -> bool:
         return (len(self.wrong_fields_number) > 0
                 or len(self.mismatched_parentheses) > 0
                 or len(self.mismatched_square_brackets) > 0
                 or len(self.mismatched_quotes) > 0
-                or len(self.possible_publication_date) > 0)
+                or len(self.possible_publication_date) > 0
+                or len(self.possible_album_format) > 0)
 
 
 def _get_issues(lines: list, fields_num: int) -> _FileIssues:
@@ -52,6 +56,9 @@ def _get_issues(lines: list, fields_num: int) -> _FileIssues:
 
             if _has_possible_publication_date(line):
                 issues.possible_publication_date.append(line)
+
+            if _has_possible_album_format(line):
+                issues.possible_album_format.append(line)
 
     return issues
 
@@ -92,6 +99,17 @@ def _has_possible_publication_date(line: list) -> bool:
     return False
 
 
+def _has_possible_album_format(line: list) -> bool:
+    album_format = line[CsvPosition.FORMAT.value]
+
+    if album_format == '' or album_format == '-':
+        for format in ALBUM_FORMATS:
+            if format in line[CsvPosition.ARTIST.value]:
+                return True
+
+    return False
+
+
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, handle_sigint)
     clear_screen()
@@ -108,6 +126,7 @@ if __name__ == '__main__':
             write_csv_file(_MISMATCHED_SQUARE_BRACKETS_FILE, issues.mismatched_square_brackets)
             write_csv_file(_MISMATCHED_QUOTES_FILE, issues.mismatched_quotes)
             write_csv_file(_POSSIBLE_PUBLICATION_DATE, issues.possible_publication_date)
+            write_csv_file(_POSSIBLE_ALBUM_FORMAT, issues.possible_album_format)
             print(DONE)
         else:
             print(NO_PROBLEMS_FOUND)

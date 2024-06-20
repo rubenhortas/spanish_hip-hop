@@ -25,7 +25,10 @@ class TestFindIssues(TestCsv):
             # Publication date in title, but not in field
             self._create_line('6', 'Bob 2024', 'Album'),
             self._create_line('7', 'Bob [2024]', 'Album'),
-            self._create_line('8', 'Bob (2024) foo year', 'Album')
+            self._create_line('8', 'Bob (2024) foo year', 'Album'),
+
+            # Album format in title, but not in field
+            self._create_line('8', 'Bob (EP) foo format', 'Album')
         ]
 
         self.wrong_field_numbers_expected = [
@@ -41,15 +44,20 @@ class TestFindIssues(TestCsv):
             self._create_line('5', 'Bob', '[Album')
         ]
 
-        self.publication_date_in_title = [
+        self.publication_date_in_title_expected = [
             self._create_line('6', 'Bob 2024', 'Album'),
             self._create_line('7', 'Bob [2024]', 'Album'),
             self._create_line('8', 'Bob (2024) foo year', 'Album')
         ]
 
+        self.album_format_in_title_expected = [
+            self._create_line('8', 'Bob (EP) foo format', 'Album')
+        ]
+
     def test_get_issues(self):
         issues = _get_issues(self.lines, len(self.header))
-        # self.assertEqual(self.wrong_field_numbers_expected, issues.wrong_fields_number)
-        # self.assertEqual(self.mismatched_parentheses_expected, issues.mismatched_parentheses)
-        # self.assertEqual(self.mismatched_square_brackets_expected, issues.mismatched_square_brackets)
-        self.assertEqual(self.publication_date_in_title, issues.possible_publication_date)
+        self.assertEqual(self.wrong_field_numbers_expected, issues.wrong_fields_number)
+        self.assertEqual(self.mismatched_parentheses_expected, issues.mismatched_parentheses)
+        self.assertEqual(self.mismatched_square_brackets_expected, issues.mismatched_square_brackets)
+        self.assertEqual(self.publication_date_in_title_expected, issues.possible_publication_date)
+        self.assertEqual(self.album_format_in_title_expected, issues.possible_album_format)
