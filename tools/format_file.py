@@ -17,7 +17,7 @@ _ERROR_FILE = f"{CSV_FILE[:-4]}-{ERRORS.lower()}-{WRONG_FIELDS_NUMBER}.csv"
 def _format_file(lines: list) -> None:
     print(f"{GENERATING} '{_OUTPUT_FILE}'...")
 
-    formatted_lines, wrong_lines = _get_formatted_lines(lines[1:], len(CSV_HEADER))
+    formatted_lines, wrong_lines = _get_formatted_lines(lines, len(CSV_HEADER))
 
     _write_output_file(formatted_lines)
     _write_error_file(wrong_lines)
