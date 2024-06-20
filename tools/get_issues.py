@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
+import re
 import signal
 
-from tools.config.config import CSV_FILE, CSV_HEADER
+from tools.config.config import CSV_FILE, CSV_HEADER, CsvPosition
 from tools.crosscutting.strings import SEARCHING_FOR_LINES_WITH_PROBLEMS_IN, DONE, NO_PROBLEMS_FOUND, ERRORS, \
-    WRONG_FIELDS_NUMBER, MISMATCHED_PARENTHESES, MISMATCHED_SQUARE_BRACKETS, MISMATCHED_QUOTES
+    WRONG_FIELDS_NUMBER, MISMATCHED_PARENTHESES, MISMATCHED_SQUARE_BRACKETS, MISMATCHED_QUOTES, IMPROVEMENTS, \
+    POSSIBLE_PUBLICATION_DATE_IN_TITLE
 from tools.helpers.file_helpers import read_csv_file, write_csv_file
 from tools.helpers.os_helpers import handle_sigint, clear_screen
 from tools.utils.string_utils import has_mismatched_parentheses, has_mismatched_square_brackets, has_mismatched_quotes
@@ -12,6 +14,8 @@ _WRONG_FIELDS_NUMBER = f"{CSV_FILE[:-4]}-{ERRORS.lower()}-{WRONG_FIELDS_NUMBER.l
 _MISMATCHED_PARENTHESES_FILE = f"{CSV_FILE[:-4]}-{ERRORS.lower()}-{MISMATCHED_PARENTHESES.lower()}.csv"
 _MISMATCHED_SQUARE_BRACKETS_FILE = f"{CSV_FILE[:-4]}-{ERRORS.lower()}-{MISMATCHED_SQUARE_BRACKETS.lower()}.csv"
 _MISMATCHED_QUOTES_FILE = f"{CSV_FILE[:-4]}-{ERRORS.lower()}-{MISMATCHED_QUOTES.lower()}.csv"
+_POSSIBLE_PUBLICATION_DATE = f"{CSV_FILE[:-4]}-{IMPROVEMENTS.lower()}-{POSSIBLE_PUBLICATION_DATE_IN_TITLE.lower()}.csv"
+_REGEX_YEAR = r'.*\d{4}.*'
 
 
 class _FileIssues:
@@ -19,12 +23,14 @@ class _FileIssues:
     mismatched_parentheses = []
     mismatched_square_brackets = []
     mismatched_quotes = []
+    possible_publication_date = []
 
     def there_are_issues(self) -> bool:
         return (len(self.wrong_fields_number) > 0
                 or len(self.mismatched_parentheses) > 0
                 or len(self.mismatched_square_brackets) > 0
-                or len(self.mismatched_quotes) > 0)
+                or len(self.mismatched_quotes) > 0
+                or len(self.possible_publication_date) > 0)
 
 
 def _get_issues(lines: list, fields_num: int) -> _FileIssues:
@@ -43,6 +49,9 @@ def _get_issues(lines: list, fields_num: int) -> _FileIssues:
 
             if _has_mismatched_quotes(line):
                 issues.mismatched_quotes.append(line)
+
+            if _has_possible_publication_date(line):
+                issues.possible_publication_date.append(line)
 
     return issues
 
@@ -71,6 +80,18 @@ def _has_mismatched_quotes(line: list) -> bool:
     return False
 
 
+def _has_possible_publication_date(line: list) -> bool:
+    publication_date = line[CsvPosition.PUBLICATION_DATE.value]
+
+    if publication_date == '' or publication_date == '-':
+        match = re.search(_REGEX_YEAR, line[CsvPosition.ARTIST.value])
+
+        if match:
+            return True
+
+    return False
+
+
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, handle_sigint)
     clear_screen()
@@ -86,6 +107,7 @@ if __name__ == '__main__':
             write_csv_file(_MISMATCHED_PARENTHESES_FILE, issues.mismatched_parentheses)
             write_csv_file(_MISMATCHED_SQUARE_BRACKETS_FILE, issues.mismatched_square_brackets)
             write_csv_file(_MISMATCHED_QUOTES_FILE, issues.mismatched_quotes)
+            write_csv_file(_POSSIBLE_PUBLICATION_DATE, issues.possible_publication_date)
             print(DONE)
         else:
             print(NO_PROBLEMS_FOUND)
