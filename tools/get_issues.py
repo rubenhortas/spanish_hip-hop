@@ -15,16 +15,10 @@ _MISMATCHED_QUOTES_FILE = f"{CSV_FILE[:-4]}-{ERRORS.lower()}-{MISMATCHED_QUOTES.
 
 
 class _FileIssues:
-    wrong_fields_number: []
+    wrong_fields_number = []
     mismatched_parentheses = []
     mismatched_square_brackets = []
     mismatched_quotes = []
-
-    def __init__(self):
-        self.wrong_fields_number = []
-        self.mismatched_parentheses = []
-        self.mismatched_square_brackets = []
-        self.mismatched_quotes = []
 
     def there_are_issues(self) -> bool:
         return (len(self.wrong_fields_number) > 0
