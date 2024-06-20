@@ -43,6 +43,8 @@ def _get_artists(lines: list) -> (dict, list):
     len_lines = len(lines)
     used_keys = set()
 
+    delimiters.add('y', 'Y', 'con', 'Con')
+
     for key in ARTISTS:
         artists[key] = (ARTISTS[key], '')  # 'key': ('value', 'comment')
 

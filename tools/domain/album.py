@@ -151,7 +151,7 @@ class Album:
         artists = artist.split()
 
         for word in artists:
-            if len(word) == 1 and (word.lower() == 'y' or not word.isalnum()):
+            if len(word) == 1 and not word.isalnum():
                 delimiters.append(word)
 
         return delimiters
