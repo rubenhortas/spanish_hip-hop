@@ -35,7 +35,7 @@ def _get_artists(lines: list) -> (dict, list):
                 artists[key] = (artist.title(), '')  # 'key': ('value', 'comment')
 
             if is_preserved:  # If the album is preserved, the prevailing value is the preserved one
-                artists[key] = (artist, f"# {PRESERVED_BY} {preserver}")
+                artists[key] = (artist, f"{PRESERVED_BY} {preserver}")
 
     artists = {}
     delimiters = DELIMITERS

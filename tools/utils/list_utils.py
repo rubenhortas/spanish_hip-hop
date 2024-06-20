@@ -47,7 +47,7 @@ def _create_python_list_from_dictionary(name: str, dictionary: dict) -> list:
             if comment == '':
                 lst.append(f"\t'{key_}': '{value_}',\n")
             else:
-                lst.append(f"\t'{key_}': '{value_}',  {comment}\n")
+                lst.append(f"\t'{key_}': '{value_}',  # {comment}\n")
 
     lst.append('}\n')
 
