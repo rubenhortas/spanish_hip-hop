@@ -104,16 +104,18 @@ class Album:
                 and self.notes > other.notes)
 
     @staticmethod
-    def get_artists(artist: str) -> (list, list):
+    def get_artists(artist: str) -> list:
         artists = []
-        delimiters = Album._get_delimiters(artist)
 
         album_artist = artist
+        album_artist = album_artist.replace(',', ' , ')
         album_artist = album_artist.replace('(', '').replace(')', '')
         album_artist = album_artist.replace('[', '').replace(']', '')
 
+        delimiters = Album._get_artists_delimiters(album_artist)
+
         for delimiter in delimiters:
-            album_artist = album_artist.replace(f" {delimiter}", '|')
+            album_artist = album_artist.replace(f" {delimiter} ", '|')
 
         album_artists = album_artist.split('|')
 
@@ -123,7 +125,7 @@ class Album:
             if artist_:
                 artists.append(artist_)
 
-        return artists, delimiters
+        return artists
 
     def list(self) -> list:
         return [self.id,
@@ -146,12 +148,12 @@ class Album:
         return self.preserver != ''
 
     @staticmethod
-    def _get_delimiters(artist: str) -> list:
-        delimiters = []
+    def _get_artists_delimiters(artist: str) -> list:
+        delimiters = ['y', 'Y', 'con', 'Con']
         artists = artist.split()
 
         for word in artists:
-            if len(word) == 1 and not word.isalnum():
+            if len(word) == 1 and not word.isalnum() and word not in delimiters:
                 delimiters.append(word)
 
         return delimiters

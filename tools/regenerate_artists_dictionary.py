@@ -2,7 +2,7 @@
 import os
 import signal
 
-from tools.config.artists import ARTISTS, DELIMITERS
+from tools.config.artists import ARTISTS
 from tools.config.config import CSV_FILE, CsvPosition
 from tools.crosscutting.strings import GENERATING_NEW, DONE, PRESERVED_BY
 from tools.domain.album import Album
@@ -17,13 +17,13 @@ _OUTPUT_FILE = f"{os.path.join(os.path.abspath(''), 'config', 'artists.py')}"
 def regenerate_artists_dictionary(lines: list) -> None:
     print(f"{GENERATING_NEW} '{_OUTPUT_FILE}'...")
 
-    artists, delimiters = _get_artists(lines)
+    artists = _get_artists(lines)
 
     backup(_OUTPUT_FILE)
-    _write_output_file(artists, delimiters)
+    _write_output_file(artists)
 
 
-def _get_artists(lines: list) -> (dict, list):
+def _get_artists(lines: list) -> dict:
     def _update_artists_dictionary(artist: str) -> None:
         if not artist.isnumeric():  # Numbers will not be transformed
             preserver = line[CsvPosition.PRESERVER.value]
@@ -38,14 +38,9 @@ def _get_artists(lines: list) -> (dict, list):
                 artists[key] = (artist, f"{PRESERVED_BY} {preserver}")
 
     artists = {}
-    delimiters = DELIMITERS
     current_line = 0
     len_lines = len(lines)
     used_keys = set()
-
-    for delimiter in ['y', 'Y', 'con', 'Con']:
-        if delimiter not in delimiters:
-            delimiters.append(delimiter)
 
     for key in ARTISTS:
         artists[key] = (ARTISTS[key], '')  # 'key': ('value', 'comment')
@@ -59,20 +54,16 @@ def _get_artists(lines: list) -> (dict, list):
 
             _update_artists_dictionary(artist)
 
-            album_artists, artists_delimiters = Album.get_artists(artist)
+            album_artists = Album.get_artists(artist)
 
             for artist in album_artists:
                 _update_artists_dictionary(artist)
-
-            for delimiter in artists_delimiters:
-                if delimiter not in delimiters:
-                    delimiters.append(delimiter)
 
     if lines:
         artists = _delete_unused_keys(artists, used_keys)
         print()
 
-    return dict(sorted(artists.items())), sorted(list(delimiters))
+    return dict(sorted(artists.items()))
 
 
 def _delete_unused_keys(artists: dict, used_keys: set) -> dict:
@@ -85,16 +76,9 @@ def _delete_unused_keys(artists: dict, used_keys: set) -> dict:
     return artists
 
 
-def _write_output_file(artists: dict, delimiters: list) -> None:
-    delimiters = create_python_list('DELIMITERS', delimiters)
+def _write_output_file(artists: dict) -> None:
     artists = create_python_list('ARTISTS', artists)
-
-    result = []
-    result.extend(delimiters)
-    result.append('\n')
-    result.extend(artists)
-
-    write_file(_OUTPUT_FILE, result)
+    write_file(_OUTPUT_FILE, artists)
 
 
 if __name__ == '__main__':

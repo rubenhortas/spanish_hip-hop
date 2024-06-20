@@ -6,7 +6,7 @@ from tools.tests.test_csv_file import TestCsv
 
 class TestAlbum(TestCsv):
     def setUp(self):
-        self.albums = [
+        self.album_formats = [
             # Check that artist is titlecased and title is capitalized
             (self._create_line('1', 'bob and alice', 'the album'),
              self._create_line('1', 'Bob And Alice', 'The album')),
@@ -46,26 +46,28 @@ class TestAlbum(TestCsv):
              self._create_line('11', 'Bob', 'I love you, music')),
         ]
 
-        self.artists = [
-            ('bob mc & alice', ['bob mc', 'alice']),
-            ('bob mc + 1234', ['bob mc', '1234']),
-            ('bob mc + alice & foobar (01.02.2024', ['bob mc', 'alice', 'foobar 01.02.2024']),
-            ('&bob', ['&bob']),
-            ('&bob & alice', ['&bob', 'alice'])
-        ]
-
-        line_ok_len = self._create_line('13', 'bob and alice', 'the album')
+        line_ok_len = self._create_line('12', 'bob and alice', 'the album')
 
         extra_field_line = line_ok_len
-        extra_field_line[CsvPosition.ID.value] = 14
+        extra_field_line[CsvPosition.ID.value] = '13'
         extra_field_line.append('extra field')
 
         less_fields_line = line_ok_len[1:3]
-        less_fields_line[CsvPosition.ID.value] = 15
+        less_fields_line[CsvPosition.ID.value] = '14'
 
         self.wrong_fields_number_lines = [
             extra_field_line,
             less_fields_line
+        ]
+
+        self.album_artists = [
+            ('bob mc & alice', ['bob mc', 'alice']),
+            ('bob mc + 1234', ['bob mc', '1234']),
+            ('bob mc + alice & foobar (01.02.2024', ['bob mc', 'alice', 'foobar 01.02.2024']),
+            ('&bob', ['&bob']),
+            ('&bob & alice', ['&bob', 'alice']),
+            ('bob (con alice)', ['bob', 'alice']),
+            ('bob, alice', ['bob', 'alice'])
         ]
 
     def test_wrong_fields_number_exception(self):
@@ -74,11 +76,10 @@ class TestAlbum(TestCsv):
                 Album(line, len(self.header))
 
     def test_format_album(self):
-        for line, expected_result in self.albums:
+        for line, expected_result in self.album_formats:
             album = Album(line, len(self.header))
             self.assertEqual(expected_result, album.list())
 
     def test_get_artists(self):
-        for artist, expected_result in self.artists:
-            artists, _ = Album.get_artists(artist)
-            self.assertEqual(expected_result, [artist for artist in artists])
+        for album_artist, expected_result in self.album_artists:
+            self.assertEqual(expected_result, [artist for artist in Album.get_artists(album_artist)])
