@@ -104,7 +104,7 @@ EXCEPTIONS = {
 	'sevilla': 'Sevilla',
 	'sr': 'Sr',
 	't.a.r.r.a.g.a.0.3.2': 'T.A.R.R.A.G.A.0.3.2',
-	'taurus': 'taurus',
+	'taurus': 'Taurus',
 	'thx': 'THX',
 	'tv': 'TV',
 	'v.i.p.': 'V.I.P.',
