@@ -35,7 +35,11 @@ class TestStringUtils(unittest.TestCase):
 
         self.mismatched_parentheses = [
             ('Album (instrumentals', 'Album (instrumentals)'),
-            ('Album instrumentals)', 'Album (instrumentals)')
+            ('Album instrumentals)', 'Album (instrumentals)'),
+            ('bob (01.01.2005', 'bob (01.01.2005)'),
+            ('bob 01.01.2005)', 'bob (01.01.2005)'),
+            ('bob 01/01/2005)', 'bob (01/01/2005)'),
+            ('bob 01.01 2005)', 'bob 01.01 (2005)')
         ]
 
         self.matched_square_brackets = [
@@ -45,17 +49,25 @@ class TestStringUtils(unittest.TestCase):
 
         self.mismatched_square_brackets = [
             ('Album [instrumentals', 'Album [instrumentals]'),
-            ('Album instrumentals]', 'Album [instrumentals]')
+            ('Album instrumentals]', 'Album [instrumentals]'),
+            ('bob [01.01.2005', 'bob [01.01.2005]'),
+            ('bob 01.01.2005]', 'bob [01.01.2005]'),
+            ('bob 01/01/2005]', 'bob [01/01/2005]'),
+            ('bob 01.01 2005]', 'bob 01.01 [2005]')
         ]
 
         self.matched_quotes = [
             ('Album instrumentals', 'Album instrumentals'),
-            ('Album "instrumentals"', 'Album "instrumentals"')
+            ('Album "instrumentals"', 'Album "instrumentals"'),
         ]
 
         self.mismatched_quotes = [
             ('Album "instrumentals', 'Album "instrumentals"'),
-            ('Album instrumentals"', 'Album "instrumentals"')
+            ('Album instrumentals"', 'Album "instrumentals"'),
+            ('bob "01.01.2005', 'bob "01.01.2005"'),
+            ('bob 01.01.2005"', 'bob "01.01.2005"'),
+            ('bob 01/01/2005"', 'bob "01/01/2005"'),
+            ('bob 01.01 2005"', 'bob 01.01 "2005"')
         ]
 
     def test_fix_volumes(self):
