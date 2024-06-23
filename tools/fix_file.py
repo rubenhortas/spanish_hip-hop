@@ -16,7 +16,7 @@ _FOREIGN_ARTISTS = ['Ace Hood', 'Ali G indahouse', 'Aqeel', 'Aqueel', 'Asap Mob'
                     'Schoolboy Q', 'Sean Combs', 'Snak The Ripper', 'Stan Forebee', 'Stat Quo', 'Statik Selektah',
                     'Step Brothers', 'Strange Fruit Project', 'Street Bucks', 'String Theory', 'Strong Arm Steady',
                     'TNGHT', 'Tenacity', 'Terrace Martin', 'Tragedy Khadafi', 'Vinnie Paz', 'Wadada Sound System',
-                    'Wale', 'Wiz Khalifa', 'Young Jeezy']
+                    'Wale', 'Wiz Khalifa', 'Young Jeezy', 'Chamillionaire']
 _UNKNOWN = ['desconocido', '[desconocido]', 'intérprete desconocido', '-']
 
 
