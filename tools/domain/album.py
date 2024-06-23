@@ -1,6 +1,9 @@
+import re
+
+from tools.config.artists import ARTISTS
 from tools.config.config import CSV_DELIMITER, CsvPosition
 from tools.utils.string_utils import replace_exceptions, fix_volumes, fix_mismatched_square_brackets, \
-    fix_mismatched_parentheses, fix_mismatched_quotes
+    fix_mismatched_parentheses, fix_mismatched_quotes, replace_word
 
 
 class WrongFieldsNumberException(Exception):
@@ -191,4 +194,17 @@ class Album:
     def _format_title(self) -> None:
         self.title = self.title.capitalize()
         self.title = self._fix(self.title)
+        self._replace_artists()
         self.title = replace_exceptions(self.title)
+
+    def _replace_artists(self):
+        try:
+            if not self.artist.isnumeric():
+                if self.artist.lower() == self.title.lower():
+                    self.title = self.artist
+                else:
+                    if len(self.artist) > 1 and len(self.title.split()) > 1:
+                        for artist in ARTISTS:
+                            self.title = replace_word(ARTISTS[artist], self.title)
+        except re.error:
+            pass

@@ -89,6 +89,16 @@ def remove_punctuation_symbols(string_: str) -> str:
     return clean_string
 
 
+def replace_word(word: str, string: str) -> str:
+    match = re.search(rf"\b{word}\b", string, re.IGNORECASE)
+
+    if match:
+        match_text = match.group(0)
+        return string.replace(match_text, word)
+
+    return string
+
+
 def _has_mismatched(string: str, left_char: str, right_char: str) -> bool:
     string_counter = Counter(string)
     return string_counter[left_char] != string_counter[right_char]
