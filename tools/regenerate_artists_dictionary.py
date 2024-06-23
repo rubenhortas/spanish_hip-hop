@@ -28,14 +28,14 @@ def _get_artists(lines: list) -> dict:
         if not artist.isnumeric():  # Numbers will not be transformed
             preserver = line[CsvPosition.PRESERVER.value]
             is_preserved = preserver != '' and preserver != '-'
-            key = artist.lower()
+            key = artist.lower().strip()
             used_keys.add(key)
 
             if key not in artists and not is_preserved:
-                artists[key] = (artist.title(), '')  # 'key': ('value', 'comment')
+                artists[key] = (artist.strip().title(), '')  # 'key': ('value', 'comment')
 
             if is_preserved:  # If the album is preserved, the prevailing value is the preserved one
-                artists[key] = (artist, f"{PRESERVED_BY} {preserver}")
+                artists[key] = (artist.strip(), f"{PRESERVED_BY} {preserver}")
 
     artists = {}
     current_line = 0
