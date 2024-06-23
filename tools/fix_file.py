@@ -29,7 +29,7 @@ def _fix(lines: list, fields_num: int) -> (list, list):
         if len(line) == fields_num:
             if line[CsvPosition.ARTIST.value] not in _FOREIGN_ARTISTS:
                 if line[CsvPosition.PRESERVER.value] == '' or line[CsvPosition.PRESERVER.value] == '-':
-                    line_ = line
+                    line_ = line.repace('  ', ' ')
                     value_index = 0
 
                     for value in line_:
