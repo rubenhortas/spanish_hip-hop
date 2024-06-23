@@ -2,6 +2,7 @@
 import os
 import signal
 
+from tools.config.artists import ARTISTS
 from tools.config.exceptions import EXCEPTIONS
 from tools.crosscutting.strings import GENERATING_NEW, DONE
 from tools.helpers.file_helpers import write_file, backup
@@ -13,22 +14,23 @@ _OUTPUT_FILE = os.path.join(os.path.abspath(''), 'config', 'exceptions.py')
 def regenerate_exceptions_dictionary() -> None:
     print(f"{GENERATING_NEW} '{_OUTPUT_FILE}'...")
 
-    exceptions = _get_exceptions(EXCEPTIONS)
+    exceptions = _get_exceptions()
 
     backup(_OUTPUT_FILE)
     _write_output_file(exceptions)
 
 
-def _get_exceptions(dictionary: dict) -> list:
+def _get_exceptions() -> list:
     keys = set()
     new_exceptions = []
 
-    for key in dictionary:
+    for key in EXCEPTIONS:
+    # if key not in ARTISTS:
         keys.add(key)
 
     for key in keys:
         key_ = key.replace("'", "\\'").lower()
-        value = dictionary[key].replace("'", "\\'")
+        value = EXCEPTIONS[key].replace("'", "\\'")
         new_exceptions.append(f"\t'{key_}': '{value}',\n")
 
     return sorted(new_exceptions)
