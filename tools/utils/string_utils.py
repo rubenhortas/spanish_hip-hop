@@ -6,9 +6,9 @@ from typing import Pattern
 from tools.config.exceptions import EXCEPTIONS
 
 _VOLUME_RE = re.compile(r'((?P<label>(vol)(\?|(ume)n?)?([. ]{0,2})\??\b)(?P<num>\w*(\.?\d*)?))', re.IGNORECASE)
-_PARENTHESES_REGEX = re.compile(r'(?P<text>(\(\S*\))|(\(\S+)|\S+\))')
-_SQUARE_BRACKETS_REGEX = re.compile(r'(?P<text>(\[\S*])|(\[\S+)|\S+])')
-_QUOTES_REGEX = re.compile(r'(?P<text>(("\S*)|(\S*")))')
+_PARENTHESES_REGEX = re.compile(r'(?P<text>(\(.+\))|(\(.+|\S+\)))')
+_SQUARE_BRACKETS_REGEX = re.compile(r'(?P<text>(\[.+])|(\[.+|\S+]))')
+_QUOTES_REGEX = re.compile(r'(?P<text>((".+)|(\S+")))')
 
 
 def replace_exceptions(string: str) -> str:

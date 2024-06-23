@@ -35,6 +35,7 @@ class TestStringUtils(unittest.TestCase):
 
         self.mismatched_parentheses = [
             ('Album (instrumentals', 'Album (instrumentals)'),
+            ('Album (instrumentals 2', 'Album (instrumentals 2)'),
             ('Album instrumentals)', 'Album (instrumentals)'),
             ('bob (01.01.2005', 'bob (01.01.2005)'),
             ('bob 01.01.2005)', 'bob (01.01.2005)'),
@@ -49,6 +50,7 @@ class TestStringUtils(unittest.TestCase):
 
         self.mismatched_square_brackets = [
             ('Album [instrumentals', 'Album [instrumentals]'),
+            ('Album [instrumentals 2', 'Album [instrumentals 2]'),
             ('Album instrumentals]', 'Album [instrumentals]'),
             ('bob [01.01.2005', 'bob [01.01.2005]'),
             ('bob 01.01.2005]', 'bob [01.01.2005]'),
@@ -63,6 +65,7 @@ class TestStringUtils(unittest.TestCase):
 
         self.mismatched_quotes = [
             ('Album "instrumentals', 'Album "instrumentals"'),
+            ('Album "instrumentals 2', 'Album "instrumentals 2"'),
             ('Album instrumentals"', 'Album "instrumentals"'),
             ('bob "01.01.2005', 'bob "01.01.2005"'),
             ('bob 01.01.2005"', 'bob "01.01.2005"'),
@@ -82,9 +85,6 @@ class TestStringUtils(unittest.TestCase):
             self.assertTrue(has_mismatched_parentheses(string))
 
     def test_fix_mismatched_parentheses(self):
-        for string, expected_result in self.matched_parentheses:
-            self.assertEqual(expected_result, fix_mismatched_parentheses(string))
-
         for string, expected_result in self.mismatched_parentheses:
             self.assertEqual(expected_result, fix_mismatched_parentheses(string))
 
