@@ -2,7 +2,6 @@
 import os
 import signal
 
-from tools.config.artists import ARTISTS
 from tools.config.exceptions import EXCEPTIONS
 from tools.crosscutting.strings import GENERATING_NEW, DONE
 from tools.helpers.file_helpers import write_file, backup
