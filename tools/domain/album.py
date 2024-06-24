@@ -110,7 +110,8 @@ class Album:
     @staticmethod
     def get_artists(artist: str) -> list:
         artists = []
-        album_artist = remove_punctuation_symbols(artist, [',', '(', ')', '[', ']'])
+        album_artist = remove_punctuation_symbols(artist, ['(', ')', '[', ']'])
+        album_artist = album_artist.replace(',', ' , ')
         delimiters = Album._get_artists_delimiters(album_artist)
 
         for delimiter in delimiters:
