@@ -192,7 +192,8 @@ class Album:
                     self.title = self._fix(self.title)
                     self.title = self._replace_acronyms(self.title)
                     self._replace_artists()
-                    self.title = self._replace_exceptions(self.title)
+
+            self.title = self._replace_exceptions(self.title)
 
     # noinspection PyMethodMayBeStatic
     def _fix(self, string: str) -> str:
