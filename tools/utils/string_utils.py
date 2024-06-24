@@ -3,14 +3,14 @@ import string
 from collections import Counter
 from typing import Pattern
 
-_VOLUME_RE = re.compile(r'((?P<label>(vol)(\?|(ume)n?)?([. ]{0,2})\??\b)(?P<num>\w*(\.?\d*)?))', re.IGNORECASE)
-_PARENTHESES_REGEX = re.compile(r'(?P<text>(\(.+\))|(\(.+|\S+\)))')
-_SQUARE_BRACKETS_REGEX = re.compile(r'(?P<text>(\[.+])|(\[.+|\S+]))')
-_QUOTES_REGEX = re.compile(r'(?P<text>((".+)|(\S+")))')
+_REGEX_VOLUMES = re.compile(r'((?P<label>(vol)(\?|(ume)n?)?([. ]{0,2})\??\b)(?P<num>\w*(\.?\d*)?))', re.IGNORECASE)
+_REGEX_PARENTHESES = re.compile(r'(?P<text>(\(.+\))|(\(.+|\S+\)))')
+_REGEX_SQUARE_BRACKETS = re.compile(r'(?P<text>(\[.+])|(\[.+|\S+]))')
+_REGEX_QUOTES = re.compile(r'(?P<text>((".+)|(\S+")))')
 
 
 def fix_volumes(string: str) -> str:
-    match = re.search(_VOLUME_RE, string)
+    match = re.search(_REGEX_VOLUMES, string)
 
     if match:
         match_text = match.group(0)
@@ -43,15 +43,15 @@ def has_mismatched_quotes(string: str) -> bool:
 
 
 def fix_mismatched_square_brackets(string: str) -> str:
-    return _fix_mismatched(string, '[', ']', _SQUARE_BRACKETS_REGEX)
+    return _fix_mismatched(string, '[', ']', _REGEX_SQUARE_BRACKETS)
 
 
 def fix_mismatched_parentheses(string: str) -> str:
-    return _fix_mismatched(string, '(', ')', _PARENTHESES_REGEX)
+    return _fix_mismatched(string, '(', ')', _REGEX_PARENTHESES)
 
 
 def fix_mismatched_quotes(string: str) -> str:
-    match = re.search(_QUOTES_REGEX, string)
+    match = re.search(_REGEX_QUOTES, string)
 
     if match:
         match_text = match.group('text')
