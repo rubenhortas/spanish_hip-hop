@@ -25,7 +25,7 @@ def _get_exceptions() -> list:
     new_exceptions = []
 
     for key in EXCEPTIONS:
-    # if key not in ARTISTS:
+        # if key not in ARTISTS:
         keys.add(key)
 
     for key in keys:
