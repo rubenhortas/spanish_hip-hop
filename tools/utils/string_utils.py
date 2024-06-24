@@ -65,6 +65,15 @@ def convert_to_python_string(string: str) -> str:
     return string.replace("'", "\\'")
 
 
+def remove_surround_punctuation_symbols(string: str) -> str:
+    string_ = string.replace(',', ' , ')
+    string_ = string_.replace('"', '')
+    string_ = string_.replace('(', '').replace(')', '')
+    string_ = string_.replace('[', '').replace(']', '')
+
+    return string_
+
+
 def remove_punctuation_symbols(string_: str) -> str:
     clean_string = string_
 
