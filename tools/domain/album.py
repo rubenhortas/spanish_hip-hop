@@ -211,9 +211,12 @@ class Album:
         words = string_.split()
 
         for word in words:
-            key = word.lower()
+            if word == '(madrid)':
+                pass
+            key = remove_surround_punctuation_symbols(word).lower()
 
             if key in EXCEPTIONS:
-                string_ = string_.replace(word, EXCEPTIONS[key])
+                word_ = word.replace(key, EXCEPTIONS[key])
+                string_ = string_.replace(word, word_)
 
         return string_
