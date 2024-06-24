@@ -4,7 +4,7 @@ from tools.config.artists import ARTISTS
 from tools.config.config import CSV_DELIMITER, CsvPosition
 from tools.config.exceptions import EXCEPTIONS
 from tools.utils.string_utils import fix_volumes, fix_mismatched_square_brackets, \
-    fix_mismatched_parentheses, fix_mismatched_quotes, replace_word, has_mismatched_square_brackets, has_mismatched_parentheses, has_mismatched_quotes, remove_surround_punctuation_symbols
+    fix_mismatched_parentheses, fix_mismatched_quotes, replace_word, has_mismatched_square_brackets, has_mismatched_parentheses, has_mismatched_quotes, remove_punctuation_symbols
 
 
 class WrongFieldsNumberException(Exception):
@@ -110,7 +110,7 @@ class Album:
     @staticmethod
     def get_artists(artist: str) -> list:
         artists = []
-        album_artist = remove_surround_punctuation_symbols(artist)
+        album_artist = remove_punctuation_symbols(artist, [',', '(', ')', '[', ']'])
         delimiters = Album._get_artists_delimiters(album_artist)
 
         for delimiter in delimiters:
@@ -213,7 +213,7 @@ class Album:
         for word in words:
             if word == '(madrid)':
                 pass
-            key = remove_surround_punctuation_symbols(word).lower()
+            key = remove_punctuation_symbols(word, [',', '"', '(', ')', '[', ']']).lower()
 
             if key in EXCEPTIONS:
                 word_ = word.replace(key, EXCEPTIONS[key])

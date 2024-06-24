@@ -1,7 +1,7 @@
 import unittest
 
 from tools.utils.string_utils import fix_volumes, fix_mismatched_parentheses, fix_mismatched_square_brackets, \
-    has_mismatched_parentheses, has_mismatched_square_brackets, has_mismatched_quotes, fix_mismatched_quotes
+    has_mismatched_parentheses, has_mismatched_square_brackets, has_mismatched_quotes, fix_mismatched_quotes, remove_punctuation_symbols
 
 
 class TestStringUtils(unittest.TestCase):
@@ -73,6 +73,11 @@ class TestStringUtils(unittest.TestCase):
             ('bob 01.01 2005"', 'bob 01.01 "2005"')
         ]
 
+        self.punctuation_symbols = [
+            ('string!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~%', None, 'string'),
+            ('string"()[]', [',', '"', '(', ')', '[', ']'], 'string')
+        ]
+
     def test_fix_volumes(self):
         for string, expected_result in self.volumes:
             self.assertEqual(expected_result, fix_volumes(string))
@@ -109,3 +114,7 @@ class TestStringUtils(unittest.TestCase):
     def test_fix_mismatched_quotes(self):
         for string, expected_result in self.mismatched_quotes:
             self.assertEqual(expected_result, fix_mismatched_quotes(string))
+
+    def test_remove_punctuation_symbols(self):
+        for string, symbols, expected_result in self.punctuation_symbols:
+            self.assertEqual(expected_result, remove_punctuation_symbols(string, symbols))
