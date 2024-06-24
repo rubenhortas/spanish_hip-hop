@@ -4,7 +4,7 @@ from tools.config.artists import ARTISTS
 from tools.config.config import CSV_DELIMITER, CsvPosition
 from tools.config.exceptions import EXCEPTIONS
 from tools.utils.string_utils import fix_volumes, fix_mismatched_square_brackets, \
-    fix_mismatched_parentheses, fix_mismatched_quotes, replace_word, has_mismatched_square_brackets, has_mismatched_parentheses, has_mismatched_quotes, remove_punctuation_symbols
+    fix_mismatched_parentheses, fix_mismatched_quotes, replace_word, has_mismatched_square_brackets, has_mismatched_parentheses, has_mismatched_quotes, remove_punctuation_symbols, is_acronym
 
 
 class WrongFieldsNumberException(Exception):
@@ -165,15 +165,6 @@ class Album:
 
         return ''
 
-    # noinspection PyMethodMayBeStatic
-    def _fix(self, string: str) -> str:
-        string_ = fix_mismatched_square_brackets(string) if has_mismatched_square_brackets(string) else string
-        string_ = fix_mismatched_parentheses(string_) if has_mismatched_parentheses(string) else string_
-        string_ = fix_mismatched_quotes(string_) if has_mismatched_quotes(string) else string_
-        string_ = fix_volumes(string_)
-
-        return string_
-
     def _format_values(self):
         self._format_artist()
         self._format_title()
@@ -185,24 +176,49 @@ class Album:
         self.seen_online = self.seen_online.capitalize()
 
     def _format_artist(self) -> None:
-        self.artist = self.artist.title()
-        self.artist = self._fix(self.artist)
+        if not self.artist.isnumeric():
+            self.artist = self.artist.title()
+            self.artist = self._fix(self.artist)
 
     def _format_title(self) -> None:
-        self.title = self.title.capitalize()
-        self.title = self._fix(self.title)
-        self._replace_artists()
-        self.title = self._replace_exceptions(self.title)
+        if not self.title.isnumeric():
+            if self.artist.lower() == self.title.lower():
+                self.title = self.artist
+            else:
+                if is_acronym(self.title):
+                    self.title = self.title.upper()
+                else:
+                    self.title = self.title.capitalize()
+                    self.title = self._fix(self.title)
+                    self.title = self._replace_acronyms(self.title)
+                    self._replace_artists()
+                    self.title = self._replace_exceptions(self.title)
+
+    # noinspection PyMethodMayBeStatic
+    def _fix(self, string: str) -> str:
+        string_ = fix_mismatched_square_brackets(string) if has_mismatched_square_brackets(string) else string
+        string_ = fix_mismatched_parentheses(string_) if has_mismatched_parentheses(string) else string_
+        string_ = fix_mismatched_quotes(string_) if has_mismatched_quotes(string) else string_
+        string_ = fix_volumes(string_)
+
+        return string_
+
+    # noinspection PyMethodMayBeStatic
+    def _replace_acronyms(self, string: str) -> str:
+        string_ = string
+        words = string_.split()
+
+        for word in words:
+            if is_acronym(word):
+                string_ = string_.replace(word, word.upper())
+
+        return string_
 
     def _replace_artists(self):
         try:
-            if not self.artist.isnumeric():
-                if self.artist.lower() == self.title.lower():
-                    self.title = self.artist
-                else:
-                    if len(self.artist) > 1 and len(self.title.split()) > 1:
-                        for artist in ARTISTS:
-                            self.title = replace_word(ARTISTS[artist], self.title)
+            if len(self.artist) > 1 and len(self.title.split()) > 1:
+                for artist in ARTISTS:
+                    self.title = replace_word(ARTISTS[artist], self.title)
         except re.error:
             pass
 
@@ -212,8 +228,6 @@ class Album:
         words = string_.split()
 
         for word in words:
-            if word == '(madrid)':
-                pass
             key = remove_punctuation_symbols(word, [',', '"', '(', ')', '[', ']']).lower()
 
             if key in EXCEPTIONS:

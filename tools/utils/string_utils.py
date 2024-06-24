@@ -7,6 +7,7 @@ _REGEX_VOLUMES = re.compile(r'((?P<label>(vol)(\?|(ume)n?)?([. ]{0,2})\??\b)(?P<
 _REGEX_PARENTHESES = re.compile(r'(?P<text>(\(.+\))|(\(.+|\S+\)))')
 _REGEX_SQUARE_BRACKETS = re.compile(r'(?P<text>(\[.+])|(\[.+|\S+]))')
 _REGEX_QUOTES = re.compile(r'(?P<text>((".+)|(\S+")))')
+_REGEX_ACRONYMS = re.compile(r'^([a-z][.-])+[a-z]?$', re.IGNORECASE)
 
 
 def fix_volumes(string: str) -> str:
@@ -85,6 +86,15 @@ def replace_word(word: str, string: str) -> str:
         return string.replace(match_text, word)
 
     return string
+
+
+def is_acronym(string: str) -> bool:
+    match = re.search(_REGEX_ACRONYMS, string)
+
+    if match:
+        return True
+
+    return False
 
 
 def _has_mismatched(string: str, left_char: str, right_char: str) -> bool:

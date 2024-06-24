@@ -1,7 +1,7 @@
 import unittest
 
 from tools.utils.string_utils import fix_volumes, fix_mismatched_parentheses, fix_mismatched_square_brackets, \
-    has_mismatched_parentheses, has_mismatched_square_brackets, has_mismatched_quotes, fix_mismatched_quotes, remove_punctuation_symbols
+    has_mismatched_parentheses, has_mismatched_square_brackets, has_mismatched_quotes, fix_mismatched_quotes, remove_punctuation_symbols, is_acronym
 
 
 class TestStringUtils(unittest.TestCase):
@@ -78,6 +78,15 @@ class TestStringUtils(unittest.TestCase):
             ('string"()[]', [',', '"', '(', ')', '[', ']'], 'string')
         ]
 
+        self.acronyms = [
+            ('T.I.T.L.E One', False),
+            ('T.I.T.L.E. One', False),
+            ('T.I.T.L.E', True),
+            ('T.I.T.L.E.', True),
+            ('T-I-T-L-E', True),
+            ('T-I-T-L-E-', True),
+        ]
+
     def test_fix_volumes(self):
         for string, expected_result in self.volumes:
             self.assertEqual(expected_result, fix_volumes(string))
@@ -118,3 +127,7 @@ class TestStringUtils(unittest.TestCase):
     def test_remove_punctuation_symbols(self):
         for string, symbols, expected_result in self.punctuation_symbols:
             self.assertEqual(expected_result, remove_punctuation_symbols(string, symbols))
+
+    def test_acronyms(self):
+        for string, expected_result in self.acronyms:
+            self.assertEqual(expected_result, is_acronym(string))
