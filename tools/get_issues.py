@@ -20,7 +20,7 @@ _POSSIBLE_ALBUM_FORMAT = f"{CSV_FILE[:-4]}-{IMPROVEMENTS.lower()}-{POSSIBLE_ALBU
 _REGEX_YEAR = r'.*\d{4}.*'
 
 
-class _FileIssues:
+class FileIssues:
     wrong_fields_number = []
     mismatched_parentheses = []
     mismatched_square_brackets = []
@@ -37,8 +37,8 @@ class _FileIssues:
                 or len(self.possible_album_format) > 0)
 
 
-def _get_issues(lines: list, fields_num: int) -> _FileIssues:
-    issues = _FileIssues()
+def _get_issues(lines: list, fields_num: int) -> FileIssues:
+    issues = FileIssues()
 
     for line in lines:
         if line:
