@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 import signal
 
+from tqdm import tqdm
+
 from tools.config.config import CSV_FILE, CSV_HEADER
 from tools.crosscutting.strings import FORMATTING_LINES, GENERATING, DONE, FORMATTED, ERRORS, WRONG_FIELDS_NUMBER, \
     FORMATTING
@@ -26,15 +28,10 @@ def _format_file(lines: list) -> None:
 def _get_formatted_lines(lines: list, fields_number: int) -> (list, list):
     albums = []
     wrong_lines = []
-    lines_num = len(lines)
-    current_line = 0
 
     print(f"{FORMATTING_LINES}...")
 
-    for line in lines:
-        current_line += 1
-        print(f"\r{current_line}/{lines_num}", end='')
-
+    for line in tqdm(lines):
         if line:
             try:
                 albums.append(Album(line, fields_number).list())
