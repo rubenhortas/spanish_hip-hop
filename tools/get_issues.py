@@ -90,7 +90,7 @@ def _has_mismatched_quotes(line: list) -> bool:
 def _has_possible_publication_date(line: list) -> bool:
     publication_date = line[CsvPosition.PUBLICATION_DATE.value]
 
-    if publication_date == '' or publication_date == '-':
+    if publication_date == '-':
         match = re.search(_REGEX_YEAR, line[CsvPosition.ARTIST.value])
 
         if match:
@@ -102,7 +102,7 @@ def _has_possible_publication_date(line: list) -> bool:
 def _has_possible_album_format(line: list) -> bool:
     album_format = line[CsvPosition.FORMAT.value]
 
-    if album_format == '' or album_format == '-':
+    if album_format == '-':
         for format in ALBUM_FORMATS:
             if format in line[CsvPosition.ARTIST.value]:
                 return True

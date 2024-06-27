@@ -17,7 +17,7 @@ _FOREIGN_ARTISTS = ['Ace Hood', 'Ali G indahouse', 'Aqeel', 'Aqueel', 'Asap Mob'
                     'Step Brothers', 'Strange Fruit Project', 'Street Bucks', 'String Theory', 'Strong Arm Steady',
                     'TNGHT', 'Tenacity', 'Terrace Martin', 'Tragedy Khadafi', 'Vinnie Paz', 'Wadada Sound System',
                     'Wale', 'Wiz Khalifa', 'Young Jeezy', 'Chamillionaire']
-_UNKNOWN = ['desconocido', '[desconocido]', 'intérprete desconocido', '-']
+_UNKNOWN = ['desconocido', '[desconocido]', 'intérprete desconocido']
 
 
 def _fix(lines: list, fields_num: int) -> (list, list):
@@ -28,20 +28,21 @@ def _fix(lines: list, fields_num: int) -> (list, list):
     for line in lines:
         if len(line) == fields_num:
             if line[CsvPosition.ARTIST.value] not in _FOREIGN_ARTISTS:
-                line = [value.replace('  ', ' ') for value in line]
+                line_ = line
+                value_index = 0
 
-                if line[CsvPosition.PRESERVER.value] == '' or line[CsvPosition.PRESERVER.value] == '-':
-                    line_ = line
-                    value_index = 0
+                for value in line_:
+                    if value:
+                        value.replace('  ', ' ')  # Delete double spaces
 
-                    for value in line_:
-                        if value:
-                            if value.lower() in _UNKNOWN:
-                                line_[value_index] = ''
+                        if line[CsvPosition.PRESERVER.value] == '-' and value.lower() in _UNKNOWN:
+                            line_[value_index] = '-'
+                    else:
+                        line_[value_index] = '-'
 
-                        value_index += 1
+                    value_index += 1
 
-                lines_.append(line)
+                lines_.append(line_)
             else:
                 foreign_artists.append(line)
         else:

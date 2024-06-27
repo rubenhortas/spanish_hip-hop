@@ -27,7 +27,7 @@ def _get_artists(lines: list) -> dict:
     def _update_artists_dictionary(artist: str) -> None:
         if not artist.isnumeric():  # Numbers will not be transformed
             preserver = line[CsvPosition.PRESERVER.value]
-            is_preserved = preserver != '' and preserver != '-'
+            is_preserved = preserver != '-'
             key = artist.lower().strip()
             used_keys.add(key)
 
