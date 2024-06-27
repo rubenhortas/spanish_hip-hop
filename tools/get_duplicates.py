@@ -2,6 +2,8 @@
 import difflib
 import signal
 
+from tqdm import tqdm
+
 from tools.config.config import CSV_FILE, CsvPosition, CSV_DELIMITER
 from tools.crosscutting.strings import DONE, DUPLICATES, POSSIBLE_DUPLICATES, NO_DUPLICATES_FOUND, \
     LOOKING_FOR_DUPLICATES_IN
@@ -20,9 +22,7 @@ def _get_duplicates(lines: list) -> (list, list):
     possible_duplicates = []
     sequence_matcher = difflib.SequenceMatcher(None)
 
-    for i in range(lines_num):
-        print(f"\r{i + 1}/{lines_num}", end='')
-
+    for i in tqdm(range(lines_num)):
         sequence_matcher.set_seq1(lines_[i][1])
 
         for j in range(i + 1, lines_num):
