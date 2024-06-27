@@ -33,14 +33,14 @@ def _do_file_operation(func: Callable) -> Callable:
 @_do_file_operation
 def read_csv_file(file: str) -> list:
     with open(file, mode='r', newline='', encoding='utf-8') as csv_file:
-        csv_reader = csv.reader(csv_file, delimiter=CSV_DELIMITER, quotechar='"')
+        csv_reader = csv.reader(csv_file, delimiter=CSV_DELIMITER, quotechar='"', quoting=csv.QUOTE_ALL)
         return list(csv_reader)
 
 
 @_do_file_operation
 def write_csv_file(file: str, rows: list) -> None:
     with open(file, mode='w', newline='', encoding='utf-8') as csv_file:
-        csv_writer = csv.writer(csv_file, delimiter=CSV_DELIMITER, quotechar='"')
+        csv_writer = csv.writer(csv_file, delimiter=CSV_DELIMITER, quotechar='"', quoting=csv.QUOTE_ALL)
 
         for row in rows:
             csv_writer.writerow(row)
