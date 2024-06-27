@@ -123,4 +123,4 @@ if __name__ == '__main__':
     lines = read_csv_file(CSV_FILE)[1:]
     duplicates = _get_duplicates(lines)
 
-    _write_output_file(lines)
+    _write_output_file(duplicates)
