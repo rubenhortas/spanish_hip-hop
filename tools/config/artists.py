@@ -2252,8 +2252,8 @@ ARTISTS = {
 	'jerva.agz': 'Jerva.Agz',
 	'jesuly': 'Jesuly',
 	'jesús existe': 'Jesús Existe',  # Preservado por rodrigozzz
+	'jesús existe  y chef dompi': 'Jesús Existe  y Chef Dompi',  # Preservado por rodrigozzz
 	'jesús existe & folie à trois': 'Jesús Existe & Folie à Trois',  # Preservado por rodrigozzz
-	'jesús existe y chef dompi': 'Jesús Existe y Chef Dompi',  # Preservado por rodrigozzz
 	'jet set conexión': 'Jet Set Conexión',
 	'jewel': 'Jewel',
 	'jhon': 'Jhon',
