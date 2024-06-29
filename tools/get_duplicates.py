@@ -25,7 +25,7 @@ class Line:
         self.similar = []
 
     def __str__(self):
-        return f"{self.id}{CSV_DELIMITER}{self.artist}{CSV_DELIMITER}{self.title}..."
+        return f"{self.id}{CSV_DELIMITER}{self.artist}{CSV_DELIMITER}{self.title},..."
 
     def __eq__(self, other):
         return (self.id == other.id
@@ -89,10 +89,10 @@ def _write_output_file(lines: list) -> None:
         output_lines = []
 
         for line in lines:
-            output_lines.append(f"{line}\n:")
+            output_lines.append(f"{line}:\n")
 
             if line.has_duplicates():
-                output_lines.append(f"\t{DUPLICATES}\n:")
+                output_lines.append(f"\t{DUPLICATES}:\n")
 
                 for duplicate in line.duplicates:
                     output_lines.append(f"\t - {duplicate}\n")
@@ -100,7 +100,7 @@ def _write_output_file(lines: list) -> None:
                 output_lines.append('')
 
             if line.has_similar():
-                output_lines.append(f"\t{SIMILARS}\n:")
+                output_lines.append(f"\t{SIMILARS}:\n")
 
                 for similar in line.similar:
                     output_lines.append(f"\t - {similar}\n")
