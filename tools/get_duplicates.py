@@ -89,21 +89,21 @@ def _write_output_file(lines: list) -> None:
         output_lines = []
 
         for line in lines:
-            output_lines.append(f"{line}:")
+            output_lines.append(f"{line}\n:")
 
             if line.has_duplicates():
-                output_lines.append(f"\t{DUPLICATES}:")
+                output_lines.append(f"\t{DUPLICATES}\n:")
 
                 for duplicate in line.duplicates:
-                    output_lines.append(f"\t - {duplicate}")
+                    output_lines.append(f"\t - {duplicate}\n")
 
                 output_lines.append('')
 
             if line.has_similar():
-                output_lines.append(f"\t{SIMILARS}:")
+                output_lines.append(f"\t{SIMILARS}\n:")
 
                 for similar in line.similar:
-                    output_lines.append(f"\t - {similar}")
+                    output_lines.append(f"\t - {similar}\n")
 
                 output_lines.append('')
 
