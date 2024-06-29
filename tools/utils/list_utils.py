@@ -9,15 +9,15 @@ def create_python_list(name: str, dictionary: dict) -> list:
 
         if isinstance(value, str):
             value_ = convert_to_python_string(dictionary[value])
-            lst.append(f"\t'{key_}': '{value_}',\n")
+            lst.append(f"    '{key_}': '{value_}',\n")
         elif isinstance(value, tuple):
             value_ = convert_to_python_string(value[0])
             comment = value[1]
 
             if comment == '':
-                lst.append(f"\t'{key_}': '{value_}',\n")
+                lst.append(f"    '{key_}': '{value_}',\n")
             else:
-                lst.append(f"\t'{key_}': '{value_}',  # {comment}\n")
+                lst.append(f"    '{key_}': '{value_}',  # {comment}\n")
 
     lst.append('}\n')
 
