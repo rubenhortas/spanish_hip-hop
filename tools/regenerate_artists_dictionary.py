@@ -8,7 +8,7 @@ from tools.crosscutting.strings import GENERATING_NEW, DONE, PRESERVED_BY
 from tools.domain.album import Album
 from tools.helpers.file_helpers import write_file, read_csv_file, backup
 from tools.helpers.os_helpers import handle_sigint
-from tools.utils.list_utils import create_python_list
+from tools.utils.list_utils import create_python_dictionary
 
 _INPUT_FILE = os.path.join(os.path.abspath(''), CSV_FILE)
 _OUTPUT_FILE = f"{os.path.join(os.path.abspath(''), 'config', 'artists.py')}"
@@ -77,8 +77,8 @@ def _delete_unused_keys(artists: dict, used_keys: set) -> dict:
 
 
 def _write_output_file(artists: dict) -> None:
-    artists = create_python_list('ARTISTS', artists)
-    write_file(_OUTPUT_FILE, artists)
+    artists_ = create_python_dictionary('ARTISTS', artists)
+    write_file(_OUTPUT_FILE, artists_)
 
 
 if __name__ == '__main__':
