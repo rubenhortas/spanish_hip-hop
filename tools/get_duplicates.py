@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import difflib
 import signal
+from collections import defaultdict
 
 from tqdm import tqdm
 
@@ -15,46 +16,30 @@ _MATCH_THRESHOLD = 0.9  # Seems a reasonable threshold
 
 
 class Line:
-    def __init__(self, csv_line):
-        self.id = csv_line[CsvPosition.ID.value]
-        self.artist = csv_line[CsvPosition.ARTIST.value]
-        self.title = csv_line[CsvPosition.TITLE.value]
-        self.hash = self._get_string_hash()
-        self.is_duplicate = False
-        self.duplicates = []
-        self.similar = []
+    hash = ''
+    info = ''
+    used = False
 
-    def __str__(self):
-        return f"{self.id}{CSV_DELIMITER}{self.artist}{CSV_DELIMITER}{self.title},..."
+    def __init__(self, csv_line: list):
+        self._set_hash(csv_line)
+        self._set_info(csv_line)
 
-    def __eq__(self, other):
-        return (self.id == other.id
-                and self.artist == other.artist
-                and self.title == other.title
-                and self.hash == other.hash
-                and all(a == b for a, b in zip(self.duplicates, other.duplicates))
-                and all(a == b for a, b in zip(self.similar, other.similar)))
+    def _set_hash(self, csv_line: list) -> None:
+        string_ = f"{csv_line[CsvPosition.ARTIST.value]}{csv_line[CsvPosition.TITLE.value]}"
+        string_ = string_.replace(' ', '')
+        self.hash = remove_punctuation_symbols(string_).lower()
 
-    def has_duplicates(self):
-        return len(self.duplicates) > 0
-
-    def has_similar(self):
-        return len(self.similar) > 0
-
-    def _get_string_hash(self):
-        value = f"{self.artist}{self.title}".lower()
-        value = value.replace(' ', '')
-        value = remove_punctuation_symbols(value)
-
-        return value
+    def _set_info(self, csv_line: list) -> None:
+        self.info = f"'{csv_line[CsvPosition.ID.value]}{CSV_DELIMITER}{csv_line[CsvPosition.ARTIST.value]}{CSV_DELIMITER}{csv_line[CsvPosition.TITLE.value]}{CSV_DELIMITER}...'"
 
 
-def _get_duplicates(csv_lines: list) -> list:
+def _get_duplicates(csv_lines: list) -> (list, list):
+    duplicates = defaultdict(list)
+    similars = defaultdict(list)
     lines = []
-    duplicates = []
 
-    for line in csv_lines:
-        lines.append(Line(line))
+    for csv_line in csv_lines:
+        lines.append(Line(csv_line))
 
     lines_num = len(lines)
     sequence_matcher = difflib.SequenceMatcher(None)
@@ -66,50 +51,53 @@ def _get_duplicates(csv_lines: list) -> list:
         for j in range(i + 1, lines_num):
             comparing_line = lines[j]
 
-            if not comparing_line.is_duplicate:
+            if not comparing_line.used:
                 sequence_matcher.set_seq2(comparing_line.hash)
                 match_ratio = sequence_matcher.ratio()
 
                 if match_ratio > _MATCH_THRESHOLD:
-                    comparing_line.is_duplicate = True
+                    comparing_line.used = True
 
                     if match_ratio == 1:
-                        current_line.duplicates.append(comparing_line)
+                        duplicates[current_line.info].append(comparing_line.info)
                     else:
-                        current_line.similar.append(comparing_line)
+                        similars[current_line.info].append(comparing_line.info)
 
-        if current_line.has_duplicates() or current_line.has_similar():
-            duplicates.append(current_line)
+    duplicates = dict(sorted(duplicates.items()))
+    similars = dict(sorted(similars.items()))
 
-    return duplicates
+    return [*duplicates.items()], [*similars.items()]
 
 
-def _write_output_file(lines: list) -> None:
-    if lines:
-        output_lines = []
+def _write_output_file(duplicates: list, similars: list) -> None:
+    if duplicates or similars:
+        result = []
 
-        for line in lines:
-            output_lines.append(f"{line}:\n")
+        if duplicates:
+            result.append(f"{DUPLICATES}:\n\n")
 
-            if line.has_duplicates():
-                output_lines.append(f"\t{DUPLICATES}:\n")
+            for duplicate in duplicates:
+                line = f"* {duplicate[0]}:"
 
-                for duplicate in line.duplicates:
-                    output_lines.append(f"\t - {duplicate}\n")
+                for duplicate_ in duplicate[1]:
+                    line = f"{line} {duplicate_},"
 
-                output_lines.append('')
+                result.append(f"{line[:-1]}\n")
 
-            if line.has_similar():
-                output_lines.append(f"\t{SIMILARS}:\n")
+            result.append('\n')
 
-                for similar in line.similar:
-                    output_lines.append(f"\t - {similar}\n")
+        if similars:
+            result.append(f"* {SIMILARS}:\n\n")
 
-                output_lines.append('')
+            for similar in similars:
+                line = f"{similar[0]}:"
 
-            output_lines.append('')
+                for similar_ in similar[1]:
+                    line = f"{line} {similar_},"
 
-        write_file(_OUTPUT_FILE, output_lines)
+                result.append(f"{line[:-1]}\n")
+
+        write_file(_OUTPUT_FILE, result)
         print(f"\n{DONE}")
     else:
         print(f"{NO_DUPLICATES_FOUND}")
@@ -121,6 +109,6 @@ if __name__ == '__main__':
     print(f"{LOOKING_FOR_DUPLICATES_IN} '{CSV_FILE}'...")
 
     lines = read_csv_file(CSV_FILE)[1:]
-    duplicates = _get_duplicates(lines)
+    duplicates, similars = _get_duplicates(lines)
 
-    _write_output_file(duplicates)
+    _write_output_file(duplicates, similars)
