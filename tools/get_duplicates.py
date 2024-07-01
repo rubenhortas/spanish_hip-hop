@@ -87,10 +87,10 @@ def _write_output_file(duplicates: list, similars: list) -> None:
             result.append('\n')
 
         if similars:
-            result.append(f"* {SIMILARS}:\n\n")
+            result.append(f"{SIMILARS}:\n\n")
 
             for similar in similars:
-                line = f"{similar[0]}:"
+                line = f"* {similar[0]}:"
 
                 for similar_ in similar[1]:
                     line = f"{line} {similar_},"
