@@ -35,7 +35,7 @@ class Line:
 
 def _get_duplicates(csv_lines: list) -> (list, list):
     duplicates = defaultdict(list)
-    similars = defaultdict(list)
+    similar = defaultdict(list)
     lines = []
 
     for csv_line in csv_lines:
@@ -61,12 +61,12 @@ def _get_duplicates(csv_lines: list) -> (list, list):
                     if match_ratio == 1:
                         duplicates[current_line.info].append(comparing_line.info)
                     else:
-                        similars[current_line.info].append(comparing_line.info)
+                        similar[current_line.info].append(comparing_line.info)
 
     duplicates = dict(sorted(duplicates.items()))
-    similars = dict(sorted(similars.items()))
+    similar = dict(sorted(similar.items()))
 
-    return [*duplicates.items()], [*similars.items()]
+    return [*duplicates.items()], [*similar.items()]
 
 
 def _write_output_file(duplicates: list, similars: list) -> None:
