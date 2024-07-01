@@ -109,6 +109,6 @@ if __name__ == '__main__':
     print(f"{LOOKING_FOR_DUPLICATES_IN} '{CSV_FILE}'...")
 
     lines = read_csv_file(CSV_FILE)[1:]
-    duplicates, similars = _get_duplicates(lines)
+    duplicates, similar = _get_duplicates(lines)
 
-    _write_output_file(duplicates, similars)
+    _write_output_file(duplicates, similar)
