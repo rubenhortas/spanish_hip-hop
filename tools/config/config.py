@@ -1,15 +1,20 @@
 from enum import Enum
 
+# User configs
+
 CSV_FILE = 'Spanish hip-hop list - Lista de trabajos.csv'
 CSV_HEADER = ['Referencia', 'Artista', 'Trabajo', 'Fecha Publicación', 'Tipo', 'Medio', 'Preservado en digital',
               'Formato digital', 'Bitrate', 'Preservado por', 'Fecha preservado', 'Fecha modificado', 'Fuente',
               'Visto online', 'Notas']
 
 CSV_DELIMITER = ','
+CSV_EMPTY_FIELD_VALUE = '-'
 ALBUM_FORMATS = ['Directo', 'Doble LP', 'EP', 'LP', 'Maqueta', 'Maxi Single', 'Mixtape', 'Promo', 'Recopilatorio',
                  'Single']
-CSV_EMPTY_FIELD_VALUE = '-'
 
+
+# Application configs.
+# Do not modify.
 
 class CsvPosition(Enum):
     ID = 0  # referencia
