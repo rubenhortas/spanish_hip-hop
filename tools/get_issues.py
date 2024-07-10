@@ -2,7 +2,7 @@
 import re
 import signal
 
-from tools.config.config import CSV_FILE, CSV_HEADER, CsvPosition, ALBUM_FORMATS
+from tools.config.config import CSV_FILE, CSV_HEADER, CsvPosition, ALBUM_FORMATS, CSV_EMPTY_FIELD_VALUE
 from tools.crosscutting.strings import SEARCHING_FOR_LINES_WITH_PROBLEMS_IN, DONE, NO_PROBLEMS_FOUND, ERRORS, \
     WRONG_FIELDS_NUMBER, MISMATCHED_PARENTHESES, MISMATCHED_SQUARE_BRACKETS, MISMATCHED_QUOTES, IMPROVEMENTS, \
     POSSIBLE_PUBLICATION_DATE_IN_TITLE, POSSIBLE_ALBUM_FORMAT_IN_TITLE
@@ -90,7 +90,7 @@ def _has_mismatched_quotes(line: list) -> bool:
 def _has_possible_publication_date(line: list) -> bool:
     publication_date = line[CsvPosition.PUBLICATION_DATE.value]
 
-    if publication_date == '-':
+    if publication_date == '' or publication_date == CSV_EMPTY_FIELD_VALUE:
         match = re.search(_REGEX_YEAR, line[CsvPosition.ARTIST.value])
 
         if match:
@@ -102,7 +102,7 @@ def _has_possible_publication_date(line: list) -> bool:
 def _has_possible_album_format(line: list) -> bool:
     album_format = line[CsvPosition.FORMAT.value]
 
-    if album_format == '-':
+    if album_format == '' or album_format == CSV_EMPTY_FIELD_VALUE:
         for format in ALBUM_FORMATS:
             if format in line[CsvPosition.ARTIST.value]:
                 return True

@@ -2,7 +2,7 @@
 import os
 import signal
 
-from tools.config.config import CSV_FILE, CsvPosition, CSV_HEADER
+from tools.config.config import CSV_FILE, CsvPosition, CSV_HEADER, CSV_EMPTY_FIELD_VALUE
 from tools.crosscutting.strings import FIXING, DONE, FIXED, WRONG_FIELDS_NUMBER, FOREIGN_ARTISTS
 from tools.helpers.file_helpers import read_csv_file, write_csv_file
 from tools.helpers.os_helpers import handle_sigint, clear_screen
@@ -35,10 +35,12 @@ def _fix(lines: list, fields_num: int) -> (list, list):
                     if value:
                         value.replace('  ', ' ')  # Delete double spaces
 
-                        if line[CsvPosition.PRESERVER.value] == '-' and value.lower() in _UNKNOWN:
-                            line_[value_index] = '-'
+                        if ((line[CsvPosition.PRESERVER.value] == ''
+                             or line[CsvPosition.PRESERVER.value] == CSV_EMPTY_FIELD_VALUE)
+                                and value.lower() in _UNKNOWN):
+                            line_[value_index] = CSV_EMPTY_FIELD_VALUE
                     else:
-                        line_[value_index] = '-'
+                        line_[value_index] = CSV_EMPTY_FIELD_VALUE
 
                     value_index += 1
 

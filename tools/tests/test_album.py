@@ -1,4 +1,4 @@
-from tools.config.config import CsvPosition
+from tools.config.config import CsvPosition, CSV_EMPTY_FIELD_VALUE
 from tools.domain.album import WrongFieldsNumberException
 from tools.format_file import Album
 from tools.tests.test_csv_file import TestCsv
@@ -70,6 +70,12 @@ class TestAlbum(TestCsv):
             ('bob, alice', ['bob', 'alice'])
         ]
 
+        self.empty_fields = [
+            ('', CSV_EMPTY_FIELD_VALUE),
+            (' ', CSV_EMPTY_FIELD_VALUE),
+            (' foo  bar     ', 'foo bar')
+        ]
+
     def test_wrong_fields_number_exception(self):
         for line in self.wrong_fields_number_lines:
             with self.assertRaises(WrongFieldsNumberException):
@@ -83,3 +89,7 @@ class TestAlbum(TestCsv):
     def test_get_artists(self):
         for album_artist, expected_result in self.album_artists:
             self.assertEqual(expected_result, [artist for artist in Album.get_artists(album_artist)])
+
+    def test_get_value(self):
+        for string, expected in self.empty_fields:
+            self.assertEqual(expected, Album._get_field_value(string))

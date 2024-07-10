@@ -3,7 +3,7 @@ import os
 import signal
 
 from tools.config.artists import ARTISTS
-from tools.config.config import CSV_FILE, CsvPosition
+from tools.config.config import CSV_FILE, CsvPosition, CSV_EMPTY_FIELD_VALUE
 from tools.crosscutting.strings import GENERATING_NEW, DONE, PRESERVED_BY
 from tools.domain.album import Album
 from tools.helpers.file_helpers import write_file, read_csv_file, backup
@@ -27,7 +27,7 @@ def _get_artists(lines: list) -> dict:
     def _update_artists_dictionary(artist: str) -> None:
         if not artist.isnumeric():  # Numbers will not be transformed
             preserver = line[CsvPosition.PRESERVER.value]
-            is_preserved = preserver != '-'
+            is_preserved = preserver != '' and preserver != CSV_EMPTY_FIELD_VALUE
             key = artist.lower().strip()
             used_keys.add(key)
 

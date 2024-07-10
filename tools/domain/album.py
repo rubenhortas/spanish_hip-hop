@@ -1,7 +1,7 @@
 import re
 
 from tools.config.artists import ARTISTS
-from tools.config.config import CSV_DELIMITER, CsvPosition
+from tools.config.config import CSV_DELIMITER, CsvPosition, CSV_EMPTY_FIELD_VALUE
 from tools.config.exceptions import EXCEPTIONS
 from tools.utils.string_utils import fix_volumes, fix_mismatched_square_brackets, \
     fix_mismatched_parentheses, fix_mismatched_quotes, replace_word, has_mismatched_square_brackets, \
@@ -19,21 +19,21 @@ class Album:
 
     def __init__(self, line: list, fields_num: int):
         if len(line) == fields_num:
-            self.id = line[CsvPosition.ID.value].strip()
-            self.artist = line[CsvPosition.ARTIST.value].strip()
-            self.title = line[CsvPosition.TITLE.value].strip()
-            self.publication_date = line[CsvPosition.PUBLICATION_DATE.value].strip()
-            self.format = line[CsvPosition.FORMAT.value].strip()
-            self.medium = line[CsvPosition.MEDIUM.value].strip()
-            self.preserved_in_digital = line[CsvPosition.PRESERVED_IN_DIGITAL.value].strip()
-            self.digital_format = line[CsvPosition.DIGITAL_FORMAT.value].strip()
-            self.bit_rate = line[CsvPosition.BIT_RATE.value].strip()
-            self.preserver = line[CsvPosition.PRESERVER.value].strip()
-            self.preservation_date = line[CsvPosition.PRESERVATION_DATE.value].strip()
-            self.modification_date = line[CsvPosition.MODIFICATION_DATE.value].strip()
-            self.source = line[CsvPosition.SOURCE.value].strip()
-            self.seen_online = line[CsvPosition.SEEN_ONLINE.value].strip()
-            self.notes = line[CsvPosition.NOTES.value].strip()
+            self.id = self._get_field_value([CsvPosition.ID.value])
+            self.artist = self._get_field_value([CsvPosition.ARTIST.value])
+            self.title = self._get_field_value([CsvPosition.TITLE.value])
+            self.publication_date = self._get_field_value([CsvPosition.PUBLICATION_DATE.value])
+            self.format = self._get_field_value([CsvPosition.FORMAT.value])
+            self.medium = self._get_field_value([CsvPosition.MEDIUM.value])
+            self.preserved_in_digital = self._get_field_value([CsvPosition.PRESERVED_IN_DIGITAL.value])
+            self.digital_format = self._get_field_value([CsvPosition.DIGITAL_FORMAT.value])
+            self.bit_rate = self._get_field_value([CsvPosition.BIT_RATE.value])
+            self.preserver = self._get_field_value([CsvPosition.PRESERVER.value])
+            self.preservation_date = self._get_field_value([CsvPosition.PRESERVATION_DATE.value])
+            self.modification_date = self._get_field_value([CsvPosition.MODIFICATION_DATE.value])
+            self.source = self._get_field_value([CsvPosition.SOURCE.value])
+            self.seen_online = self._get_field_value([CsvPosition.SEEN_ONLINE.value])
+            self.notes = self._get_field_value([CsvPosition.NOTES.value])
 
             if not self.has_preserver():
                 self._format_values()
@@ -147,6 +147,15 @@ class Album:
 
     def has_preserver(self) -> bool:
         return self.preserver != ''
+
+    @staticmethod
+    def _get_field_value(string) -> str:
+        value = string.strip().replace('  ', ' ')
+
+        if value != '':
+            return value
+        else:
+            return CSV_EMPTY_FIELD_VALUE
 
     @staticmethod
     def _get_artists_delimiters(artist: str) -> list:

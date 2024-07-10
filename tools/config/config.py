@@ -8,6 +8,7 @@ CSV_HEADER = ['Referencia', 'Artista', 'Trabajo', 'Fecha Publicación', 'Tipo', 
 CSV_DELIMITER = ','
 ALBUM_FORMATS = ['Directo', 'Doble LP', 'EP', 'LP', 'Maqueta', 'Maxi Single', 'Mixtape', 'Promo', 'Recopilatorio',
                  'Single']
+CSV_EMPTY_FIELD_VALUE = '-'
 
 
 class CsvPosition(Enum):
