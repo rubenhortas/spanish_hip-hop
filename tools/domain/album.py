@@ -16,6 +16,9 @@ class WrongFieldsNumberException(Exception):
 class Album:
     @property
     def artists(self):
+        """
+        List of album artists.
+        """
         return Album.get_artists(self.artist)
 
     def __init__(self, line: list, fields_num: int):
@@ -111,6 +114,11 @@ class Album:
 
     @staticmethod
     def get_artists(artist: str) -> list:
+        """
+        Returns the list of album artists.
+        @param artist: 'Bob & Alice', 'Bob y Alice', 'Bob, Alice'...
+        @return: ['Bob', 'Alice']
+        """
         artists = []
         album_artist = remove_punctuation_symbols(artist, ['(', ')', '[', ']'])
         album_artist = album_artist.replace(',', ' , ')
@@ -130,6 +138,9 @@ class Album:
         return artists
 
     def list(self) -> list:
+        """
+        Returns the album information as a list.
+        """
         return [self.id,
                 self.artist,
                 self.title,
@@ -147,7 +158,10 @@ class Album:
                 self.notes]
 
     def has_preserver(self) -> bool:
-        return self.preserver != ''
+        """
+        Returns if the album has been preserved by someone.
+        """
+        return self.preserver != '' and self.preserver != CSV_EMPTY_FIELD_VALUE
 
     @staticmethod
     def _get_field_value(string: str) -> str:
