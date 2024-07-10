@@ -15,7 +15,7 @@ class WrongFieldsNumberException(Exception):
 
 class Album:
     @property
-    def artists(self):
+    def artists(self) -> list:
         """
         List of album artists.
         """
