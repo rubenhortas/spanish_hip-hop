@@ -1,7 +1,8 @@
 import re
 
 from tools.config.artists import ARTISTS
-from tools.config.config import CSV_DELIMITER, CsvPosition, CSV_EMPTY_FIELD_VALUE
+from tools.config.config import CSV_DELIMITER, CsvPosition, CSV_EMPTY_FIELD_VALUE, FIX_MISMATCHED_SQUARE_BRACKETS, \
+    FIX_MISMATCHED_PARENTHESES, FIX_MISMATCHED_QUOTES, FIX_VOLUMES, CAPITALIZE_ACRONYMS, REPLACE_ARTISTS_IN_TITLES
 from tools.config.exceptions import EXCEPTIONS
 from tools.utils.string_utils import fix_volumes, fix_mismatched_square_brackets, \
     fix_mismatched_parentheses, fix_mismatched_quotes, replace_word, has_mismatched_square_brackets, \
@@ -188,27 +189,40 @@ class Album:
             if self.artist.lower() == self.title.lower():
                 self.title = self.artist
             else:
-                if is_acronym(self.title):
+                if is_acronym(self.title) and CAPITALIZE_ACRONYMS:
                     self.title = self.title.upper()
                 else:
                     self.title = self.title.capitalize()
                     self.title = self._fix(self.title)
-                    self.title = self._replace_acronyms(self.title)
-                    self._replace_artists()
+
+                    if CAPITALIZE_ACRONYMS:
+                        self.title = self._capitalize_acronyms(self.title)
+
+                    if REPLACE_ARTISTS_IN_TITLES:
+                        self._replace_artists()
 
             self.title = self._replace_exceptions(self.title)
 
     # noinspection PyMethodMayBeStatic
     def _fix(self, string: str) -> str:
-        string_ = fix_mismatched_square_brackets(string) if has_mismatched_square_brackets(string) else string
-        string_ = fix_mismatched_parentheses(string_) if has_mismatched_parentheses(string) else string_
-        string_ = fix_mismatched_quotes(string_) if has_mismatched_quotes(string) else string_
-        string_ = fix_volumes(string_)
+        string_ = string
+
+        if FIX_MISMATCHED_SQUARE_BRACKETS:
+            string_ = fix_mismatched_square_brackets(string) if has_mismatched_square_brackets(string) else string
+
+        if FIX_MISMATCHED_PARENTHESES:
+            string_ = fix_mismatched_parentheses(string_) if has_mismatched_parentheses(string) else string_
+
+        if FIX_MISMATCHED_QUOTES:
+            string_ = fix_mismatched_quotes(string_) if has_mismatched_quotes(string) else string_
+
+        if FIX_VOLUMES:
+            string_ = fix_volumes(string_)
 
         return string_
 
     # noinspection PyMethodMayBeStatic
-    def _replace_acronyms(self, string: str) -> str:
+    def _capitalize_acronyms(self, string: str) -> str:
         string_ = string
         words = string_.split()
 

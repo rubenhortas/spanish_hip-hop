@@ -1,20 +1,57 @@
 from enum import Enum
 
 # User configs
-
+ALBUM_FORMATS = ['Directo', 'Doble LP', 'EP', 'LP', 'Maqueta', 'Maxi Single', 'Mixtape', 'Promo', 'Recopilatorio',
+                 'Single']
 CSV_FILE = 'Spanish hip-hop list - Lista de trabajos.csv'
 CSV_HEADER = ['Referencia', 'Artista', 'Trabajo', 'Fecha Publicación', 'Tipo', 'Medio', 'Preservado en digital',
               'Formato digital', 'Bitrate', 'Preservado por', 'Fecha preservado', 'Fecha modificado', 'Fuente',
               'Visto online', 'Notas']
-
 CSV_DELIMITER = ','
 CSV_EMPTY_FIELD_VALUE = '-'
-ALBUM_FORMATS = ['Directo', 'Doble LP', 'EP', 'LP', 'Maqueta', 'Maxi Single', 'Mixtape', 'Promo', 'Recopilatorio',
-                 'Single']
+
+# Fix mismatched parentheses
+# 'Album (instrumentals' -> 'Album (instrumentals)'
+# 'Album instrumentals)' -> 'Album (instrumentals)'
+FIX_MISMATCHED_PARENTHESES = True  # True/False
+
+# Fix mismatched quotes
+# 'Album "instrumentals' -> 'Album "instrumentals"'
+# 'Album instrumentals"' -> 'Album "instrumentals"'
+FIX_MISMATCHED_QUOTES = True  # True/False
+
+# Fix mismatched quotes
+# 'Album [instrumentals' -> 'Album [instrumentals]'
+# 'Album instrumentals]' -> 'Album [instrumentals]'
+FIX_MISMATCHED_SQUARE_BRACKETS = True  # True/False
+
+# Fix volume names
+# 'vol?.?1' -> 'Vol. 1'
+# 'vol.01' -> 'Vol. 01'
+# 'vol.1' -> 'Vol. 1'
+# 'vol. 1' -> 'Vol. 1'
+# 'Vol .1' -> 'Vol. 1'
+# 'vol. 01' -> 'Vol. 01'
+# 'vol 1' -> 'Vol. 1'
+# 'volume 1' -> 'Volume 1'
+# 'volumen 1' -> 'Volumen 1'
+# 'volume 1.5' -> 'Volume 1.5'
+# 'vol i' -> 'Vol. I'
+FIX_VOLUMES = True  # True/False
+
+# Capitalize acronyms
+# 'f.o.o.b.a.r.' -> 'F.O.O.B.A.R.'
+# 'f.o.o.b.a.r' -> 'F.O.O.B.A.R'
+CAPITALIZE_ACRONYMS = True  # True/False
+
+# Replace artist in titles
+# artist = { 'bob mc', 'BoB MC' }
+# '"alice", "beef with bob mc"' -> '"Alice", "Beef with BoB MC"'
+REPLACE_ARTISTS_IN_TITLES = True  # True/False
 
 
 # Application configs.
-# Do not modify.
+# DO NOT MODIFY.
 
 class CsvPosition(Enum):
     ID = 0  # referencia
