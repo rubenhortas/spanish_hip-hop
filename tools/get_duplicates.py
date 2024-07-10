@@ -1,4 +1,11 @@
 #!/usr/bin/env python3
+
+"""
+Get CSV file duplicated (and possible duplicate) entries.
+
+Output: Duplicates file.
+"""
+
 import difflib
 import signal
 from collections import defaultdict

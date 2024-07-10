@@ -6,6 +6,7 @@ Fix many errors on the original CSV file:
  - Remove double spaces
  - Remove "desconocidos"
 """
+
 import os
 import signal
 

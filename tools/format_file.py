@@ -1,4 +1,13 @@
 #!/usr/bin/env python3
+
+"""
+Format CSV file.
+
+Output:
+ - Formatted CSV file
+ - Errors CSV file
+"""
+
 import signal
 
 from tqdm import tqdm

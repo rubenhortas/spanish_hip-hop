@@ -1,4 +1,23 @@
 #!/usr/bin/env python3
+
+"""
+Get CSV file issues:
+    - Lines with wrong fields number
+    - Lines with mismatched parentheses
+    - Lines with mismatched square brackets
+    - Lines with mismatched quotes
+    - Lines with possible publication date on title but not on its field
+    - Lines with possible album format on title but not on its field
+
+Output:
+    - File with lines with wrong fields number
+    - File with lines with mismatched parentheses
+    - File with lines with mismatched square brackets
+    - File with lines with mismatched quotes
+    - File with lines with possible publication date on title but not on its field
+    - File with lines with possible album format on title but not on its field
+"""
+
 import re
 import signal
 
