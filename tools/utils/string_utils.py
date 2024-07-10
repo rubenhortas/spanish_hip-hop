@@ -11,6 +11,9 @@ _REGEX_ACRONYMS = re.compile(r'^([a-z][.-])+[a-z]?$', re.IGNORECASE)
 
 
 def fix_volumes(string: str) -> str:
+    """
+    Format volume strings.
+    """
     match = re.search(_REGEX_VOLUMES, string)
 
     if match:
@@ -32,26 +35,44 @@ def fix_volumes(string: str) -> str:
 
 
 def has_mismatched_square_brackets(string: str) -> bool:
+    """
+    Return if a string has mismatched square brackets.
+    """
     return _has_mismatched(string, '[', ']')
 
 
 def has_mismatched_parentheses(string: str) -> bool:
+    """
+    Return if a string has mismatched parentheses.
+    """
     return _has_mismatched(string, '(', ')')
 
 
 def has_mismatched_quotes(string: str) -> bool:
+    """
+    Return if a string has mismatched quotes.
+    """
     return Counter(string)['"'] % 2 != 0
 
 
 def fix_mismatched_square_brackets(string: str) -> str:
+    """
+    Fix mismatched squared brackets in a string.
+    """
     return _fix_mismatched(string, '[', ']', _REGEX_SQUARE_BRACKETS)
 
 
 def fix_mismatched_parentheses(string: str) -> str:
+    """
+    Fix mismatched parentheses in a string.
+    """
     return _fix_mismatched(string, '(', ')', _REGEX_PARENTHESES)
 
 
 def fix_mismatched_quotes(string: str) -> str:
+    """
+    Fix mismatched quotes in a string.
+    """
     match = re.search(_REGEX_QUOTES, string)
 
     if match:
@@ -63,10 +84,18 @@ def fix_mismatched_quotes(string: str) -> str:
 
 
 def convert_to_python_string(string: str) -> str:
+    """
+    Convert a string to a python string value by escaping quotes (if any).
+    @param string: 'mc's'
+    @return: 'mc\'s'
+    """
     return string.replace("'", "\\'")
 
 
 def remove_punctuation_symbols(string_: str, punctuation_symbols: list = None) -> str:
+    """
+    Remove a list of punctuation symbols in a string (if any).
+    """
     clean_string = string_
 
     if not punctuation_symbols:
@@ -79,6 +108,12 @@ def remove_punctuation_symbols(string_: str, punctuation_symbols: list = None) -
 
 
 def replace_word(word: str, string: str) -> str:
+    """
+    Replace a word in a string (if any).
+    @param word: "bob Foobar"
+    @param string: 'BoB'
+    @return: 'BoB Foobar'
+    """
     match = re.search(rf"\b{word}\b", string, re.IGNORECASE)
 
     if match:
