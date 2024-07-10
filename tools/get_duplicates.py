@@ -1,4 +1,11 @@
 #!/usr/bin/env python3
+
+"""
+Get CSV file duplicated (and possible duplicate) entries.
+
+Output: Duplicates file.
+"""
+
 import difflib
 import signal
 from collections import defaultdict
@@ -104,11 +111,6 @@ def _write_output_file(duplicates: list, similars: list) -> None:
 
 
 if __name__ == '__main__':
-    """
-    Get CSV file duplicated (and possible duplicate) entries.
-
-    Output: Duplicates file.
-    """
     signal.signal(signal.SIGINT, handle_sigint)
     clear_screen()
     print(f"{LOOKING_FOR_DUPLICATES_IN} '{CSV_FILE}'...")

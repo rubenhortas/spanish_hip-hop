@@ -13,6 +13,22 @@ _OUTPUT_FILE = os.path.join(os.path.abspath(''), 'config', 'exceptions.py')
 
 
 def regenerate_exceptions_dictionary() -> None:
+    """
+    Removes duplicates from the 'EXCEPTIONS' exception dictionary (file /config/exceptions.py)
+    and sorts the dictionary alphabetically.
+
+    Dictionary format: 'key': 'value',
+        EXCEPTIONS = {
+            'foo': 'fOo',
+            'bar': 'BaR',
+        }
+
+        * 'key': The lowercase word.
+        * 'value': The value to which the word be transformed in the titles.
+            - Setting a format exception is used to preserve uppercase, lowercase, special words, etc.,
+              for example: 'f0o BaR the album'.
+            - Exceptions will *not* be applied to artist names.
+    """
     print(f"{GENERATING_NEW} '{_OUTPUT_FILE}'...")
 
     exceptions = _get_exceptions()
@@ -52,22 +68,6 @@ def _write_output_file(exceptions: dict) -> None:
 
 
 if __name__ == '__main__':
-    """
-    Removes duplicates from the 'EXCEPTIONS' exception dictionary (file /config/exceptions.py) 
-    and sorts the dictionary alphabetically.
-
-    Dictionary format: 'key': 'value',
-        EXCEPTIONS = {
-            'foo': 'fOo',
-            'bar': 'BaR',
-        }
-    
-        * 'key': The lowercase word.
-        * 'value': The value to which the word be transformed in the titles.
-            - Setting a format exception is used to preserve uppercase, lowercase, special words, etc., 
-              for example: 'f0o BaR the album'.
-            - Exceptions will *not* be applied to artist names.
-    """
     signal.signal(signal.SIGINT, handle_sigint)
 
     regenerate_exceptions_dictionary()

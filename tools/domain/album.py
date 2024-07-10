@@ -158,9 +158,6 @@ class Album:
                 self.notes]
 
     def has_preserver(self) -> bool:
-        """
-        Returns if the album has been preserved by someone.
-        """
         return self.preserver != '' and self.preserver != CSV_EMPTY_FIELD_VALUE
 
     @staticmethod

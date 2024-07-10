@@ -1,4 +1,13 @@
 #!/usr/bin/env python3
+
+"""
+Format CSV file.
+
+Output:
+    - Formatted CSV file
+    - Errors CSV file
+"""
+
 import signal
 
 from tqdm import tqdm
@@ -58,13 +67,6 @@ def _write_error_file(errors: list) -> None:
 
 
 if __name__ == '__main__':
-    """
-    Format CSV file.
-
-    Output:
-     - Formatted CSV file
-     - Errors CSV file
-    """
     signal.signal(signal.SIGINT, handle_sigint)
     clear_screen()
     print(f"{FORMATTING} '{CSV_FILE}'...")
