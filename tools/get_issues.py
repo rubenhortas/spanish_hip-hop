@@ -1,23 +1,4 @@
 #!/usr/bin/env python3
-
-"""
-Get CSV file issues:
-    - Lines with wrong fields number
-    - Lines with mismatched parentheses
-    - Lines with mismatched square brackets
-    - Lines with mismatched quotes
-    - Lines with possible publication date on title but not on its field
-    - Lines with possible album format on title but not on its field
-
-Output:
-    - File with lines with wrong fields number
-    - File with lines with mismatched parentheses
-    - File with lines with mismatched square brackets
-    - File with lines with mismatched quotes
-    - File with lines with possible publication date on title but not on its field
-    - File with lines with possible album format on title but not on its field
-"""
-
 import re
 import signal
 
@@ -35,7 +16,6 @@ _MISMATCHED_SQUARE_BRACKETS_FILE = f"{CSV_FILE[:-4]}-{ERRORS.lower()}-{MISMATCHE
 _MISMATCHED_QUOTES_FILE = f"{CSV_FILE[:-4]}-{ERRORS.lower()}-{MISMATCHED_QUOTES.lower()}.csv"
 _POSSIBLE_PUBLICATION_DATE = f"{CSV_FILE[:-4]}-{IMPROVEMENTS.lower()}-{POSSIBLE_PUBLICATION_DATE_IN_TITLE.lower()}.csv"
 _POSSIBLE_ALBUM_FORMAT = f"{CSV_FILE[:-4]}-{IMPROVEMENTS.lower()}-{POSSIBLE_ALBUM_FORMAT_IN_TITLE.lower()}.csv"
-
 _REGEX_YEAR = r'.*\d{4}.*'
 
 
@@ -130,6 +110,23 @@ def _has_possible_album_format(line: list) -> bool:
 
 
 if __name__ == '__main__':
+    """
+    Get CSV file issues:
+        - Lines with wrong fields number
+        - Lines with mismatched parentheses
+        - Lines with mismatched square brackets
+        - Lines with mismatched quotes
+        - Lines with possible publication date on title but not on its field
+        - Lines with possible album format on title but not on its field
+
+    Output:
+        - File with lines with wrong fields number
+        - File with lines with mismatched parentheses
+        - File with lines with mismatched square brackets
+        - File with lines with mismatched quotes
+        - File with lines with possible publication date on title but not on its field
+        - File with lines with possible album format on title but not on its field
+    """
     signal.signal(signal.SIGINT, handle_sigint)
     clear_screen()
     print(f"{SEARCHING_FOR_LINES_WITH_PROBLEMS_IN} '{CSV_FILE}'...")

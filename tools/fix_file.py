@@ -1,12 +1,4 @@
 #!/usr/bin/env python3
-
-"""
-Fix many errors on the original CSV file:
- - Remove foreign artists
- - Remove double spaces
- - Remove "desconocidos"
-"""
-
 import os
 import signal
 
@@ -62,6 +54,12 @@ def _fix(lines: list, fields_num: int) -> (list, list):
 
 
 if __name__ == '__main__':
+    """
+    Fix many errors on the original CSV file:
+     - Remove foreign artists
+     - Remove double spaces
+     - Remove "desconocidos"
+    """
     signal.signal(signal.SIGINT, handle_sigint)
     clear_screen()
     print(f"{FIXING} '{CSV_FILE}'...")
