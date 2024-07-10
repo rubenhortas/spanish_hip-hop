@@ -19,15 +19,15 @@ _ERROR_FILE = f"{CSV_FILE[:-4]}-{ERRORS.lower()}-{WRONG_FIELDS_NUMBER}.csv"
 def _format_file(lines: list) -> None:
     print(f"{GENERATING} '{_OUTPUT_FILE}'...")
 
-    formatted_lines, wrong_lines = _get_formatted_lines(lines, len(CSV_HEADER))
+    formatted_lines, wrong_field_numbers_lines = _get_formatted_lines(lines, len(CSV_HEADER))
 
     _write_output_file(formatted_lines)
-    _write_error_file(wrong_lines)
+    _write_error_file(wrong_field_numbers_lines)
 
 
 def _get_formatted_lines(lines: list, fields_number: int) -> (list, list):
     albums = []
-    wrong_lines = []
+    wrong_fields_number_lines = []
 
     print(f"{FORMATTING_LINES}...")
 
@@ -36,11 +36,11 @@ def _get_formatted_lines(lines: list, fields_number: int) -> (list, list):
             try:
                 albums.append(Album(line, fields_number).list())
             except WrongFieldsNumberException:
-                wrong_lines.append(line)
+                wrong_fields_number_lines.append(line)
 
     print()
 
-    return sorted(albums), wrong_lines
+    return sorted(albums), wrong_fields_number_lines
 
 
 def _write_output_file(albums: list) -> None:
