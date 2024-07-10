@@ -85,8 +85,8 @@ if __name__ == '__main__':
     """
     Updates the artist name translation dictionary 'ARTISTS' (file '/config/artists.py').
     Combines the artist names from the 'ARTISTS' dictionary (file '/config/artists.py') with the artist names 
-    from the albums in the albums file (the CSV file).
-    The resulting dictionary will be free of duplicates and alphabetically sorted.
+    from the albums in the CSV file.
+    The resulting dictionary will be free of duplicates and sorted alphabetically.
 
     Dictionary format: 'key': 'value',
         ARTISTS = {
@@ -101,7 +101,6 @@ if __name__ == '__main__':
             - When formatting the name exceptions defined in the EXCEPTIONS dictionary (file '/config/exceptions.py') 
               will *not* be applied to the artist.
     """
-
     signal.signal(signal.SIGINT, handle_sigint)
 
     lines = read_csv_file(_INPUT_FILE)[1:]

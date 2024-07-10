@@ -66,7 +66,7 @@ if __name__ == '__main__':
         * 'value': The value to which the word be transformed in the titles.
             - Setting a format exception is used to preserve uppercase, lowercase, special words, etc., 
               for example: 'f0o BaR the album'.
-            - Exceptions will *not* apply to artist names.
+            - Exceptions will *not* be applied to artist names.
     """
     signal.signal(signal.SIGINT, handle_sigint)
 
