@@ -32,6 +32,9 @@ def _do_file_operation(func: Callable) -> Callable:
 
 @_do_file_operation
 def read_csv_file(file: str) -> list:
+    """
+    Read a CSV file.
+    """
     with open(file, mode='r', newline='', encoding='utf-8') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=CSV_DELIMITER, quotechar='"', quoting=csv.QUOTE_ALL)
         return list(csv_reader)
@@ -39,6 +42,9 @@ def read_csv_file(file: str) -> list:
 
 @_do_file_operation
 def write_csv_file(file: str, rows: list) -> None:
+    """
+    Write a list of rows (or lines) in a CSV file.
+    """
     with open(file, mode='w', newline='', encoding='utf-8') as csv_file:
         csv_writer = csv.writer(csv_file, delimiter=CSV_DELIMITER, quotechar='"', quoting=csv.QUOTE_ALL)
 
@@ -48,17 +54,28 @@ def write_csv_file(file: str, rows: list) -> None:
 
 @_do_file_operation
 def read_file(file: str) -> list:
+    """
+    Read a file.
+    """
     with open(file, 'r', encoding='utf-8') as f:
         return f.readlines()
 
 
 @_do_file_operation
 def write_file(file: str, lines: list) -> None:
+    """
+    Write a list of lines (or rows) in a file.
+    """
     with open(file, 'w', encoding='utf-8') as f:
         f.writelines(lines)
 
 
 @_do_file_operation
 def backup(file: str) -> None:
+    """
+    Backup a file.
+    @param file: 'foo.bar'
+    @return: 'foo_20241201240001.bar'
+    """
     timestamp = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
     shutil.copy(file, f"{file}_{timestamp}.bkp")
