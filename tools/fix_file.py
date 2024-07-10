@@ -1,4 +1,11 @@
 #!/usr/bin/env python3
+
+"""
+Fix many errors on the original CSV file:
+ - Remove foreign artists
+ - Remove double spaces
+ - Remove "desconocidos"
+"""
 import os
 import signal
 
