@@ -10,12 +10,12 @@ Get CSV file issues:
     - Lines with possible album format on title but not on its field
 
 Output:
-    - File with lines with wrong fields number (if any)
-    - File with lines with mismatched parentheses (if any)
-    - File with lines with mismatched square brackets (if any)
-    - File with lines with mismatched quotes (if any)
-    - File with lines with possible publication date on title but not on its field (if any)
-    - File with lines with possible album format on title but not on its field (if any)
+    - CSV file with lines with wrong fields number (if any)
+    - CSV file with lines with mismatched parentheses (if any)
+    - CSV file with lines with mismatched square brackets (if any)
+    - CSV file with lines with mismatched quotes (if any)
+    - CSV file with lines with possible publication date on title but not on its field (if any)
+    - CSV file with lines with possible album format on title but not on its field (if any)
 """
 
 import re
