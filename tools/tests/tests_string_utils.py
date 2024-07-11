@@ -1,7 +1,7 @@
 import unittest
 
 from tools.utils.string_utils import fix_volumes, fix_mismatched_parentheses, fix_mismatched_square_brackets, \
-    has_mismatched_parentheses, has_mismatched_square_brackets, has_mismatched_quotes, fix_mismatched_quotes, remove_punctuation_symbols, is_acronym
+    has_mismatched_parentheses, has_mismatched_square_brackets, has_mismatched_quotes, fix_mismatched_quotes, delete_punctuation_symbols, is_acronym
 
 
 class TestStringUtils(unittest.TestCase):
@@ -124,9 +124,9 @@ class TestStringUtils(unittest.TestCase):
         for string, expected_result in self.mismatched_quotes:
             self.assertEqual(expected_result, fix_mismatched_quotes(string))
 
-    def test_remove_punctuation_symbols(self):
+    def test_delete_punctuation_symbols(self):
         for string, symbols, expected_result in self.punctuation_symbols:
-            self.assertEqual(expected_result, remove_punctuation_symbols(string, symbols))
+            self.assertEqual(expected_result, delete_punctuation_symbols(string, symbols))
 
     def test_acronyms(self):
         for string, expected_result in self.acronyms:

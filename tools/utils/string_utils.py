@@ -12,7 +12,7 @@ _REGEX_ACRONYMS = re.compile(r'^([a-z][.-])+[a-z]?$', re.IGNORECASE)
 
 def fix_volumes(string: str) -> str:
     """
-    Formats volume strings.
+    Formats volume strings:
         - 'vol?.?1' -> 'Vol. 1'
         - 'vol.01' -> 'Vol. 01'
         - 'vol.1' -> 'Vol. 1'
@@ -86,9 +86,9 @@ def convert_to_python_string(string: str) -> str:
     return string.replace("'", "\\'")
 
 
-def remove_punctuation_symbols(string_: str, punctuation_symbols: list = None) -> str:
+def delete_punctuation_symbols(string_: str, punctuation_symbols: list = None) -> str:
     """
-    Removes a list of punctuation symbols from a string (if any).
+    Deletes a list of punctuation symbols from a string (if any).
     """
     clean_string = string_
 

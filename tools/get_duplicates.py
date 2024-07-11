@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
 """
-Get CSV file duplicated (and possible duplicate) entries.
+Gets duplicates (and possible duplicates) entries of the CSV file.
 
-Output: Duplicates file.
+Output: CSV file with duplicates (and possible duplicates).
 """
 
 import difflib
@@ -16,7 +16,7 @@ from tools.config.config import CSV_FILE, CsvPosition, CSV_DELIMITER
 from tools.crosscutting.strings import DONE, DUPLICATES, NO_DUPLICATES_FOUND, LOOKING_FOR_DUPLICATES_IN, SIMILARS
 from tools.helpers.file_helpers import write_file, read_csv_file
 from tools.helpers.os_helpers import handle_sigint, clear_screen
-from tools.utils.string_utils import remove_punctuation_symbols
+from tools.utils.string_utils import delete_punctuation_symbols
 
 _OUTPUT_FILE = f"{CSV_FILE[:-4]}-{DUPLICATES.lower()}.txt"
 _MATCH_THRESHOLD = 0.9  # Seems a reasonable threshold
@@ -34,7 +34,7 @@ class Line:
     def _set_hash(self, csv_line: list) -> None:
         string_ = f"{csv_line[CsvPosition.ARTIST.value]}{csv_line[CsvPosition.TITLE.value]}"
         string_ = string_.replace(' ', '')
-        self.hash = remove_punctuation_symbols(string_).lower()
+        self.hash = delete_punctuation_symbols(string_).lower()
 
     def _set_info(self, csv_line: list) -> None:
         self.info = f"'{csv_line[CsvPosition.ID.value]}{CSV_DELIMITER}{csv_line[CsvPosition.ARTIST.value]}{CSV_DELIMITER}{csv_line[CsvPosition.TITLE.value]}{CSV_DELIMITER}...'"

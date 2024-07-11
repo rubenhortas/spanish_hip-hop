@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 
 """
-Format CSV file.
+Formats the CSV file.
 
 Output:
-    - Formatted CSV file
-    - Errors CSV file
+    - New CSV file formatted
+    - CSV file with errors
 """
 
 import signal

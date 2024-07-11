@@ -6,7 +6,7 @@ from tools.config.config import CSV_DELIMITER, CsvPosition, CSV_EMPTY_FIELD_VALU
 from tools.config.exceptions import EXCEPTIONS
 from tools.utils.string_utils import fix_volumes, fix_mismatched_square_brackets, \
     fix_mismatched_parentheses, fix_mismatched_quotes, replace_word, has_mismatched_square_brackets, \
-    has_mismatched_parentheses, has_mismatched_quotes, remove_punctuation_symbols, is_acronym
+    has_mismatched_parentheses, has_mismatched_quotes, delete_punctuation_symbols, is_acronym
 
 
 class WrongFieldsNumberException(Exception):
@@ -120,7 +120,7 @@ class Album:
         @return: ['Bob', 'Alice']
         """
         artists = []
-        album_artist = remove_punctuation_symbols(artist, ['(', ')', '[', ']'])
+        album_artist = delete_punctuation_symbols(artist, ['(', ')', '[', ']'])
         album_artist = album_artist.replace(',', ' , ')
         delimiters = Album._get_artists_delimiters(album_artist)
 
@@ -257,7 +257,7 @@ class Album:
         words = string_.split()
 
         for word in words:
-            key = remove_punctuation_symbols(word, [',', '"', '(', ')', '[', ']']).lower()
+            key = delete_punctuation_symbols(word, [',', '"', '(', ')', '[', ']']).lower()
 
             if key in EXCEPTIONS:
                 word_ = word.replace(key, EXCEPTIONS[key])

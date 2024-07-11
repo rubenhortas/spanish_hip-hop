@@ -3,7 +3,7 @@ from tools.utils.string_utils import convert_to_python_string
 
 def create_python_dictionary(name: str, dictionary: dict) -> list:
     """
-    Create a string that represents a python dictionary from a python dictionary value type.
+    Creates a string that represents a python dictionary from a python dictionary value type.
     @param name: 'foo_dict'
     @param dictionary: 'bar_dict = { 'bob': 'Bob', 'alice': 'Alice' }
     @return:

@@ -3,13 +3,13 @@
 """
 Fixes many errors on the original CSV file:
     - Removes foreign artists
-    - Removes double spaces
-    - Removes "desconocidos"
+    - Deletes double spaces
+    - Deletes "desconocidos"
 
  Output:
-    - File with fixed lines
-    - File with lines with wrong field numbers
-    - File with foreign artists
+    - CSV file with fixed lines
+    - CSV file with lines with wrong field numbers
+    - CSV file with foreign artists
 """
 
 import os
