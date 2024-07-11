@@ -10,12 +10,12 @@ Get CSV file issues:
     - Lines with possible album format on title but not on its field
 
 Output:
-    - File with lines with wrong fields number
-    - File with lines with mismatched parentheses
-    - File with lines with mismatched square brackets
-    - File with lines with mismatched quotes
-    - File with lines with possible publication date on title but not on its field
-    - File with lines with possible album format on title but not on its field
+    - File with lines with wrong fields number (if any)
+    - File with lines with mismatched parentheses (if any)
+    - File with lines with mismatched square brackets (if any)
+    - File with lines with mismatched quotes (if any)
+    - File with lines with possible publication date on title but not on its field (if any)
+    - File with lines with possible album format on title but not on its field (if any)
 """
 
 import re
@@ -121,8 +121,8 @@ def _has_possible_album_format(line: list) -> bool:
     album_format = line[CsvPosition.FORMAT.value]
 
     if album_format == '' or album_format == CSV_EMPTY_FIELD_VALUE:
-        for format in ALBUM_FORMATS:
-            if format in line[CsvPosition.ARTIST.value]:
+        for album_format in ALBUM_FORMATS:
+            if album_format in line[CsvPosition.ARTIST.value]:
                 return True
 
     return False
