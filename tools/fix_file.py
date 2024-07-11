@@ -8,8 +8,8 @@ Fixes many errors on the original CSV file:
 
  Output:
     - CSV file with fixed lines
-    - CSV file with lines with wrong field numbers
-    - CSV file with foreign artists
+    - CSV file with lines with wrong field numbers (if any)
+    - CSV file with foreign artists (if any)
 """
 
 import os
