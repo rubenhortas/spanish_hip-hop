@@ -1,14 +1,6 @@
 from enum import Enum
 
-# User configs
-ALBUM_FORMATS = ['Directo', 'Doble LP', 'EP', 'LP', 'Maqueta', 'Maxi Single', 'Mixtape', 'Promo', 'Recopilatorio',
-                 'Single']
-CSV_FILE = 'Spanish hip-hop list - Lista de trabajos.csv'
-CSV_HEADER = ['Referencia', 'Artista', 'Trabajo', 'Fecha Publicación', 'Tipo', 'Medio', 'Preservado en digital',
-              'Formato digital', 'Bitrate', 'Preservado por', 'Fecha preservado', 'Fecha modificado', 'Fuente',
-              'Visto online', 'Notas']
-CSV_DELIMITER = ','
-CSV_EMPTY_FIELD_VALUE = '-'
+## Format config
 
 # Fix mismatched parentheses
 # 'Album (instrumentals' -> 'Album (instrumentals)'
@@ -50,8 +42,15 @@ CAPITALIZE_ACRONYMS = True  # True/False
 REPLACE_ARTISTS_IN_TITLES = True  # True/False
 
 
-# Application configs.
-# DO NOT MODIFY.
+# CSV config
+ALBUM_FORMATS = ['Directo', 'Doble LP', 'EP', 'LP', 'Maqueta', 'Maxi Single', 'Mixtape', 'Promo', 'Recopilatorio',
+                 'Single']
+CSV_FILE = 'Spanish hip-hop list - Lista de trabajos.csv'
+CSV_HEADER = ['Referencia', 'Artista', 'Trabajo', 'Fecha Publicación', 'Tipo', 'Medio', 'Preservado en digital',
+              'Formato digital', 'Bitrate', 'Preservado por', 'Fecha preservado', 'Fecha modificado', 'Fuente',
+              'Visto online', 'Notas']
+CSV_DELIMITER = ','
+CSV_EMPTY_FIELD_VALUE = '-'
 
 class CsvPosition(Enum):
     ID = 0  # referencia
