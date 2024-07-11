@@ -3,7 +3,7 @@
 """
 Gets duplicates (and possible duplicates) entries of the CSV file.
 
-Output: CSV file with duplicates (and possible duplicates).
+Output: CSV file with duplicates (and possible duplicates), if any.
 """
 
 import difflib
@@ -76,8 +76,8 @@ def _get_duplicates(csv_lines: list) -> (list, list):
     return [*duplicates.items()], [*similar.items()]
 
 
-def _write_output_file(duplicates: list, similars: list) -> None:
-    if duplicates or similars:
+def _write_output_file(duplicates: list, similar: list) -> None:
+    if duplicates or similar:
         result = []
 
         if duplicates:
@@ -93,10 +93,10 @@ def _write_output_file(duplicates: list, similars: list) -> None:
 
             result.append('\n')
 
-        if similars:
+        if similar:
             result.append(f"{SIMILARS}:\n\n")
 
-            for similar in similars:
+            for similar in similar:
                 line = f"* {similar[0]}:"
 
                 for similar_ in similar[1]:
