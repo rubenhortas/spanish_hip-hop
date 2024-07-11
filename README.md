@@ -7,7 +7,7 @@
 ## ¿Qué pretendemos?
 
 * Realizar una lista de todos los trabajos musicales de Hip-Hop español tanto en formato profesional como no profesional (LPs, maquetas, mixtapes, etc).
-* De cada trabajo, al menos, obtener: Artista, fecha de publicación y tipo de trabajo (LP/Maqueta/...).
+* De cada trabajo, al menos, obtener: Artista, fecha de publicación y tipo de trabajo (LP, Maqueta...).
 
 ## ¿Por qué?
 
@@ -26,7 +26,7 @@ Se recopilan los datos en un archivo `.csv`: [lista trabajos hip-hop español.cs
 
 ## ¿Cómo colaborar?
 
-* Date de alta en github y edita directamente el archivo [lista trabajos hip-hop español.csv](https://github.com/ctRl-ES/spanish_hip-hop/edit/master/lista%20trabajos%20hip-hop%20espa%C3%B1ol.csv).
+* Date de alta en [github](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home) y edita directamente el archivo [lista trabajos hip-hop español.csv](https://github.com/ctRl-ES/spanish_hip-hop/edit/master/lista%20trabajos%20hip-hop%20espa%C3%B1ol.csv).
   * Añade nuevos trabajos al archivo [lista trabajos hip-hop español.csv](https://github.com/ctRl-ES/spanish_hip-hop/edit/master/lista%20trabajos%20hip-hop%20espa%C3%B1ol.csv).
   * Corrige, o avísanos, errores y duplicados en el archivo [lista trabajos hip-hop español.csv](https://github.com/ctRl-ES/spanish_hip-hop/edit/master/lista%20trabajos%20hip-hop%20espa%C3%B1ol.csv).
 * Avísanos de discos que falten en el fichero [lista trabajos hip-hop español.csv](https://github.com/ctRl-ES/spanish_hip-hop/edit/master/lista%20trabajos%20hip-hop%20espa%C3%B1ol.csv)
@@ -40,15 +40,15 @@ Se recopilan los datos en un archivo `.csv`: [lista trabajos hip-hop español.cs
 
 Sitúate en la carpeta en la que tengas tus discos de rap en español, abre una `cmd` y ejecuta:
 
-`dir /s /b /a:d > _mi_lista_rap_espanol.txt`
+`dir /s /b /a:d > mi_lista_rap_espanol.txt`
 
 ### GNU/Linux
 
 Abre una terminal, navega hasta el direcrtorio en el el que tengas tus discos de rap en español y ejecuta:
 
-`find . -type d > _mi_lista_rap_espanol.txt`
+`find . -type d > mi_lista_rap_espanol.txt`
 
-Se generará el fichero `_mi_lista_rap_espanol.txt` con la lista de tus discos.
+Se generará el fichero `mi_lista_rap_espanol.txt` con la lista de tus discos.
 
 ## ¿Qué licencia tiene este proyecto?
 
