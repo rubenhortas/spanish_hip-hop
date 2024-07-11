@@ -3,7 +3,8 @@
 """
 Gets duplicates (and possible duplicates) entries of the CSV file.
 
-Output: CSV file with duplicates (and possible duplicates), if any.
+Output:
+    - CSV file with duplicates and possible duplicates (if any).
 """
 
 import difflib
