@@ -112,11 +112,11 @@ En este fichero se configuran las opciones releativas al fichero CSV, opciones r
 
 Diccionario de traducción de nombres de artista.
 
-Establecer el valor de nombre para un artista sirve para preservar mayúsculas, minúsculas, palabras especiales, etc. 
-Por ejemplo: `'bob': 'BoB'` hará que cada vez que se encuentre "bob" como nombre de artista (ignorando mayúsculas y minúsculas) sea convertido a "BoB". 
+Establecer el valor de nombre para un artista sirve para preservar mayúsculas, minúsculas, palabras especiales, etc.   
+Por ejemplo: `'alice': 'ALiCe',` hará que cada vez que se encuentre "*alice*" como nombre de artista (ignorando mayúsculas y minúsculas) sea convertido a "*ALiCe*".  
 Las excepciones definidas en el diccionario `EXCEPTIONS` del fichero `/config/exceptions.py` no serán aplicadas al formateo de  los nombres de los artistas.
 
-El formato del diccionario `ARTISTS` es 'clave': 'valor':
+El formato del diccionario `ARTISTS` es `'clave': 'valor'`:
 
   * 'clave': Nombre del artista en minúsculas
   * 'valor': Nombre al que será transformado el nombre de artista de la clave.
@@ -124,7 +124,8 @@ El formato del diccionario `ARTISTS` es 'clave': 'valor':
 
 ```python
 ARTISTS = {
-    'bob the foobar': 'Bob The Foobar',  # 'clave': 'valor'
+    'alice':'ALiCe',  # 'clave': 'valor'
+    'bob the foobar': 'Bob The Foobar',
 }
 ```
 
@@ -132,11 +133,11 @@ ARTISTS = {
 
 Diccionario de conversión de excepciones de palabras.
 
-Establecer excepciones sirve para conservar mayúsculas, minúsculas, palabras especiales, etc.
-Por ejemplo: `'foobar': 'FooBaR'` hará que cada vez que se encuentre la palabra "foobar" (ignorando las mayúsculas y las minúsculas), en el título de un álbum, sea transformada a "FooBaR".
-Las excepciones del diccionario `EXCEPTIONS` *NO* serán aplicadas a los transformaciones de los nombres de los artistas.
+Establecer excepciones sirve para conservar mayúsculas, minúsculas, palabras especiales, etc.  
+Por ejemplo: `'foobar': 'FooBaR'` hará que cada vez que se encuentre la palabra "*foobar*" (ignorando las mayúsculas y las minúsculas), en el título de un álbum, sea transformada a "*FooBaR*".  
+Las excepciones del diccionario `EXCEPTIONS` **NO** serán aplicadas a los transformaciones de los nombres de los artistas.
 
-El formato del diccionario `EXCEPTIONS` es 'clave': 'valor':
+El formato del diccionario `EXCEPTIONS` es `'clave': 'valor'`:
   * 'clave': La palabra en minúsculas
   * 'valor': El valor al que será transformada la palabra.
 
