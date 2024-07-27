@@ -1,6 +1,6 @@
 from enum import Enum
 
-## Format config
+# Format config
 
 # Fix mismatched parentheses
 # 'Album (instrumentals' -> 'Album (instrumentals)'
@@ -41,7 +41,6 @@ CAPITALIZE_ACRONYMS = True  # True/False
 # '"alice", "beef with bob mc"' -> '"Alice", "Beef with BoB MC"'
 REPLACE_ARTISTS_IN_TITLES = True  # True/False
 
-
 # CSV config
 ALBUM_FORMATS = ['Directo', 'Doble LP', 'EP', 'LP', 'Maqueta', 'Maxi Single', 'Mixtape', 'Promo', 'Recopilatorio',
                  'Single']
@@ -51,6 +50,7 @@ CSV_HEADER = ['Referencia', 'Artista', 'Trabajo', 'Fecha Publicación', 'Tipo', 
               'Visto online', 'Notas']
 CSV_DELIMITER = ','
 CSV_EMPTY_FIELD_VALUE = '-'
+
 
 class CsvPosition(Enum):
     ID = 0  # referencia
