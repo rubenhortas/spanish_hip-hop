@@ -15,6 +15,10 @@ Para conseguir una versión actualizada del fichero contacta con [@ctRl](https:/
   * GNU/Linux: `export PYTHONPATH=/path/to/spanish_hip-hop`
   * Windows: [https://stackoverflow.com/a/4855685](https://stackoverflow.com/a/4855685) 
 
+* Instala las dependencias del fichero `requirements.txt`
+
+`pip install -r /path/to/requirements.txt`
+
 Coloca el el fichero `lista trabajos hip-hop español.csv` en el directorio de los scripts y ejecuta el script escogido.
 
 ## ¿Para qué sirven estas herramientas?
