@@ -1,4 +1,4 @@
-# tools
+#tools
 
 ## ¿Qué son estas herramientas?
 
@@ -9,6 +9,11 @@ Estas herramientas son pequeños scripts en python para mantener el  fichero [li
 Para conseguir una versión actualizada del fichero contacta con [@ctRl](https://github.com/ctRl-ES/).
 
 ## ¿Cómo se utilizan estas herramientas?
+
+* Añade el directorio de `spanish_hip-hop` a la variable de entorno PYTHONPATH
+
+  * GNU/Linux: `export PYTHONPATH=/path/to/spanish_hip-hop`
+  * Windows: [https://stackoverflow.com/a/4855685](https://stackoverflow.com/a/4855685) 
 
 Coloca el el fichero `lista trabajos hip-hop español.csv` en el directorio de los scripts y ejecuta el script escogido.
 
