@@ -23,17 +23,10 @@ class TestGetDuplicates(unittest.TestCase):
             line7
         ]
 
-        expected_duplicates_line1 = Line(line1)
-        expected_duplicates_line1.similar.append(Line(line2))
-
-        expected_duplicates_line2 = Line(line3)
-        expected_duplicates_line2.duplicates.append(Line(line4))
-        expected_duplicates_line2.similar.append(Line(line6))
-
-        self.expected_duplicates = [
-            expected_duplicates_line1,
-            expected_duplicates_line2
-        ]
+        self.expected_duplicates = (
+            [("'3,Bob,Title,...'", ["'4,Bob,Title@?!$,...'"])],
+            [("'1,Bob,Title vol.1,...'", ["'2,Bob,Title vol.2,...'"]), ("'3,Bob,Title,...'", ["'6,Bob,T.i.t.l.@,...'"])]
+        )
 
     def test_get_duplicates(self):
         self.assertEqual(self.expected_duplicates, _get_duplicates(self.lines))
