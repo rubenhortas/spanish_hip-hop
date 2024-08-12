@@ -4,8 +4,8 @@ import shutil
 from functools import wraps
 from typing import Callable
 
-from tools.config.config import CSV_DELIMITER
-from tools.crosscutting.strings import NO_SUCH_FILE_OR_DIRECTORY, PERMISSION_DENIED
+from config.config import CSV_DELIMITER
+from crosscutting.strings import NO_SUCH_FILE_OR_DIRECTORY, PERMISSION_DENIED
 
 
 def _do_file_operation(func: Callable) -> Callable:

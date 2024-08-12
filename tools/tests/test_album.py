@@ -1,7 +1,6 @@
-from tools.config.config import CsvPosition, CSV_EMPTY_FIELD_VALUE
-from tools.domain.album import WrongFieldsNumberException
-from tools.format_file import Album
-from tools.tests.test_csv_file import TestCsv
+from config.config import CsvPosition, CSV_EMPTY_FIELD_VALUE
+from domain.album import WrongFieldsNumberException, Album
+from tests.test_csv_file import TestCsv
 
 
 class TestAlbum(TestCsv):

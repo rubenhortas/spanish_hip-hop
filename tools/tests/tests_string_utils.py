@@ -1,6 +1,6 @@
 import unittest
 
-from tools.utils.string_utils import fix_volumes, fix_mismatched_parentheses, fix_mismatched_square_brackets, \
+from utils.string_utils import fix_volumes, fix_mismatched_parentheses, fix_mismatched_square_brackets, \
     has_mismatched_parentheses, has_mismatched_square_brackets, has_mismatched_quotes, fix_mismatched_quotes, delete_punctuation_symbols, is_acronym
 
 

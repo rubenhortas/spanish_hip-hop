@@ -12,14 +12,14 @@ import signal
 
 from tqdm import tqdm
 
-from tools.config.config import CSV_FILE, CSV_HEADER
-from tools.crosscutting.strings import FORMATTING_LINES, GENERATING, DONE, FORMATTED, ERRORS, WRONG_FIELDS_NUMBER, \
+from config.config import CSV_FILE, CSV_HEADER
+from crosscutting.strings import FORMATTING_LINES, GENERATING, DONE, FORMATTED, ERRORS, WRONG_FIELDS_NUMBER, \
     FORMATTING
-from tools.domain.album import Album, WrongFieldsNumberException
-from tools.helpers.file_helpers import read_csv_file, write_csv_file
-from tools.helpers.os_helpers import handle_sigint, clear_screen
-from tools.regenerate_artists_dictionary import regenerate_artists_dictionary
-from tools.regenerate_exceptions_dictionary import regenerate_exceptions_dictionary
+from domain.album import Album, WrongFieldsNumberException
+from helpers.file_helpers import read_csv_file, write_csv_file
+from helpers.os_helpers import handle_sigint, clear_screen
+from regenerate_artists_dictionary import regenerate_artists_dictionary
+from regenerate_exceptions_dictionary import regenerate_exceptions_dictionary
 
 _OUTPUT_FILE = f"{CSV_FILE[:-4]}-{FORMATTED.lower()}.csv"
 _ERROR_FILE = f"{CSV_FILE[:-4]}-{ERRORS.lower()}-{WRONG_FIELDS_NUMBER}.csv"

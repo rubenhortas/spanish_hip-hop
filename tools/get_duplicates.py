@@ -13,11 +13,11 @@ from collections import defaultdict
 
 from tqdm import tqdm
 
-from tools.config.config import CSV_FILE, CsvPosition, CSV_DELIMITER
-from tools.crosscutting.strings import DONE, DUPLICATES, NO_DUPLICATES_FOUND, LOOKING_FOR_DUPLICATES_IN, SIMILARS
-from tools.helpers.file_helpers import write_file, read_csv_file
-from tools.helpers.os_helpers import handle_sigint, clear_screen
-from tools.utils.string_utils import delete_punctuation_symbols
+from config.config import CSV_FILE, CsvPosition, CSV_DELIMITER
+from crosscutting.strings import DONE, DUPLICATES, NO_DUPLICATES_FOUND, LOOKING_FOR_DUPLICATES_IN, SIMILARS
+from helpers.file_helpers import write_file, read_csv_file
+from helpers.os_helpers import handle_sigint, clear_screen
+from utils.string_utils import delete_punctuation_symbols
 
 _OUTPUT_FILE = f"{CSV_FILE[:-4]}-{DUPLICATES.lower()}.txt"
 _MATCH_THRESHOLD = 0.9  # Seems a reasonable threshold

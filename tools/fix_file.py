@@ -15,10 +15,10 @@ Fixes many errors on the original CSV file:
 import os
 import signal
 
-from tools.config.config import CSV_FILE, CsvPosition, CSV_HEADER, CSV_EMPTY_FIELD_VALUE
-from tools.crosscutting.strings import FIXING, DONE, FIXED, WRONG_FIELDS_NUMBER, FOREIGN_ARTISTS
-from tools.helpers.file_helpers import read_csv_file, write_csv_file
-from tools.helpers.os_helpers import handle_sigint, clear_screen
+from config.config import CSV_FILE, CsvPosition, CSV_HEADER, CSV_EMPTY_FIELD_VALUE
+from crosscutting.strings import FIXING, DONE, FIXED, WRONG_FIELDS_NUMBER, FOREIGN_ARTISTS
+from helpers.file_helpers import read_csv_file, write_csv_file
+from helpers.os_helpers import handle_sigint, clear_screen
 
 _INPUT_FILE = os.path.join(os.path.abspath(''), CSV_FILE)
 _OUTPUT_FILE = os.path.join(os.path.abspath(''), f"{CSV_FILE[:-4]}-{FIXED.lower()}.csv")

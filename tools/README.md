@@ -10,11 +10,6 @@ Para conseguir una versión actualizada del fichero contacta con [@ctRl](https:/
 
 ## ¿Cómo se utilizan estas herramientas?
 
-* Añade el directorio de `spanish_hip-hop` a la variable de entorno PYTHONPATH
-
-  * GNU/Linux: `export PYTHONPATH=/path/to/spanish_hip-hop`
-  * Windows: [https://stackoverflow.com/a/4855685](https://stackoverflow.com/a/4855685) 
-
 * Instala las dependencias del fichero `requirements.txt`
 
 `pip install -r /path/to/requirements.txt`

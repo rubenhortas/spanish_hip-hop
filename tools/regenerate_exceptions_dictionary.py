@@ -2,12 +2,12 @@
 import os
 import signal
 
-from tools.config.config import CSV_FILE, CsvPosition
-from tools.config.exceptions import EXCEPTIONS
-from tools.crosscutting.strings import GENERATING_NEW, DONE
-from tools.helpers.file_helpers import write_file, backup, read_csv_file
-from tools.helpers.os_helpers import handle_sigint
-from tools.utils.list_utils import create_python_dictionary
+from config.config import CSV_FILE, CsvPosition
+from config.exceptions import EXCEPTIONS
+from crosscutting.strings import GENERATING_NEW, DONE
+from helpers.file_helpers import write_file, backup, read_csv_file
+from helpers.os_helpers import handle_sigint
+from utils.list_utils import create_python_dictionary
 
 _OUTPUT_FILE = os.path.join(os.path.abspath(''), 'config', 'exceptions.py')
 

@@ -21,13 +21,13 @@ Output:
 import re
 import signal
 
-from tools.config.config import CSV_FILE, CSV_HEADER, CsvPosition, ALBUM_FORMATS, CSV_EMPTY_FIELD_VALUE
-from tools.crosscutting.strings import SEARCHING_FOR_LINES_WITH_PROBLEMS_IN, DONE, NO_PROBLEMS_FOUND, ERRORS, \
+from config.config import CSV_FILE, CSV_HEADER, CsvPosition, ALBUM_FORMATS, CSV_EMPTY_FIELD_VALUE
+from crosscutting.strings import SEARCHING_FOR_LINES_WITH_PROBLEMS_IN, DONE, NO_PROBLEMS_FOUND, ERRORS, \
     WRONG_FIELDS_NUMBER, MISMATCHED_PARENTHESES, MISMATCHED_SQUARE_BRACKETS, MISMATCHED_QUOTES, IMPROVEMENTS, \
     POSSIBLE_PUBLICATION_DATE_IN_TITLE, POSSIBLE_ALBUM_FORMAT_IN_TITLE
-from tools.helpers.file_helpers import read_csv_file, write_csv_file
-from tools.helpers.os_helpers import handle_sigint, clear_screen
-from tools.utils.string_utils import has_mismatched_parentheses, has_mismatched_square_brackets, has_mismatched_quotes
+from helpers.file_helpers import read_csv_file, write_csv_file
+from helpers.os_helpers import handle_sigint, clear_screen
+from utils.string_utils import has_mismatched_parentheses, has_mismatched_square_brackets, has_mismatched_quotes
 
 _WRONG_FIELDS_NUMBER = f"{CSV_FILE[:-4]}-{ERRORS.lower()}-{WRONG_FIELDS_NUMBER.lower()}.csv"
 _MISMATCHED_PARENTHESES_FILE = f"{CSV_FILE[:-4]}-{ERRORS.lower()}-{MISMATCHED_PARENTHESES.lower()}.csv"

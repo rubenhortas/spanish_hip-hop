@@ -1,7 +1,7 @@
 import os
 from types import FrameType
 
-from tools.crosscutting.strings import STOPPED
+from crosscutting.strings import STOPPED
 
 
 def handle_sigint(signal: int, frame: FrameType) -> None:

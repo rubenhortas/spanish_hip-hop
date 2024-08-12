@@ -2,13 +2,13 @@
 import os
 import signal
 
-from tools.config.artists import ARTISTS
-from tools.config.config import CSV_FILE, CsvPosition, CSV_EMPTY_FIELD_VALUE
-from tools.crosscutting.strings import GENERATING_NEW, DONE, PRESERVED_BY
-from tools.domain.album import Album
-from tools.helpers.file_helpers import write_file, read_csv_file, backup
-from tools.helpers.os_helpers import handle_sigint
-from tools.utils.list_utils import create_python_dictionary
+from config.artists import ARTISTS
+from config.config import CSV_FILE, CsvPosition, CSV_EMPTY_FIELD_VALUE
+from crosscutting.strings import GENERATING_NEW, DONE, PRESERVED_BY
+from domain.album import Album
+from helpers.file_helpers import write_file, read_csv_file, backup
+from helpers.os_helpers import handle_sigint
+from utils.list_utils import create_python_dictionary
 
 _INPUT_FILE = os.path.join(os.path.abspath(''), CSV_FILE)
 _OUTPUT_FILE = f"{os.path.join(os.path.abspath(''), 'config', 'artists.py')}"

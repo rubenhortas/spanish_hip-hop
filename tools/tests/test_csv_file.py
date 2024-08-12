@@ -1,6 +1,6 @@
 import unittest
 
-from tools.config.config import CsvPosition, CSV_HEADER
+from config.config import CsvPosition, CSV_HEADER
 
 
 class TestCsv(unittest.TestCase):

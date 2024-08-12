@@ -1,6 +1,6 @@
 import unittest
 
-from tools.get_duplicates import _get_duplicates, Line
+from get_duplicates import _get_duplicates, Line
 
 
 class TestGetDuplicates(unittest.TestCase):

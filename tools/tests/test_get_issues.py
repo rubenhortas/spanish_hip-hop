@@ -1,5 +1,5 @@
-from tools.get_issues import _get_issues
-from tools.tests.test_csv_file import TestCsv
+from get_issues import _get_issues
+from tests.test_csv_file import TestCsv
 
 
 class TestFindIssues(TestCsv):

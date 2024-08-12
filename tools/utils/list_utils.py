@@ -1,4 +1,4 @@
-from tools.utils.string_utils import convert_to_python_string
+from utils.string_utils import convert_to_python_string
 
 
 def create_python_dictionary(name: str, dictionary: dict) -> list:

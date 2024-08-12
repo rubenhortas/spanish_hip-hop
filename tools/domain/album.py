@@ -1,10 +1,10 @@
 import re
 
-from tools.config.artists import ARTISTS
-from tools.config.config import CSV_DELIMITER, CsvPosition, CSV_EMPTY_FIELD_VALUE, FIX_MISMATCHED_SQUARE_BRACKETS, \
+from config.artists import ARTISTS
+from config.config import CSV_DELIMITER, CsvPosition, CSV_EMPTY_FIELD_VALUE, FIX_MISMATCHED_SQUARE_BRACKETS, \
     FIX_MISMATCHED_PARENTHESES, FIX_MISMATCHED_QUOTES, FIX_VOLUMES, CAPITALIZE_ACRONYMS, REPLACE_ARTISTS_IN_TITLES
-from tools.config.exceptions import EXCEPTIONS
-from tools.utils.string_utils import fix_volumes, fix_mismatched_square_brackets, \
+from config.exceptions import EXCEPTIONS
+from utils.string_utils import fix_volumes, fix_mismatched_square_brackets, \
     fix_mismatched_parentheses, fix_mismatched_quotes, replace_word, has_mismatched_square_brackets, \
     has_mismatched_parentheses, has_mismatched_quotes, delete_punctuation_symbols, is_acronym
 
