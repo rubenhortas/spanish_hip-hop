@@ -16,19 +16,19 @@ class TestAlbum(TestCsv):
 
             # fix square brackets
             (self._create_line('3', 'bob', 'the [true album'),
-             self._create_line('3', 'Bob', 'The [true] album')),
+             self._create_line('3', 'Bob', 'The [true album]')),
             (self._create_line('4', 'bob', 'the true] album'),
              self._create_line('4', 'Bob', 'The [true] album')),
 
             # fix parentheses
             (self._create_line('5', 'bob', 'the (true album'),
-             self._create_line('5', 'Bob', 'The (true) album')),
+             self._create_line('5', 'Bob', 'The (true album)')),
             (self._create_line('6', 'bob', 'the true) album'),
              self._create_line('6', 'Bob', 'The (true) album')),
 
             # fix quotes
             (self._create_line('7', 'bob', 'the "true album'),
-             self._create_line('7', 'Bob', 'The "true" album')),
+             self._create_line('7', 'Bob', 'The "true album"')),
             (self._create_line('8', 'bob', 'the true album"'),
              self._create_line('8', 'Bob', 'The true "album"')),
 
