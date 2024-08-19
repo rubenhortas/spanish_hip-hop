@@ -37,7 +37,7 @@ shhvenv\Scripts\activate
 ### Instala los requisitos
 
 ```shell
-source pmvenv/bin/activate
+pip install -r requirements.txt
 ```
 
 *Sólo tienes que hacer esto la primera vez*
