@@ -10,11 +10,31 @@ Para conseguir una versión actualizada del fichero contacta con [@ctRl](https:/
 
 ## ¿Cómo se utilizan estas herramientas?
 
-* Instala las dependencias del fichero `requirements.txt`
+* Crea un entorno virtual (o venv)
 
-`pip install -r /path/to/requirements.txt`
+```shell
+python3 -m venv shhvenv
+```
 
-Coloca el el fichero `lista trabajos hip-hop español.csv` en el directorio de los scripts y ejecuta el script escogido.
+*Sólo tienes que hacer esto la primera vez*
+
+* Activa el *venv*
+
+```shell
+source shhvenv/bin/activate
+```
+
+*Tienes que hacer esto cada vez que lo utilices*
+
+* Instala los requisitos
+
+```shell
+source pmvenv/bin/activate
+```
+
+*Sólo tienes que hacer esto la primera vez*
+
+* Coloca el el fichero `lista trabajos hip-hop español.csv` en el directorio de los scripts y ejecuta el script escogido.
 
 ## ¿Para qué sirven estas herramientas?
 
