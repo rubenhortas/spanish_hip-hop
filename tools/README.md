@@ -10,13 +10,13 @@ Para conseguir una versión actualizada del fichero contacta con [@ctRl](https:/
 
 ## ¿Cómo se utilizan estas herramientas?
 
-* Crea un entorno virtual (o venv)
+  * Crea un entorno virtual (o venv)
 
-```shell
-python3 -m venv shhvenv
-```
+  ```shell
+  python3 -m venv shhvenv
+  ```
 
-*Sólo tienes que hacer esto la primera vez*
+  *Sólo tienes que hacer esto la primera vez*
 
 * Activa el *venv*
 
@@ -32,15 +32,15 @@ python3 -m venv shhvenv
   shhvenv\Scripts\activate
   ```
 
-*Tienes que hacer esto cada vez que lo utilices*
+  *Tienes que hacer esto cada vez que lo utilices*
 
 * Instala los requisitos
 
-```shell
-pip install -r requirements.txt
-```
+  ```shell
+  pip install -r requirements.txt
+  ```
 
-*Sólo tienes que hacer esto la primera vez*
+  *Sólo tienes que hacer esto la primera vez*
 
 * Coloca el el fichero `lista trabajos hip-hop español.csv` en el directorio de los scripts y ejecuta el script escogido.
 
