@@ -1,4 +1,4 @@
-#tools
+# tools
 
 ## ¿Qué son estas herramientas?
 
@@ -10,7 +10,7 @@ Para conseguir una versión actualizada del fichero contacta con [@ctRl](https:/
 
 ## ¿Cómo se utilizan estas herramientas?
 
-### Crea un entorno virtual (o venv)
+* Crea un entorno virtual (o venv)
 
 ```shell
 python3 -m venv shhvenv
@@ -18,23 +18,23 @@ python3 -m venv shhvenv
 
 *Sólo tienes que hacer esto la primera vez*
 
-### Activa el *venv*
+* Activa el *venv*
 
-* Linux/macOS
+  * Linux/macOS
 
-```shell
-source shhvenv/bin/activate
-```
+  ```shell
+  source shhvenv/bin/activate
+  ```
 
-* Windows
+  * Windows
 
-```shell
-shhvenv\Scripts\activate
-```
+  ```shell
+  shhvenv\Scripts\activate
+  ```
 
 *Tienes que hacer esto cada vez que lo utilices*
 
-### Instala los requisitos
+* Instala los requisitos
 
 ```shell
 pip install -r requirements.txt
@@ -42,7 +42,7 @@ pip install -r requirements.txt
 
 *Sólo tienes que hacer esto la primera vez*
 
-### Coloca el el fichero `lista trabajos hip-hop español.csv` en el directorio de los scripts y ejecuta el script escogido.
+* Coloca el el fichero `lista trabajos hip-hop español.csv` en el directorio de los scripts y ejecuta el script escogido.
 
 ## ¿Para qué sirven estas herramientas?
 
