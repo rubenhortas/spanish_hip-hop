@@ -1,6 +1,6 @@
 import unittest
 
-from get_duplicates import _get_duplicates, Line
+from get_duplicates import _get_duplicates
 
 
 class TestGetDuplicates(unittest.TestCase):
@@ -24,8 +24,8 @@ class TestGetDuplicates(unittest.TestCase):
         ]
 
         self.expected_duplicates = (
-            [("'3,Bob,Title,...'", ["'4,Bob,Title@?!$,...'"])],
-            [("'1,Bob,Title vol.1,...'", ["'2,Bob,Title vol.2,...'"]), ("'3,Bob,Title,...'", ["'6,Bob,T.i.t.l.@,...'"])]
+            [("'3,Bob,Title,...'", ["'4,Bob,Title@?!$,...'"])],  # Duplicates
+            [("'1,Bob,Title vol.1,...'", ["'2,Bob,Title vol.2,...'"]), ("'6,Bob,T.i.t.l.@,...'", ["'3,Bob,Title,...'", "'4,Bob,Title@?!$,...'"])]  # Similar
         )
 
     def test_get_duplicates(self):
