@@ -48,13 +48,9 @@ class Line:
 
 
 def _get_duplicates(csv_lines: list) -> (list, list):
-    lines = []
-    lines_dict = defaultdict(list)
-
-    for csv_line in csv_lines:
-        lines.append(Line(csv_line))
-
+    lines = [Line(csv_line) for csv_line in csv_lines]
     lines.sort()
+    lines_dict = defaultdict(list)
 
     for line in lines:
         lines_dict[line.hash[0]].append(line)
@@ -63,15 +59,17 @@ def _get_duplicates(csv_lines: list) -> (list, list):
     similar = []
 
     with multiprocessing.Pool(processes=multiprocessing.cpu_count()) as pool:
-        for key in lines_dict:
-            if len(lines_dict[key]) > 1:
-                result = pool.map(_compare, [lines_dict[key]])
+        keys_to_process = [key for key in lines_dict if len(lines_dict[key]) > 1]
+        results = pool.map(_compare, [lines_dict[key] for key in keys_to_process])
 
-                if result[0][0]:
-                    duplicates.extend(result[0][0])
+        print(f"results: {results}")
 
-                if result[0][1]:
-                    similar.extend(result[0][1])
+        for result in results:
+            if result[0]:
+                duplicates.extend(result[0])
+
+            if result[1]:
+                similar.extend(result[1])
 
     return duplicates, similar
 
